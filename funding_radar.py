@@ -617,15 +617,34 @@ NOT_INVESTOR = re.compile(r"^(others?|existing investors?|angels?|angel investor
                           r"seed|series|pre|round|funding|investment)\b", re.I)
 
 
+CUT_RE = re.compile(r"\s(?:to|which|who|that|said|says|for|as|in|on|at|is|are|was|has|have|had|now|will|through|via|straight|"
+                    r"this|these|its|their|after|before|since|during|while|where|bringing|taking|valuing|among|amid|"
+                    r"the funds?|alongside existing)\s", re.I)
+MONTH_START = re.compile(r"^(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[a-z]*\.?\s+\d", re.I)
+NAME_CONNECT = {"of", "de", "da", "do", "du", "la", "le", "for", "and", "&", "von", "van", "der", "y", "e", "the"}
+
+
+def plausible_name(x):
+    """An investor name: starts with a capital letter, 1-6 words, mostly capitalised, no digits-first / dates / sentences."""
+    if not (2 < len(x) <= 60) or NOT_INVESTOR.match(x) or MONTH_START.match(x) or not re.match(r"[A-Z]", x):
+        return False
+    w = x.split()
+    if len(w) > 6:
+        return False
+    low = [t for t in w[1:] if t[:1].islower() and t.lower() not in NAME_CONNECT]
+    return not low
+
+
 def split_investors(s):
     s = re.sub(r"\s+", " ", unescape(s or "")).strip(" ,.")
-    s = re.split(r"\b(?:to|which|who|that|said|for|as|in a|this|the funds?|alongside existing)\b", s, 1)[0] if len(s) > 80 else s
+    s = CUT_RE.split(" " + s + " ", 1)[0].strip(" ,.")
     parts = re.split(r",|;|\band\b|&(?![a-z])|\balong with\b|\bas well as\b|\bwith\b", s)
     out = []
     for x in parts:
         x = re.sub(r"^(?:and|the|existing investors?|investors?|participation from|from|including)\s+", "", x.strip(" .-\"'"), flags=re.I).strip(" .")
         x = re.sub(r"\s*\((?:lead|led)\)\s*$", "", x, flags=re.I)
-        if 2 < len(x) <= 60 and not NOT_INVESTOR.match(x) and re.match(r"[A-Z0-9]", x):
+        x = re.sub(r"(?:'s|’s)$", "", x)
+        if plausible_name(x):
             out.append(x)
     return list(dict.fromkeys(out))
 
@@ -687,11 +706,22 @@ SENT_RE = re.compile(r"[^.!?\n]{0,400}")
 def page_investors(text, company):
     """Extra investor names from 'led by X' / 'participation from Y' sentences on the source page."""
     out_lead, out_all = [], []
-    for m in re.finditer(r"\b(?:co-)?led by\s+([^.;:\n|()]{3,160})", text or "", re.I):
-        out_lead += split_investors(m.group(1))
-    for m in LED_RE.finditer(text or ""):
-        out_all += split_investors(m.group("inv"))
-    return list(dict.fromkeys(out_lead))[:4], list(dict.fromkeys(out_all))[:10]
+    text = text or ""
+    cn = core_name(company)
+    # only look near mentions of the company, so newsletter boxes and sidebars don't leak names in
+    spans = [(max(0, m.start() - 300), m.end() + 700) for m in re.finditer(re.escape(company), text, re.I)][:12]
+    for a, b in spans:
+        chunk = text[a:b]
+        for m in re.finditer(r"\b(?:co-)?led by\s+([^.;:\n|()]{3,160})", chunk, re.I):
+            out_lead += split_investors(m.group(1))
+        for m in PAGE_LED_RE.finditer(chunk):
+            out_all += split_investors(m.group("inv"))
+    keep = lambda xs: [x for x in dict.fromkeys(xs) if cn not in norm_name(x)]
+    return keep(out_lead)[:4], keep(out_all)[:10]
+
+
+PAGE_LED_RE = re.compile(r"\b(?:backed by|with participation from|participation from|investors include|investors including|"
+                         r"(?:raised|raises|secured|secures|funding|investment|round|capital)[^.;\n]{0,80}?\bfrom)\s+(?P<inv>[^.;:\n|()]{3,200})", re.I)
 
 
 PARTNER_RE = [
@@ -735,6 +765,8 @@ def verify_deal(d, page, today):
     lead = list(dict.fromkeys(lead + [x for x in pl if norm_name(x) not in map(norm_name, lead)]))
     named = [i for i in lead + oth + pa if name_on_page(i, pt) and not name_on_page(i, " " + norm_name(d["company"]) + " ")]
     named = list(dict.fromkeys(named))
+    # 'High' next to 'High-Tech Gruenderfonds', 'MOV' next to 'MOV Investimentos': keep the full name only
+    named = [x for x in named if not (len(x.split()) == 1 and any(y != x and re.match(re.escape(x) + r"[\s\-]", y) for y in named))]
     if not named:
         d.update(status="dropped", drop_reason="no investor name on source page")
         return d
@@ -774,12 +806,21 @@ def dedupe(deals):
     """One candidate per (company, source_url); TinySet rows before Search rows."""
     seen, out = set(), []
     for d in deals:
-        k = (norm_name(d.get("company")), d.get("source_url"))
+        k = (company_key(d.get("company")), d.get("source_url"))
         if not k[0] or k in seen:
             continue
         seen.add(k)
         out.append(d)
     return out
+
+
+def company_key(name):
+    """'GROWiT India' and 'GROWiT' are the same company: drop trailing country / generic words."""
+    geo = {w for al, _ in COUNTRIES.values() for w in al.split()}
+    w = norm_name(name).split()
+    while len(w) > 1 and (w[-1] in geo or w[-1] in ("ai", "tech", "technologies", "labs", "app", "hq")):
+        w.pop()
+    return " ".join(w)
 
 
 def merge_verified(deals):
@@ -788,7 +829,7 @@ def merge_verified(deals):
     for d in deals:
         if d["status"] != "verified":
             continue
-        k = norm_name(d["company"])
+        k = company_key(d["company"])
         if k not in by:
             by[k] = d
             continue
@@ -1183,8 +1224,8 @@ def main(argv=None):
     n_ts = len(cands)
     if not a.no_search:
         sd = run_search(tf, p, a.queries)
-        known = {norm_name(c["company"]) for c in cands}
-        extra = [d for d in sd if norm_name(d["company"]) not in known]
+        known = {company_key(c["company"]) for c in cands}
+        extra = [d for d in sd if company_key(d["company"]) not in known]
         say(f"Search: {tf.stats['search']} queries -> {len(sd)} deal-shaped headlines, {len(extra)} not already from TinySet")
         cands += extra
     cands = dedupe(cands)

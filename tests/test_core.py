@@ -166,6 +166,11 @@ class Verify(unittest.TestCase):
         self.assertEqual(d["status"], "verified")
         self.assertIn("Omega Capital", d["investors_verified"])
 
+    def test_fragment_names_dropped(self):
+        d = fr.verify_deal(self.cand(lead_investor="High, High-Tech Gruenderfonds", other_investors=""),
+                           pg(f"{D(3)} Krishi AI raised from High-Tech Gruenderfonds."), T)
+        self.assertEqual(d["investors_verified"], ["High-Tech Gruenderfonds"])
+
     def test_word_boundary_match(self):
         pt = fr.plain("Accelerate your farm with Krishify")
         self.assertFalse(fr.name_on_page("Accel", pt))
@@ -185,6 +190,24 @@ class Headlines(unittest.TestCase):
         self.assertIn("Gamma Partners", h["lead_investor"])
         self.assertIn("20 crore", h["amount"])
         self.assertIsNone(fr.parse_headline("Top 10 agritech trends of the year"))
+
+    def test_junk_investor_names_rejected(self):
+        self.assertEqual(fr.split_investors("Unicorn India Ventures to expand markets"), ["Unicorn India Ventures"])
+        for junk in ("000 farmers", "May 28", "2026", "German startup ecosystem straight to your inbox"):
+            self.assertEqual(fr.split_investors(junk), [], junk)
+        self.assertEqual(fr.split_investors("Technical University of Denmark"), ["Technical University of Denmark"])
+
+    def test_company_key(self):
+        self.assertEqual(fr.company_key("GROWiT India"), fr.company_key("GROWiT"))
+        self.assertNotEqual(fr.company_key("Farm to Feed"), fr.company_key("Farm"))
+
+    def test_page_investors_near_company_only(self):
+        text = ("Newsletter: news from Big Media Group. " + "x " * 600 +
+                "Krishi AI has raised $2M from Omega Capital and Zeta Partners. Krishi AI's funding now stands at $4M.")
+        lead, allv = fr.page_investors(text, "Krishi AI")
+        self.assertIn("Omega Capital", allv)
+        self.assertNotIn("Big Media Group", allv)
+        self.assertFalse(any("Krishi" in x for x in allv))
 
     def test_split_investors(self):
         self.assertEqual(fr.split_investors("Accel, Elevation Capital and existing investors"), ["Accel", "Elevation Capital"])
