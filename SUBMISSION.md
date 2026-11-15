@@ -2,7 +2,7 @@
 
 Repo: https://github.com/bsrikumar855-dot/FundingRadar-Tinyfish
 
-> Status: demos 1 and 2 are done. **Demo 3 has not been run yet**; its column below is a placeholder.
+> Status: all 3 demos are done. Demo 3's measured cost is pending the user's balance reading.
 
 ## What it does
 
@@ -90,23 +90,23 @@ All numbers are copied from each demo's `results.json`.
 
 | | Demo 1: Indian agritech | Demo 2: US contract-review SaaS | Demo 3: EU battery recycling |
 |---|---|---|---|
-| Description | "AI crop-disease detection app for smallholder farmers, seed, India" | "AI assistant that drafts and reviews contracts for small law firms, seed/Series A, USA" | "grid-scale battery recycling startup, Europe" |
+| Description | "AI crop-disease detection app for smallholder farmers, seed, India" | "AI assistant that drafts and reviews contracts for small law firms, seed/Series A, USA" | "grid-scale battery recycling startup, seed, Europe" |
 | Flags | `--ts-rows 25 --agent-top 6` | `--ts-rows 25 --agent-top 6` | `--ts-rows 25 --agent-top 6` |
-| TinySet rows returned | 24 of 25 | 25 of 25 | not run yet |
-| Candidates (TinySet + Search) | 40 (24 + 16) | 34 (25 + 9) | not run yet |
-| Verified companies, original run | 29 (35 links) | 27 (28 links) | not run yet |
-| Verified companies after the proof rules | **28** | **25** | not run yet |
-| Dropped | 6 | 8 | not run yet |
-| Matches removed: funding-phrase rule / self-published rule | 5 / 2 | 3 / 2 | not run yet |
-| Deals counted toward scores (≥ 0.30) | 25 | 24 | not run yet |
-| Investors ranked | 101 | 87 | not run yet |
-| Agent runs (completed) | 6 (5) | 6 (5) | not run yet |
-| Main-list top 10 with ≥ 1 target-country deal | 8 | 10 | not run yet |
-| Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | 0 | not run yet |
-| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | not run yet |
-| Main-list top 10 filled: lead partner | 1 | 6 | not run yet |
-| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | not run yet |
-| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | $24.92 → not measured yet | not measured |
+| TinySet rows returned | 24 of 25 | 25 of 25 | 25 of 25 |
+| Candidates (TinySet + Search) | 40 (24 + 16) | 34 (25 + 9) | 51 (25 + 26) |
+| Verified companies, original run | 29 (35 links) | 27 (28 links) | 32 (36 links) |
+| Verified companies after the proof rules | **28** | **25** | **32** |
+| Dropped | 6 | 8 | 15 |
+| Matches removed: funding-phrase rule / self-published rule | 5 / 2 | 3 / 2 | 8 / 4 |
+| Deals counted toward scores (≥ 0.30) | 25 | 24 | 17 |
+| Investors ranked | 101 | 87 | 65 (60 main, 5 other) |
+| Agent runs (completed) | 6 (5) | 6 (5) | 6 (6) |
+| Main-list top 10 with ≥ 1 target-country deal | 8 | 10 | 10 (target is the region Europe) |
+| Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | 0 | 0 |
+| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | 6 / 10 / 10 |
+| Main-list top 10 filled: lead partner | 1 | 6 | 1 |
+| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | 3 / 10 (1 of the 3 is a false positive, see notes) |
+| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | $20.26 → not measured yet |
 
 Demo 1 notes:
 - The original run used the earlier scoring. It was then rescored with the rules above, and its 35 verified links were re-fetched with Fetch only (no TinySet, no Agent) to apply the funding-phrase rule.
@@ -132,8 +132,8 @@ Measured as the change in the wallet balance of the account that owns the API ke
 | Live check (`--ts-rows 15 --agent-top 4`) | not measured | not measured | not measured |
 | Demo 1 | $29.00 | $24.92 | **$4.08**. Anything that posted late from the live check would also fall inside this window |
 | Demo 1 re-fetches for rescoring and enrichment (Fetch + Search only, no TinySet, no Agent) | not measured | not measured | not measured (Fetch and Search are $0 on the current plan) |
-| Demo 2 | $24.92 | not measured yet | not measured yet |
-| Demo 3 | not measured | not measured | not measured |
+| Demo 2 | $24.92 | $20.26 | **$4.66** |
+| Demo 3 | $20.26 | not measured yet | not measured yet |
 
 ## Limits
 
