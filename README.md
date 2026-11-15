@@ -49,6 +49,7 @@ python funding_radar.py "<what it does, stage, country>" [flags]
 | `--refetch` | | with `--rescore`: re-fetch the verified links (Fetch only, free), apply the funding-phrase rule, extract lead partners, run the reach ladder |
 | `--reach-top N` | 15 | run the reach-route ladder (Search + Fetch, free) for the top N investors |
 | `--funds-only` | off | hide corporates, banks, foundations, farmer companies and unknown types in `report.md` / `results.csv` |
+| `--all-in-one` | off | one investor list in `report.md` / `results.csv`, instead of the main ranking plus "Other backers (not seed funds)" |
 | `--audit-sample N` | 0 | write `audit.csv` with N random (seed 42) investor–company matches for hand-checking |
 
 ### HTTP mode
@@ -74,10 +75,13 @@ All of these come from plain code over pages we opened. None are guessed.
 
 - **Investor type**: `fund` / `corporate` / `bank` / `foundation` / `farmer-company` / `unknown`, from name and domain keywords.
 - **Observed round sizes and stages**, labelled "round sizes of deals it joined (observed)". This is the median announced round size per currency across the investor's counted deals, with the deal links. It is the whole round, not the investor's own cheque. Mixed currencies stay in their own currency and are never converted.
+- **Sections (presentation only)**: `report.md` and `results.csv` list funds and unknown types under "Investors to approach". Banks, corporates, foundations and farmer companies go under "Other backers (not seed funds)", in the same score order with the same fields. `results.json` keeps one full ranked list with a `section` field. Scores and ranks are not changed.
 - **Lead partner**: a person named on a verified source page as partner / principal / founder / managing director **at that investor** ("said Jane Smith, Partner at Alpha Ventures"). The name, role, sentence and URL are stored; otherwise `unknown`.
+  - When the source pages name nobody, a search pass runs for the top 15 main-list investors (at most 15 queries per run). It takes the investor's most similar counted deal, runs one Search for `"<company> <investor> partner"`, and fetches the top 3 results.
+  - The same extraction then runs, on pages that name both the company and the investor.
 - **Reach route ladder**, each step with its source URL:
   - The investor's own domain is found with Search. It is accepted only if a page on it names the investor **and** one of its verified portfolio companies.
-  - On that domain, in order: (a) a pitch form or "submit your pitch / apply" page, (b) an intake email (pitch@, deals@, founders@ …, or an address on the investor's domain next to pitch/deck/founder wording), (c) "does not accept unsolicited pitches".
+  - On that domain (home, `/contact`, `/apply`, `/pitch`, `/founders`, `/portfolio`, `/companies`, `/investments`, plus site search results), in order: (a) a pitch form or "submit your pitch / apply" page, (b) an intake email (pitch@, deals@, founders@ …, or an address on the investor's domain next to pitch/deck/founder wording), (c) "does not accept unsolicited pitches".
   - Otherwise (d): a warm intro via the founder of its most similar backed company, linking that verified deal.
   - Sites with almost no fetchable text are flagged `js_only_site`, as Agent fallback candidates. The Agent is not run for this without a cost confirmation.
 - **Cheque size / stage focus (site)**: from the Agent run on the investor's own site, when one was made.

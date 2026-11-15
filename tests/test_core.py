@@ -360,7 +360,9 @@ class EndToEnd(unittest.TestCase):
         self.assertTrue(all(len(b) <= 10 for b in mock.LOG["fetch_batches"]))
         self.assertTrue(all("max_steps" not in json.dumps(b) for b in mock.LOG["agent_bodies"]))
         q = [x for x in mock.LOG["search_params"] if "official website" not in x["query"]
-             and "include_domains" not in x and not x["query"].startswith('"')]
+             and "include_domains" not in x and not x["query"].startswith('"') and not x["query"].endswith(" partner")]
+        pq = [x for x in mock.LOG["search_params"] if x["query"].endswith(" partner")]
+        self.assertLessEqual(len(pq), fr.PARTNER_PASS_MAX)
         self.assertTrue(q)
         self.assertTrue(all("recency_minutes" in x and "exclude_domains" in x for x in q))
         self.assertEqual(len(mock.LOG["dataset_specs"]), 1)

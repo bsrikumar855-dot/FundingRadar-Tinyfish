@@ -34,17 +34,19 @@ Output goes to `results.json` (full ranked list plus every candidate deal with v
 
 ## Per-investor fields (plain code over opened pages, no LLM, never guessed)
 
-| Field | How it is filled | Demo 1 top 10 filled |
+| Field | How it is filled | Demo 1 main-list top 10 filled |
 |---|---|---|
-| Investor type | Name and domain keywords: fund / corporate / bank / foundation / farmer-company / unknown. `--funds-only` hides the rest in report/CSV | 7 known, 3 unknown |
-| Observed round sizes and stages | Labelled "round sizes of deals it joined (observed)". Median announced round size **per currency** (never converted) across its counted deals, plus the set of stages, with deal links. This is the whole round, not its own cheque | 7 (3 have only undisclosed amounts) |
-| Lead partner | A person named on a verified source page as partner / principal / founder / managing director **at that investor**, with role, sentence and URL | 0. Found for 6 other investors (e.g. Corteva → Tom Greene, Astanor → Harry Biggs) |
-| Reach route | Ladder, each step with its source URL: (a) pitch form / apply page, (b) intake email, (c) "no unsolicited pitches", all on the investor's own domain; else (d) warm intro via the founder of its most similar backed company. The domain is accepted only if a page on it names the investor **and** one of its verified portfolio companies | 10. Only 2 from the investor's own site (Unicorn India Ventures and Catalyst Fund application forms); 8 are warm intros |
+| Investor type | Name and domain keywords: fund / corporate / bank / foundation / farmer-company / unknown. `--funds-only` hides the rest in report/CSV | 6 known (fund), 4 unknown |
+| Observed round sizes and stages | Labelled "round sizes of deals it joined (observed)". Median announced round size **per currency** (never converted) across its counted deals, plus the set of stages, with deal links. This is the whole round, not its own cheque | 9 (Rainmatter has only undisclosed amounts) |
+| Lead partner | A person named on a verified source page as partner / principal / founder / managing director **at that investor**, with role, sentence and URL. If the source pages name nobody, a search pass runs `"<company> <investor> partner"` for the top 15 main-list investors (≤15 queries per run), fetches the top 3 results and keeps only pages naming both | 1 (Unicorn India Ventures → Anil Joshi, managing partner, via the search pass). 14 search-pass queries found nobody else |
+| Reach route | Ladder, each step with its source URL: (a) pitch form / apply page, (b) intake email, (c) "no unsolicited pitches", all on the investor's own domain; else (d) warm intro via the founder of its most similar backed company. The domain is accepted only if a page on it names the investor **and** one of its verified portfolio companies | 10. Only 2 from the investor's own site (Unicorn India Ventures and Catalyst Fund application forms); 8 are warm intros. The ladder also reads `/portfolio`, `/companies`, `/investments`, `/contact` on accepted domains |
 | Cheque size / stage focus (site) | Agent on the investor's own site (demo 1's original run only), entity-checked | Unicorn India Ventures only |
 
 The entity check matters in practice. For example, Search returned `exim.com.my` (Malaysia's Exim Bank) for India's Exim Bank, and `pinc.co.in` for PINC. Both were rejected because no page on them named a backed company.
 
-The reach ladder and partner extraction for demo 1 used **Fetch 153 URLs + Search 45 queries, 0 TinySet, 0 Agent**.
+The latest demo 1 enrichment (re-fetch, reach ladder, partner pass) used **Fetch 216 URLs + Search 72 queries, 0 TinySet, 0 Agent**.
+
+**Sections are a presentation rule, not a scoring change.** `report.md` and `results.csv` show funds and unknown types under "Investors to approach". Banks, corporates, foundations and farmer companies go under "Other backers (not seed funds)", in the same score order with the same fields. Scores and ranks are computed over all investors exactly as before, and `results.json` keeps one full list with a `section` field. `--all-in-one` restores the single list. In demo 1, 5 of the previous single-list top 15 moved to Other backers: Sahyadri Farms, Exim Bank, SIDBI, Indigram Labs Foundation and Corteva (11 of 101 investors overall). In live runs the Agent and the reach ladder now target main-list investors first.
 
 ## Ranking order on equal scores
 
@@ -99,11 +101,11 @@ All numbers are copied from each demo's `results.json`.
 | Deals counted toward scores (≥ 0.30) | 25 | not run yet | not run yet |
 | Investors ranked | 101 | not run yet | not run yet |
 | Agent runs (completed) | 6 (5) | not run yet | not run yet |
-| Top 10 with ≥ 1 target-country deal | 8 | not run yet | not run yet |
+| Main-list top 10 with ≥ 1 target-country deal | 8 | not run yet | not run yet |
 | Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | not run yet | not run yet |
-| Top 10 filled: type / observed size / observed stages | 7 / 7 / 7 | not run yet | not run yet |
-| Top 10 filled: lead partner | 0 (6 investors elsewhere in the list have one) | not run yet | not run yet |
-| Top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | not run yet | not run yet |
+| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | not run yet | not run yet |
+| Main-list top 10 filled: lead partner | 1 | not run yet | not run yet |
+| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | not run yet | not run yet |
 | **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | not measured | not measured |
 
 Demo 1 notes:

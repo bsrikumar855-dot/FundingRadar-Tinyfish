@@ -145,6 +145,105 @@ class FundsOnlyAndAudit(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
 
 
+class Sections(unittest.TestCase):
+    rows = [{"rank": 1, "investor": "A Ventures", "investor_type": "fund"}, {"rank": 2, "investor": "B Bank", "investor_type": "bank"},
+            {"rank": 3, "investor": "Rainmatter", "investor_type": "unknown"}, {"rank": 4, "investor": "Corteva", "investor_type": "corporate"},
+            {"rank": 5, "investor": "C Capital", "investor_type": "fund"}]
+
+    def test_split_keeps_order(self):
+        s = dict(fr.sections(self.rows, 15))
+        self.assertEqual([r["rank"] for r in s["main"]], [1, 3, 5])
+        self.assertEqual([r["rank"] for r in s["other"]], [2, 4])
+
+    def test_all_in_one_and_funds_only(self):
+        self.assertEqual([r["rank"] for r in dict(fr.sections(self.rows, 15, all_in_one=True))["all"]], [1, 2, 3, 4, 5])
+        s = fr.sections(self.rows, 15, funds_only=True)
+        self.assertEqual([(n, [r["rank"] for r in p]) for n, p in s], [("main", [1, 5])])
+
+    def test_section_labels(self):
+        for t, sec in (("fund", "main"), ("unknown", "main"), ("bank", "other"), ("corporate", "other"),
+                       ("foundation", "other"), ("farmer-company", "other")):
+            self.assertEqual(fr.section_of(t), sec)
+
+    def test_report_has_both_sections(self):
+        tmp = tempfile.mkdtemp()
+        try:
+            p = fr.parse_description("AI crop-disease detection app for smallholder farmers, seed, India")
+            mk = lambda n, rank, t: {"investor": n, "rank": rank, "score": 1.0 / rank, "base_score": 1.0 / rank, "why": "w", "parts": {},
+                                     "backed": [], "lead_n": 0, "investor_type": t, "section": fr.section_of(t)}
+            ranked = [mk("A Ventures", 1, "fund"), mk("Exim Bank", 2, "bank"), mk("Rainmatter", 3, "unknown")]
+            meta = {"run_date": T.isoformat(), "window_start": D(548), "candidates": 0, "tinyset_rows": 0, "tinyset_note": "",
+                    "tinyset_cost_est": 0, "stats": {k: 0 for k in ("tinyset_datasets", "search", "fetch_urls", "fetch_calls", "agent_runs",
+                                                                    "agent_completed", "agent_403")}}
+            fr.write_outputs(tmp, p, [], ranked, meta)
+            rep = open(os.path.join(tmp, "report.md"), encoding="utf-8").read()
+            self.assertLess(rep.index("## Investors to approach"), rep.index("## Other backers (not seed funds)"))
+            self.assertLess(rep.index("**Rainmatter**"), rep.index("## Other backers"))
+            self.assertGreater(rep.index("**Exim Bank**"), rep.index("## Other backers"))
+            with open(os.path.join(tmp, "results.csv"), encoding="utf-8") as f:
+                rows = list(csv.reader(f))
+            self.assertEqual([(r[0], r[2]) for r in rows[1:]], [("main", "A Ventures"), ("main", "Rainmatter"), ("other", "Exim Bank")])
+            with open(os.path.join(tmp, "results.json"), encoding="utf-8") as f:
+                js = json.load(f)
+            self.assertEqual([(i["investor"], i["section"]) for i in js["investors"]],
+                             [("A Ventures", "main"), ("Exim Bank", "other"), ("Rainmatter", "main")])   # one full list, rank order
+            fr.write_outputs(tmp, p, [], ranked, meta, all_in_one=True)
+            self.assertNotIn("Other backers", open(os.path.join(tmp, "report.md"), encoding="utf-8").read().split("## Verified")[0])
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
+class PartnerPass(unittest.TestCase):
+    class FakeTF:
+        def __init__(self, results, pages):
+            self.results, self.pages, self.queries = results, pages, []
+
+        def search(self, q, **kw):
+            self.queries.append(q)
+            return self.results.get(q, [])
+
+        def fetch(self, urls, fmt="markdown"):
+            return {u: ({"text": self.pages[u]} if u in self.pages else {"error": "x"}) for u in urls}
+
+    def inv(self, name, company):
+        return {"investor": name, "backed": [{"name": company}], "lead_partner": "unknown"}
+
+    def test_found_only_on_pages_naming_both(self):
+        tf = self.FakeTF({"Myca Kriscore Capital partner": [{"url": "u1"}, {"url": "u2"}, {"url": "u3"}, {"url": "u4"}]},
+                         {"u1": "Kriscore Capital partner Asha Rao spoke at a summit.",                                   # no company
+                          "u2": "Myca raised from Kriscore Capital. \"Huge,\" said Asha Rao, Partner at Kriscore Capital.",
+                          "u4": "Myca and Kriscore Capital. Vik Iyer, partner at Kriscore Capital."})                       # 4th result: not fetched
+        r = self.inv("Kriscore Capital", "Myca")
+        n = fr.partner_pass(tf, [r])
+        self.assertEqual(n, 1)
+        self.assertEqual([(x["name"], x["url"], x["company"]) for x in r["lead_partner"]], [("Asha Rao", "u2", "Myca")])
+        self.assertIn("said Asha Rao, Partner at Kriscore Capital", r["lead_partner"][0]["sentence"])
+
+    def test_nothing_found_is_unknown_and_cap(self):
+        tf = self.FakeTF({}, {})
+        rs = [self.inv(f"Fund {i}", f"Co{i}") for i in range(20)]
+        n = fr.partner_pass(tf, rs, top=20)
+        self.assertEqual(n, fr.PARTNER_PASS_MAX)
+        self.assertTrue(all(r["lead_partner"] == "unknown" for r in rs))
+
+    def test_skips_investors_with_partner(self):
+        tf = self.FakeTF({}, {})
+        r = self.inv("A Fund", "Co")
+        r["lead_partner"] = [{"name": "X Y"}]
+        self.assertEqual(fr.partner_pass(tf, [r]), 0)
+
+
+class OwnSitePaths(unittest.TestCase):
+    def test_extra_paths(self):
+        for pth in ("/portfolio", "/companies", "/investments", "/contact"):
+            self.assertIn(pth, fr.REACH_PATHS)
+
+    def test_ladder_reads_portfolio_page(self):
+        pages = {"https://f.example/portfolio": {"final_url": "https://f.example/portfolio",
+                                                 "html": "<h1>Portfolio</h1><p>Founders: pitch us at deals@f.example</p>"}}
+        self.assertEqual(fr.classify_reach(pages, "f.example")["url"], "mailto:deals@f.example")
+
+
 class ServeRequests(unittest.TestCase):
     def setUp(self):
         self.tmp = tempfile.mkdtemp()

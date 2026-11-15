@@ -91,9 +91,9 @@
    ]
   },
   "stats_rescore": {
-   "fetch_urls": 153,
-   "fetch_calls": 24,
-   "search": 45,
+   "fetch_urls": 216,
+   "fetch_calls": 47,
+   "search": 72,
    "agent_runs": 0,
    "agent_completed": 0,
    "agent_403": 0,
@@ -129,9 +129,20 @@
    "cheque_size_source": "https://www.unicornivc.com/frequently-asked-questions",
    "stage_focus": "pre-seed, seed, Series A",
    "stage_focus_source": "https://www.unicornivc.com/frequently-asked-questions",
-   "lead_partner": "unknown",
+   "lead_partner": [
+    {
+     "investor": "Unicorn India Ventures",
+     "name": "Anil Joshi",
+     "role": "managing partner",
+     "sentence": "Commenting on the investment, Anil Joshi, Managing Partner at Unicorn India Ventures, said that climate change is increasingly affecting food systems, including livestock production.",
+     "url": "https://www.incredmarkets.com/verdant-impact-secures-3-million-in-seed-funding-to-expand-agri-tech-solutions/",
+     "company": "Verdant Impact",
+     "via": "search pass"
+    }
+   ],
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -168,6 +179,15 @@
     ],
     "text": "USD 3M median of 1; INR 120M median of 1",
     "stages_text": "seed"
+   },
+   "partner_pass": {
+    "query": "Verdant Impact Unicorn India Ventures partner",
+    "pages": [
+     "https://www.incredmarkets.com/verdant-impact-secures-3-million-in-seed-funding-to-expand-agri-tech-solutions/",
+     "https://www.bwdisrupt.com/article/agritech-startup-verdant-impact-raises-3-mn-aims-to-reach-rs-100-cr-revenue-mark-596867",
+     "https://entrepreneur.economictimes.indiatimes.com/news/funding/verdant-impact-raises-3-mn-seed-funding-led-by-unicorn-india-ventures/129377637"
+    ],
+    "found": 1
    },
    "reach_route": "application form",
    "reach_url": "https://www.unicornivc.com/submit-your-pitch",
@@ -210,6 +230,7 @@
     "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
     "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
     "https://www.unicornivc.com/submit-your-pitch",
+    "https://www.incredmarkets.com/verdant-impact-secures-3-million-in-seed-funding-to-expand-agri-tech-solutions/",
     "https://www.unicornivc.com/frequently-asked-questions"
    ]
   },
@@ -251,6 +272,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -282,6 +304,15 @@
     ],
     "text": "USD 1.75M median of 2",
     "stages_text": "pre-seed, seed"
+   },
+   "partner_pass": {
+    "query": "OKO Finance Catalyst Fund partner",
+    "pages": [
+     "https://techcabal.com/2025/10/01/malis-oko-raises-fresh-capital",
+     "https://disruptafrica.com/2025/10/01/malian-insurtech-startup-oko-secures-6-digit-round-to-scale-climate-resilience-in-africa",
+     "https://thecatalystfund.com/insights/why-we-invested-in-oko-finance-an-agri-insurtech-building-climate-resilience-for-africas-smallholder-farmers"
+    ],
+    "found": 0
    },
    "reach_route": "application form",
    "reach_url": "https://www.thecatalystfund.com/apply",
@@ -349,6 +380,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -372,6 +404,15 @@
     ],
     "text": "USD 1.3M median of 1",
     "stages_text": "pre-seed"
+   },
+   "partner_pass": {
+    "query": "Myca Kriscore Capital partner",
+    "pages": [
+     "https://www.techinasia.com/news/indian-ai-agribusiness-startup-myca-raises-1-3m-pre-seed",
+     "https://agribusinesswire.com/articles/myca-raises-1-3m-pre-seed-to-deploy-ai-agents-in-agribusiness-field-ops-68b11a44",
+     "https://fertilizerdaily.com/20261009-agribusiness-ai-agents-myca-pre-seed"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
@@ -436,6 +477,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -459,6 +501,15 @@
     ],
     "text": "USD 3M median of 1",
     "stages_text": "series a"
+   },
+   "partner_pass": {
+    "query": "GROWiT GVFL partner",
+    "pages": [
+     "https://growthsensenews.com/growit-secures-funding",
+     "https://economictimes.indiatimes.com/tech/funding/agritech-startup-growit-raises-3-million-in-funding-round-led-by-gvfl/articleshow/121462276.cms",
+     "https://news.ventureintelligence.com/private-equity/agritech-firm-growit-raises-$3-m-in-series-a-round-led-by-gvfl"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
@@ -523,6 +574,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "farmer-company",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -547,6 +599,7 @@
     "text": "INR 70M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://entrackr.com/snippets/agritech-startup-bharat-intelligence-raises-funding-led-by-sahyadri-farms-10500153",
    "reach": {
@@ -610,6 +663,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "bank",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [],
@@ -620,6 +674,7 @@
     "text": "undisclosed",
     "stages_text": "unknown"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
    "reach": {
@@ -683,6 +738,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [],
@@ -692,6 +748,15 @@
     "stages": [],
     "text": "undisclosed",
     "stages_text": "unknown"
+   },
+   "partner_pass": {
+    "query": "ScaNxt Rainmatter partner",
+    "pages": [
+     "https://indianeducationbase.com/articles/iit-kanpur-incubated-agritech-startup-scanxt-secures-investment-from-rainmatter-sidbi-exim-bank",
+     "https://agrospectrumindia.com/news/7/35113/iit-kanpur-incubated-scanxt-secures-investment-from-zerodhas-rainmatter-sidbi-and-exim-bank-to-scale-climate-smart-agritech-and-ev-mechanisation.html",
+     "https://dainiktrend.com/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support-kanpur-news"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
@@ -756,6 +821,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "bank",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [],
@@ -766,6 +832,7 @@
     "text": "undisclosed",
     "stages_text": "unknown"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
    "reach": {
@@ -845,6 +912,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -887,6 +955,15 @@
     ],
     "text": "USD 8.38M median of 2; EUR 2.4M median of 1",
     "stages_text": "pre-seed, seed"
+   },
+   "partner_pass": {
+    "query": "Mycoverse PINC partner",
+    "pages": [
+     "https://app.dealroom.co/news/feed/pinc-backs-danish-agritech-mycoverse-in-2-7m-pre-seed-to-replace-chemical-pesticides-with-ai-driven-fungal-metabolites",
+     "https://comunicaffe.com/pauligs-pinc-joins-e2-4-million-pre-seed-investment-in-mycoverse-to-accelerate-biological-crop-protection-alternatives",
+     "https://pauliggroup.com/news/pinc-joins-eu24-million-pre-seed-investment-in-mycoverse-to-accelerate-biological-crop-protection-alternatives"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
@@ -953,6 +1030,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -976,6 +1054,15 @@
     ],
     "text": "USD 1.3M median of 1",
     "stages_text": "pre-seed"
+   },
+   "partner_pass": {
+    "query": "Myca Eximius Ventures partner",
+    "pages": [
+     "https://arabfounders.net/en/myca-1-3m-pre-seed-funding-ai-agribusiness-platform",
+     "https://agribusinesswire.com/articles/myca-raises-1-3m-pre-seed-to-deploy-ai-agents-in-agribusiness-field-ops-68b11a44",
+     "https://fertilizerdaily.com/20261009-agribusiness-ai-agents-myca-pre-seed"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
@@ -1041,6 +1128,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "foundation",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1065,6 +1153,7 @@
     "text": "USD 1.3M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
    "reach": {
@@ -1145,6 +1234,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "corporate",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1175,6 +1265,7 @@
     "text": "USD 9.68M median of 2",
     "stages_text": "seed, series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -1242,6 +1333,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1265,6 +1357,15 @@
     ],
     "text": "USD 3M median of 1",
     "stages_text": "series a"
+   },
+   "partner_pass": {
+    "query": "GROWiT Hyderabad Angels partner",
+    "pages": [
+     "https://globalindianalpha.com/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl",
+     "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+     "https://siliconindia.com/startup/startup-funding/growit-raises-3m-to-scale-affordable-climatesmart-farming-tech-across-india-nwid-49533.html"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
@@ -1330,6 +1431,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1353,6 +1455,15 @@
     ],
     "text": "USD 3M median of 1",
     "stages_text": "series a"
+   },
+   "partner_pass": {
+    "query": "GROWiT JITO partner",
+    "pages": [
+     "https://siliconindia.com/startup/startup-funding/growit-raises-3m-to-scale-affordable-climatesmart-farming-tech-across-india-nwid-49533.html",
+     "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+     "https://indiatechdesk.com/growit-bags-3-million-to-drive-agritech-innovation-across-india-and-africa"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
@@ -1417,6 +1528,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1440,6 +1552,15 @@
     ],
     "text": "USD 3M median of 1",
     "stages_text": "series a"
+   },
+   "partner_pass": {
+    "query": "GROWiT Progrowth Ventures partner",
+    "pages": [
+     "https://startupsuccessstories.in/surat-based-agritech-startup-growit-secures-3-million-in-series-a-funding-for-protective-farming-innovations",
+     "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+     "https://agritimes.co.in/market-reports/maize-vision-2022-India/top-tractors-under-40-hp-powering-rural-india/growit-secures-3-mn-series-a-to-scale-protective-agritech"
+    ],
+    "found": 0
    },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
@@ -1504,6 +1625,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1528,6 +1650,15 @@
     "text": "USD 3M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": {
+    "query": "GROWiT Sunicon Ventures Fund partner",
+    "pages": [
+     "https://agritimes.co.in/market-reports/maize-vision-2022-India/top-tractors-under-40-hp-powering-rural-india/growit-secures-3-mn-series-a-to-scale-protective-agritech",
+     "https://siliconindia.com/startup/startup-funding/growit-raises-3m-to-scale-affordable-climatesmart-farming-tech-across-india-nwid-49533.html",
+     "https://economictimes.indiatimes.com/tech/funding/agritech-startup-growit-raises-3-million-in-funding-round-led-by-gvfl/articleshow/121462276.cms"
+    ],
+    "found": 0
+   },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
    "reach": {
@@ -1535,8 +1666,7 @@
     "company": "GROWiT",
     "url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
     "source_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
-    "evidence": "ask the founders of GROWiT (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
+    "evidence": "ask the founders of GROWiT (verified deal) for an introduction"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -1546,7 +1676,9 @@
     "evidence": "ask the founders of GROWiT (verified deal) for an introduction"
    },
    "own_domain": "",
-   "own_domain_evidence": {},
+   "own_domain_evidence": {
+    "note": "no candidate domain found"
+   },
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -1590,6 +1722,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1614,6 +1747,15 @@
     "text": "USD 3M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": {
+    "query": "GROWiT Veloce Opportunities Fund partner",
+    "pages": [
+     "https://globalindianalpha.com/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl",
+     "https://siliconindia.com/startup/startup-funding/growit-raises-3m-to-scale-affordable-climatesmart-farming-tech-across-india-nwid-49533.html",
+     "https://bwdisrupt.com/article/agritech-startup-growit-raises-3-mn-in-series-a-round-led-by-gvfl-558045"
+    ],
+    "found": 0
+   },
    "reach_route": "warm intro via founder",
    "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
    "reach": {
@@ -1621,8 +1763,7 @@
     "company": "GROWiT",
     "url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
     "source_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
-    "evidence": "ask the founders of GROWiT (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
+    "evidence": "ask the founders of GROWiT (verified deal) for an introduction"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -1632,7 +1773,9 @@
     "evidence": "ask the founders of GROWiT (verified deal) for an introduction"
    },
    "own_domain": "",
-   "own_domain_evidence": {},
+   "own_domain_evidence": {
+    "note": "no candidate domain found"
+   },
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -1676,6 +1819,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1700,15 +1844,22 @@
     "text": "USD 3M median of 1",
     "stages_text": "series a"
    },
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+   "partner_pass": {
+    "query": "GROWiT We Founder Circle partner",
+    "pages": [
+     "https://agritimes.co.in/market-reports/maize-vision-2022-India/top-tractors-under-40-hp-powering-rural-india/growit-secures-3-mn-series-a-to-scale-protective-agritech",
+     "https://economictimes.indiatimes.com/tech/funding/agritech-startup-growit-raises-3-million-in-funding-round-led-by-gvfl/printarticle/121462276.cms",
+     "https://siliconindia.com/startup/startup-funding/growit-raises-3m-to-scale-affordable-climatesmart-farming-tech-across-india-nwid-49533.html"
+    ],
+    "found": 0
+   },
+   "reach_route": "open intake (email)",
+   "reach_url": "mailto:runway@vccircle.com",
    "reach": {
-    "route": "warm intro via founder",
-    "company": "GROWiT",
-    "url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
-    "source_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
-    "evidence": "ask the founders of GROWiT (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
+    "route": "open intake (email)",
+    "url": "mailto:runway@vccircle.com",
+    "source_url": "https://www.vccircle.com/vcircle-runway-calling-indias-cleantech-entrepreneurs",
+    "evidence": "rom startups with annual revenue of over Rs 25 lakh, angel/seed-funded and who have been around for two or more years. Please send in your entries to runway@vccircle.com. Shortlisted companies will ge"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -1717,8 +1868,11 @@
     "source_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
     "evidence": "ask the founders of GROWiT (verified deal) for an introduction"
    },
-   "own_domain": "",
-   "own_domain_evidence": {},
+   "own_domain": "vccircle.com",
+   "own_domain_evidence": {
+    "url": "https://www.vccircle.com/growitorbitt-space-ilios-72-tova-raise-early-stage-funding",
+    "company": "GROWiT"
+   },
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -1737,7 +1891,8 @@
    "country_factor": 1.5,
    "has_target_country_deal": true,
    "sources": [
-    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+    "https://www.vccircle.com/vcircle-runway-calling-indias-cleantech-entrepreneurs"
    ]
   },
   {
@@ -1762,6 +1917,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1786,6 +1942,15 @@
     "text": "USD 3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": {
+    "query": "Verdant Impact Alok Soni partner",
+    "pages": [
+     "https://incredmarkets.com/verdant-impact-secures-3-million-in-seed-funding-to-expand-agri-tech-solutions",
+     "https://app.dealroom.co/news/feed/ai-led-bovine-genetics-startup-verdant-impact-raises-3m-to-expand-livestock-tech-across-india",
+     "https://focusagritech.com/agritech-funding-news/verdant-impact-raises-dollar3m-seed-funding-for-sustainable-farming"
+    ],
+    "found": 0
+   },
    "reach_route": "warm intro via founder",
    "reach_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
    "reach": {
@@ -1793,8 +1958,7 @@
     "company": "Verdant Impact",
     "url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
     "source_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
-    "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
+    "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -1804,7 +1968,9 @@
     "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction"
    },
    "own_domain": "",
-   "own_domain_evidence": {},
+   "own_domain_evidence": {
+    "note": "candidate domain(s) failed the entity check: aaloksoni.com"
+   },
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -1848,6 +2014,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1872,6 +2039,15 @@
     "text": "USD 3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": {
+    "query": "Verdant Impact Infynyte Club partner",
+    "pages": [
+     "https://incredmarkets.com/verdant-impact-secures-3-million-in-seed-funding-to-expand-agri-tech-solutions",
+     "https://app.dealroom.co/news/feed/ai-led-bovine-genetics-startup-verdant-impact-raises-3m-to-expand-livestock-tech-across-india",
+     "https://focusagritech.com/agritech-funding-news/verdant-impact-raises-dollar3m-seed-funding-for-sustainable-farming"
+    ],
+    "found": 0
+   },
    "reach_route": "warm intro via founder",
    "reach_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
    "reach": {
@@ -1879,8 +2055,7 @@
     "company": "Verdant Impact",
     "url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
     "source_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
-    "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
+    "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -1890,7 +2065,9 @@
     "evidence": "ask the founders of Verdant Impact (verified deal) for an introduction"
    },
    "own_domain": "",
-   "own_domain_evidence": {},
+   "own_domain_evidence": {
+    "note": "no candidate domain found"
+   },
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -1934,6 +2111,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -1958,6 +2136,7 @@
     "text": "USD 3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
    "reach": {
@@ -2028,6 +2207,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2066,6 +2246,7 @@
     "text": "EUR 2.4M median of 1; USD 5.5M median of 1",
     "stages_text": "pre-seed, seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
    "reach": {
@@ -2129,6 +2310,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2153,6 +2335,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -2223,6 +2406,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2260,6 +2444,7 @@
     "text": "AUD 6.75M median of 1; USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -2323,6 +2508,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2345,6 +2531,7 @@
     "text": "INR 120M median of 1",
     "stages_text": "unknown"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
    "reach": {
@@ -2416,6 +2603,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2440,6 +2628,7 @@
     "text": "USD 2.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
    "reach": {
@@ -2502,6 +2691,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2526,6 +2716,7 @@
     "text": "USD 2.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
    "reach": {
@@ -2597,6 +2788,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2621,6 +2813,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -2684,6 +2877,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2708,6 +2902,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -2770,6 +2965,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2794,6 +2990,7 @@
     "text": "USD 10.3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
    "reach": {
@@ -2856,6 +3053,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2880,6 +3078,7 @@
     "text": "USD 120B median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
    "reach": {
@@ -2942,6 +3141,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -2966,6 +3166,7 @@
     "text": "USD 120B median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
    "reach": {
@@ -3036,6 +3237,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3066,6 +3268,7 @@
     "text": "USD 1.75M median of 2",
     "stages_text": "pre-seed, seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -3129,6 +3332,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3153,6 +3357,7 @@
     "text": "USD 22M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
    "reach": {
@@ -3215,6 +3420,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3239,6 +3445,7 @@
     "text": "USD 22M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
    "reach": {
@@ -3310,6 +3517,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3334,6 +3542,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -3396,6 +3605,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3420,6 +3630,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -3482,6 +3693,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3506,6 +3718,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3568,6 +3781,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3592,6 +3806,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3654,6 +3869,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3678,6 +3894,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3740,6 +3957,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3764,6 +3982,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3826,6 +4045,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3850,6 +4070,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3912,6 +4133,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -3936,6 +4158,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -3998,6 +4221,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4022,6 +4246,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -4084,6 +4309,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "foundation",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4108,6 +4334,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
    "reach": {
@@ -4170,6 +4397,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4194,6 +4422,7 @@
     "text": "EUR 2.4M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
    "reach": {
@@ -4256,6 +4485,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4280,6 +4510,7 @@
     "text": "USD 3.8M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
    "reach": {
@@ -4342,6 +4573,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4366,6 +4598,7 @@
     "text": "USD 3.8M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
    "reach": {
@@ -4428,6 +4661,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4452,6 +4686,7 @@
     "text": "BRL 30M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
    "reach": {
@@ -4514,6 +4749,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4538,6 +4774,7 @@
     "text": "BRL 30M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
    "reach": {
@@ -4600,6 +4837,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4624,6 +4862,7 @@
     "text": "USD 5.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
    "reach": {
@@ -4686,6 +4925,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4710,6 +4950,7 @@
     "text": "USD 5.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
    "reach": {
@@ -4772,6 +5013,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4796,6 +5038,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -4858,6 +5101,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4882,6 +5126,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -4944,6 +5189,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "corporate",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -4968,6 +5214,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -5030,6 +5277,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5054,6 +5302,7 @@
     "text": "AUD 6.75M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
    "reach": {
@@ -5116,6 +5365,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "corporate",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5140,6 +5390,7 @@
     "text": "USD 10.3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
    "reach": {
@@ -5202,6 +5453,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5226,6 +5478,7 @@
     "text": "USD 10.3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
    "reach": {
@@ -5288,6 +5541,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5312,6 +5566,7 @@
     "text": "USD 10.3M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
    "reach": {
@@ -5374,6 +5629,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5398,6 +5654,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -5460,6 +5717,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5484,6 +5742,7 @@
     "text": "USD 8.1M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -5555,6 +5814,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5579,6 +5839,7 @@
     "text": "USD 8.1M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -5642,6 +5903,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5666,6 +5928,7 @@
     "text": "USD 8.1M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -5728,6 +5991,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5752,6 +6016,7 @@
     "text": "USD 8.1M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -5814,6 +6079,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5838,6 +6104,7 @@
     "text": "USD 8.1M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
    "reach": {
@@ -5900,6 +6167,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -5924,6 +6192,7 @@
     "text": "USD 11.2M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
    "reach": {
@@ -5986,6 +6255,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6010,6 +6280,7 @@
     "text": "USD 22M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
    "reach": {
@@ -6072,6 +6343,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6096,6 +6368,7 @@
     "text": "USD 22M median of 1",
     "stages_text": "series a"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
    "reach": {
@@ -6158,6 +6431,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6182,6 +6456,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6244,6 +6519,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6268,6 +6544,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6339,6 +6616,7 @@
    ],
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6363,6 +6641,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6425,6 +6704,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "foundation",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6449,6 +6729,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6511,6 +6792,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6535,6 +6817,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6597,6 +6880,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6621,6 +6905,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6683,6 +6968,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6707,6 +6993,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6769,6 +7056,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6793,6 +7081,7 @@
     "text": "USD 5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://quercusbio.com/media-july-29",
    "reach": {
@@ -6855,6 +7144,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6879,6 +7169,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/",
    "reach": {
@@ -6941,6 +7232,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6965,6 +7257,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -7027,6 +7320,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "foundation",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7051,6 +7345,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -7113,6 +7408,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7137,6 +7433,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -7199,6 +7496,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7223,6 +7521,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -7285,6 +7584,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7309,6 +7609,7 @@
     "text": "USD 1.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://igrownews.com/farm-to-feed-latest-news/",
    "reach": {
@@ -7371,6 +7672,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7395,6 +7697,7 @@
     "text": "EUR 2.4M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
    "reach": {
@@ -7457,6 +7760,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7481,6 +7785,7 @@
     "text": "EUR 2.4M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
    "reach": {
@@ -7543,6 +7848,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7567,6 +7873,7 @@
     "text": "USD 2M median of 1",
     "stages_text": "pre-seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
    "reach": {
@@ -7629,6 +7936,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7653,6 +7961,7 @@
     "text": "USD 5.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
    "reach": {
@@ -7715,6 +8024,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "corporate",
+   "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7739,6 +8049,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -7801,6 +8112,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7825,6 +8137,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -7887,6 +8200,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7911,6 +8225,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -7973,6 +8288,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -7997,6 +8313,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8059,6 +8376,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8083,6 +8401,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8145,6 +8464,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8169,6 +8489,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8231,6 +8552,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8255,6 +8577,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8317,6 +8640,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8341,6 +8665,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8403,6 +8728,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8427,6 +8753,7 @@
     "text": "USD 12.5M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
    "reach": {
@@ -8489,6 +8816,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8513,6 +8841,7 @@
     "text": "USD 11.2M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
    "reach": {
@@ -8575,6 +8904,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8599,6 +8929,7 @@
     "text": "USD 11.2M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
    "reach": {
@@ -8661,6 +8992,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8685,6 +9017,7 @@
     "text": "USD 11.2M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
    "reach": {
@@ -8747,6 +9080,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "unknown",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8771,6 +9105,7 @@
     "text": "USD 11.2M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
    "reach": {
@@ -8833,6 +9168,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8857,6 +9193,7 @@
     "text": "USD 4M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
    "reach": {
@@ -8919,6 +9256,7 @@
    "lead_partner": "unknown",
    "lead_partner_agent": [],
    "investor_type": "fund",
+   "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -8943,6 +9281,7 @@
     "text": "USD 4M median of 1",
     "stages_text": "seed"
    },
+   "partner_pass": null,
    "reach_route": "warm intro via founder",
    "reach_url": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
    "reach": {
@@ -10242,17 +10581,17 @@
    "counted": true,
    "country_norm": "Canada",
    "not_near_funding_phrase": [],
-   "page_excerpt": "an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09Agriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for smallholder farmers, raised $200,000 in a pre-seed round.",
+   "page_excerpt": "n Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09PAgriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for smallholder farmers, raised $200,000 in a pre-seed round.",
    "proof_snippets": {
-    "Tall Grass Ventures": "ortable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for smallholder farmers, raised",
-    "AVAC": "Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based",
-    "BDC": "wick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agrit",
-    "East Valley Ventures": "(Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform t",
-    "Koan Capital": "1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geosp",
-    "New Brunswick Innovation Foundation": "ta Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10Agriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for sm",
-    "Farming Future": "and Farming•Emilia-Romagna, Italy$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09Agriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powe",
-    "FoodSeed": "lia-Romagna, Italy$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09Agriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectr",
-    "National Agrifood Tech Technology Transfer Hub": "$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09Agriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 mil"
+    "Tall Grass Ventures": "ortable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for smallholder farmers, raise",
+    "AVAC": "Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based",
+    "BDC": "wick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agri",
+    "East Valley Ventures": "(Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform",
+    "Koan Capital": "1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geos",
+    "New Brunswick Innovation Foundation": "ta Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 million in a seed round backed by AVAC, BDC, East Valley Ventures, Koan Capital, New Brunswick Innovation Foundation, and Tall Grass Ventures. 10UAgriculture and Farming•Maryland (Elkridge), United States$0.2MPre-Seed Ufarmx, a U.S.-based agritech/fintech platform that uses geospatial data to unlock financing for s",
+    "Farming Future": "and Farming•Emilia-Romagna, Italy$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09PAgriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-pow",
+    "FoodSeed": "lia-Romagna, Italy$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09PAgriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spect",
+    "National Agrifood Tech Technology Transfer Hub": "$1.6MSeed Aflabox, an Italian agritech startup using UV imaging and AI to detect mycotoxins and assess cereal quality, raised $1.56 million in a seed round backed by Farming Future, FoodSeed, and the National Agrifood Tech Technology Transfer Hub. 09PAgriculture and Farming•New Brunswick (Fredericton), Canada$1.5MSeed Picketa Systems, a Canadian company building portable AI-powered spectroscopy to estimate crop nutrient levels, raised $1.5 mi"
    },
    "proximity_checked": true,
    "partner_mentions": []

@@ -1309,7 +1309,7 @@ def check_agent_entity(r, page_texts=None):
 
 def enrich_investors(tf, ranked, top, concurrency=2, secs=240):
     """Agent runs on the top investors' own sites. Failure -> fields stay 'unknown' with a note, never a guess."""
-    todo = ranked[:max(0, top)]
+    todo = [r for r in ranked if section_of(investor_type(r["investor"])) == "main"][:max(0, top)]
     blank = {"cheque_size": "unknown", "cheque_size_url": "", "stage_focus": "unknown", "stage_focus_url": "",
              "reach_route": "unknown", "reach_url": "", "agent_partners": []}
     for r in ranked:
@@ -1517,7 +1517,7 @@ EMAIL_RE = re.compile(r"(?<![\w.])([a-z0-9._%+\-]+)@([a-z0-9.\-]+\.[a-z]{2,})", 
 PITCH_LOCAL = re.compile(r"^(?:pitch(?:es)?|deals?|dealflow|deal-flow|founders?|submissions?|submit|apply|applications?|proposals?|"
                          r"startups?|invest(?:ments?|ors?)?|ventures|bp|plans?|portfolio)$", re.I)
 PITCH_CONTEXT = re.compile(r"pitch|deck|founder|business plan|startup|funding|invest", re.I)
-REACH_PATHS = ("/contact", "/apply", "/pitch", "/founders")
+REACH_PATHS = ("/contact", "/apply", "/pitch", "/founders", "/portfolio", "/companies", "/investments")
 
 
 def page_text(r):
@@ -1616,7 +1616,7 @@ def reach_for(tf, r):
         urls = [f"https://{domain}/"] + [f"https://{domain}{pth}" for pth in REACH_PATHS]
         urls += [x["url"] for x in tf.search("submit pitch apply founders contact", include_domains=domain)[:4]
                  if host_of(x.get("url", "")) == domain]
-        pages = tf.fetch(list(dict.fromkeys(urls))[:10], "html")
+        pages = tf.fetch(list(dict.fromkeys(urls))[:14], "html")      # Fetch client sends <=10 URLs per call
         ok = [pr for pr in pages.values() if "error" not in pr]
         r["js_only_site"] = bool(ok) and all(len(flat(pr.get("html") or page_text(pr))) < 300 for pr in ok)
         hit = classify_reach(pages, domain)
@@ -1625,6 +1625,51 @@ def reach_for(tf, r):
             return r
     r["reach"] = dict(wi) if wi else {"route": "unknown", "url": "", "source_url": "", "evidence": ""}
     return r
+
+
+MAIN_TYPES = ("fund", "unknown")
+OTHER_SECTION = "Other backers (not seed funds)"
+
+
+def section_of(investor_type_):
+    """Presentation only: funds and unknown types go in the main ranking; banks, corporates, foundations and
+    farmer companies go in 'Other backers (not seed funds)'. Scores and ranks are unchanged."""
+    return "main" if investor_type_ in MAIN_TYPES else "other"
+
+
+PARTNER_PASS_MAX = 15
+
+
+def partner_pass(tf, ranked, top=15, max_queries=PARTNER_PASS_MAX):
+    """For each of the top investors without a lead partner yet: one Search '<company> <investor> partner' for its most
+    similar counted deal, Fetch the top 3 results, keep only pages naming both company and investor, then run the same
+    partner extraction. At most `max_queries` searches. Returns the number of queries made."""
+    q = 0
+    for r in ranked[:top]:
+        if q >= max_queries:
+            break
+        if isinstance(r.get("lead_partner"), list) or not r["backed"]:
+            continue
+        company = r["backed"][0]["name"]
+        q += 1
+        res = tf.search(f"{company} {r['investor']} partner", exclude_domains=EXCLUDE)
+        urls = [x["url"] for x in res[:3] if x.get("url")]
+        found = []
+        for u, pr in tf.fetch(urls, "markdown").items():
+            if "error" in pr:
+                continue
+            t = page_text(pr)
+            pt = plain(t)
+            if not (name_on_page(company, pt) and name_on_page(r["investor"], pt)):
+                continue
+            for pm in partner_mentions(t, [r["investor"]], pr.get("final_url") or u, company):
+                found.append({**pm, "company": company, "via": "search pass"})
+        uniq = {}
+        for x in found:
+            uniq.setdefault(x["name"], x)
+        r["lead_partner"] = list(uniq.values()) or "unknown"
+        r["partner_pass"] = {"query": f"{company} {r['investor']} partner", "pages": urls, "found": len(uniq)}
+    return q
 
 
 def enrich_free(tf, ranked, deals, reach_top=15):
@@ -1641,8 +1686,12 @@ def enrich_free(tf, ranked, deals, reach_top=15):
         r["lead_partner"] = found or "unknown"
         r.setdefault("reach", None)
         r.setdefault("own_domain", "")
+    for r in ranked:
+        r["investor_type"] = investor_type(r["investor"])
     if tf and reach_top:
-        for r in ranked[:reach_top]:
+        main_ = [r for r in ranked if section_of(r["investor_type"]) == "main"]
+        other_ = [r for r in ranked if section_of(r["investor_type"]) == "other"]
+        for r in main_[:reach_top] + other_[:5]:
             try:
                 reach_for(tf, r)
             except Fatal:
@@ -1655,6 +1704,10 @@ def enrich_free(tf, ranked, deals, reach_top=15):
             r["warm_intro"] = wi
             r["reach"] = {**wi, "note": "ladder not run (below --reach-top)"} if wi else {"route": "unknown", "url": ""}
         r["investor_type"] = investor_type(r["investor"], r.get("own_domain", ""))
+        r["section"] = section_of(r["investor_type"])
+    if tf and reach_top:
+        n = partner_pass(tf, [r for r in ranked if r["section"] == "main"], min(reach_top, 15))
+        say(f"lead-partner search pass: {n} queries")
     return ranked
 
 
@@ -1678,7 +1731,7 @@ def write_audit(out_dir, deals, n=20, seed=42):
 
 
 # ----------------------------------------------------------------------------- 7. output
-CSV_COLS = ["rank", "investor", "investor_type", "score", "why", "backed_companies", "observed_round_sizes", "observed_stages",
+CSV_COLS = ["section", "rank", "investor", "investor_type", "score", "why", "backed_companies", "observed_round_sizes", "observed_stages",
             "lead_partner", "reach_route", "reach_url", "reach_source", "cheque_size_agent", "stage_focus_agent", "sources"]
 
 
@@ -1698,7 +1751,8 @@ def investor_row(r):
             "cheque_size": r.get("cheque_size", "unknown"), "cheque_size_source": r.get("cheque_size_url", ""),
             "stage_focus": r.get("stage_focus", "unknown"), "stage_focus_source": r.get("stage_focus_url", ""),
             "lead_partner": r.get("lead_partner") or "unknown", "lead_partner_agent": r.get("agent_partners", []),
-            "investor_type": r.get("investor_type", "unknown"), "observed": r.get("observed") or {},
+            "investor_type": r.get("investor_type", "unknown"), "section": r.get("section") or section_of(r.get("investor_type", "unknown")),
+            "observed": r.get("observed") or {}, "partner_pass": r.get("partner_pass"),
             "reach_route": (r.get("reach") or {}).get("route", "unknown"), "reach_url": (r.get("reach") or {}).get("url", ""),
             "reach": r.get("reach") or {}, "warm_intro": r.get("warm_intro"), "own_domain": r.get("own_domain", ""),
             "own_domain_evidence": r.get("own_domain_evidence", {}), "js_only_site": r.get("js_only_site", False),
@@ -1714,7 +1768,7 @@ def lp_text(lp):
     return "; ".join(dict.fromkeys(f"{x['name']} ({x['role']}, {x['company']})" for x in lp))
 
 
-def write_outputs(out_dir, p, deals, ranked, meta, top=15, funds_only=False):
+def write_outputs(out_dir, p, deals, ranked, meta, top=15, funds_only=False, all_in_one=False):
     os.makedirs(out_dir, exist_ok=True)
     rows = [investor_row(r) for r in ranked]
     ver = [d for d in deals if d["status"] == "verified"]
@@ -1729,14 +1783,15 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15, funds_only=False):
     with open(os.path.join(out_dir, "results.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(CSV_COLS)
-        for r in shown_rows(rows, top, funds_only):
-            w.writerow([r["rank"], r["investor"], r["investor_type"], r["score"], r["why"],
+        for sec, part in sections(rows, top, funds_only, all_in_one):
+          for r in part:
+            w.writerow([sec, r["rank"], r["investor"], r["investor_type"], r["score"], r["why"],
                         " | ".join(f"{x['name']} ({x['round'] or '?'}, {x['date']}, {x['amount'] or 'undisclosed'}) {x['link']}" for x in r["backed_companies"]),
                         (r["observed"] or {}).get("text", ""), (r["observed"] or {}).get("stages_text", ""), lp_text(r["lead_partner"]),
                         r["reach_route"], r["reach_url"], (r["reach"] or {}).get("source_url", ""),
                         r["cheque_size"], r["stage_focus"], " ".join(r["sources"])])
     with open(os.path.join(out_dir, "report.md"), "w", encoding="utf-8") as f:
-        f.write(report_md(p, deals, rows, meta, top, funds_only))
+        f.write(report_md(p, deals, rows, meta, top, funds_only, all_in_one))
     return rows
 
 
@@ -1772,25 +1827,23 @@ def shown_rows(rows, top, funds_only=False):
     return [r for r in rows if not funds_only or r.get("investor_type") == "fund"][:top]
 
 
-def report_md(p, deals, rows, meta, top=15, funds_only=False):
-    ver = [d for d in deals if d["status"] == "verified"]
-    drop = [d for d in deals if d["status"] == "dropped"]
-    L = [f"# Funding Radar: {md(p['description'])}", "",
-         f"Run {meta['run_date']} | sectors: {', '.join(p['sectors']) or '-'} | stage: {', '.join(p['stages']) or 'any'} | "
-         f"country: {p['country'] or '-'} | region: {p['region'] or '-'}", "",
-         f"**{len(ver)} verified similar companies** (from {meta['candidates']} candidates; {len(drop)} dropped), "
-         f"**{len(rows)} investors ranked**. Window: rounds announced since {meta['window_start']}.", "",
-         f"Showing the top {len(shown_rows(rows, top, funds_only))}{' funds (other investor types hidden by --funds-only)' if funds_only else ''}; "
-         "the full ranked list is in results.json.", ""]
-    L += country_note(p, ver)
-    if len(ver) < 10:
-        L += [f"> Note: fewer than 10 verified similar companies were found for this description ({len(ver)}). Not padded.", ""]
-    L += ["## Investors to approach", "",
-          f"Observed = {OBSERVED_LABEL}: median announced round size per currency across its counted deals (not its own cheque). "
-          "Cheque / stage (site) come from the investor's own website via Agent.", "",
-          "| # | Investor | Type | Score | Backed (verified link) | Observed round sizes / stages | Lead partner | Reach | Cheque / stage (site) |",
+def sections(rows, top, funds_only=False, all_in_one=False):
+    """-> [(section_name, rows)] for report.md / results.csv. Default: main ranking (fund + unknown) then
+    'Other backers (not seed funds)', each capped at `top`, same order as the score ranking."""
+    if all_in_one:
+        return [("all", shown_rows(rows, top, funds_only))]
+    main_ = [r for r in rows if r.get("section", section_of(r.get("investor_type"))) == "main"]
+    other_ = [r for r in rows if r.get("section", section_of(r.get("investor_type"))) == "other"]
+    out = [("main", shown_rows(main_, top, funds_only))]
+    if not funds_only:
+        out.append(("other", other_[:top]))
+    return out
+
+
+def investor_table(L, part):
+    L += ["| # | Investor | Type | Score | Backed (verified link) | Observed round sizes / stages | Lead partner | Reach | Cheque / stage (site) |",
           "|---|---|---|---|---|---|---|---|---|"]
-    for r in shown_rows(rows, top, funds_only):
+    for r in part:
         backed = "<br>".join(f"[{md(x['name'])}]({x['link']}) {md(x['round'])} {x['date']}{' (led)' if x['led'] else ''}" for x in r["backed_companies"])
         cs = f"[{md(r['cheque_size'])}]({r['cheque_size_source']})" if r["cheque_size_source"] else md(r["cheque_size"])
         sf = f"[{md(r['stage_focus'])}]({r['stage_focus_source']})" if r["stage_focus_source"] else md(r["stage_focus"])
@@ -1803,9 +1856,38 @@ def report_md(p, deals, rows, meta, top=15, funds_only=False):
         if rc.get("company"):
             reach += f" ({md(rc['company'])})"
         L.append(f"| {r['rank']} | **{md(r['investor'])}** | {r['investor_type']} | {r['score']:.2f} | {backed} | {obs} | {lpt} | {reach} | {cs} / {sf} |")
+
+
+def report_md(p, deals, rows, meta, top=15, funds_only=False, all_in_one=False):
+    ver = [d for d in deals if d["status"] == "verified"]
+    drop = [d for d in deals if d["status"] == "dropped"]
+    L = [f"# Funding Radar: {md(p['description'])}", "",
+         f"Run {meta['run_date']} | sectors: {', '.join(p['sectors']) or '-'} | stage: {', '.join(p['stages']) or 'any'} | "
+         f"country: {p['country'] or '-'} | region: {p['region'] or '-'}", "",
+         f"**{len(ver)} verified similar companies** (from {meta['candidates']} candidates; {len(drop)} dropped), "
+         f"**{len(rows)} investors ranked**. Window: rounds announced since {meta['window_start']}.", "",
+         ("Ranks are the score order over all investors. Funds and unknown types are listed under 'Investors to approach'; banks, "
+          "corporates, foundations and farmer companies under 'Other backers (not seed funds)'. This split is presentation only."
+          if not all_in_one else "Single list (--all-in-one).") +
+         f" Each list shows up to {top}{' (funds only, --funds-only)' if funds_only else ''}; the full ranked list is in results.json.", ""]
+    L += country_note(p, ver)
+    if len(ver) < 10:
+        L += [f"> Note: fewer than 10 verified similar companies were found for this description ({len(ver)}). Not padded.", ""]
+    secs = sections(rows, top, funds_only, all_in_one)
+    for name, part in secs:
+        title = {"main": "Investors to approach", "all": "Investors to approach", "other": OTHER_SECTION}[name]
+        L += ["", f"## {title}", ""]
+        if name != "other":
+            L += [f"Observed = {OBSERVED_LABEL}: median announced round size per currency across its counted deals (not its own cheque). "
+                  "Cheque / stage (site) come from the investor's own website via Agent.", ""]
+        if not part:
+            L += ["(none)"]
+            continue
+        investor_table(L, part)
     L += ["", "## Why each investor is ranked where it is", ""]
-    for r in shown_rows(rows, top, funds_only):
-        L.append(f"{r['rank']}. **{md(r['investor'])}**: {md(r['why'])}")
+    for name, part in secs:
+        for r in part:
+            L.append(f"{r['rank']}. **{md(r['investor'])}**{' (other backer)' if name == 'other' else ''}: {md(r['why'])}")
     L += ["", "## Verified similar companies", "", f"Deals below similarity {MIN_SIM:.2f} are listed but do not count toward any investor.", "",
           "| Company | Country | Round | Amount | Date | Investors named near a funding phrase | Similarity (what / sector / stage / country / recency) | Counts | Proof |",
           "|---|---|---|---|---|---|---|---|---|"]
@@ -1875,7 +1957,7 @@ def refetch_proximity(tf, deals):
     return stats
 
 
-def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0):
+def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_in_one=False):
     """Reload a results.json, re-apply rule 1 (self-published proof), the current similarity / threshold / country factor,
     and rule 3 (agent facts tied to the investor), then rewrite results.json / .csv / report.md in place.
     With tf (--refetch), first re-fetch the verified links and apply the funding-phrase rule to the live pages.
@@ -1930,7 +2012,7 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0):
     enrich_free(tf, ranked, deals, reach_top if tf else 0)
     meta["stats_rescore"] = dict(tf.stats) if tf else {}
     out_dir = os.path.dirname(path) or "."
-    write_outputs(out_dir, p, deals, ranked, meta, top, funds_only)
+    write_outputs(out_dir, p, deals, ranked, meta, top, funds_only, all_in_one)
     if audit:
         say(f"audit.csv: {write_audit(out_dir, deals, audit)} sampled matches (seed 42)")
     print(json.dumps({k: meta[k] for k in ("verified_companies_after_rules", "counted_deals", "dropped", "investors_ranked",
@@ -2060,6 +2142,7 @@ def main(argv=None):
     ap.add_argument("--agent-secs", type=int, default=240)
     ap.add_argument("--report-top", type=int, default=15, help="investors shown in report.md and results.csv (JSON keeps all)")
     ap.add_argument("--reach-top", type=int, default=15, help="reach-route ladder (Search + Fetch, free) for the top N investors")
+    ap.add_argument("--all-in-one", action="store_true", help="one investor list in report/CSV instead of main + 'Other backers (not seed funds)'")
     ap.add_argument("--funds-only", action="store_true", help="hide corporates, banks, foundations, farmer companies and unknown types in report/CSV")
     ap.add_argument("--audit-sample", type=int, default=0, metavar="N", help="write audit.csv with N random (seed 42) investor-company matches")
     ap.add_argument("--out", default="out", help="output root; results go to <out>/<slug>/")
@@ -2079,7 +2162,7 @@ def main(argv=None):
             if not key:
                 sys.exit("--refetch needs TINYFISH_API_KEY")
             tf = TF(key)
-        return rescore(a.rescore, a.report_top, tf, a.reach_top, a.funds_only, a.audit_sample)
+        return rescore(a.rescore, a.report_top, tf, a.reach_top, a.funds_only, a.audit_sample, a.all_in_one)
     if not a.description.strip():
         ap.error("a startup description is required")
     today = date.fromisoformat(a.today) if a.today else date.today()
@@ -2156,7 +2239,7 @@ def main(argv=None):
             "tinyset_cost_est": round(rows_n * TS_COST_PER_ROW, 2) if tf.stats["tinyset_datasets"] else 0.0,
             "stats": dict(tf.stats), "seconds": round(time.time() - t0, 1)}
     out_dir = os.path.join(a.out, slug)
-    write_outputs(out_dir, p, deals, ranked, meta, a.report_top, a.funds_only)
+    write_outputs(out_dir, p, deals, ranked, meta, a.report_top, a.funds_only, a.all_in_one)
     if a.audit_sample:
         say(f"audit.csv: {write_audit(out_dir, deals, a.audit_sample)} sampled matches (seed 42)")
     say(f"done in {meta['seconds']}s -> {out_dir}/results.json, results.csv, report.md")
