@@ -842,14 +842,24 @@ def verify_deal(d, page, today):
                 partners.append({"investor": inv, "partner": pn})
     d["partners"] = partners
     d["page_excerpt"] = excerpt(text, d["company"])
+    d["proof_snippets"] = {i: proof_window(i, text) for i in named}
+    d["proximity_checked"] = True
     d.update(status="verified", drop_reason="", final_url=page.get("final_url") or url)
     return d
 
 
-FUND_PHRASE = re.compile(r"\b(?:co-)?led by|\bbacked by|\binvestors? include|\binvestors? including|\bparticipation (?:from|of)|"
-                         r"\bround led|\bfunded by|\binvestment from|\binvested|\bparticipated|\bfrom investors|\bsupported by|"
-                         r"\bleads? (?:the|a|its)\b|\bco-?investors?\b|\bjoined by|\balongside\b|"
-                         r"\b(?:raised|raises|raising|secured|secures|bags|bagged|closed|closes|received|receives|gets|got)\b[^.]{0,120}?\bfrom\b", re.I)
+FUND_PHRASE = re.compile(
+    # English
+    r"\b(?:co-)?led by|\bbacked by|\binvestors?,?\s+(?:include|including|such as)|\bparticipation (?:from|of)|"
+    r"\bround (?:was )?led|\bfunded by|\binvestment from|\binvested|\bparticipated|\bfrom investors|\bsupported by|"
+    r"\bleads? (?:the|a|its)\b|\bled the\b|\bco-?investors?\b|\bjoined by|\balongside\b|"
+    r"\b(?:raised|raises|raising|secured|secures|bags|bagged|closed|closes|received|receives|gets|got)\b(?:[^.]|\.(?=\d)){0,120}?\bfrom\b|"
+    # Portuguese / Spanish
+    r"\bliderada (?:por|pel[oa])|\bliderado (?:por|pel[oa])|\bparticipa(?:ção|cao|ción|cion) (?:da|de|do|del)\b|\binvestidores\b|\binversores\b|"
+    r"\brodada (?:liderada|de investimento)|\bronda (?:liderada|de inversión)|\baporte (?:de|da|do)\b|"
+    # German / French
+    r"\bangeführt von|\bunter (?:der )?führung von|\binvestoren\b|\bbeteiligt|\bmen[ée]e? par|\binvestisseurs\b|\bparticipation de\b",
+    re.I)
 NEAR_CHARS = 200
 
 
@@ -859,16 +869,22 @@ def flat(text):
     return re.sub(r"\s+", " ", unescape(t))
 
 
-def near_funding(name, text, chars=NEAR_CHARS):
-    """True if some mention of `name` sits within `chars` characters of a funding phrase ('led by', 'backed by', ...)."""
+def proof_window(name, text, chars=NEAR_CHARS):
+    """The text window proving `name` sits within `chars` characters of a funding phrase, or None."""
     ft = flat(text)
     for n in dict.fromkeys([name, re.sub(INV_SUFFIX, "", name, flags=re.I).strip()]):
         if len(n) < 2:
             continue
         for m in re.finditer(r"(?<![A-Za-z0-9])" + re.escape(n) + r"(?![A-Za-z0-9])", ft, re.I):
-            if FUND_PHRASE.search(ft[max(0, m.start() - chars):m.end() + chars]):
-                return True
-    return False
+            win = ft[max(0, m.start() - chars):m.end() + chars]
+            if FUND_PHRASE.search(win):
+                return win.strip()
+    return None
+
+
+def near_funding(name, text, chars=NEAR_CHARS):
+    """True if some mention of `name` sits within `chars` characters of a funding phrase ('led by', 'backed by', ...)."""
+    return proof_window(name, text, chars) is not None
 
 
 def excerpt(text, company, n=1500):
@@ -967,6 +983,7 @@ REGION_SHARE = 0.3      # same region, other country: 30% of the country weight
 SECTOR_ONLY = 0.25      # a deal that matches only the broad sector (no what-it-does keyword) keeps 25% of its score
 MIN_SIM = 0.30          # deals below this do not count toward any investor
 LEAD_BONUS = 0.5        # a led deal counts 1.5x
+COUNTRY_FACTOR = 1.5    # investor score x1.5 if it backed at least one counted deal in the target country (or region)
 WHAT_FULL = 3.0         # matched keyword weight that counts as a full what-it-does match
 SOFT = set("ai ml app apps detection platform tool software assistant data analytics digital smart".split())
 
@@ -1078,10 +1095,15 @@ def rank_investors(p, deals, today, min_sim=MIN_SIM):
                                "amount": d.get("amount") or "", "link": d["source_url"], "led": led, "similarity": sim,
                                "country": c or "", "region": deal_country(d)[1] or "", "partner": partner})
     out = []
+    want = p["country"] or p["region"]
     for k, e in inv.items():
         disp = max(e["names"], key=lambda n: (e["names"].count(n), len(n)))
         e["deals"].sort(key=lambda x: (-x["similarity"], x["date"]))
-        out.append({"investor": disp, "key": k, "score": round(e["score"], 4), "lead_n": e["lead_n"],
+        home = bool(want) and any(want in (x.get("country"), x.get("region")) for x in e["deals"])
+        factor = COUNTRY_FACTOR if home else 1.0
+        base = e["score"]
+        out.append({"investor": disp, "key": k, "score": round(base * factor, 4), "base_score": round(base, 4),
+                    "country_factor": factor, "has_target_country_deal": home, "lead_n": e["lead_n"],
                     "parts": {a_: round(b_, 4) for a_, b_ in e["parts"].items()}, "backed": e["deals"]})
     out.sort(key=lambda x: (-x["score"], -x["lead_n"], -len(x["backed"]), x["investor"].lower()))
     for i, r in enumerate(out, 1):
@@ -1114,6 +1136,10 @@ def why_text(p, r, deals):
         m = sum(1 for x in b if isin(x))
         others = sorted({x.get("country") or x.get("region") or "unknown" for x in b if not isin(x)})
         bits.append(f"{m}/{n} in {want}" + (f" (others: {', '.join(others)})" if others else ""))
+        if r.get("has_target_country_deal"):
+            bits.append(f"x{r['country_factor']:g} country factor for backing a {want} deal (base score {r['base_score']:.2f})")
+        else:
+            bits.append(f"no verified deal in {want}, so no country factor")
     dates = sorted(x["date"] for x in b if x["date"])
     if dates:
         bits.append(f"latest deal {dates[-1]}")
@@ -1305,7 +1331,8 @@ def investor_row(r):
             "stage_focus": r.get("stage_focus", "unknown"), "stage_focus_source": r.get("stage_focus_url", ""),
             "lead_partner": lead_partner_of(r), "reach_route": r.get("reach_route", "unknown"), "reach_url": r.get("reach_url", ""),
             "investor_site": r.get("site", ""), "agent_note": r.get("agent_note", ""), "agent_partners": r.get("agent_partners", []),
-            "score_parts": r["parts"], "sources": list(dict.fromkeys(src))}
+            "score_parts": r["parts"], "base_score": r.get("base_score", r["score"]), "country_factor": r.get("country_factor", 1.0),
+            "has_target_country_deal": r.get("has_target_country_deal", False), "sources": list(dict.fromkeys(src))}
 
 
 def write_outputs(out_dir, p, deals, ranked, meta, top=15):
@@ -1315,7 +1342,7 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15):
     keep = ("company", "what_it_does", "round_stage", "amount", "date", "announced_date", "date_basis", "lead_investor", "other_investors",
             "investors_verified", "lead_verified", "partners", "hq_country", "source_url", "final_url", "extra_links", "origin", "status",
             "drop_reason", "similarity", "sim_parts", "keyword_hits", "counted", "country_norm", "self_published_dropped",
-            "not_near_funding_phrase", "page_excerpt", "query")
+            "not_near_funding_phrase", "page_excerpt", "proof_snippets", "proximity_checked", "query")
     jd = {"input": {k: p[k] for k in ("description", "keywords", "sectors", "stages", "country", "region")}, "meta": meta,
           "investors": rows, "deals": [{k: d[k] for k in keep if k in d} for d in deals]}
     with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as f:
@@ -1415,10 +1442,46 @@ def report_md(p, deals, rows, meta, top=15):
 
 
 # ----------------------------------------------------------------------------- main
-def rescore(path, top=15):
-    """Offline: reload a results.json, re-apply rule 1 (self-published proof), the current similarity / threshold,
+def refetch_proximity(tf, deals):
+    """Re-open every link of every verified company with Fetch (markdown, live) and apply the funding-phrase rule to the
+    full page text: an investor stays only if some link names it within NEAR_CHARS of a funding phrase. Saves page excerpts
+    and the proving snippet per investor. Companies whose links all fail to fetch keep their investors, marked unchecked.
+    Returns {links, fetched, failed_companies, removed, removed_list}."""
+    ver = [d for d in deals if d.get("status") == "verified"]
+    links = []
+    for d in ver:
+        links += [d["source_url"]] + list(d.get("extra_links") or [])
+    pages = tf.fetch(list(dict.fromkeys(links)), "markdown")
+    ok = {u: (r.get("text") or r.get("content") or "") for u, r in pages.items() if "error" not in r}
+    stats = {"links": len(set(links)), "fetched": len(ok), "failed_companies": [], "removed": 0, "removed_list": []}
+    for d in ver:
+        texts = [ok[u] for u in [d["source_url"]] + list(d.get("extra_links") or []) if u in ok]
+        if not texts:
+            d["proximity_checked"] = False
+            stats["failed_companies"].append(d["company"])
+            continue
+        d["page_excerpt"] = excerpt(texts[0], d["company"])
+        keep, snip = [], {}
+        for inv in d.get("investors_verified", []):
+            w = next((x for x in (proof_window(inv, t) for t in texts) if x), None)
+            if w:
+                keep.append(inv)
+                snip[inv] = w
+        gone = [i for i in d.get("investors_verified", []) if i not in keep]
+        stats["removed"] += len(gone)
+        stats["removed_list"] += [(d["company"], g) for g in gone]
+        d.update(investors_verified=keep, lead_verified=[x for x in d.get("lead_verified", []) if x in keep],
+                 proof_snippets=snip, proximity_checked=True, not_near_funding_phrase=gone)
+        if not keep:
+            d.update(status="dropped", drop_reason="no investor named near a funding phrase on source page")
+    return stats
+
+
+def rescore(path, top=15, tf=None):
+    """Reload a results.json, re-apply rule 1 (self-published proof), the current similarity / threshold / country factor,
     and rule 3 (agent facts tied to the investor), then rewrite results.json / .csv / report.md in place.
-    The funding-phrase proximity rule needs page text; it is applied only to deals that carry a saved page_excerpt."""
+    With tf (--refetch), first re-fetch the verified links and apply the funding-phrase rule to the live pages.
+    Without tf, no API call is made."""
     with open(path, encoding="utf-8") as f:
         jd = json.load(f)
     inp, meta = jd["input"], jd["meta"]
@@ -1429,15 +1492,12 @@ def rescore(path, top=15):
         for t in w.split():
             p["weights"][t] = max(p["weights"].get(t, 0), 2.0)
     deals = jd["deals"]
-    prox = 0
-    for d in deals:
-        if d.get("status") == "verified" and d.get("page_excerpt"):
-            keep = [i for i in d.get("investors_verified", []) if near_funding(i, d["page_excerpt"])]
-            prox += len(d["investors_verified"]) - len(keep)
-            d["investors_verified"], d["lead_verified"] = keep, [x for x in d.get("lead_verified", []) if x in keep]
-            if not keep:
-                d.update(status="dropped", drop_reason="no investor named near a funding phrase on source page")
-    n_self = apply_self_published(deals)
+    rf = refetch_proximity(tf, deals) if tf else None
+    if rf:
+        meta["refetch"] = {k: rf[k] for k in ("links", "fetched", "failed_companies", "removed")}
+        meta["refetch"]["removed_list"] = [f"{i} on {c}" for c, i in rf["removed_list"]]
+    apply_self_published(deals)
+    n_self = sum(len(d.get("self_published_dropped") or []) for d in deals)
     ranked = rank_investors(p, deals, today)
     old = {inv_key(i["investor"]): i for i in jd["investors"]}
     rejected = {}
@@ -1452,14 +1512,15 @@ def rescore(path, top=15):
             rj = check_agent_entity(r)
             if rj:
                 rejected[r["investor"]] = rj
-    meta.update(rescored=True, rescore_note="re-ranked offline with the current rules; no API calls",
+    meta.update(rescored=True, rescore_note=("re-ranked with the current rules; verified links re-fetched with Fetch (no TinySet, no Agent)"
+                                             if rf else "re-ranked offline with the current rules; no API calls"),
                 verified_companies_after_rules=sum(d["status"] == "verified" for d in deals),
                 dropped=sum(d["status"] == "dropped" for d in deals), investors_ranked=len(ranked),
-                self_published_dropped=n_self, proximity_dropped_offline=prox,
+                self_published_dropped=n_self, proximity_dropped=(rf or {}).get("removed", 0),
                 counted_deals=sum(1 for d in deals if d.get("counted")), agent_facts_rejected=rejected)
     write_outputs(os.path.dirname(path) or ".", p, deals, ranked, meta, top)
     print(json.dumps({k: meta[k] for k in ("verified_companies_after_rules", "counted_deals", "dropped", "investors_ranked",
-                                            "self_published_dropped", "proximity_dropped_offline", "agent_facts_rejected")}, ensure_ascii=False))
+                                            "self_published_dropped", "proximity_dropped", "agent_facts_rejected")}, ensure_ascii=False))
     return 0
 
 
@@ -1486,11 +1547,18 @@ def main(argv=None):
     ap.add_argument("--yes", action="store_true", help="do not ask before TinySet spend")
     ap.add_argument("--print-spec", action="store_true", help="print parse + TinySet spec and exit (no API calls)")
     ap.add_argument("--rescore", metavar="RESULTS_JSON", help="re-apply the current proof and ranking rules to a saved results.json (no API calls)")
+    ap.add_argument("--refetch", action="store_true", help="with --rescore: re-fetch the verified links (Fetch only) and apply the funding-phrase rule")
     ap.add_argument("--today", help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
 
     if a.rescore:
-        return rescore(a.rescore, a.report_top)
+        tf = None
+        if a.refetch:
+            key = os.environ.get("TINYFISH_API_KEY", "")
+            if not key:
+                sys.exit("--refetch needs TINYFISH_API_KEY")
+            tf = TF(key)
+        return rescore(a.rescore, a.report_top, tf)
     if not a.description.strip():
         ap.error("a startup description is required")
     today = date.fromisoformat(a.today) if a.today else date.today()

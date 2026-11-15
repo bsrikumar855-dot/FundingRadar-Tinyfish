@@ -64,6 +64,20 @@ class Rule1Proximity(unittest.TestCase):
             d = fr.verify_deal(dict(self.cand), pg(text), T)
             self.assertEqual(d["status"], "verified", phrase)
 
+    def test_real_phrasings_from_demo1(self):
+        cases = [("Catalyst Fund", "The round attracted a diverse group of investors, including Catalyst Fund, Mercy Corps Ventures."),
+                 ("Triple Jump", "Pyramidia Ventures has raised $1.5 million from Dutch impact investor Triple Jump to expand."),
+                 ("Nucleus Capital", "Bindbridge has raised $3.8 million from Nucleus Capital and Speedinvest."),
+                 ("Yield Lab Latam", "A rodada foi liderada pelo The Yield Lab Latam, fundo global."),
+                 ("Astanor", "A rodada contou com a participação da Astanor, que agora se junta ao time de investidores."),
+                 ("Alpha", "Die Runde wurde angeführt von Alpha."), ("Alpha", "Une levée menée par Alpha.")]
+        for name, text in cases:
+            self.assertTrue(fr.near_funding(name, text), text)
+
+    def test_listicle_table_is_not_proof(self):
+        t = "| RoboCare | Tunisia | Precision-agriculture AI | Six-figure seed | 216 Capital | | AgriDex | Pan-African |"
+        self.assertFalse(fr.near_funding("216 Capital", t))
+
     def test_near_funding_window(self):
         self.assertTrue(fr.near_funding("Alpha Ventures", "The round led by Alpha Ventures closed."))
         self.assertFalse(fr.near_funding("Alpha Ventures", "led by Beta. " + "x" * 400 + " Alpha Ventures sponsors this page."))
@@ -109,6 +123,76 @@ class Rule2Similarity(unittest.TestCase):
                  deal("Ke1", what=what, country="Kenya", invs=["Africa Fund"])]
         r = fr.rank_investors(AGRI, deals, T)
         self.assertEqual(r[0]["investor"], "India Fund")
+
+
+class CountryFactor(unittest.TestCase):
+    def test_factor_applied_and_explained(self):
+        what = "crop disease detection app for smallholder farmers"
+        deals = [deal("In1", what=what, country="India", invs=["Home Fund"]),
+                 deal("Ke1", what=what, country="Kenya", invs=["Away Fund", "Home Fund"]),
+                 deal("Ke2", what=what, country="Kenya", invs=["Away Fund"])]
+        r = {x["investor"]: x for x in fr.rank_investors(AGRI, deals, T)}
+        h, a = r["Home Fund"], r["Away Fund"]
+        self.assertEqual(h["country_factor"], fr.COUNTRY_FACTOR)
+        self.assertTrue(h["has_target_country_deal"])
+        self.assertAlmostEqual(h["score"], round(h["base_score"] * 1.5, 4), places=3)
+        self.assertIn("x1.5 country factor", h["why"])
+        self.assertEqual(a["country_factor"], 1.0)
+        self.assertEqual(a["score"], a["base_score"])
+        self.assertIn("no verified deal in India", a["why"])
+
+    def test_factor_reorders(self):
+        what = "crop disease detection app for smallholder farmers"
+        deals = [deal("In1", what=what, country="India", invs=["Home Fund"]),
+                 deal("Ke1", what=what, country="Kenya", invs=["Away Fund"]),
+                 deal("Ke2", what=what, country="Kenya", invs=["Away Fund"], days=200)]
+        names = [x["investor"] for x in fr.rank_investors(AGRI, deals, T)]
+        self.assertEqual(names[0], "Home Fund")
+
+    def test_factor_in_output_row(self):
+        what = "crop disease detection app for smallholder farmers"
+        r = fr.rank_investors(AGRI, [deal("In1", what=what, country="India", invs=["Home Fund"])], T)[0]
+        r.update(cheque_size="unknown", stage_focus="unknown", reach_route="unknown")
+        row = fr.investor_row(r)
+        self.assertEqual((row["country_factor"], row["has_target_country_deal"]), (1.5, True))
+
+    def test_region_target(self):
+        p = fr.parse_description("grid-scale battery recycling startup, Europe")
+        what = "grid-scale battery recycling"
+        r = {x["investor"]: x for x in fr.rank_investors(p, [deal("De1", what=what, country="Germany", invs=["EU Fund"]),
+                                                             deal("Us1", what=what, country="USA", invs=["US Fund"])], T)}
+        self.assertEqual(r["EU Fund"]["country_factor"], 1.5)
+        self.assertEqual(r["US Fund"]["country_factor"], 1.0)
+
+
+class Refetch(unittest.TestCase):
+    class FakeTF:
+        def __init__(self, pages):
+            self.pages, self.calls = pages, []
+
+        def fetch(self, urls, fmt="markdown"):
+            self.calls.append((list(urls), fmt))
+            return {u: ({"text": self.pages[u]} if u in self.pages else {"error": "bot_blocked"}) for u in urls}
+
+    def test_refetch_applies_proximity_on_any_link(self):
+        a = deal("Krishi", invs=["Alpha Ventures", "Sidebar Fund"], lead=["Alpha Ventures"], url="https://n.example/a",
+                 extra_links=["https://n.example/a2"])
+        b = deal("Blocked", invs=["Beta"], url="https://n.example/blocked")
+        c = deal("Gone", invs=["Gamma"], url="https://n.example/c")
+        tf = self.FakeTF({"https://n.example/a": "Krishi raised a seed round led by Alpha Ventures. " + "x " * 300 + "Sidebar Fund newsletter",
+                          "https://n.example/a2": "Krishi news. " + "y " * 300 + "Sidebar Fund is hiring.",
+                          "https://n.example/c": "Gone launched. " + "z " * 300 + "Gamma sponsors this site."})
+        st = fr.refetch_proximity(tf, [a, b, c])
+        self.assertEqual(tf.calls[0][1], "markdown")
+        self.assertEqual(a["investors_verified"], ["Alpha Ventures"])
+        self.assertIn("led by Alpha Ventures", a["proof_snippets"]["Alpha Ventures"])
+        self.assertTrue(a["page_excerpt"].startswith("Krishi"))
+        self.assertEqual(b["investors_verified"], ["Beta"])                   # fetch failed: kept, marked unchecked
+        self.assertFalse(b["proximity_checked"])
+        self.assertEqual(c["status"], "dropped")
+        self.assertEqual(st["removed"], 2)
+        self.assertEqual(st["failed_companies"], ["Blocked"])
+        self.assertEqual(st["links"], 4)
 
 
 class Rule3AgentEntity(unittest.TestCase):
