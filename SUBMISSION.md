@@ -2,7 +2,7 @@
 
 Repo: https://github.com/bsrikumar855-dot/FundingRadar-Tinyfish
 
-> Status: demo 1 is done and rescored. **Demos 2 and 3 have not been run yet**; their sections below are placeholders.
+> Status: demos 1 and 2 are done. **Demo 3 has not been run yet**; its column below is a placeholder.
 
 ## What it does
 
@@ -92,26 +92,36 @@ All numbers are copied from each demo's `results.json`.
 |---|---|---|---|
 | Description | "AI crop-disease detection app for smallholder farmers, seed, India" | "AI assistant that drafts and reviews contracts for small law firms, seed/Series A, USA" | "grid-scale battery recycling startup, Europe" |
 | Flags | `--ts-rows 25 --agent-top 6` | `--ts-rows 25 --agent-top 6` | `--ts-rows 25 --agent-top 6` |
-| TinySet rows returned | 24 of 25 | not run yet | not run yet |
-| Candidates (TinySet + Search) | 40 (24 + 16) | not run yet | not run yet |
-| Verified companies, original run | 29 (35 links) | not run yet | not run yet |
-| Verified companies after the proof rules | **28** | not run yet | not run yet |
-| Dropped | 6 | not run yet | not run yet |
-| Matches removed: funding-phrase rule / self-published rule | 5 / 2 | not run yet | not run yet |
-| Deals counted toward scores (≥ 0.30) | 25 | not run yet | not run yet |
-| Investors ranked | 101 | not run yet | not run yet |
-| Agent runs (completed) | 6 (5) | not run yet | not run yet |
-| Main-list top 10 with ≥ 1 target-country deal | 8 | not run yet | not run yet |
-| Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | not run yet | not run yet |
-| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | not run yet | not run yet |
-| Main-list top 10 filled: lead partner | 1 | not run yet | not run yet |
-| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | not run yet | not run yet |
-| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | not measured | not measured |
+| TinySet rows returned | 24 of 25 | 25 of 25 | not run yet |
+| Candidates (TinySet + Search) | 40 (24 + 16) | 34 (25 + 9) | not run yet |
+| Verified companies, original run | 29 (35 links) | 27 (28 links) | not run yet |
+| Verified companies after the proof rules | **28** | **25** | not run yet |
+| Dropped | 6 | 8 | not run yet |
+| Matches removed: funding-phrase rule / self-published rule | 5 / 2 | 3 / 2 | not run yet |
+| Deals counted toward scores (≥ 0.30) | 25 | 24 | not run yet |
+| Investors ranked | 101 | 87 | not run yet |
+| Agent runs (completed) | 6 (5) | 6 (5) | not run yet |
+| Main-list top 10 with ≥ 1 target-country deal | 8 | 10 | not run yet |
+| Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | 0 | not run yet |
+| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | not run yet |
+| Main-list top 10 filled: lead partner | 1 | 6 | not run yet |
+| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | not run yet |
+| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | $24.92 → not measured yet | not measured |
 
 Demo 1 notes:
 - The original run used the earlier scoring. It was then rescored with the rules above, and its 35 verified links were re-fetched with Fetch only (no TinySet, no Agent) to apply the funding-phrase rule.
 - Only 1 verified India deal is at seed stage. The report says so and lists the other matches by country.
 - Of the 6 Agent runs: Unicorn India Ventures gave cheque size and an application form. Astanor gave a cheque size. Corteva gave an application form. PINC's facts were rejected (another company's domain). AgFunder's run completed but its site stated none of the fields. Catalyst Fund's run timed out.
+
+Demo 2 notes:
+- It ran end to end with the current code. Afterwards, three extraction bugs found in its output were fixed, and its saved results were rescored offline (no API calls). Ranking, reach routes and Agent fields were unchanged apart from these fixes:
+  - **Headline mis-parse:** "White & Case announces strategic investment in … Clauze.AI" was read as company "Case" backed by "White". Headlines can now contain "&", the "X invests in Y" shape is parsed with X as the investor, and a deal whose company is only the tail of an "Investor & Company" name is dropped. Result: the bogus "Case" deal was dropped and "White" left the ranking. Clauze.AI's own proof was White & Case's press release, so the self-published rule also drops it.
+  - **"&" in names:** "&" now joins a firm name only when both sides are single words (White & Case). Otherwise it separates a list (SIDBI & Exim Bank).
+  - **Fund-name fragments as people:** "Capital Partners" (from Flybridge Capital Partners) and "Private Capital" (from Intact Private Capital) were extracted as partners. Person names made of fund-suffix words or parts of the investor's name are now rejected.
+- Main-list top 10: all 10 have a US deal, and 6 have a named lead partner from a source page. Examples: Flybridge Capital Partners → Jesse Middleton (general partner), Scopus Ventures → Bahram Nour-Omid (managing partner).
+- Of the 6 Agent runs, 5 completed: Flex Capital ($500K–$2M, application form), Scopus Ventures ($500k–$1M), Flybridge Capital Partners ($1M–$3M), Moxxie Ventures ($500k–$2M), Amino Capital (stage only). Y Combinator's run timed out.
+- The reach ladder found 1 own-site route in the main-list top 10: Collide Capital's intake email (`investors@collidecap.com`). The other 9 fall back to a warm intro through a named portfolio company.
+- Y Combinator is typed `unknown`: its name has no fund keyword, and the type label is keywords only.
 
 ## Cost
 
@@ -122,7 +132,7 @@ Measured as the change in the wallet balance of the account that owns the API ke
 | Live check (`--ts-rows 15 --agent-top 4`) | not measured | not measured | not measured |
 | Demo 1 | $29.00 | $24.92 | **$4.08**. Anything that posted late from the live check would also fall inside this window |
 | Demo 1 re-fetches for rescoring and enrichment (Fetch + Search only, no TinySet, no Agent) | not measured | not measured | not measured (Fetch and Search are $0 on the current plan) |
-| Demo 2 | not measured | not measured | not measured |
+| Demo 2 | $24.92 | not measured yet | not measured yet |
 | Demo 3 | not measured | not measured | not measured |
 
 ## Limits

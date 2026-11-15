@@ -647,7 +647,12 @@ def search_queries(p, n=8):
 
 VERB = r"(raises|raised|secures|secured|bags|bagged|closes|closed|lands|landed|nabs|gets|got|picks up|snags|announces|attracts|grabs|receives)"
 AMT = r"((?:US)?\$|€|£|₹|Rs\.?|INR|USD|EUR|GBP)\s?\d[\d,.]*\s?(?:k|m|mn|bn|b|million|billion|crore|cr|lakh)?|\d[\d,.]*\s?(?:million|crore|cr|mn|m)\s?(?:dollars|euros|usd|eur|rupees)?"
-HEAD_RE = re.compile(r"(?P<co>[A-Z0-9][\w.&'\-]*(?:\s+[A-Z0-9][\w.&'\-]*){0,3})\s*(?:,[^,]{0,60},)?\s+" + VERB + r"\b(?P<rest>.*)", re.S)
+NAME_TOK = r"[A-Z0-9][\w.&'\-]*(?:\s+(?:&\s+)?[A-Z0-9][\w.&'\-]*){0,3}"      # 'White & Case', 'Smith & Co'
+HEAD_RE = re.compile(r"(?P<co>" + NAME_TOK + r")\s*(?:,[^,]{0,60},)?\s+" + VERB + r"\b(?P<rest>.*)", re.S)
+# 'White & Case announces strategic investment in Clauze.AI' / 'Accel invests in Krishi': the subject is the investor
+INVEST_IN_RE = re.compile(r"^(?P<inv>" + NAME_TOK + r")\s+(?:invests|has invested|announces (?:a |its )?(?:strategic |seed |new )?investment|"
+                          r"makes (?:a |its )?(?:strategic )?investment|backs|leads (?:\$[\d.]+\w* )?(?:seed |series [a-c] )?(?:round |investment )?)"
+                          r"\s+(?:in\s+)?(?:[\w\- ]{0,60}?(?:platform|startup|start-up|company|firm)\s+)?(?P<co>" + NAME_TOK + r")", re.S)
 LED_RE = re.compile(r"\b(?:led by|co-led by|from|backed by|with participation from|participation from|investors include|including)\s+(?P<inv>[^.;:\n|()]{3,200})", re.I)
 DROP_PREFIX = re.compile(r"^(exclusive|breaking|funding|update|news|report|watch|agritech|legaltech|climate|cleantech|startup|fintech|healthtech|edtech|saas)\b[:\s-]*", re.I)
 NOT_INVESTOR = re.compile(r"^(others?|existing investors?|angels?|angel investors?|undisclosed|a clutch|several|various|investors?|"
@@ -675,10 +680,16 @@ def plausible_name(x):
     return not low
 
 
+FIRM_AMP = re.compile(r"[A-Z][\w.'\-]*\s*&\s*(?:[A-Z][\w.'\-]*|Co\.?)")
+
+
 def split_investors(s):
     s = re.sub(r"\s+", " ", unescape(s or "")).strip(" ,.")
     s = CUT_RE.split(" " + s + " ", 1)[0].strip(" ,.")
-    parts = re.split(r",|;|\band\b|&(?![a-z])|\balong with\b|\bas well as\b|\bwith\b", s)
+    parts = []
+    for x in re.split(r",|;|\band\b|\balong with\b|\bas well as\b|\bwith\b", s):
+        # '&' between two single words is a firm name ('White & Case', 'Ernst & Young'); otherwise a list ('SIDBI & Exim Bank')
+        parts += [x] if FIRM_AMP.fullmatch(x.strip(" .-\"'")) else re.split(r"&", x)
     out = []
     for x in parts:
         x = re.sub(r"^(?:and|the|existing investors?|investors?|participation from|from|including)\s+", "", x.strip(" .-\"'"), flags=re.I).strip(" .")
@@ -723,6 +734,12 @@ def parse_headline(title, snippet=""):
     """'Fasal raises $12M Series A led by Peak XV' -> {company, amount, round_stage, investors}. None if no deal shape."""
     t = DROP_PREFIX.sub("", re.sub(r"\s+", " ", unescape(title or "")).strip())
     t = DROP_PREFIX.sub("", t)
+    iv = INVEST_IN_RE.search(t)
+    if iv and norm_name(iv.group("co")) not in ("startup", "it", "company", "ai"):
+        rest = t[iv.end():] + " " + (snippet or "")
+        am = re.search(AMT, rest, re.I)
+        return {"company": iv.group("co").strip(" ,'\"."), "amount": am.group(0).strip() if am else "", "round_stage": norm_stage(rest) or "",
+                "lead_investor": "", "other_investors": iv.group("inv").strip()}
     m = HEAD_RE.search(t)
     if not m:
         return None
@@ -835,6 +852,9 @@ def verify_deal(d, page, today):
     lead = list(dict.fromkeys(lead + [x for x in pl if norm_name(x) not in map(norm_name, lead)]))
     named = [i for i in lead + oth + pa if name_on_page(i, pt) and not name_on_page(i, " " + norm_name(d["company"]) + " ")]
     named = list(dict.fromkeys(named))
+    if company_is_name_fragment(d["company"], lead + oth + pa, text):
+        d.update(status="dropped", drop_reason="company name is part of an investor's firm name (headline mis-parse)")
+        return d
     near = [i for i in named if near_funding(i, text)]
     d["not_near_funding_phrase"] = [i for i in named if i not in near]
     named = near
@@ -941,6 +961,42 @@ def is_self_published(investor, url):
         if len(c) >= 4 and (c in label or (len(label) >= 4 and label in c)):
             return True
     return False
+
+
+def company_is_name_fragment(company, investors, text):
+    """True if the 'company' is only the tail of an 'Investor & Company' firm name on the page (headline mis-parse:
+    'White & Case announces investment in X' read as company 'Case', investor 'White')."""
+    ft = flat(text)
+    for inv in investors:
+        if inv and re.search(r"(?<![A-Za-z])" + re.escape(inv) + r"\s*&\s*" + re.escape(company) + r"(?![A-Za-z])", ft):
+            return True
+    return False
+
+
+def rejoin_ampersand(d):
+    """Repair names split at '&' by older runs: if 'X' and 'Y' are both listed and the saved page text shows 'X & Y',
+    replace them with 'X & Y'. Returns the joined names."""
+    text = flat(" ".join([d.get("page_excerpt") or ""] + [v for v in (d.get("proof_snippets") or {}).values() if v]))
+    invs = list(d.get("investors_verified") or [])
+    joined = []
+    for x in list(invs):
+        for y in list(invs):
+            if x == y or x not in invs or y not in invs or not FIRM_AMP.fullmatch(f"{x} & {y}"):
+                continue
+            if re.search(r"(?<![A-Za-z])" + re.escape(x) + r"\s*&\s*" + re.escape(y) + r"(?![A-Za-z])", text):
+                full = f"{x} & {y}"
+                invs[invs.index(x)] = full
+                invs.remove(y)
+                for k in ("lead_verified", "self_published_dropped"):
+                    if d.get(k):
+                        lst = [full if v == x else v for v in d[k] if v != y]
+                        d[k] = list(dict.fromkeys(lst))
+                if d.get("proof_snippets"):
+                    d["proof_snippets"][full] = d["proof_snippets"].pop(x, None) or d["proof_snippets"].pop(y, None)
+                    d["proof_snippets"].pop(y, None)
+                joined.append(full)
+    d["investors_verified"] = invs
+    return joined
 
 
 def apply_self_published(deals):
@@ -1447,6 +1503,16 @@ PARTNER_PATTERNS = [
 SENT_SPLIT = re.compile(r"(?<=[.!?])\s+(?=[A-Z\"“])")
 
 
+def plausible_person(person, inv, company=""):
+    """Reject names that are really fragments of the fund or company name ('Capital Partners', 'Private Capital')."""
+    pw = norm_name(person).split()
+    if not pw or norm_name(person) in (norm_name(inv), norm_name(company)) or name_on_page(person, " " + core_name(inv) + " "):
+        return False
+    if any(re.fullmatch(INV_SUFFIX, w) for w in pw):
+        return False
+    return not set(pw) <= set(norm_name(inv).split() + norm_name(company).split())
+
+
 def partner_mentions(text, investors, url, company=""):
     """People named as partner / principal / founder / managing director AT one of `investors` on the page.
     -> [{investor, name, role, sentence, url}]. Deterministic regex, never guessed; a role at the startup is ignored."""
@@ -1466,7 +1532,7 @@ def partner_mentions(text, investors, url, company=""):
                 for inv in investors:
                     ci = core_name(inv)
                     if len(ci) >= 3 and (f" {ci} " in f" {no} " or (len(no) >= 4 and f" {no} " in f" {norm_name(inv)} ")):
-                        if norm_name(person) in (norm_name(inv), norm_name(company)) or name_on_page(person, " " + ci + " "):
+                        if not plausible_person(person, inv, company):
                             continue
                         k = (inv, person)
                         if k not in seen:
@@ -1976,6 +2042,14 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
     if rf:
         meta["refetch"] = {k: rf[k] for k in ("links", "fetched", "failed_companies", "removed")}
         meta["refetch"]["removed_list"] = [f"{i} on {c}" for c, i in rf["removed_list"]]
+    for d in deals:
+        if d.get("status") == "verified":
+            txt = " ".join([d.get("page_excerpt") or ""] + [v for v in (d.get("proof_snippets") or {}).values() if v])
+            if company_is_name_fragment(d["company"], d.get("investors_verified", []), txt):
+                d.update(status="dropped", drop_reason="company name is part of an investor's firm name (headline mis-parse)")
+    joined = {d["company"]: j for d in deals if d.get("status") == "verified" for j in [rejoin_ampersand(d)] if j}
+    if joined:
+        meta["names_rejoined_at_ampersand"] = joined
     apply_self_published(deals)
     n_self = sum(len(d.get("self_published_dropped") or []) for d in deals)
     demoted = {d["company"]: confirm_leads(d) for d in deals if d.get("status") == "verified"}
@@ -1989,7 +2063,10 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
                  reach_url="", agent_partners=[], site="", agent_note="not enriched (below --agent-top in the original run)")
         if o and not o.get("agent_note", "").startswith("not enriched"):
             r.update(cheque_size=o["cheque_size"], cheque_size_url=o.get("cheque_size_source", ""), stage_focus=o["stage_focus"],
-                     stage_focus_url=o.get("stage_focus_source", ""), reach_route=o["reach_route"], reach_url=o.get("reach_url", ""),
+                     stage_focus_url=o.get("stage_focus_source", ""),
+                     # the Agent's own reach reading; in newer files 'reach_route' holds the ladder result instead
+                     reach_route=o.get("reach_route_agent", o.get("reach_route", "unknown")),
+                     reach_url=o.get("reach_url_agent", o.get("reach_url", "")),
                      agent_partners=o.get("agent_partners", []), site=o.get("investor_site", ""), agent_note=o.get("agent_note", ""))
             rj = check_agent_entity(r)
             if rj:
@@ -2002,14 +2079,33 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
                 verified_companies_after_rules=sum(d["status"] == "verified" for d in deals),
                 dropped=sum(d["status"] == "dropped" for d in deals), investors_ranked=len(ranked),
                 self_published_dropped=n_self,
-                proximity_dropped=rf["removed"] if rf else (prev or {}).get("removed", meta.get("proximity_dropped", 0)),
+                proximity_dropped=(rf["removed"] if rf else prev["removed"] if prev else
+                                   sum(len(d.get("not_near_funding_phrase") or []) for d in deals)),
                 counted_deals=sum(1 for d in deals if d.get("counted")), agent_facts_rejected=rejected)
+    saved_pp = {}
     if not tf:
-        for d in deals:   # offline: partners from the saved excerpt and proof snippets only
-            if d.get("status") == "verified" and not d.get("partner_mentions"):
+        for d in deals:   # offline: partners from the saved excerpt and proof snippets only, re-filtered with current rules
+            if d.get("status") != "verified":
+                continue
+            if not d.get("partner_mentions"):
                 txt = " ".join([d.get("page_excerpt") or ""] + [v for v in (d.get("proof_snippets") or {}).values() if v])
                 d["partner_mentions"] = partner_mentions(txt, d.get("investors_verified", []), d["source_url"], d["company"])
+            d["partner_mentions"] = [x for x in d["partner_mentions"] if plausible_person(x["name"], x["investor"], d["company"])]
+        # keep what earlier live runs found (reach ladder, own domain, search-pass partners): offline mode cannot redo them
+        for r in ranked:
+            o = old.get(r["key"]) or {}
+            if o.get("reach"):
+                for k in ("reach", "warm_intro", "own_domain", "own_domain_evidence", "js_only_site", "partner_pass"):
+                    if k in o:
+                        r[k] = o[k]
+            lp = o.get("lead_partner")
+            if isinstance(lp, list):
+                saved_pp[r["key"]] = [x for x in lp if x.get("via") == "search pass"
+                                      and plausible_person(x["name"], x.get("investor", r["investor"]), x.get("company", ""))]
     enrich_free(tf, ranked, deals, reach_top if tf else 0)
+    for r in ranked:
+        if saved_pp.get(r["key"]) and not isinstance(r.get("lead_partner"), list):
+            r["lead_partner"] = saved_pp[r["key"]]
     meta["stats_rescore"] = dict(tf.stats) if tf else {}
     out_dir = os.path.dirname(path) or "."
     write_outputs(out_dir, p, deals, ranked, meta, top, funds_only, all_in_one)
@@ -2234,6 +2330,7 @@ def main(argv=None):
             "verified_companies": len(merged), "verified_links": ver_raw,
             "dropped": sum(c["status"] == "dropped" for c in deals), "investors_ranked": len(ranked),
             "self_published_dropped": n_self, "verified_companies_after_rules": sum(c["status"] == "verified" for c in deals),
+            "proximity_dropped": sum(len(c.get("not_near_funding_phrase") or []) for c in deals),
             "counted_deals": sum(1 for c in deals if c.get("counted")),
             "tinyset_rows": len(ts_rows), "tinyset_note": ts_note,
             "tinyset_cost_est": round(rows_n * TS_COST_PER_ROW, 2) if tf.stats["tinyset_datasets"] else 0.0,

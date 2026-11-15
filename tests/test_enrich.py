@@ -59,6 +59,13 @@ class Partners(unittest.TestCase):
         got = fr.partner_mentions(t, ["Astanor"], "https://agfundernews.com/bioscout", "BioScout")
         self.assertEqual([(x["name"], x["role"]) for x in got], [("Harry Biggs", "partner")])
 
+    def test_fund_name_fragment_is_not_a_person(self):
+        t = ("Covenant raised $4M led by Flybridge Capital Partners. Flybridge Capital Partners, general partner Jesse Middleton said. "
+             "\"Great team,\" said Jesse Middleton, General Partner at Flybridge Capital Partners.")
+        names = [x["name"] for x in fr.partner_mentions(t, ["Flybridge Capital Partners"], "u", "Covenant")]
+        self.assertIn("Jesse Middleton", names)
+        self.assertNotIn("Capital Partners", names)
+
     def test_none_is_unknown(self):
         r = {"key": fr.inv_key("Alpha Ventures"), "investor": "Alpha Ventures",
              "backed": [{"name": "X", "amount": "", "round": "", "link": "u", "similarity": 0.5, "date": D(5)}]}
@@ -242,6 +249,92 @@ class OwnSitePaths(unittest.TestCase):
         pages = {"https://f.example/portfolio": {"final_url": "https://f.example/portfolio",
                                                  "html": "<h1>Portfolio</h1><p>Founders: pitch us at deals@f.example</p>"}}
         self.assertEqual(fr.classify_reach(pages, "f.example")["url"], "mailto:deals@f.example")
+
+
+class OfflineRescoreKeepsLiveEnrichment(unittest.TestCase):
+    def test_keeps_reach_and_search_partners_and_drops_fragments(self):
+        import contextlib, io
+        tmp = tempfile.mkdtemp()
+        try:
+            p = fr.parse_description("AI assistant that drafts and reviews contracts for small law firms, seed/Series A, USA")
+            deal = {"company": "Covenant", "what_it_does": "AI contract review for law firms", "hq_country": "USA", "round_stage": "Seed",
+                    "date": D(30), "status": "verified", "counted": True, "source_url": "https://n.example/cov", "amount": "$4M",
+                    "investors_verified": ["Flybridge Capital Partners", "Collide Capital"], "lead_verified": ["Flybridge Capital Partners"],
+                    "partner_mentions": [{"investor": "Flybridge Capital Partners", "name": "Capital Partners", "role": "general partner",
+                                          "sentence": "s", "url": "https://n.example/cov"},
+                                         {"investor": "Flybridge Capital Partners", "name": "Jesse Middleton", "role": "general partner",
+                                          "sentence": "s", "url": "https://n.example/cov"}]}
+            reach = {"route": "open intake (email)", "url": "mailto:investors@collidecap.com", "source_url": "https://collidecap.com/contact"}
+            jd = {"input": {k: p[k] for k in ("description", "keywords", "sectors", "stages", "country", "region")},
+                  "meta": {"run_date": T.isoformat(), "window_start": D(548), "candidates": 1, "tinyset_rows": 1, "tinyset_note": "",
+                           "tinyset_cost_est": 0, "stats": {k: 0 for k in ("tinyset_datasets", "search", "fetch_urls", "fetch_calls",
+                                                                           "agent_runs", "agent_completed", "agent_403")}},
+                  "investors": [{"investor": "Flybridge Capital Partners", "agent_note": "completed", "cheque_size": "$1M to $3M",
+                                 "cheque_size_source": "https://www.flybridge.com/faq", "stage_focus": "unknown",
+                                 "reach_route": "warm intro via founder", "reach_url": "https://n.example/cov",           # ladder result
+                                 "reach_route_agent": "application form", "reach_url_agent": "https://www.flybridge.com/apply",
+                                 "reach": {"route": "warm intro via founder", "url": "https://n.example/cov", "company": "Covenant"}},
+                                {"investor": "Collide Capital", "reach": reach, "own_domain": "collidecap.com", "agent_note": "not enriched",
+                                 "cheque_size": "unknown", "stage_focus": "unknown", "reach_route": "open intake (email)",
+                                 "lead_partner": [{"investor": "Collide Capital", "name": "Aaron Samuels", "role": "founder", "sentence": "s",
+                                                   "url": "https://x.example/a", "company": "Covenant", "via": "search pass"}]}],
+                  "deals": [deal]}
+            path = os.path.join(tmp, "results.json")
+            with open(path, "w", encoding="utf-8") as f:
+                json.dump(jd, f)
+            with contextlib.redirect_stdout(io.StringIO()):
+                fr.rescore(path)
+            with open(path, encoding="utf-8") as f:
+                out = {i["investor"]: i for i in json.load(f)["investors"]}
+            self.assertEqual(out["Collide Capital"]["reach_url"], "mailto:investors@collidecap.com")
+            self.assertEqual(out["Collide Capital"]["own_domain"], "collidecap.com")
+            self.assertEqual([x["name"] for x in out["Collide Capital"]["lead_partner"]], ["Aaron Samuels"])
+            fb = out["Flybridge Capital Partners"]
+            self.assertEqual([x["name"] for x in fb["lead_partner"]], ["Jesse Middleton"])
+            self.assertEqual((fb["reach_route_agent"], fb["reach_url_agent"]), ("application form", "https://www.flybridge.com/apply"))
+            self.assertEqual(fb["reach_route"], "warm intro via founder")
+            self.assertEqual(fb["cheque_size"], "$1M to $3M")
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
+class Ampersand(unittest.TestCase):
+    def test_not_split(self):
+        self.assertEqual(fr.split_investors("White & Case, Accel and Sequoia"), ["White & Case", "Accel", "Sequoia"])
+        self.assertEqual(fr.split_investors("Rainmatter, SIDBI & Exim Bank"), ["Rainmatter", "SIDBI", "Exim Bank"])
+
+    def test_list_ampersand_not_rejoined(self):
+        d = {"investors_verified": ["Rainmatter", "SIDBI", "Exim Bank"],
+             "page_excerpt": "ScaNxt gets Zerodha's Rainmatter, SIDBI & Exim Bank's support"}
+        self.assertEqual(fr.rejoin_ampersand(d), [])
+        self.assertEqual(d["investors_verified"], ["Rainmatter", "SIDBI", "Exim Bank"])
+
+    def test_rejoin_saved(self):
+        d = {"investors_verified": ["White", "Case", "Accel"], "lead_verified": ["White"],
+             "page_excerpt": "Clauze raised a seed round led by White & Case with participation from Accel."}
+        self.assertEqual(fr.rejoin_ampersand(d), ["White & Case"])
+        self.assertEqual(d["investors_verified"], ["White & Case", "Accel"])
+        self.assertEqual(d["lead_verified"], ["White & Case"])
+
+    def test_invest_in_headline(self):
+        h = fr.parse_headline("White & Case announces strategic investment in Saudi AI contract review platform Clauze.AI")
+        self.assertEqual((h["company"], h["other_investors"]), ("Clauze.AI", "White & Case"))
+        h = fr.parse_headline("Accel invests in Krishi AI")
+        self.assertEqual((h["company"], h["other_investors"]), ("Krishi AI", "Accel"))
+        h = fr.parse_headline("Krishi AI raises $3M seed round led by Alpha Ventures")      # normal shape unchanged
+        self.assertEqual(h["company"], "Krishi AI")
+
+    def test_company_fragment_dropped(self):
+        cand = {"company": "Case", "lead_investor": "", "other_investors": "White", "announced_date": D(10), "source_url": "https://n.example/w"}
+        page = {"url": "https://n.example/w", "final_url": "https://n.example/w",
+                "text": f"{D(10)} White & Case has invested in AI contract review start-up Clauze.AI. The investment from White & Case reflects."}
+        d = fr.verify_deal(cand, page, T)
+        self.assertEqual(d["status"], "dropped")
+        self.assertIn("headline mis-parse", d["drop_reason"])
+
+    def test_no_rejoin_without_text(self):
+        d = {"investors_verified": ["White", "Case"], "page_excerpt": "White led it. Case joined."}
+        self.assertEqual(fr.rejoin_ampersand(d), [])
 
 
 class ServeRequests(unittest.TestCase):

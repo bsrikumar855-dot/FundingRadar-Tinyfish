@@ -79,27 +79,13 @@
    ]
   },
   "rescored": true,
-  "rescore_note": "re-ranked with the current rules; verified links re-fetched with Fetch (no TinySet, no Agent)",
+  "rescore_note": "re-ranked offline with the current rules; no API calls; funding-phrase rule applied in an earlier re-fetch",
   "verified_companies_after_rules": 28,
   "self_published_dropped": 2,
   "proximity_dropped": 5,
   "counted_deals": 25,
-  "agent_facts_rejected": {
-   "PINC": [
-    "cheque_size (pauliggroup.com)",
-    "stage_focus (pauliggroup.com)"
-   ]
-  },
-  "stats_rescore": {
-   "fetch_urls": 216,
-   "fetch_calls": 47,
-   "search": 72,
-   "agent_runs": 0,
-   "agent_completed": 0,
-   "agent_403": 0,
-   "tinyset_datasets": 0,
-   "tinyset_rows": 0
-  }
+  "agent_facts_rejected": {},
+  "stats_rescore": {}
  },
  "investors": [
   {
