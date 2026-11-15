@@ -123,6 +123,19 @@ Demo 2 notes:
 - The reach ladder found 1 own-site route in the main-list top 10: Collide Capital's intake email (`investors@collidecap.com`). The other 9 fall back to a warm intro through a named portfolio company.
 - Y Combinator is typed `unknown`: its name has no fund keyword, and the type label is keywords only.
 
+Demo 3 notes (reported as produced; nothing rescored or edited by hand):
+- The target is a region (Europe), so the country factor applies to any European deal. All 10 of the main-list top 10 have one. Verified deals by country: Germany 8, USA 4, unknown 3, Finland 2, Netherlands 2, Sweden 2, Switzerland 2, UK 2, and 1 each for Australia, Belgium, Estonia, India, Italy, Luxembourg and Singapore.
+- Only 17 of 32 verified deals cleared the 0.30 similarity threshold. Search brought in climate deals that are not battery recycling (Mondra, Brineworks, VARM, Furo), and they don't count toward any investor.
+- All 6 Agent runs completed. Cheque sizes came back for 2C Ventures (€250K–1M), EIT Urban Mobility (up to €2.5M), Rise PropTech (€500K–3M), Volve Capital (€150K–500K) and Turbine Capital (€0.3–1.0M).
+- **Headline mis-parses and name artifacts seen in this run (not fixed):**
+  - Company "Düsseldorf-based Co-reactive": the location prefix wasn't stripped (the "ü" is outside the `[a-z]` pattern). The deal was dropped anyway (bot-blocked page), and Co-reactive is also verified under its correct name.
+  - "Redwood" and "Redwood Materials" are counted as two companies: two headlines named the same company differently.
+  - Investor names carrying descriptors: "Nvidia’s NVentures" (next to "NVentures"), "Google-backed CapitalG".
+  - Investor "CEO Timo Siukkola" (main list #7): a quoted executive picked up with his title. "Dr Norman Röchert", "Priit Viru", "Basant Sharma" and "Sheryl Sandberg" are people. Some may be genuine angels, but none are funds.
+  - Investor "Group" (PeakAmp): a fragment of a longer name.
+  - Government bodies typed `corporate` because their names contain "energy": Department of Energy, Swedish Energy Agency, Clean Energy Finance Corporation. Others ("NRW", "North Holland", "German Federal Ministry") are `unknown`. There is no government type.
+- **Reach false positive:** EIT Urban Mobility's "application form" is `…/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/`, a 2022 master's-programme page, not a pitch form. The pitch wording plus the `/apply` path matched. The two genuine own-site routes in the main-list top 10 are Turbine Capital's intake email and Voima Ventures' pitch page (`voimaventures.com/submit-deeptech-pitch/`).
+
 ## Cost
 
 Measured as the change in the wallet balance of the account that owns the API key, read by the user before and after each run.
