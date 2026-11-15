@@ -196,6 +196,8 @@ class Headlines(unittest.TestCase):
         for junk in ("000 farmers", "May 28", "2026", "German startup ecosystem straight to your inbox"):
             self.assertEqual(fr.split_investors(junk), [], junk)
         self.assertEqual(fr.split_investors("Technical University of Denmark"), ["Technical University of Denmark"])
+        self.assertEqual(fr.split_investors("216 Capital, 54Co and 8VC"), ["216 Capital", "54Co", "8VC"])
+        self.assertEqual(fr.split_investors("000 farmers"), [])
 
     def test_company_key(self):
         self.assertEqual(fr.company_key("GROWiT India"), fr.company_key("GROWiT"))

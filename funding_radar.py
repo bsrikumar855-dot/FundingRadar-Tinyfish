@@ -626,7 +626,9 @@ NAME_CONNECT = {"of", "de", "da", "do", "du", "la", "le", "for", "and", "&", "vo
 
 def plausible_name(x):
     """An investor name: starts with a capital letter, 1-6 words, mostly capitalised, no digits-first / dates / sentences."""
-    if not (2 < len(x) <= 60) or NOT_INVESTOR.match(x) or MONTH_START.match(x) or not re.match(r"[A-Z]", x):
+    if not (2 < len(x) <= 60) or MONTH_START.match(x) or not re.match(r"[A-Z]|\d+[A-Za-z]|\d+ [A-Z]", x) or re.match(r"\d+ (?:[A-Z][a-z]+ )?(?:farmers|users|customers|people|jobs)\b", x):
+        return False
+    if NOT_INVESTOR.match(x) and not re.match(r"\d+[A-Za-z]|\d+ [A-Z]", x):
         return False
     w = x.split()
     if len(w) > 6:
