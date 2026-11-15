@@ -1096,7 +1096,7 @@ def investor_row(r):
             "score_parts": r["parts"], "sources": list(dict.fromkeys(src))}
 
 
-def write_outputs(out_dir, p, deals, ranked, meta):
+def write_outputs(out_dir, p, deals, ranked, meta, top=15):
     os.makedirs(out_dir, exist_ok=True)
     rows = [investor_row(r) for r in ranked]
     ver = [d for d in deals if d["status"] == "verified"]
@@ -1110,12 +1110,12 @@ def write_outputs(out_dir, p, deals, ranked, meta):
     with open(os.path.join(out_dir, "results.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
         w.writerow(CSV_COLS)
-        for r in rows:
+        for r in rows[:top]:
             w.writerow([r["rank"], r["investor"], r["score"], r["why"],
                         " | ".join(f"{x['name']} ({x['round'] or '?'}, {x['date']}, {x['amount'] or 'undisclosed'}) {x['link']}" for x in r["backed_companies"]),
                         r["cheque_size"], r["stage_focus"], r["lead_partner"], r["reach_route"], r["reach_url"], " ".join(r["sources"])])
     with open(os.path.join(out_dir, "report.md"), "w", encoding="utf-8") as f:
-        f.write(report_md(p, deals, rows, meta))
+        f.write(report_md(p, deals, rows, meta, top))
     return rows
 
 
@@ -1123,18 +1123,19 @@ def md(s):
     return str(s or "").replace("|", "/").replace("\n", " ")
 
 
-def report_md(p, deals, rows, meta):
+def report_md(p, deals, rows, meta, top=15):
     ver = [d for d in deals if d["status"] == "verified"]
     drop = [d for d in deals if d["status"] == "dropped"]
     L = [f"# Funding Radar: {md(p['description'])}", "",
          f"Run {meta['run_date']} | sectors: {', '.join(p['sectors']) or '-'} | stage: {', '.join(p['stages']) or 'any'} | "
          f"country: {p['country'] or '-'} | region: {p['region'] or '-'}", "",
          f"**{len(ver)} verified similar companies** (from {meta['candidates']} candidates; {len(drop)} dropped), "
-         f"**{len(rows)} investors ranked**. Window: rounds announced since {meta['window_start']}.", ""]
+         f"**{len(rows)} investors ranked**. Window: rounds announced since {meta['window_start']}.", "",
+         f"Showing the top {min(top, len(rows))}; the full ranked list is in results.json.", ""]
     if len(ver) < 10:
         L += [f"> Note: fewer than 10 verified similar companies were found for this description ({len(ver)}). Not padded.", ""]
     L += ["## Investors to approach", "", "| # | Investor | Score | Backed (verified link) | Cheque | Stage focus | Lead partner | Reach |", "|---|---|---|---|---|---|---|---|"]
-    for r in rows:
+    for r in rows[:top]:
         backed = "<br>".join(f"[{md(x['name'])}]({x['link']}) {md(x['round'])} {x['date']}{' (led)' if x['led'] else ''}" for x in r["backed_companies"])
         cs = f"[{md(r['cheque_size'])}]({r['cheque_size_source']})" if r["cheque_size_source"] else md(r["cheque_size"])
         sf = f"[{md(r['stage_focus'])}]({r['stage_focus_source']})" if r["stage_focus_source"] else md(r["stage_focus"])
@@ -1142,7 +1143,7 @@ def report_md(p, deals, rows, meta):
         lp = md(re.sub(r", source: \S+\)", ")", r["lead_partner"]))
         L.append(f"| {r['rank']} | **{md(r['investor'])}** | {r['score']:.2f} | {backed} | {cs} | {sf} | {lp} | {reach} |")
     L += ["", "## Why each investor is ranked where it is", ""]
-    for r in rows:
+    for r in rows[:top]:
         L.append(f"{r['rank']}. **{md(r['investor'])}**: {md(r['why'])}")
     L += ["", "## Verified similar companies", "", "| Company | Round | Amount | Date | Investors named on page | Similarity | Proof |", "|---|---|---|---|---|---|---|"]
     for d in sorted(ver, key=lambda d: -d.get("similarity", 0)):
@@ -1180,6 +1181,7 @@ def main(argv=None):
     ap.add_argument("--agent-top", type=int, default=8, help="Agent runs on the top N investors' own sites (0 = off)")
     ap.add_argument("--agent-concurrency", type=int, default=2)
     ap.add_argument("--agent-secs", type=int, default=240)
+    ap.add_argument("--report-top", type=int, default=15, help="investors shown in report.md and results.csv (JSON keeps all)")
     ap.add_argument("--out", default="out", help="output root; results go to <out>/<slug>/")
     ap.add_argument("--slug", help="output folder name (default from description)")
     ap.add_argument("--state", default="state", help="state root (TinySet dataset id + rows, so re-runs never re-buy)")
@@ -1257,7 +1259,7 @@ def main(argv=None):
             "tinyset_cost_est": round(rows_n * TS_COST_PER_ROW, 2) if tf.stats["tinyset_datasets"] else 0.0,
             "stats": dict(tf.stats), "seconds": round(time.time() - t0, 1)}
     out_dir = os.path.join(a.out, slug)
-    write_outputs(out_dir, p, deals, ranked, meta)
+    write_outputs(out_dir, p, deals, ranked, meta, a.report_top)
     say(f"done in {meta['seconds']}s -> {out_dir}/results.json, results.csv, report.md")
     print(json.dumps({k: meta[k] for k in ("tinyset_rows", "candidates", "verified_companies", "verified_links", "dropped", "investors_ranked", "tinyset_cost_est")} | {"stats": meta["stats"]}))
     return 0

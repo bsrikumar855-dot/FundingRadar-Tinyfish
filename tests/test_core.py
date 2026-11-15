@@ -350,6 +350,22 @@ class EndToEnd(unittest.TestCase):
             fr.main(self.args + ["--no-search", "--agent-top", "0"])
         self.assertEqual(len(mock.LOG["dataset_specs"]), n)
 
+    def test_report_top_cap(self):
+        import csv
+        p = fr.parse_description(AGRI)
+        ranked = [{"investor": f"Fund {i}", "rank": i, "score": 1.0 / i, "why": "w", "parts": {}, "backed": [], "lead_n": 0} for i in range(1, 21)]
+        out = os.path.join(self.tmp, "cap")
+        meta = dict(self.res["meta"])
+        fr.write_outputs(out, p, [], ranked, meta, top=15)
+        with open(os.path.join(out, "results.csv"), encoding="utf-8") as f:
+            self.assertEqual(len(list(csv.reader(f))) - 1, 15)
+        with open(os.path.join(out, "results.json"), encoding="utf-8") as f:
+            self.assertEqual(len(json.load(f)["investors"]), 20)
+        with open(os.path.join(out, "report.md"), encoding="utf-8") as f:
+            rep = f.read()
+        self.assertIn("Fund 15**", rep)
+        self.assertNotIn("Fund 16**", rep)
+
     def test_csv_columns(self):
         import csv
         rows = list(csv.reader(open(os.path.join(self.tmp, "out", "agri", "results.csv"), encoding="utf-8")))
