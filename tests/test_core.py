@@ -106,10 +106,10 @@ class Similarity(unittest.TestCase):
 
     def test_parts_and_range(self):
         s, parts, hit, ds, c = fr.similarity(self.p, self.deal(), T)
-        self.assertAlmostEqual(s, sum(parts.values()), places=3)
+        self.assertAlmostEqual(s, sum(parts[k] for k in ("what", "sector", "stage", "country", "recency")), places=3)
         self.assertTrue(0 < s <= 1)
-        self.assertEqual(parts["stage"], fr.W_STAGE)
-        self.assertEqual(parts["country"], fr.W_COUNTRY)
+        self.assertEqual(parts["stage"], fr.W["stage"])
+        self.assertEqual(parts["country"], fr.W["country"])
         self.assertIn("crop", hit)
 
     def test_ordering(self):
@@ -145,7 +145,7 @@ class Verify(unittest.TestCase):
 
     def test_dropped_no_investor(self):
         d = fr.verify_deal(self.cand(), pg(f"{D(5)} Krishi AI launches an app."), T)
-        self.assertEqual(d["drop_reason"], "no investor name on source page")
+        self.assertEqual(d["drop_reason"], "no investor named near a funding phrase on source page")
 
     def test_dropped_old_page_even_if_claim_recent(self):
         d = fr.verify_deal(self.cand(announced_date=D(10)), pg("Published 2023-01-05. Krishi AI raised from Alpha Ventures."), T)
@@ -228,7 +228,8 @@ class Ranking(unittest.TestCase):
         names = [x["investor"] for x in r]
         self.assertEqual(names[0], "Alpha Ventures")
         self.assertNotIn("Zed", names)               # dropped deals never count
-        self.assertLess(names.index("Beta"), names.index("Gamma"))
+        self.assertIn("Beta", names)
+        self.assertNotIn("Gamma", names)              # payments deal: below MIN_SIM, does not count
         alpha = r[0]
         self.assertEqual(alpha["lead_n"], 1)
         self.assertGreater(alpha["parts"]["lead"], 0)
@@ -304,7 +305,7 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(st["FarmEye"][0], "verified")
         self.assertEqual(st["SoilSense"][0], "verified")                   # added by Search, not in TinySet
         self.assertIn("older than 18 months", st["OldFarm"][1])
-        self.assertEqual(st["NoInv Agro"][1], "no investor name on source page")
+        self.assertEqual(st["NoInv Agro"][1], "no investor named near a funding phrase on source page")
         self.assertIn("not fetched", st["Ghost Farms"][1])
         self.assertEqual(self.res["meta"]["verified_companies"], 3)
 

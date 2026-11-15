@@ -367,6 +367,44 @@ COUNTRIES = {  # canonical -> (aliases, region)
     "Brazil": ("brazil brazilian sao-paulo", "Latin America"),
     "Mexico": ("mexico mexican", "Latin America"),
     "Australia": ("australia australian sydney melbourne", "Oceania"),
+    "New Zealand": ("new-zealand auckland", "Oceania"),
+    "Bangladesh": ("bangladesh bangladeshi dhaka", "Asia"),
+    "Pakistan": ("pakistan pakistani karachi lahore", "Asia"),
+    "Sri Lanka": ("sri-lanka colombo", "Asia"),
+    "Nepal": ("nepal nepali kathmandu", "Asia"),
+    "Vietnam": ("vietnam vietnamese hanoi", "Asia"),
+    "Thailand": ("thailand thai bangkok", "Asia"),
+    "Philippines": ("philippines filipino manila", "Asia"),
+    "Malaysia": ("malaysia malaysian kuala-lumpur", "Asia"),
+    "South Korea": ("korea korean seoul south-korea", "Asia"),
+    "Taiwan": ("taiwan taiwanese taipei", "Asia"),
+    "Saudi Arabia": ("saudi saudi-arabia riyadh", "Middle East"),
+    "Egypt": ("egypt egyptian cairo", "Africa"),
+    "Morocco": ("morocco moroccan casablanca", "Africa"),
+    "Tunisia": ("tunisia tunisian tunis", "Africa"),
+    "Ghana": ("ghana ghanaian accra", "Africa"),
+    "Tanzania": ("tanzania tanzanian dar-es-salaam", "Africa"),
+    "Uganda": ("uganda ugandan kampala", "Africa"),
+    "Rwanda": ("rwanda rwandan kigali", "Africa"),
+    "Ethiopia": ("ethiopia ethiopian addis-ababa", "Africa"),
+    "Mali": ("mali malian bamako", "Africa"),
+    "Senegal": ("senegal senegalese dakar", "Africa"),
+    "Ivory Coast": ("ivory-coast ivorian abidjan", "Africa"),
+    "Zambia": ("zambia zambian lusaka", "Africa"),
+    "Zimbabwe": ("zimbabwe zimbabwean harare", "Africa"),
+    "Chile": ("chile chilean santiago", "Latin America"),
+    "Argentina": ("argentina argentine argentinian buenos-aires", "Latin America"),
+    "Colombia": ("colombia colombian bogota", "Latin America"),
+    "Peru": ("peru peruvian lima", "Latin America"),
+    "Luxembourg": ("luxembourg", "Europe"),
+    "Czechia": ("czech czechia prague", "Europe"),
+    "Greece": ("greece greek athens", "Europe"),
+    "Turkey": ("turkish istanbul turkiye", "Europe"),
+    "Hungary": ("hungary hungarian budapest", "Europe"),
+    "Romania": ("romania romanian bucharest", "Europe"),
+    "Lithuania": ("lithuania lithuanian vilnius", "Europe"),
+    "Latvia": ("latvia latvian riga", "Europe"),
+    "Iceland": ("iceland icelandic reykjavik", "Europe"),
 }
 REGIONS = {"europe": "Europe", "european": "Europe", "eu": "Europe", "asia": "Asia", "africa": "Africa",
            "latam": "Latin America", "latin-america": "Latin America", "north-america": "North America",
@@ -767,10 +805,13 @@ def verify_deal(d, page, today):
     lead = list(dict.fromkeys(lead + [x for x in pl if norm_name(x) not in map(norm_name, lead)]))
     named = [i for i in lead + oth + pa if name_on_page(i, pt) and not name_on_page(i, " " + norm_name(d["company"]) + " ")]
     named = list(dict.fromkeys(named))
+    near = [i for i in named if near_funding(i, text)]
+    d["not_near_funding_phrase"] = [i for i in named if i not in near]
+    named = near
     # 'High' next to 'High-Tech Gruenderfonds', 'MOV' next to 'MOV Investimentos': keep the full name only
     named = [x for x in named if not (len(x.split()) == 1 and any(y != x and re.match(re.escape(x) + r"[\s\-]", y) for y in named))]
     if not named:
-        d.update(status="dropped", drop_reason="no investor name on source page")
+        d.update(status="dropped", drop_reason="no investor named near a funding phrase on source page")
         return d
     pdate, basis = page_date(page, today)
     claimed = parse_any(d.get("announced_date"), today)
@@ -800,8 +841,82 @@ def verify_deal(d, page, today):
             if core_name(inv) and (core_name(inv) in norm_name(fund) or norm_name(fund) in norm_name(inv)):
                 partners.append({"investor": inv, "partner": pn})
     d["partners"] = partners
+    d["page_excerpt"] = excerpt(text, d["company"])
     d.update(status="verified", drop_reason="", final_url=page.get("final_url") or url)
     return d
+
+
+FUND_PHRASE = re.compile(r"\b(?:co-)?led by|\bbacked by|\binvestors? include|\binvestors? including|\bparticipation (?:from|of)|"
+                         r"\bround led|\bfunded by|\binvestment from|\binvested|\bparticipated|\bfrom investors|\bsupported by|"
+                         r"\bleads? (?:the|a|its)\b|\bco-?investors?\b|\bjoined by|\balongside\b|"
+                         r"\b(?:raised|raises|raising|secured|secures|bags|bagged|closed|closes|received|receives|gets|got)\b[^.]{0,120}?\bfrom\b", re.I)
+NEAR_CHARS = 200
+
+
+def flat(text):
+    t = re.sub(r"\]\([^)]*\)", "]", text or "")
+    t = re.sub(r"(?s)<[^>]+>|[*_\[\]#>`]", " ", t)
+    return re.sub(r"\s+", " ", unescape(t))
+
+
+def near_funding(name, text, chars=NEAR_CHARS):
+    """True if some mention of `name` sits within `chars` characters of a funding phrase ('led by', 'backed by', ...)."""
+    ft = flat(text)
+    for n in dict.fromkeys([name, re.sub(INV_SUFFIX, "", name, flags=re.I).strip()]):
+        if len(n) < 2:
+            continue
+        for m in re.finditer(r"(?<![A-Za-z0-9])" + re.escape(n) + r"(?![A-Za-z0-9])", ft, re.I):
+            if FUND_PHRASE.search(ft[max(0, m.start() - chars):m.end() + chars]):
+                return True
+    return False
+
+
+def excerpt(text, company, n=1500):
+    """Page text around the first mention of the company (for keyword overlap and offline rescoring)."""
+    ft = flat(text)
+    m = re.search(re.escape(company), ft, re.I)
+    a = max(0, (m.start() if m else 0) - 300)
+    return ft[a:a + n]
+
+
+def compact(s):
+    return re.sub(r"[^a-z0-9]", "", norm_name(s))
+
+
+def is_self_published(investor, url):
+    """True if the link is on the investor's own domain (agfundernews.com for AgFunder, calculuscapital.com for Calculus Capital)."""
+    label = re.sub(r"[^a-z0-9]", "", host_of(url).split(".")[0])
+    full, core = compact(investor), compact(core_name(investor))
+    if not label:
+        return False
+    for c in {full, core}:
+        if len(c) >= 4 and (c in label or (len(label) >= 4 and label in c)):
+            return True
+    return False
+
+
+def apply_self_published(deals):
+    """Rule: a page on the investor's own domain is not proof. Drop that investor from the deal unless another
+    verified link for the same company is third-party. Returns the number of investor-company matches dropped."""
+    n = 0
+    for d in deals:
+        if d.get("status") != "verified":
+            continue
+        links = [d["source_url"]] + list(d.get("extra_links") or [])
+        keep, gone = [], []
+        for inv in d.get("investors_verified", []):
+            if all(is_self_published(inv, u) for u in links):
+                gone.append(inv)
+            else:
+                keep.append(inv)
+        if gone:
+            n += len(gone)
+            d["self_published_dropped"] = gone
+            d["investors_verified"] = keep
+            d["lead_verified"] = [x for x in d.get("lead_verified", []) if x in keep]
+        if not keep:
+            d.update(status="dropped", drop_reason="only self-published proof (investor's own site)")
+    return n
 
 
 def dedupe(deals):
@@ -847,61 +962,106 @@ def merge_verified(deals):
 
 
 # ----------------------------------------------------------------------------- 5. rank (plain code)
-W_SECTOR, W_STAGE, W_COUNTRY, W_RECENCY = 0.45, 0.20, 0.20, 0.15
-LEAD_BONUS = 0.5   # a led deal counts 1.5x
+W = {"what": 0.40, "sector": 0.05, "stage": 0.10, "country": 0.35, "recency": 0.10}
+REGION_SHARE = 0.3      # same region, other country: 30% of the country weight
+SECTOR_ONLY = 0.25      # a deal that matches only the broad sector (no what-it-does keyword) keeps 25% of its score
+MIN_SIM = 0.30          # deals below this do not count toward any investor
+LEAD_BONUS = 0.5        # a led deal counts 1.5x
+WHAT_FULL = 3.0         # matched keyword weight that counts as a full what-it-does match
+SOFT = set("ai ml app apps detection platform tool software assistant data analytics digital smart".split())
+
+
+def stem(w):
+    w = re.sub(r"(?<=[a-z]{4})s$", "", w)
+    return w[:5] if len(w) > 5 else w
+
+
+def what_terms(p):
+    """Deterministic what-it-does terms from the description: keywords minus sector labels and compounds.
+    Generic tech words (ai, app, detection, ...) weigh 0.5, specific words 1.0."""
+    labels = {w for s_ in p["sectors"] for w in s_.split()}
+    out = {}
+    for k in p["keywords"]:
+        if "-" in k or k in labels:
+            continue
+        out[k] = 0.5 if k in SOFT else 1.0
+    return out
 
 
 def similarity(p, d, today):
-    """Weighted keyword overlap + stage + country + recency, each part kept for the 'why' text. Range 0..1."""
-    dt = set(tokens(" ".join(str(d.get(k, "")) for k in ("company", "what_it_does", "round_stage"))))
-    dt |= {re.sub(r"(?<=[a-z]{4})s$", "", w) for w in dt}
+    """what-it-does keyword overlap (description vs deal text + page excerpt) + sector + stage + country + recency.
+    Returns (total, parts, what_hits, stage, country). parts are kept in results.json and drive the 'why' text."""
+    text = " ".join(str(d.get(k, "")) for k in ("company", "what_it_does", "page_excerpt"))
+    dt = set(tokens(text))
+    ds_ = {stem(w) for w in dt}
+    terms = what_terms(p)
+    hits = [k for k in terms if stem(k) in ds_]
+    wsum = sum(terms[k] for k in hits)
+    what = min(1.0, wsum / min(WHAT_FULL, sum(terms.values()) or 1.0))
+    labels = set()
     for label, trig in SECTORS.items():
         if set(trig.split()) & dt:
-            dt |= set(label.split())
-    w = p["weights"]
-    hit = [k for k in w if k in dt]
-    total = sum(sorted(w.values(), reverse=True)[:6]) or 1.0
-    sector = min(1.0, sum(w[k] for k in hit) / total)
-    ds = norm_stage(d.get("round_stage"))
-    if not p["stages"] or not ds:
+            labels.add(label)
+    sector = 1.0 if set(p["sectors"]) & labels else 0.0
+    dstage = norm_stage(d.get("round_stage"))
+    if not p["stages"] or not dstage:
         stage = 0.5 if not p["stages"] else 0.0
-    elif ds in p["stages"]:
+    elif dstage in p["stages"]:
         stage = 1.0
     else:
-        gap = min(abs(STAGE_ORDER.index(ds) - STAGE_ORDER.index(s)) for s in p["stages"])
+        gap = min(abs(STAGE_ORDER.index(dstage) - STAGE_ORDER.index(x)) for x in p["stages"])
         stage = 0.5 if gap == 1 else 0.0
-    c, reg = find_country(str(d.get("hq_country") or "") or d.get("what_it_does", ""))
-    if p["country"] and c == p["country"]:
-        country = 1.0
-    elif p["region"] and reg == p["region"]:
-        country = 0.5 if p["country"] else 1.0
+    c, reg = deal_country(d)
+    if p["country"]:
+        country = 1.0 if c == p["country"] else (REGION_SHARE if reg and reg == p["region"] else 0.0)
+    elif p["region"]:
+        country = 1.0 if reg == p["region"] else 0.0
     else:
-        country = 0.0
+        country = 0.5
     dd = parse_any(d.get("date") or d.get("announced_date"), today)
     rec = max(0.0, 1 - (today - dd).days / WINDOW_DAYS) if dd else 0.0
-    parts = {"sector": round(W_SECTOR * sector, 4), "stage": round(W_STAGE * stage, 4),
-             "country": round(W_COUNTRY * country, 4), "recency": round(W_RECENCY * rec, 4)}
-    return round(sum(parts.values()), 4), parts, hit, ds, c
+    parts = {"what": W["what"] * what, "sector": W["sector"] * sector, "stage": W["stage"] * stage,
+             "country": W["country"] * country, "recency": W["recency"] * rec}
+    total = sum(parts.values())
+    sector_only = wsum < 1.0           # no specific what-it-does word (at most one generic word) matched
+    if sector_only:
+        total *= SECTOR_ONLY
+    parts = {k: round(v, 4) for k, v in parts.items()}
+    parts["sector_only_penalty"] = sector_only
+    parts["what_hits"] = hits
+    return round(total, 4), parts, hits, dstage, c
+
+
+def deal_country(d):
+    """(country, region) of a deal: hq_country first, else the deal text / page excerpt."""
+    c, reg = find_country(str(d.get("hq_country") or ""))
+    if not c and not reg:
+        c, reg = find_country(" ".join(str(d.get(k, "")) for k in ("what_it_does", "page_excerpt"))[:1500])
+    return c, reg
 
 
 def inv_key(name):
     return core_name(name)
 
 
-def rank_investors(p, deals, today):
-    """Investor score = sum of similarities of the verified deals they backed (+50% for deals they led)."""
+def rank_investors(p, deals, today, min_sim=MIN_SIM):
+    """Investor score = sum of similarities of the verified deals they backed that clear min_sim (+50% if they led)."""
     inv = {}
     for d in deals:
         if d["status"] != "verified":
             continue
-        sim, parts, hit, ds, c = similarity(p, d, today)
-        d.update(similarity=sim, sim_parts=parts, keyword_hits=hit, stage_norm=ds or "", country_norm=c or "")
+        sim, parts, hit, dstage, c = similarity(p, d, today)
+        d.update(similarity=sim, sim_parts=parts, keyword_hits=hit, stage_norm=dstage or "", country_norm=c or deal_country(d)[1] or "",
+                 counted=sim >= min_sim)
+        if sim < min_sim:
+            continue
         leads = {inv_key(x) for x in d.get("lead_verified", [])}
         for name in d.get("investors_verified", []):
             k = inv_key(name)
             if not k:
                 continue
-            e = inv.setdefault(k, {"names": [], "deals": [], "score": 0.0, "lead_n": 0, "parts": {"sector": 0, "stage": 0, "country": 0, "recency": 0, "lead": 0}})
+            e = inv.setdefault(k, {"names": [], "deals": [], "score": 0.0, "lead_n": 0,
+                                   "parts": {"what": 0, "sector": 0, "stage": 0, "country": 0, "recency": 0, "lead": 0}})
             if any(x["name"] == d["company"] for x in e["deals"]):
                 continue
             e["names"].append(name)
@@ -909,19 +1069,20 @@ def rank_investors(p, deals, today):
             bonus = LEAD_BONUS * sim if led else 0.0
             e["score"] += sim + bonus
             e["lead_n"] += led
-            for pk, pv in parts.items():
-                e["parts"][pk] += pv
+            scale = SECTOR_ONLY if parts["sector_only_penalty"] else 1.0
+            for pk in ("what", "sector", "stage", "country", "recency"):
+                e["parts"][pk] += parts[pk] * scale
             e["parts"]["lead"] += bonus
             partner = next((x["partner"] for x in d.get("partners", []) if inv_key(x["investor"]) == k), "")
             e["deals"].append({"name": d["company"], "round": d.get("round_stage") or "", "date": d.get("date", ""),
                                "amount": d.get("amount") or "", "link": d["source_url"], "led": led, "similarity": sim,
-                               "partner": partner})
+                               "country": c or "", "region": deal_country(d)[1] or "", "partner": partner})
     out = []
     for k, e in inv.items():
         disp = max(e["names"], key=lambda n: (e["names"].count(n), len(n)))
-        e["deals"].sort(key=lambda x: (-x["similarity"], x["date"]), reverse=False)
+        e["deals"].sort(key=lambda x: (-x["similarity"], x["date"]))
         out.append({"investor": disp, "key": k, "score": round(e["score"], 4), "lead_n": e["lead_n"],
-                    "parts": {a: round(b, 4) for a, b in e["parts"].items()}, "backed": e["deals"]})
+                    "parts": {a_: round(b_, 4) for a_, b_ in e["parts"].items()}, "backed": e["deals"]})
     out.sort(key=lambda x: (-x["score"], -x["lead_n"], -len(x["backed"]), x["investor"].lower()))
     for i, r in enumerate(out, 1):
         r["rank"] = i
@@ -943,17 +1104,16 @@ def why_text(p, r, deals):
         for k in by.get(x["name"], {}).get("keyword_hits", []):
             if k not in kws:
                 kws.append(k)
-    if kws:
-        bits.append("sector overlap on " + ", ".join(f"'{k}'" for k in kws[:4]))
-    else:
-        bits.append("weak sector overlap")
+    bits.append(("what-it-does overlap on " + ", ".join(f"'{k}'" for k in kws[:5])) if kws else "sector match only (no what-it-does keyword)")
     if p["stages"]:
         m = sum(1 for x in b if norm_stage(x["round"]) in p["stages"])
         bits.append(f"{m}/{n} at your stage ({'/'.join(p['stages'])})")
     want = p["country"] or p["region"]
     if want:
-        m = sum(1 for x in b if (by.get(x["name"], {}).get("sim_parts") or {}).get("country", 0) > 0)
-        bits.append(f"{m}/{n} in {want}")
+        isin = lambda x: want in (x.get("country"), x.get("region"))
+        m = sum(1 for x in b if isin(x))
+        others = sorted({x.get("country") or x.get("region") or "unknown" for x in b if not isin(x)})
+        bits.append(f"{m}/{n} in {want}" + (f" (others: {', '.join(others)})" if others else ""))
     dates = sorted(x["date"] for x in b if x["date"])
     if dates:
         bits.append(f"latest deal {dates[-1]}")
@@ -1031,6 +1191,55 @@ def parse_agent(res, site):
     return out
 
 
+def fact_domain(u):
+    u = (u or "").strip()
+    if u.lower().startswith("mailto:"):
+        return reg_domain(u.split("@")[-1])
+    return host_of(u)
+
+
+def domain_matches(investor, url):
+    """The fact's page is on a domain that clearly carries the investor's name: astanor.com for Astanor,
+    unicornivc.com for Unicorn India Ventures. Short names (< 5 letters, e.g. PINC) never pass on the domain alone."""
+    label = re.sub(r"[^a-z0-9]", "", fact_domain(url).split(".")[0])
+    if not label:
+        return False
+    core, full = compact(core_name(investor)), compact(investor)
+    first = (core_name(investor).split() or [""])[0]
+    for c in (core, full):
+        if len(c) >= 5 and c in label:
+            return True
+    return len(first) >= 5 and label.startswith(first)
+
+
+AGENT_FACTS = (("cheque_size", "cheque_size_url"), ("stage_focus", "stage_focus_url"), ("reach_route", "reach_url"))
+
+
+def check_agent_entity(r, page_texts=None):
+    """Rule: keep an Agent fact only if its page's domain clearly matches the investor, or the page mentions one of the
+    investor's verified portfolio companies (from a fetched page text, or the Agent's own portfolio findings on that domain).
+    Failing facts become 'unknown'. Returns the list of rejected fact names."""
+    companies = [x["name"] for x in r.get("backed", [])]
+    rejected = []
+    for fact, uk in AGENT_FACTS:
+        u = r.get(uk) or ""
+        if not u or r.get(fact) in ("unknown", "", None):
+            continue
+        if domain_matches(r["investor"], u):
+            continue
+        txt = (page_texts or {}).get(u)
+        if txt and any(name_on_page(c, plain(txt)) for c in companies):
+            continue
+        if any(ap.get("company") and name_on_page(ap["company"], " " + " ".join(norm_name(c) for c in companies) + " ")
+               and fact_domain(ap.get("url")) == fact_domain(u) for ap in r.get("agent_partners", [])):
+            continue
+        rejected.append(f"{fact} ({fact_domain(u)})")
+        r[fact], r[uk] = "unknown", ""
+    if rejected:
+        r["agent_note"] = (r.get("agent_note") or "") + " | rejected, page not tied to this investor: " + ", ".join(rejected)
+    return rejected
+
+
 def enrich_investors(tf, ranked, top, concurrency=2, secs=240):
     """Agent runs on the top investors' own sites. Failure -> fields stay 'unknown' with a note, never a guess."""
     todo = ranked[:max(0, top)]
@@ -1050,6 +1259,9 @@ def enrich_investors(tf, ranked, top, concurrency=2, secs=240):
         r["agent_note"] = note
         if res is not None:
             r.update(parse_agent(res, site))
+            need = [r[uk] for f, uk in AGENT_FACTS if r.get(uk, "").startswith("http") and not domain_matches(r["investor"], r[uk])]
+            texts = {u: (x.get("text") or "") for u, x in tf.fetch(need, "markdown").items() if "error" not in x} if need else {}
+            check_agent_entity(r, texts)
         return r
     if not todo:
         return
@@ -1092,7 +1304,7 @@ def investor_row(r):
             "cheque_size": r.get("cheque_size", "unknown"), "cheque_size_source": r.get("cheque_size_url", ""),
             "stage_focus": r.get("stage_focus", "unknown"), "stage_focus_source": r.get("stage_focus_url", ""),
             "lead_partner": lead_partner_of(r), "reach_route": r.get("reach_route", "unknown"), "reach_url": r.get("reach_url", ""),
-            "investor_site": r.get("site", ""), "agent_note": r.get("agent_note", ""),
+            "investor_site": r.get("site", ""), "agent_note": r.get("agent_note", ""), "agent_partners": r.get("agent_partners", []),
             "score_parts": r["parts"], "sources": list(dict.fromkeys(src))}
 
 
@@ -1102,7 +1314,8 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15):
     ver = [d for d in deals if d["status"] == "verified"]
     keep = ("company", "what_it_does", "round_stage", "amount", "date", "announced_date", "date_basis", "lead_investor", "other_investors",
             "investors_verified", "lead_verified", "partners", "hq_country", "source_url", "final_url", "extra_links", "origin", "status",
-            "drop_reason", "similarity", "sim_parts", "keyword_hits", "query")
+            "drop_reason", "similarity", "sim_parts", "keyword_hits", "counted", "country_norm", "self_published_dropped",
+            "not_near_funding_phrase", "page_excerpt", "query")
     jd = {"input": {k: p[k] for k in ("description", "keywords", "sectors", "stages", "country", "region")}, "meta": meta,
           "investors": rows, "deals": [{k: d[k] for k in keep if k in d} for d in deals]}
     with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as f:
@@ -1119,6 +1332,30 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15):
     return rows
 
 
+def country_note(p, ver, few=5):
+    """'Verified deals by country' line, plus a plain warning when few deals match the user's country and stage."""
+    cnt = {}
+    for d in ver:
+        c, reg = deal_country(d)
+        k = c or reg or "unknown"
+        cnt[k] = cnt.get(k, 0) + 1
+    order = sorted(cnt.items(), key=lambda kv: (-kv[1], kv[0]))
+    out = ["Verified deals by country: " + ", ".join(f"{k} {v}" for k, v in order) + ".", ""]
+    want = p["country"] or p["region"]
+    if want:
+        home = [d for d in ver if want in deal_country(d)]
+        at_stage = [d for d in home if not p["stages"] or norm_stage(d.get("round_stage")) in p["stages"]]
+        if len(at_stage) < few:
+            stage = "/".join(p["stages"]) if p["stages"] else ""
+            others = ", ".join(f"{k} ({v})" for k, v in order if k != want)
+            if stage and len(home) > len(at_stage):
+                others = f"{want} at other stages ({len(home) - len(at_stage)})" + (", " + others if others else "")
+            others = others or "none"
+            out += [f"> Few verified {want} {stage + ' ' if stage else ''}deals ({len(at_stage)}); remaining matches are from {others}. "
+                    "Not padded: these are the nearest verified matches.", ""]
+    return out
+
+
 def md(s):
     return str(s or "").replace("|", "/").replace("\n", " ")
 
@@ -1132,6 +1369,7 @@ def report_md(p, deals, rows, meta, top=15):
          f"**{len(ver)} verified similar companies** (from {meta['candidates']} candidates; {len(drop)} dropped), "
          f"**{len(rows)} investors ranked**. Window: rounds announced since {meta['window_start']}.", "",
          f"Showing the top {min(top, len(rows))}; the full ranked list is in results.json.", ""]
+    L += country_note(p, ver)
     if len(ver) < 10:
         L += [f"> Note: fewer than 10 verified similar companies were found for this description ({len(ver)}). Not padded.", ""]
     L += ["## Investors to approach", "", "| # | Investor | Score | Backed (verified link) | Cheque | Stage focus | Lead partner | Reach |", "|---|---|---|---|---|---|---|---|"]
@@ -1145,10 +1383,20 @@ def report_md(p, deals, rows, meta, top=15):
     L += ["", "## Why each investor is ranked where it is", ""]
     for r in rows[:top]:
         L.append(f"{r['rank']}. **{md(r['investor'])}**: {md(r['why'])}")
-    L += ["", "## Verified similar companies", "", "| Company | Round | Amount | Date | Investors named on page | Similarity | Proof |", "|---|---|---|---|---|---|---|"]
+    L += ["", "## Verified similar companies", "", f"Deals below similarity {MIN_SIM:.2f} are listed but do not count toward any investor.", "",
+          "| Company | Country | Round | Amount | Date | Investors named near a funding phrase | Similarity (what / sector / stage / country / recency) | Counts | Proof |",
+          "|---|---|---|---|---|---|---|---|---|"]
     for d in sorted(ver, key=lambda d: -d.get("similarity", 0)):
-        L.append(f"| {md(d['company'])} | {md(d.get('round_stage'))} | {md(d.get('amount')) or 'undisclosed'} | {d.get('date')} | "
-                 f"{md(', '.join(d.get('investors_verified', [])))} | {d.get('similarity', 0):.2f} | [link]({d['source_url']}) |")
+        sp = d.get("sim_parts") or {}
+        parts = " / ".join(f"{sp.get(k, 0):.2f}" for k in ("what", "sector", "stage", "country", "recency"))
+        parts += " x0.25 sector-only" if sp.get("sector_only_penalty") else ""
+        c, reg = deal_country(d)
+        L.append(f"| {md(d['company'])} | {c or reg or '?'} | {md(d.get('round_stage'))} | {md(d.get('amount')) or 'undisclosed'} | {d.get('date')} | "
+                 f"{md(', '.join(d.get('investors_verified', [])))} | {d.get('similarity', 0):.2f} ({parts}) | {'yes' if d.get('counted') else 'no'} | [link]({d['source_url']}) |")
+    sp_ = [(d["company"], x) for d in deals for x in d.get("self_published_dropped") or []]
+    if sp_:
+        L += ["", f"## Investor matches removed: proof only on the investor's own site ({len(sp_)})", ""]
+        L += [f"- {md(x)} on {md(c)}" for c, x in sp_]
     L += ["", f"## Dropped candidates ({len(drop)})", "", "| Company | Origin | Reason | Link |", "|---|---|---|---|"]
     for d in drop:
         L.append(f"| {md(d.get('company'))} | {d.get('origin')} | {md(d.get('drop_reason'))} | {d.get('source_url') or ''} |")
@@ -1158,16 +1406,66 @@ def report_md(p, deals, rows, meta, top=15):
           f"- Search: {s['search']} queries", f"- Fetch: {s['fetch_urls']} URLs in {s['fetch_calls']} calls",
           f"- Agent: {s['agent_runs']} runs, {s['agent_completed']} completed, {s['agent_403']} x 403",
           f"- Estimated TinySet cost: ${meta['tinyset_cost_est']:.2f} (Fetch/Search free; Agent metered, see wallet)", "",
-          "Scores are computed by plain code: similarity = 0.45 sector-keyword overlap + 0.20 stage + 0.20 country + 0.15 recency; "
-          "investor score = sum of similarities of the verified deals they backed, +50% for a deal they led. "
+          "Scores are computed by plain code: similarity = 0.40 what-it-does keyword overlap (description vs deal text and source page) "
+          "+ 0.05 broad sector + 0.10 stage + 0.35 country (same region 30% of that) + 0.10 recency; a deal matching no specific "
+          f"what-it-does keyword keeps 25% of its score; deals below {MIN_SIM:.2f} do not count. Investor score = sum of similarities "
+          "of the counted verified deals they backed, +50% for a deal they led. "
           "Facts marked unknown were not stated on a page we could open."]
     return "\n".join(L) + "\n"
 
 
 # ----------------------------------------------------------------------------- main
+def rescore(path, top=15):
+    """Offline: reload a results.json, re-apply rule 1 (self-published proof), the current similarity / threshold,
+    and rule 3 (agent facts tied to the investor), then rewrite results.json / .csv / report.md in place.
+    The funding-phrase proximity rule needs page text; it is applied only to deals that carry a saved page_excerpt."""
+    with open(path, encoding="utf-8") as f:
+        jd = json.load(f)
+    inp, meta = jd["input"], jd["meta"]
+    today = date.fromisoformat(meta["run_date"])
+    p = parse_description(inp["description"])
+    p.update({k: inp[k] for k in ("sectors", "stages", "country", "region")})
+    for w in p["sectors"]:
+        for t in w.split():
+            p["weights"][t] = max(p["weights"].get(t, 0), 2.0)
+    deals = jd["deals"]
+    prox = 0
+    for d in deals:
+        if d.get("status") == "verified" and d.get("page_excerpt"):
+            keep = [i for i in d.get("investors_verified", []) if near_funding(i, d["page_excerpt"])]
+            prox += len(d["investors_verified"]) - len(keep)
+            d["investors_verified"], d["lead_verified"] = keep, [x for x in d.get("lead_verified", []) if x in keep]
+            if not keep:
+                d.update(status="dropped", drop_reason="no investor named near a funding phrase on source page")
+    n_self = apply_self_published(deals)
+    ranked = rank_investors(p, deals, today)
+    old = {inv_key(i["investor"]): i for i in jd["investors"]}
+    rejected = {}
+    for r in ranked:
+        o = old.get(r["key"])
+        r.update(cheque_size="unknown", cheque_size_url="", stage_focus="unknown", stage_focus_url="", reach_route="unknown",
+                 reach_url="", agent_partners=[], site="", agent_note="not enriched (below --agent-top in the original run)")
+        if o and not o.get("agent_note", "").startswith("not enriched"):
+            r.update(cheque_size=o["cheque_size"], cheque_size_url=o.get("cheque_size_source", ""), stage_focus=o["stage_focus"],
+                     stage_focus_url=o.get("stage_focus_source", ""), reach_route=o["reach_route"], reach_url=o.get("reach_url", ""),
+                     agent_partners=o.get("agent_partners", []), site=o.get("investor_site", ""), agent_note=o.get("agent_note", ""))
+            rj = check_agent_entity(r)
+            if rj:
+                rejected[r["investor"]] = rj
+    meta.update(rescored=True, rescore_note="re-ranked offline with the current rules; no API calls",
+                verified_companies_after_rules=sum(d["status"] == "verified" for d in deals),
+                dropped=sum(d["status"] == "dropped" for d in deals), investors_ranked=len(ranked),
+                self_published_dropped=n_self, proximity_dropped_offline=prox,
+                counted_deals=sum(1 for d in deals if d.get("counted")), agent_facts_rejected=rejected)
+    write_outputs(os.path.dirname(path) or ".", p, deals, ranked, meta, top)
+    print(json.dumps({k: meta[k] for k in ("verified_companies_after_rules", "counted_deals", "dropped", "investors_ranked",
+                                            "self_published_dropped", "proximity_dropped_offline", "agent_facts_rejected")}, ensure_ascii=False))
+    return 0
+
+
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Funding Radar: ranked investors for a startup, every match backed by a live link.")
-    ap.add_argument("description", help='e.g. "AI crop-disease detection app for smallholder farmers, seed, India"')
+    ap.add_argument("description", nargs="?", default="", help='e.g. "AI crop-disease detection app for smallholder farmers, seed, India"')
     ap.add_argument("--stage", help="override stage, e.g. seed or 'seed/Series A'")
     ap.add_argument("--country", help="override country or region, e.g. India, USA, Europe")
     ap.add_argument("--sector", help="override sector label(s), comma separated")
@@ -1187,9 +1485,14 @@ def main(argv=None):
     ap.add_argument("--state", default="state", help="state root (TinySet dataset id + rows, so re-runs never re-buy)")
     ap.add_argument("--yes", action="store_true", help="do not ask before TinySet spend")
     ap.add_argument("--print-spec", action="store_true", help="print parse + TinySet spec and exit (no API calls)")
+    ap.add_argument("--rescore", metavar="RESULTS_JSON", help="re-apply the current proof and ranking rules to a saved results.json (no API calls)")
     ap.add_argument("--today", help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
 
+    if a.rescore:
+        return rescore(a.rescore, a.report_top)
+    if not a.description.strip():
+        ap.error("a startup description is required")
     today = date.fromisoformat(a.today) if a.today else date.today()
     p = parse_description(a.description, a.stage, a.country, a.sector)
     slug = a.slug or slugify(a.description)
@@ -1243,6 +1546,7 @@ def main(argv=None):
     for c in cands:
         if c["status"] == "verified" and id(c) not in mk:
             c.update(status="duplicate", drop_reason="same company verified from another link")
+    n_self = apply_self_published(merged)
     deals = cands
     ranked = rank_investors(p, deals, today)
     say(f"verified {len(merged)} companies ({ver_raw} links), dropped {sum(c['status'] == 'dropped' for c in deals)}, investors ranked {len(ranked)}")
@@ -1255,6 +1559,8 @@ def main(argv=None):
             "candidates": len(cands), "from_tinyset": n_ts, "from_search": len(cands) - n_ts,
             "verified_companies": len(merged), "verified_links": ver_raw,
             "dropped": sum(c["status"] == "dropped" for c in deals), "investors_ranked": len(ranked),
+            "self_published_dropped": n_self, "verified_companies_after_rules": sum(c["status"] == "verified" for c in deals),
+            "counted_deals": sum(1 for c in deals if c.get("counted")),
             "tinyset_rows": len(ts_rows), "tinyset_note": ts_note,
             "tinyset_cost_est": round(rows_n * TS_COST_PER_ROW, 2) if tf.stats["tinyset_datasets"] else 0.0,
             "stats": dict(tf.stats), "seconds": round(time.time() - t0, 1)}
