@@ -32,6 +32,29 @@ Output goes to `results.json` (full ranked list plus every candidate deal with v
 4. **Agent facts must belong to the right entity.** A fact's page must sit on a domain that clearly carries the investor's name (5+ letters), or the page must mention one of the investor's verified portfolio companies. Otherwise the fact is `unknown`. Example: PINC's facts came from pauliggroup.com and were rejected.
 5. **No padding.** If fewer than 10 companies verify, the report says so. When few deals match the target country and stage, the report says that too, with a count of deals by country.
 
+## Per-investor fields (plain code over opened pages, no LLM, never guessed)
+
+| Field | How it is filled | Demo 1 top 10 filled |
+|---|---|---|
+| Investor type | Name and domain keywords: fund / corporate / bank / foundation / farmer-company / unknown. `--funds-only` hides the rest in report/CSV | 7 known, 3 unknown |
+| Observed round sizes and stages | Labelled "round sizes of deals it joined (observed)". Median announced round size **per currency** (never converted) across its counted deals, plus the set of stages, with deal links. This is the whole round, not its own cheque | 7 (3 have only undisclosed amounts) |
+| Lead partner | A person named on a verified source page as partner / principal / founder / managing director **at that investor**, with role, sentence and URL | 0. Found for 6 other investors (e.g. Corteva → Tom Greene, Astanor → Harry Biggs) |
+| Reach route | Ladder, each step with its source URL: (a) pitch form / apply page, (b) intake email, (c) "no unsolicited pitches", all on the investor's own domain; else (d) warm intro via the founder of its most similar backed company. The domain is accepted only if a page on it names the investor **and** one of its verified portfolio companies | 10. Only 2 from the investor's own site (Unicorn India Ventures and Catalyst Fund application forms); 8 are warm intros |
+| Cheque size / stage focus (site) | Agent on the investor's own site (demo 1's original run only), entity-checked | Unicorn India Ventures only |
+
+The entity check matters in practice. For example, Search returned `exim.com.my` (Malaysia's Exim Bank) for India's Exim Bank, and `pinc.co.in` for PINC. Both were rejected because no page on them named a backed company.
+
+The reach ladder and partner extraction for demo 1 used **Fetch 153 URLs + Search 45 queries, 0 TinySet, 0 Agent**.
+
+## Ranking order on equal scores
+
+The lead bonus is **already inside the score**: a deal the investor led counts 1.5× its similarity (`LEAD_BONUS = 0.5`). Scores are compared at 4 decimals. On an exact tie the order is:
+
+1. led any counted deal first
+2. more counted deals
+3. most recent deal date
+4. investor name A–Z
+
 ## Scoring weights and thresholds
 
 **These were tuned on demo 1 only (Indian agritech). They are frozen from now on except for bug fixes.** Demos 2 and 3 run with exactly these values.
@@ -76,7 +99,11 @@ All numbers are copied from each demo's `results.json`.
 | Deals counted toward scores (≥ 0.30) | 25 | not run yet | not run yet |
 | Investors ranked | 101 | not run yet | not run yet |
 | Agent runs (completed) | 6 (5) | not run yet | not run yet |
-| Top 10 with ≥ 1 target-country deal | 9 | not run yet | not run yet |
+| Top 10 with ≥ 1 target-country deal | 8 | not run yet | not run yet |
+| Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | not run yet | not run yet |
+| Top 10 filled: type / observed size / observed stages | 7 / 7 / 7 | not run yet | not run yet |
+| Top 10 filled: lead partner | 0 (6 investors elsewhere in the list have one) | not run yet | not run yet |
+| Top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | not run yet | not run yet |
 | **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | not measured | not measured |
 
 Demo 1 notes:
@@ -92,7 +119,7 @@ Measured as the change in the wallet balance of the account that owns the API ke
 |---|---|---|---|
 | Live check (`--ts-rows 15 --agent-top 4`) | not measured | not measured | not measured |
 | Demo 1 | $29.00 | $24.92 | **$4.08**. Anything that posted late from the live check would also fall inside this window |
-| Demo 1 re-fetch for rescoring (Fetch only, 35 URLs) | not measured | not measured | not measured (Fetch is $0/URL on the current plan) |
+| Demo 1 re-fetches for rescoring and enrichment (Fetch + Search only, no TinySet, no Agent) | not measured | not measured | not measured (Fetch and Search are $0 on the current plan) |
 | Demo 2 | not measured | not measured | not measured |
 | Demo 3 | not measured | not measured | not measured |
 
@@ -104,4 +131,17 @@ Measured as the change in the wallet balance of the account that owns the API ke
 - **Investor names.** They are merged by a suffix-free core (`Accel Partners` = `Accel`). Rebranded funds stay separate.
 - **Unreachable pages.** Pages that block bots or need JavaScript fail Fetch, and their deals are dropped.
 - **Investor-site facts.** Many funds don't publish cheque sizes, so those fields often stay `unknown`. Agent runs can time out (240 s limit).
-- **Co-investors.** One verified deal gives every named co-investor the same similarity, so ties are common for investors with a single deal.
+- **Co-investors.** One verified deal gives every named co-investor the same similarity, so ties are common for investors with a single deal. Ties are broken only by the fixed rules above (led a deal, number of deals, latest date, name). There is no other judgement about who matters more.
+- **Investor type is a keyword label, not a classification.** Banks (Exim Bank, SIDBI), corporates (Corteva), foundations and farmer companies (Sahyadri Farms) appear in the ranking because they appear in funding news. Names with no keyword (Rainmatter, GVFL, JITO) are `unknown`. Use `--funds-only` to hide everything but funds.
+- **Country is a label, not a market.** A deal's country is the HQ label from the source or TinySet. It can differ from where the company operates: OKO Finance is labelled Luxembourg but serves farmers in Mali and Côte d'Ivoire.
+- **Observed round size is not the investor's cheque.** It is the announced size of rounds it joined. Amounts in different currencies are reported separately and never converted.
+- **Lead partners are rare in news text.** Only 6 of 28 verified demo 1 pages name a partner at an investor, so most rows say `unknown`.
+- **Reach routes often fall back to a warm intro.** Many investor sites have no fetchable pitch form or intake email, or their domain fails the entity check. Sites that need JavaScript would need the Agent, which is not run without a cost confirmation.
+- **Live pages move scores slightly.** Re-fetching can return a different page version or fail on one link, which changes the excerpt used for what-it-does overlap. Between two demo 1 re-fetches, GVFL moved from 3rd to 4th.
+
+## Hand-checked precision (audit sample, seed 42)
+
+`demos/agritech-india/audit.csv` holds 20 random investor–company matches from demo 1, each with its link and the sentence that names them. Precision is **not measured yet**: it is filled in by `audit_precision.py` once the `correct y/n` column has been checked by hand.
+
+<!-- audit:start -->
+<!-- audit:end -->

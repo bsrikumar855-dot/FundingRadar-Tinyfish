@@ -195,6 +195,58 @@ class Refetch(unittest.TestCase):
         self.assertEqual(st["links"], 4)
 
 
+class TieBreak(unittest.TestCase):
+    def r(self, name, score, lead_n=0, dates=("2026-01-01",)):
+        return {"investor": name, "score": score, "lead_n": lead_n, "backed": [{"date": x} for x in dates]}
+
+    def order(self, rs):
+        return [x["investor"] for x in sorted(rs, key=fr.tie_break_key)]
+
+    def test_score_first(self):
+        self.assertEqual(self.order([self.r("A", 1.0), self.r("B", 2.0, lead_n=0)]), ["B", "A"])
+
+    def test_led_beats_not_led(self):
+        self.assertEqual(self.order([self.r("A", 1.0), self.r("Z", 1.0, lead_n=1)]), ["Z", "A"])
+
+    def test_more_deals_then_recent_then_name(self):
+        rs = [self.r("Old", 1.0, dates=("2025-06-01",)), self.r("New", 1.0, dates=("2026-06-01",)),
+              self.r("Two", 1.0, dates=("2025-06-01", "2025-07-01")), self.r("Alpha", 1.0, dates=("2026-06-01",))]
+        self.assertEqual(self.order(rs), ["Two", "Alpha", "New", "Old"])
+
+    def test_scores_compared_at_4_decimals(self):
+        self.assertEqual(self.order([self.r("B", 1.00000001), self.r("A", 1.0)]), ["A", "B"])
+
+    def test_rank_investors_uses_tie_break(self):
+        # one deal, four co-investors, one of them led: the leader ranks first even though all share the deal
+        what = "crop disease detection app for smallholder farmers"
+        d = deal("G1", what=what, country="India", invs=["Delta", "Bravo", "Alpha", "Charlie"], lead=["Charlie"])
+        names = [x["investor"] for x in fr.rank_investors(AGRI, [d], T)]
+        self.assertEqual(names, ["Charlie", "Alpha", "Bravo", "Delta"])
+
+    def test_lead_bonus_inside_score(self):
+        what = "crop disease detection app for smallholder farmers"
+        d = deal("G1", what=what, country="India", invs=["Lead", "Follow"], lead=["Lead"])
+        r = {x["investor"]: x for x in fr.rank_investors(AGRI, [d], T)}
+        self.assertAlmostEqual(r["Lead"]["base_score"], r["Follow"]["base_score"] * (1 + fr.LEAD_BONUS), places=3)
+
+
+class Leads(unittest.TestCase):
+    def test_lead_segment(self):
+        self.assertEqual(fr.split_investors(fr.lead_segment("GVFL along with Veloce Opportunities Fund, JITO")), ["GVFL"])
+        self.assertEqual(fr.split_investors(fr.lead_segment("Accel and Elevation Capital, with participation from Y")), ["Accel", "Elevation Capital"])
+
+    def test_confirm_leads_demotes_from_saved_text(self):
+        d = {"lead_verified": ["GVFL", "JITO", "We Founder Circle"],
+             "page_excerpt": "GROWiT raised $3 million in a Series A round led by GVFL. The round also saw participation from JITO, We Founder Circle."}
+        self.assertEqual(fr.confirm_leads(d), ["JITO", "We Founder Circle"])
+        self.assertEqual(d["lead_verified"], ["GVFL"])
+
+    def test_confirm_leads_keeps_when_text_silent(self):
+        d = {"lead_verified": ["X Fund"], "page_excerpt": "Company raised money from X Fund."}
+        self.assertEqual(fr.confirm_leads(d), [])
+        self.assertEqual(d["lead_verified"], ["X Fund"])
+
+
 class Rule3AgentEntity(unittest.TestCase):
     def inv(self, name, url, backed=("OlsAro",), partners=()):
         return {"investor": name, "backed": [{"name": b} for b in backed], "agent_partners": list(partners),

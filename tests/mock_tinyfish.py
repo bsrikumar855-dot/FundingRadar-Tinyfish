@@ -26,7 +26,15 @@ PAGES = {
     "https://news.example/noinvestor": f"# NoInv Agro launches app\n\n{d(30)}\n\nNoInv Agro, a farmer app, launched today in Pune.",
     "https://news.example/soilsense": f"# SoilSense raises Rs 20 crore Series A led by Gamma Partners\n\n{d(40)}\n\n"
         "SoilSense, an Indian soil and crop analytics startup for farmers, raised Rs 20 crore led by Gamma Partners.",
+    # investor sites for the reach ladder
+    "https://alphaventures.example/": "<html><body><h1>Alpha Ventures</h1><p>Seed investors in agritech. Portfolio: Krishi AI, FarmEye.</p>"
+        "<a href='/apply'>Apply</a></body></html>",
+    "https://alphaventures.example/apply": "<html><body><h2>Submit your pitch</h2><form action='/send'><input name='deck'></form></body></html>",
+    "https://gammapartners.example/": "<html><body><h1>Gamma Partners</h1><p>We backed SoilSense and FarmEye.</p></body></html>",
+    "https://gammapartners.example/contact": "<html><body>Gamma Partners does not accept unsolicited pitches. Reach us through a portfolio founder.</body></html>",
+    "https://betacapital.example/": "<html><body><h1>Beta Capital</h1><p>A different Beta Capital, real-estate lender.</p></body></html>",
 }
+SITES = {"alpha ventures": "alphaventures.example", "gamma partners": "gammapartners.example", "beta capital": "betacapital.example"}
 
 
 def page(url):
@@ -109,6 +117,17 @@ class H(BaseHTTPRequestHandler):
                     slug = "forbidden-gamma"
                 return self.send(200, {"results": [{"title": "x", "url": f"https://www.crunchbase.com/organization/{slug}"},
                                                    {"title": name, "url": f"https://{slug}.example/about"}]})
+            if q.get("include_domains"):           # site-restricted search: pages we have on that domain
+                dom = q["include_domains"]
+                hits = [{"title": "p", "url": u} for u in PAGES if urlparse(u).netloc == dom]
+                return self.send(200, {"results": hits})
+            qm = re.match(r'^"([^"]+)"', query)
+            if qm:                                  # investor-name search: news + its own site
+                site = SITES.get(qm.group(1).lower())
+                res = [{"title": "news", "url": "https://news.example/krishi-ai-seed"}]
+                if site:
+                    res.append({"title": qm.group(1), "url": f"https://{site}/"})
+                return self.send(200, {"results": res})
             return self.send(200, {"results": [
                 {"title": "SoilSense raises Rs 20 crore Series A led by Gamma Partners", "snippet": "Indian soil and crop analytics startup for farmers",
                  "url": "https://news.example/soilsense", "date": d(40)},

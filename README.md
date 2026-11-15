@@ -46,6 +46,41 @@ python funding_radar.py "<what it does, stage, country>" [flags]
 | `--print-spec` | | print the parse, the TinySet spec and the queries, then exit with no API calls |
 | `--rescore PATH` | | re-apply the current proof and ranking rules to a saved `results.json` and rewrite its outputs, with no API calls |
 | `--report-top N` | 15 | investors shown in `report.md` and `results.csv`; `results.json` keeps the full list |
+| `--refetch` | | with `--rescore`: re-fetch the verified links (Fetch only, free), apply the funding-phrase rule, extract lead partners, run the reach ladder |
+| `--reach-top N` | 15 | run the reach-route ladder (Search + Fetch, free) for the top N investors |
+| `--funds-only` | off | hide corporates, banks, foundations, farmer companies and unknown types in `report.md` / `results.csv` |
+| `--audit-sample N` | 0 | write `audit.csv` with N random (seed 42) investor–company matches for hand-checking |
+
+### HTTP mode
+
+```
+python funding_radar.py serve --port 8080
+curl -X POST localhost:8080/rank -d '{"description": "AI contract review for small law firms, seed, USA"}'
+```
+
+With no extra fields this runs Search + Fetch only. TinySet runs only with `"ts_rows": N, "confirm_cost": true`; `ts_rows` without `confirm_cost` is refused with 402 and the estimated cost. The request and response schema is in [docs/schema.md](docs/schema.md).
+
+### Hand audit
+
+```
+python funding_radar.py --rescore demos/agritech-india/results.json --audit-sample 20
+# fill the "correct y/n" column of demos/agritech-india/audit.csv, then:
+python audit_precision.py demos/agritech-india/audit.csv --label "demo 1"
+```
+
+## Per-investor fields beyond the score
+
+All of these come from plain code over pages we opened. None are guessed.
+
+- **Investor type**: `fund` / `corporate` / `bank` / `foundation` / `farmer-company` / `unknown`, from name and domain keywords.
+- **Observed round sizes and stages**, labelled "round sizes of deals it joined (observed)". This is the median announced round size per currency across the investor's counted deals, with the deal links. It is the whole round, not the investor's own cheque. Mixed currencies stay in their own currency and are never converted.
+- **Lead partner**: a person named on a verified source page as partner / principal / founder / managing director **at that investor** ("said Jane Smith, Partner at Alpha Ventures"). The name, role, sentence and URL are stored; otherwise `unknown`.
+- **Reach route ladder**, each step with its source URL:
+  - The investor's own domain is found with Search. It is accepted only if a page on it names the investor **and** one of its verified portfolio companies.
+  - On that domain, in order: (a) a pitch form or "submit your pitch / apply" page, (b) an intake email (pitch@, deals@, founders@ …, or an address on the investor's domain next to pitch/deck/founder wording), (c) "does not accept unsolicited pitches".
+  - Otherwise (d): a warm intro via the founder of its most similar backed company, linking that verified deal.
+  - Sites with almost no fetchable text are flagged `js_only_site`, as Agent fallback candidates. The Agent is not run for this without a cost confirmation.
+- **Cheque size / stage focus (site)**: from the Agent run on the investor's own site, when one was made.
 
 Re-running the same description reuses the saved TinySet rows in `state/<slug>/tinyset.json`, so you never pay for them twice.
 

@@ -323,17 +323,45 @@ class EndToEnd(unittest.TestCase):
         self.assertEqual(a["cheque_size"], "$250k-$1.5M")
         self.assertTrue(a["cheque_size_source"].startswith("https://alphaventures.example/"))
         self.assertEqual(a["stage_focus"], "unknown")                       # agent gave no page URL
-        self.assertEqual(a["reach_route"], "application form")
-        self.assertIn("Jane Smith", a["lead_partner"])
+        self.assertEqual(a["reach_route_agent"], "application form")
+        lp = a["lead_partner"]
+        self.assertEqual((lp[0]["name"], lp[0]["role"], lp[0]["company"]), ("Jane Smith", "partner", "Krishi AI"))
+        self.assertIn("said Jane Smith, partner at Alpha Ventures", lp[0]["sentence"])
+        self.assertEqual(lp[0]["url"], "https://news.example/krishi-ai-seed")
         g = inv["Gamma Partners"]
         self.assertEqual(g["cheque_size"], "unknown")                       # agent 403 -> unknown, run continues
         self.assertIn("403", g["agent_note"])
         self.assertNotIn("Delta Fund", inv)                                 # only from a dropped deal
 
+    def test_reach_ladder(self):
+        inv = {i["investor"]: i for i in self.res["investors"]}
+        a, g, b = inv["Alpha Ventures"], inv["Gamma Partners"], inv["Beta Capital"]
+        self.assertEqual(a["own_domain"], "alphaventures.example")
+        self.assertEqual((a["reach_route"], a["reach_url"]), ("application form", "https://alphaventures.example/apply"))
+        self.assertEqual(g["reach_route"], "no unsolicited pitches")
+        self.assertEqual(g["reach"]["source_url"], "https://gammapartners.example/contact")
+        self.assertEqual(b["own_domain"], "")                               # site names Beta Capital but no portfolio company
+        self.assertIn("entity check", b["own_domain_evidence"]["note"])
+        self.assertEqual(b["reach_route"], "warm intro via founder")
+        self.assertEqual(b["reach"]["company"], "Krishi AI")
+        self.assertEqual(b["reach_url"], "https://news.example/krishi-ai-seed")
+
+    def test_observed_and_type(self):
+        inv = {i["investor"]: i for i in self.res["investors"]}
+        ob = inv["Alpha Ventures"]["observed"]
+        self.assertEqual(ob["label"], "round sizes of deals it joined (observed)")
+        cur = {g["currency"]: g for g in ob["by_currency"]}
+        self.assertEqual(cur["USD"]["median"], 3e6)
+        self.assertEqual(cur["INR"]["median"], 1e8)                          # INR stays INR, never converted
+        self.assertEqual(ob["stages"], ["seed"])
+        self.assertEqual(inv["Alpha Ventures"]["investor_type"], "fund")
+
     def test_api_usage_rules(self):
         self.assertTrue(all(len(b) <= 10 for b in mock.LOG["fetch_batches"]))
         self.assertTrue(all("max_steps" not in json.dumps(b) for b in mock.LOG["agent_bodies"]))
-        q = [x for x in mock.LOG["search_params"] if "official website" not in x["query"]]
+        q = [x for x in mock.LOG["search_params"] if "official website" not in x["query"]
+             and "include_domains" not in x and not x["query"].startswith('"')]
+        self.assertTrue(q)
         self.assertTrue(all("recency_minutes" in x and "exclude_domains" in x for x in q))
         self.assertEqual(len(mock.LOG["dataset_specs"]), 1)
         self.assertEqual(mock.LOG["dataset_specs"][0]["target_rows"], 15)
