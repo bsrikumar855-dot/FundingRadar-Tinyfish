@@ -1,0 +1,5707 @@
+{
+ "input": {
+  "description": "AI crop-disease detection app for smallholder farmers, seed, India",
+  "keywords": [
+   "ai",
+   "crop-disease",
+   "crop",
+   "disease",
+   "detection",
+   "smallholder",
+   "farmer"
+  ],
+  "sectors": [
+   "agritech",
+   "ai"
+  ],
+  "stages": [
+   "seed"
+  ],
+  "country": "India",
+  "region": "Asia"
+ },
+ "meta": {
+  "run_date": "2026-11-15",
+  "window_start": "2025-05-16",
+  "candidates": 40,
+  "from_tinyset": 24,
+  "from_search": 16,
+  "verified_companies": 29,
+  "verified_links": 35,
+  "dropped": 5,
+  "investors_ranked": 117,
+  "tinyset_rows": 24,
+  "tinyset_note": "dataset 1340855f-ed41-4b98-8fd7-90a1ddbdc4a1 ready",
+  "tinyset_cost_est": 2.5,
+  "stats": {
+   "fetch_urls": 39,
+   "fetch_calls": 4,
+   "search": 14,
+   "agent_runs": 6,
+   "agent_completed": 5,
+   "agent_403": 0,
+   "tinyset_datasets": 1,
+   "tinyset_rows": 24
+  },
+  "seconds": 1358.7
+ },
+ "investors": [
+  {
+   "rank": 1,
+   "investor": "Catalyst Fund",
+   "score": 2.1324,
+   "why": "Rank 1, score 2.13: backed 3 verified similar startups (OKO Finance, MazaoHub, Farm to Feed); led 2 of them (+0.55 lead bonus); sector overlap on 'crop', 'smallholder', 'farmer', 'agritech'; 2/3 at your stage (seed); 0/3 in India; latest deal 2026-11-13.",
+   "backed_companies": [
+    {
+     "name": "OKO Finance",
+     "round": "Seed",
+     "date": "2026-11-13",
+     "amount": "Six-digit",
+     "link": "https://startupluxembourg.com/news/oko-raises-six-digit-funding-for-farming-resilience",
+     "led": true
+    },
+    {
+     "name": "MazaoHub",
+     "round": "Pre-seed",
+     "date": "2025-10-03",
+     "amount": "$2 million",
+     "link": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+     "led": true
+    },
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "https://catalyst-fund.com/",
+   "agent_note": "agent run timed out",
+   "score_parts": {
+    "sector": 0.8437,
+    "stage": 0.5,
+    "country": 0.0,
+    "recency": 0.2354,
+    "lead": 0.5533
+   },
+   "sources": [
+    "https://startupluxembourg.com/news/oko-raises-six-digit-funding-for-farming-resilience",
+    "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 2,
+   "investor": "Unicorn India Ventures",
+   "score": 1.8279,
+   "why": "Rank 2, score 1.83: backed 2 verified similar startups (Verdant Impact, Cropcoin Technologies); led 2 of them (+0.61 lead bonus); sector overlap on 'ai', 'farmer', 'agritech'; 1/2 at your stage (seed); 2/2 in India; latest deal 2026-03-30.",
+   "backed_companies": [
+    {
+     "name": "Verdant Impact",
+     "round": "Seed",
+     "date": "2026-03-10",
+     "amount": "$3 million",
+     "link": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+     "led": true
+    },
+    {
+     "name": "Cropcoin Technologies",
+     "round": "Other",
+     "date": "2026-03-30",
+     "amount": "Rs 12 Crore ($1.27M)",
+     "link": "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
+     "led": true
+    }
+   ],
+   "cheque_size": "Rs. 10 - 25 Cr.",
+   "cheque_size_source": "https://www.unicornivc.com/frequently-asked-questions",
+   "stage_focus": "pre-seed, seed, Series A",
+   "stage_focus_source": "https://www.unicornivc.com/frequently-asked-questions",
+   "lead_partner": "unknown",
+   "reach_route": "application form",
+   "reach_url": "https://www.unicornivc.com/submit-your-pitch",
+   "investor_site": "https://unicornivc.com/",
+   "agent_note": "completed",
+   "score_parts": {
+    "sector": 0.45,
+    "stage": 0.2,
+    "country": 0.4,
+    "recency": 0.1686,
+    "lead": 0.6093
+   },
+   "sources": [
+    "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+    "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
+    "https://www.unicornivc.com/frequently-asked-questions",
+    "https://www.unicornivc.com/submit-your-pitch"
+   ]
+  },
+  {
+   "rank": 3,
+   "investor": "PINC",
+   "score": 1.8154,
+   "why": "Rank 3, score 1.82: backed 3 verified similar startups (OlsAro, Rainbow Crops, Mycoverse); led 1 of them (+0.31 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 2/3 at your stage (seed); 0/3 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": true
+    },
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    },
+    {
+     "name": "Mycoverse",
+     "round": "pre-seed",
+     "date": "2026-03-03",
+     "amount": "2.4 million euros",
+     "link": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+     "led": false
+    }
+   ],
+   "cheque_size": "€200k–€1M",
+   "cheque_size_source": "https://www.pauliggroup.com/this-is-pinc",
+   "stage_focus": "Pre-seed and seed",
+   "stage_focus_source": "https://www.pauliggroup.com/this-is-pinc",
+   "lead_partner": "Marika King (OlsAro, source: https://www.pauliggroup.com/news/paulig-invests-in-olsaro-an-agtech-startup-securing-wheat-supply-through-ai-enabled-crop-breeding); Marika King (Rainbow Crops, source: https://www.pauliggroup.com/news/pauligs-venture-arm-pinc-invests-in-the-belgian-startup-rainbow-crops-to-develop-climate-resilient-crop-varieties); Rosemari Herrero (Mycoverse, source: https://www.pauliggroup.com/news/pinc-joins-eu24-million-pre-seed-investment-in-mycoverse-to-accelerate-biological-crop-protection-alternatives)",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "https://pinc.com/",
+   "agent_note": "completed",
+   "score_parts": {
+    "sector": 0.6749,
+    "stage": 0.5,
+    "country": 0.0,
+    "recency": 0.3293,
+    "lead": 0.3112
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+    "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+    "https://www.pauliggroup.com/this-is-pinc",
+    "https://www.pauliggroup.com/news/paulig-invests-in-olsaro-an-agtech-startup-securing-wheat-supply-through-ai-enabled-crop-breeding",
+    "https://www.pauliggroup.com/news/pauligs-venture-arm-pinc-invests-in-the-belgian-startup-rainbow-crops-to-develop-climate-resilient-crop-varieties",
+    "https://www.pauliggroup.com/news/pinc-joins-eu24-million-pre-seed-investment-in-mycoverse-to-accelerate-biological-crop-protection-alternatives"
+   ]
+  },
+  {
+   "rank": 4,
+   "investor": "Astanor",
+   "score": 1.6303,
+   "why": "Rank 4, score 1.63: backed 2 verified similar startups (BioScout, Calice); led 2 of them (+0.54 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 2/2 at your stage (seed); 0/2 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": true
+    },
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": true
+    }
+   ],
+   "cheque_size": "€1M - €80M",
+   "cheque_size_source": "https://astanor.com/venture/",
+   "stage_focus": "Pre-Seed, Seed, Series A, Series B, Growth",
+   "stage_focus_source": "https://astanor.com/venture/",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "https://astanor.com/",
+   "agent_note": "completed",
+   "score_parts": {
+    "sector": 0.5624,
+    "stage": 0.4,
+    "country": 0.0,
+    "recency": 0.1245,
+    "lead": 0.5434
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+    "https://astanor.com/venture/"
+   ]
+  },
+  {
+   "rank": 5,
+   "investor": "AgFunder",
+   "score": 1.3344,
+   "why": "Rank 5, score 1.33: backed 2 verified similar startups (OlsAro, Resurrect Bio); led 1 of them (+0.31 lead bonus); sector overlap on 'ai', 'crop', 'agritech', 'disease'; 1/2 at your stage (seed); 0/2 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": true
+    },
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "https://agfunder.com/",
+   "agent_note": "completed",
+   "score_parts": {
+    "sector": 0.5062,
+    "stage": 0.3,
+    "country": 0.0,
+    "recency": 0.217,
+    "lead": 0.3112
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html"
+   ]
+  },
+  {
+   "rank": 6,
+   "investor": "Corteva",
+   "score": 1.1908,
+   "why": "Rank 6, score 1.19: backed 2 verified similar startups (Rainbow Crops, Resurrect Bio); led 1 of them (+0.20 lead bonus); sector overlap on 'ai', 'crop', 'agritech', 'disease'; 1/2 at your stage (seed); 0/2 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    },
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "Seed, Series A",
+   "stage_focus_source": "https://www.corteva.com/our-solutions/our-science/catalyst.html",
+   "lead_partner": "Tom Greene (Resurrect Bio, source: https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html)",
+   "reach_route": "application form",
+   "reach_url": "https://www.openinnovation.corteva.com/proposal-upload.html",
+   "investor_site": "https://corteva.com/",
+   "agent_note": "completed",
+   "score_parts": {
+    "sector": 0.5062,
+    "stage": 0.3,
+    "country": 0.0,
+    "recency": 0.1842,
+    "lead": 0.2004
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+    "https://www.corteva.com/our-solutions/our-science/catalyst.html",
+    "https://www.openinnovation.corteva.com/proposal-upload.html"
+   ]
+  },
+  {
+   "rank": 7,
+   "investor": "Kriscore Capital",
+   "score": 1.1652,
+   "why": "Rank 7, score 1.17: backed 1 verified similar startup (Myca); led 1 of it (+0.39 lead bonus); sector overlap on 'ai', 'crop', 'smallholder', 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-10-07.",
+   "backed_companies": [
+    {
+     "name": "Myca",
+     "round": "Pre-seed",
+     "date": "2026-10-07",
+     "amount": "$1.3 million",
+     "link": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.1393,
+    "lead": 0.3884
+   },
+   "sources": [
+    "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations"
+   ]
+  },
+  {
+   "rank": 8,
+   "investor": "GrainInnovate",
+   "score": 1.1002,
+   "why": "Rank 8, score 1.10: backed 2 verified similar startups (BioScout, TerraBlaster); sector overlap on 'ai', 'crop', 'agritech'; 2/2 at your stage (seed); 0/2 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": false
+    },
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.45,
+    "stage": 0.4,
+    "country": 0.0,
+    "recency": 0.2502,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 9,
+   "investor": "Ag Startup Engine",
+   "score": 1.0978,
+   "why": "Rank 9, score 1.10: backed 2 verified similar startups (Quercus Biosolutions, TerraBlaster); sector overlap on 'ai', 'crop', 'agritech'; 2/2 at your stage (seed); 0/2 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    },
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.45,
+    "stage": 0.4,
+    "country": 0.0,
+    "recency": 0.2478,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29",
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 10,
+   "investor": "GrainCorp Ventures",
+   "score": 1.0869,
+   "why": "Rank 10, score 1.09: backed 2 verified similar startups (BioScout, Calice); sector overlap on 'ai', 'crop', 'agritech'; 2/2 at your stage (seed); 0/2 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": false
+    },
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.5624,
+    "stage": 0.4,
+    "country": 0.0,
+    "recency": 0.1245,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/"
+   ]
+  },
+  {
+   "rank": 11,
+   "investor": "Future Food Fund",
+   "score": 1.0607,
+   "why": "Rank 11, score 1.06: backed 2 verified similar startups (OlsAro, Mycoverse); led 1 of them (+0.15 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/2 at your stage (seed); 0/2 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": false
+    },
+    {
+     "name": "Mycoverse",
+     "round": "pre-seed",
+     "date": "2026-03-03",
+     "amount": "2.4 million euros",
+     "link": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3937,
+    "stage": 0.3,
+    "country": 0.0,
+    "recency": 0.2209,
+    "lead": 0.1461
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+    "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed"
+   ]
+  },
+  {
+   "rank": 12,
+   "investor": "216 Capital",
+   "score": 0.9783,
+   "why": "Rank 12, score 0.98: backed 1 verified similar startup (RoboCare); led 1 of it (+0.33 lead bonus); sector overlap on 'ai', 'crop', 'disease', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-09.",
+   "backed_companies": [
+    {
+     "name": "RoboCare",
+     "round": "Seed",
+     "date": "2026-07-09",
+     "amount": "Six-figure",
+     "link": "https://startupmaphub.com/blog/top-agritech-startups-africa-2026",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1147,
+    "lead": 0.3261
+   },
+   "sources": [
+    "https://startupmaphub.com/blog/top-agritech-startups-africa-2026"
+   ]
+  },
+  {
+   "rank": 13,
+   "investor": "Mercy Corps Ventures",
+   "score": 0.9484,
+   "why": "Rank 13, score 0.95: backed 2 verified similar startups (MazaoHub, Farm to Feed); sector overlap on 'ai', 'smallholder', 'farmer', 'agritech'; 1/2 at your stage (seed); 0/2 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "MazaoHub",
+     "round": "Pre-seed",
+     "date": "2025-10-03",
+     "amount": "$2 million",
+     "link": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+     "led": false
+    },
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.5625,
+    "stage": 0.3,
+    "country": 0.0,
+    "recency": 0.0859,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 14,
+   "investor": "Canary",
+   "score": 0.9461,
+   "why": "Rank 14, score 0.95: backed 1 verified similar startup (Vereda); led 1 of it (+0.32 lead bonus); sector overlap on 'ai', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-11-13.",
+   "backed_companies": [
+    {
+     "name": "Vereda",
+     "round": "Seed",
+     "date": "2026-11-13",
+     "amount": "R$30 million (~USD 5.46 million)",
+     "link": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1495,
+    "lead": 0.3154
+   },
+   "sources": [
+    "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/"
+   ]
+  },
+  {
+   "rank": 15,
+   "investor": "Valor Capital Group",
+   "score": 0.9461,
+   "why": "Rank 15, score 0.95: backed 1 verified similar startup (Vereda); led 1 of it (+0.32 lead bonus); sector overlap on 'ai', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-11-13.",
+   "backed_companies": [
+    {
+     "name": "Vereda",
+     "round": "Seed",
+     "date": "2026-11-13",
+     "amount": "R$30 million (~USD 5.46 million)",
+     "link": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1495,
+    "lead": 0.3154
+   },
+   "sources": [
+    "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/"
+   ]
+  },
+  {
+   "rank": 16,
+   "investor": "Industrifonden",
+   "score": 0.9336,
+   "why": "Rank 16, score 0.93: backed 1 verified similar startup (OlsAro); led 1 of it (+0.31 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1412,
+    "lead": 0.3112
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market"
+   ]
+  },
+  {
+   "rank": 17,
+   "investor": "Nordic Foodtech VC",
+   "score": 0.9336,
+   "why": "Rank 17, score 0.93: backed 1 verified similar startup (OlsAro); led 1 of it (+0.31 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1412,
+    "lead": 0.3112
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market"
+   ]
+  },
+  {
+   "rank": 18,
+   "investor": "Grit Road Partners",
+   "score": 0.9304,
+   "why": "Rank 18, score 0.93: backed 1 verified similar startup (DARO); led 1 of it (+0.31 lead bonus); sector overlap on 'ai', 'detection', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-10-06.",
+   "backed_companies": [
+    {
+     "name": "DARO",
+     "round": "seed",
+     "date": "2026-10-06",
+     "amount": "$2.5 m",
+     "link": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "Mike Jung (DARO, source: https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/)",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1391,
+    "lead": 0.3101
+   },
+   "sources": [
+    "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/"
+   ]
+  },
+  {
+   "rank": 19,
+   "investor": "Nelnet",
+   "score": 0.9304,
+   "why": "Rank 19, score 0.93: backed 1 verified similar startup (DARO); led 1 of it (+0.31 lead bonus); sector overlap on 'ai', 'detection', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-10-06.",
+   "backed_companies": [
+    {
+     "name": "DARO",
+     "round": "seed",
+     "date": "2026-10-06",
+     "amount": "$2.5 m",
+     "link": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1391,
+    "lead": 0.3101
+   },
+   "sources": [
+    "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/"
+   ]
+  },
+  {
+   "rank": 20,
+   "investor": "Tall Grass Ventures",
+   "score": 0.9132,
+   "why": "Rank 20, score 0.91: backed 1 verified similar startup (Picketa Systems); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.3044
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 21,
+   "investor": "Demea Sustainable Investment",
+   "score": 0.9057,
+   "why": "Rank 21, score 0.91: backed 1 verified similar startup (BioScout); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1226,
+    "lead": 0.3019
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens"
+   ]
+  },
+  {
+   "rank": 22,
+   "investor": "Flyover Capital",
+   "score": 0.9021,
+   "why": "Rank 22, score 0.90: backed 1 verified similar startup (Quercus Biosolutions); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.3007
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 23,
+   "investor": "Grantham Foundation",
+   "score": 0.9021,
+   "why": "Rank 23, score 0.90: backed 1 verified similar startup (Quercus Biosolutions); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.3007
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 24,
+   "investor": "Serra Ventures",
+   "score": 0.9021,
+   "why": "Rank 24, score 0.90: backed 1 verified similar startup (Quercus Biosolutions); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.3007
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 25,
+   "investor": "Starshot Capital",
+   "score": 0.9021,
+   "why": "Rank 25, score 0.90: backed 1 verified similar startup (Quercus Biosolutions); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.3007
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 26,
+   "investor": "Aiviet Venture",
+   "score": 0.8982,
+   "why": "Rank 26, score 0.90: backed 1 verified similar startup (enfarm); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-12-26.",
+   "backed_companies": [
+    {
+     "name": "enfarm",
+     "round": "Seed",
+     "date": "2025-12-26",
+     "amount": "$120 b",
+     "link": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0613,
+    "lead": 0.2994
+   },
+   "sources": [
+    "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648"
+   ]
+  },
+  {
+   "rank": 27,
+   "investor": "Conservation Vietnam",
+   "score": 0.8982,
+   "why": "Rank 27, score 0.90: backed 1 verified similar startup (enfarm); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-12-26.",
+   "backed_companies": [
+    {
+     "name": "enfarm",
+     "round": "Seed",
+     "date": "2025-12-26",
+     "amount": "$120 b",
+     "link": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0613,
+    "lead": 0.2994
+   },
+   "sources": [
+    "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648"
+   ]
+  },
+  {
+   "rank": 28,
+   "investor": "Touchstone Partners",
+   "score": 0.8982,
+   "why": "Rank 28, score 0.90: backed 1 verified similar startup (enfarm); led 1 of it (+0.30 lead bonus); sector overlap on 'ai', 'crop', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-12-26.",
+   "backed_companies": [
+    {
+     "name": "enfarm",
+     "round": "Seed",
+     "date": "2025-12-26",
+     "amount": "$120 b",
+     "link": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0613,
+    "lead": 0.2994
+   },
+   "sources": [
+    "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648"
+   ]
+  },
+  {
+   "rank": 29,
+   "investor": "LIFTT EuroInvest",
+   "score": 0.8844,
+   "why": "Rank 29, score 0.88: backed 1 verified similar startup (Rainbow Crops); led 1 of it (+0.29 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.2948
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 30,
+   "investor": "LeVert Ventures",
+   "score": 0.8181,
+   "why": "Rank 30, score 0.82: backed 1 verified similar startup (Upstream Biotechnology); led 1 of it (+0.27 lead bonus); sector overlap on 'crop', 'disease', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-30.",
+   "backed_companies": [
+    {
+     "name": "Upstream Biotechnology",
+     "round": "Seed",
+     "date": "2026-07-30",
+     "amount": "$10.3m",
+     "link": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1204,
+    "lead": 0.2727
+   },
+   "sources": [
+    "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech"
+   ]
+  },
+  {
+   "rank": 31,
+   "investor": "Eximius Ventures",
+   "score": 0.7768,
+   "why": "Rank 31, score 0.78: backed 1 verified similar startup (Myca); sector overlap on 'ai', 'crop', 'smallholder', 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-10-07.",
+   "backed_companies": [
+    {
+     "name": "Myca",
+     "round": "Pre-seed",
+     "date": "2026-10-07",
+     "amount": "$1.3 million",
+     "link": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.1393,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations"
+   ]
+  },
+  {
+   "rank": 32,
+   "investor": "Indigram Labs Foundation",
+   "score": 0.7768,
+   "why": "Rank 32, score 0.78: backed 1 verified similar startup (Myca); sector overlap on 'ai', 'crop', 'smallholder', 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-10-07.",
+   "backed_companies": [
+    {
+     "name": "Myca",
+     "round": "Pre-seed",
+     "date": "2026-10-07",
+     "amount": "$1.3 million",
+     "link": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.1393,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations"
+   ]
+  },
+  {
+   "rank": 33,
+   "investor": "Alok Soni",
+   "score": 0.7628,
+   "why": "Rank 33, score 0.76: backed 1 verified similar startup (Verdant Impact); sector overlap on 'ai', 'farmer', 'agritech'; 1/1 at your stage (seed); 1/1 in India; latest deal 2026-03-10.",
+   "backed_companies": [
+    {
+     "name": "Verdant Impact",
+     "round": "Seed",
+     "date": "2026-03-10",
+     "amount": "$3 million",
+     "link": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.2,
+    "recency": 0.0816,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round"
+   ]
+  },
+  {
+   "rank": 34,
+   "investor": "Infynyte Club",
+   "score": 0.7628,
+   "why": "Rank 34, score 0.76: backed 1 verified similar startup (Verdant Impact); sector overlap on 'ai', 'farmer', 'agritech'; 1/1 at your stage (seed); 1/1 in India; latest deal 2026-03-10.",
+   "backed_companies": [
+    {
+     "name": "Verdant Impact",
+     "round": "Seed",
+     "date": "2026-03-10",
+     "amount": "$3 million",
+     "link": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.2,
+    "recency": 0.0816,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round"
+   ]
+  },
+  {
+   "rank": 35,
+   "investor": "Yash Kotak",
+   "score": 0.7628,
+   "why": "Rank 35, score 0.76: backed 1 verified similar startup (Verdant Impact); sector overlap on 'ai', 'farmer', 'agritech'; 1/1 at your stage (seed); 1/1 in India; latest deal 2026-03-10.",
+   "backed_companies": [
+    {
+     "name": "Verdant Impact",
+     "round": "Seed",
+     "date": "2026-03-10",
+     "amount": "$3 million",
+     "link": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.2,
+    "recency": 0.0816,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round"
+   ]
+  },
+  {
+   "rank": 36,
+   "investor": "Builders Vision",
+   "score": 0.7446,
+   "why": "Rank 36, score 0.74: backed 1 verified similar startup (TerraBlaster); led 1 of it (+0.25 lead bonus); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.2482
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 37,
+   "investor": "Khosla Ventures",
+   "score": 0.7446,
+   "why": "Rank 37, score 0.74: backed 1 verified similar startup (TerraBlaster); led 1 of it (+0.25 lead bonus); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.2482
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 38,
+   "investor": "Trailhead Capital",
+   "score": 0.7446,
+   "why": "Rank 38, score 0.74: backed 1 verified similar startup (TerraBlaster); led 1 of it (+0.25 lead bonus); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.2482
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 39,
+   "investor": "Ulu Ventures",
+   "score": 0.7446,
+   "why": "Rank 39, score 0.74: backed 1 verified similar startup (TerraBlaster); led 1 of it (+0.25 lead bonus); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.2482
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 40,
+   "investor": "Delta40 Venture Studio",
+   "score": 0.7089,
+   "why": "Rank 40, score 0.71: backed 1 verified similar startup (Farm to Feed); led 1 of it (+0.24 lead bonus); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.2363
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 41,
+   "investor": "Nucleus Capital",
+   "score": 0.6913,
+   "why": "Rank 41, score 0.69: backed 1 verified similar startup (Bindbridge); led 1 of it (+0.23 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-03-03.",
+   "backed_companies": [
+    {
+     "name": "Bindbridge",
+     "round": "Pre-seed",
+     "date": "2026-03-03",
+     "amount": "$3.8M",
+     "link": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797,
+    "lead": 0.2304
+   },
+   "sources": [
+    "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection"
+   ]
+  },
+  {
+   "rank": 42,
+   "investor": "Speedinvest",
+   "score": 0.6913,
+   "why": "Rank 42, score 0.69: backed 1 verified similar startup (Bindbridge); led 1 of it (+0.23 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-03-03.",
+   "backed_companies": [
+    {
+     "name": "Bindbridge",
+     "round": "Pre-seed",
+     "date": "2026-03-03",
+     "amount": "$3.8M",
+     "link": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797,
+    "lead": 0.2304
+   },
+   "sources": [
+    "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection"
+   ]
+  },
+  {
+   "rank": 43,
+   "investor": "Yield Lab Latam",
+   "score": 0.6859,
+   "why": "Rank 43, score 0.69: backed 1 verified similar startup (BemAgro); led 1 of it (+0.23 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.2286
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 44,
+   "investor": "Sahyadri Farms",
+   "score": 0.6729,
+   "why": "Rank 44, score 0.67: backed 1 verified similar startup (Bharat Intelligence); led 1 of it (+0.22 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-09-25.",
+   "backed_companies": [
+    {
+     "name": "Bharat Intelligence",
+     "round": "pre-seed",
+     "date": "2025-09-25",
+     "amount": "Rs 7 crore",
+     "link": "https://entrackr.com/snippets/agritech-startup-bharat-intelligence-raises-funding-led-by-sahyadri-farms-10500153",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0361,
+    "lead": 0.2243
+   },
+   "sources": [
+    "https://entrackr.com/snippets/agritech-startup-bharat-intelligence-raises-funding-led-by-sahyadri-farms-10500153"
+   ]
+  },
+  {
+   "rank": 45,
+   "investor": "GVFL",
+   "score": 0.6237,
+   "why": "Rank 45, score 0.62: backed 1 verified similar startup (GROWiT); led 1 of it (+0.21 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.2079
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 46,
+   "investor": "JITO",
+   "score": 0.6237,
+   "why": "Rank 46, score 0.62: backed 1 verified similar startup (GROWiT); led 1 of it (+0.21 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.2079
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 47,
+   "investor": "Veloce Opportunities Fund",
+   "score": 0.6237,
+   "why": "Rank 47, score 0.62: backed 1 verified similar startup (GROWiT); led 1 of it (+0.21 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.2079
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 48,
+   "investor": "We Founder Circle",
+   "score": 0.6237,
+   "why": "Rank 48, score 0.62: backed 1 verified similar startup (GROWiT); led 1 of it (+0.21 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.2079
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 49,
+   "investor": "GU Ventures",
+   "score": 0.6224,
+   "why": "Rank 49, score 0.62: backed 1 verified similar startup (OlsAro); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "OlsAro",
+     "round": "Seed",
+     "date": "2026-10-14",
+     "amount": "$5.5 million",
+     "link": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1412,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market"
+   ]
+  },
+  {
+   "rank": 50,
+   "investor": "Contrary",
+   "score": 0.6169,
+   "why": "Rank 50, score 0.62: backed 1 verified similar startup (Orchard Robotics); led 1 of it (+0.21 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2025-09-03.",
+   "backed_companies": [
+    {
+     "name": "Orchard Robotics",
+     "round": "Series A",
+     "date": "2025-09-03",
+     "amount": "$22 million",
+     "link": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0301,
+    "lead": 0.2056
+   },
+   "sources": [
+    "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/"
+   ]
+  },
+  {
+   "rank": 51,
+   "investor": "General Catalyst",
+   "score": 0.6169,
+   "why": "Rank 51, score 0.62: backed 1 verified similar startup (Orchard Robotics); led 1 of it (+0.21 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2025-09-03.",
+   "backed_companies": [
+    {
+     "name": "Orchard Robotics",
+     "round": "Series A",
+     "date": "2025-09-03",
+     "amount": "$22 million",
+     "link": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0301,
+    "lead": 0.2056
+   },
+   "sources": [
+    "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/"
+   ]
+  },
+  {
+   "rank": 52,
+   "investor": "Quiet Capital",
+   "score": 0.6169,
+   "why": "Rank 52, score 0.62: backed 1 verified similar startup (Orchard Robotics); led 1 of it (+0.21 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2025-09-03.",
+   "backed_companies": [
+    {
+     "name": "Orchard Robotics",
+     "round": "Series A",
+     "date": "2025-09-03",
+     "amount": "$22 million",
+     "link": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0301,
+    "lead": 0.2056
+   },
+   "sources": [
+    "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/"
+   ]
+  },
+  {
+   "rank": 53,
+   "investor": "Shine Capital",
+   "score": 0.6169,
+   "why": "Rank 53, score 0.62: backed 1 verified similar startup (Orchard Robotics); led 1 of it (+0.21 lead bonus); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2025-09-03.",
+   "backed_companies": [
+    {
+     "name": "Orchard Robotics",
+     "round": "Series A",
+     "date": "2025-09-03",
+     "amount": "$22 million",
+     "link": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0301,
+    "lead": 0.2056
+   },
+   "sources": [
+    "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/"
+   ]
+  },
+  {
+   "rank": 54,
+   "investor": "AVAC",
+   "score": 0.6088,
+   "why": "Rank 54, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 55,
+   "investor": "BDC",
+   "score": 0.6088,
+   "why": "Rank 55, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 56,
+   "investor": "East Valley Ventures",
+   "score": 0.6088,
+   "why": "Rank 56, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 57,
+   "investor": "Farming Future",
+   "score": 0.6088,
+   "why": "Rank 57, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 58,
+   "investor": "FoodSeed",
+   "score": 0.6088,
+   "why": "Rank 58, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 59,
+   "investor": "Koan Capital",
+   "score": 0.6088,
+   "why": "Rank 59, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 60,
+   "investor": "National Agrifood Tech Technology Transfer Hub",
+   "score": 0.6088,
+   "why": "Rank 60, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 61,
+   "investor": "New Brunswick Innovation Foundation",
+   "score": 0.6088,
+   "why": "Rank 61, score 0.61: backed 1 verified similar startup (Picketa Systems); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "Picketa Systems",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$1.5 million",
+     "link": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises"
+   ]
+  },
+  {
+   "rank": 62,
+   "investor": "Triple Jump",
+   "score": 0.6061,
+   "why": "Rank 62, score 0.61: backed 1 verified similar startup (Pyramidia Ventures); led 1 of it (+0.20 lead bonus); sector overlap on 'smallholder', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-09-22.",
+   "backed_companies": [
+    {
+     "name": "Pyramidia Ventures",
+     "round": "Seed",
+     "date": "2025-09-22",
+     "amount": "$1.5 million ($1.3M funding + $200K technical assistance via DGGF)",
+     "link": "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0353,
+    "lead": 0.2021
+   },
+   "sources": [
+    "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/"
+   ]
+  },
+  {
+   "rank": 63,
+   "investor": "Artesian",
+   "score": 0.6038,
+   "why": "Rank 63, score 0.60: backed 1 verified similar startup (BioScout); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1226,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens"
+   ]
+  },
+  {
+   "rank": 64,
+   "investor": "Division Q",
+   "score": 0.6038,
+   "why": "Rank 64, score 0.60: backed 1 verified similar startup (BioScout); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1226,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens"
+   ]
+  },
+  {
+   "rank": 65,
+   "investor": "Hort Innovation Venture Fund",
+   "score": 0.6038,
+   "why": "Rank 65, score 0.60: backed 1 verified similar startup (BioScout); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-07.",
+   "backed_companies": [
+    {
+     "name": "BioScout",
+     "round": "Seed",
+     "date": "2026-08-07",
+     "amount": "A$6.75M",
+     "link": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1226,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens"
+   ]
+  },
+  {
+   "rank": 66,
+   "investor": "Ag Ventures Alliance",
+   "score": 0.6014,
+   "why": "Rank 66, score 0.60: backed 1 verified similar startup (Quercus Biosolutions); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 67,
+   "investor": "Agricap Fund",
+   "score": 0.6014,
+   "why": "Rank 67, score 0.60: backed 1 verified similar startup (Quercus Biosolutions); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 68,
+   "investor": "Iowa Corn Opportunities",
+   "score": 0.6014,
+   "why": "Rank 68, score 0.60: backed 1 verified similar startup (Quercus Biosolutions); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 69,
+   "investor": "Kentucky Corn Plus",
+   "score": 0.6014,
+   "why": "Rank 69, score 0.60: backed 1 verified similar startup (Quercus Biosolutions); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 70,
+   "investor": "Rootstock Capital",
+   "score": 0.6014,
+   "why": "Rank 70, score 0.60: backed 1 verified similar startup (Quercus Biosolutions); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-29.",
+   "backed_companies": [
+    {
+     "name": "Quercus Biosolutions",
+     "round": "Seed",
+     "date": "2026-07-29",
+     "amount": "$5 million",
+     "link": "https://quercusbio.com/media-july-29",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://quercusbio.com/media-july-29"
+   ]
+  },
+  {
+   "rank": 71,
+   "investor": "Agri Investment Fund",
+   "score": 0.5896,
+   "why": "Rank 71, score 0.59: backed 1 verified similar startup (Rainbow Crops); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 72,
+   "investor": "AIF",
+   "score": 0.5896,
+   "why": "Rank 72, score 0.59: backed 1 verified similar startup (Rainbow Crops); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 73,
+   "investor": "Gates Foundation",
+   "score": 0.5896,
+   "why": "Rank 73, score 0.59: backed 1 verified similar startup (Rainbow Crops); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 74,
+   "investor": "Maia Venture",
+   "score": 0.5896,
+   "why": "Rank 74, score 0.59: backed 1 verified similar startup (Rainbow Crops); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 75,
+   "investor": "VIB",
+   "score": 0.5896,
+   "why": "Rank 75, score 0.59: backed 1 verified similar startup (Rainbow Crops); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-06-16.",
+   "backed_companies": [
+    {
+     "name": "Rainbow Crops",
+     "round": "Seed",
+     "date": "2026-06-16",
+     "amount": "$11.25 million",
+     "link": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops"
+   ]
+  },
+  {
+   "rank": 76,
+   "investor": "Corteva Catalyst",
+   "score": 0.5454,
+   "why": "Rank 76, score 0.55: backed 1 verified similar startup (Upstream Biotechnology); sector overlap on 'crop', 'disease', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-30.",
+   "backed_companies": [
+    {
+     "name": "Upstream Biotechnology",
+     "round": "Seed",
+     "date": "2026-07-30",
+     "amount": "$10.3m",
+     "link": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1204,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech"
+   ]
+  },
+  {
+   "rank": 77,
+   "investor": "Silver Blue",
+   "score": 0.5454,
+   "why": "Rank 77, score 0.55: backed 1 verified similar startup (Upstream Biotechnology); sector overlap on 'crop', 'disease', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-30.",
+   "backed_companies": [
+    {
+     "name": "Upstream Biotechnology",
+     "round": "Seed",
+     "date": "2026-07-30",
+     "amount": "$10.3m",
+     "link": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1204,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech"
+   ]
+  },
+  {
+   "rank": 78,
+   "investor": "VTC Ventures",
+   "score": 0.5454,
+   "why": "Rank 78, score 0.55: backed 1 verified similar startup (Upstream Biotechnology); sector overlap on 'crop', 'disease', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-07-30.",
+   "backed_companies": [
+    {
+     "name": "Upstream Biotechnology",
+     "round": "Seed",
+     "date": "2026-07-30",
+     "amount": "$10.3m",
+     "link": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1204,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech"
+   ]
+  },
+  {
+   "rank": 79,
+   "investor": "Badlands Capital",
+   "score": 0.5411,
+   "why": "Rank 79, score 0.54: backed 1 verified similar startup (FarmQA); sector overlap on 'ai', 'crop', 'detection', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-29.",
+   "backed_companies": [
+    {
+     "name": "FarmQA",
+     "round": "Seed",
+     "date": "2025-05-29",
+     "amount": "$4M (Series Seed Preferred, oversubscribed)",
+     "link": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0036,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/"
+   ]
+  },
+  {
+   "rank": 80,
+   "investor": "O’Leary Ventures",
+   "score": 0.5411,
+   "why": "Rank 80, score 0.54: backed 1 verified similar startup (FarmQA); sector overlap on 'ai', 'crop', 'detection', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-29.",
+   "backed_companies": [
+    {
+     "name": "FarmQA",
+     "round": "Seed",
+     "date": "2025-05-29",
+     "amount": "$4M (Series Seed Preferred, oversubscribed)",
+     "link": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0036,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/"
+   ]
+  },
+  {
+   "rank": 81,
+   "investor": "Environmental",
+   "score": 0.5403,
+   "why": "Rank 81, score 0.54: backed 1 verified similar startup (Agriodor); led 1 of it (+0.18 lead bonus); sector overlap on 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-04-15.",
+   "backed_companies": [
+    {
+     "name": "Agriodor",
+     "round": "series a",
+     "date": "2026-04-15",
+     "amount": "€15 m",
+     "link": "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0914,
+    "lead": 0.1801
+   },
+   "sources": [
+    "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally"
+   ]
+  },
+  {
+   "rank": 82,
+   "investor": "Solidarity Revolution Fund",
+   "score": 0.5403,
+   "why": "Rank 82, score 0.54: backed 1 verified similar startup (Agriodor); led 1 of it (+0.18 lead bonus); sector overlap on 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-04-15.",
+   "backed_companies": [
+    {
+     "name": "Agriodor",
+     "round": "series a",
+     "date": "2026-04-15",
+     "amount": "€15 m",
+     "link": "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0914,
+    "lead": 0.1801
+   },
+   "sources": [
+    "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally"
+   ]
+  },
+  {
+   "rank": 83,
+   "investor": "Bidra",
+   "score": 0.4964,
+   "why": "Rank 83, score 0.50: backed 1 verified similar startup (TerraBlaster); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 84,
+   "investor": "Play",
+   "score": 0.4964,
+   "why": "Rank 84, score 0.50: backed 1 verified similar startup (TerraBlaster); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 85,
+   "investor": "Plug",
+   "score": 0.4964,
+   "why": "Rank 85, score 0.50: backed 1 verified similar startup (TerraBlaster); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 86,
+   "investor": "Reservoir",
+   "score": 0.4964,
+   "why": "Rank 86, score 0.50: backed 1 verified similar startup (TerraBlaster); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 87,
+   "investor": "Sunna",
+   "score": 0.4964,
+   "why": "Rank 87, score 0.50: backed 1 verified similar startup (TerraBlaster); sector overlap on 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2026-08-25.",
+   "backed_companies": [
+    {
+     "name": "TerraBlaster",
+     "round": "Seed",
+     "date": "2026-08-25",
+     "amount": "$12.5 million",
+     "link": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed"
+   ]
+  },
+  {
+   "rank": 88,
+   "investor": "AIR Capital",
+   "score": 0.4831,
+   "why": "Rank 88, score 0.48: backed 1 verified similar startup (Calice); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-23.",
+   "backed_companies": [
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0019,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/"
+   ]
+  },
+  {
+   "rank": 89,
+   "investor": "Draper Cygnus",
+   "score": 0.4831,
+   "why": "Rank 89, score 0.48: backed 1 verified similar startup (Calice); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-23.",
+   "backed_companies": [
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0019,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/"
+   ]
+  },
+  {
+   "rank": 90,
+   "investor": "Innventure",
+   "score": 0.4831,
+   "why": "Rank 90, score 0.48: backed 1 verified similar startup (Calice); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-23.",
+   "backed_companies": [
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0019,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/"
+   ]
+  },
+  {
+   "rank": 91,
+   "investor": "Xperiment Ventures",
+   "score": 0.4831,
+   "why": "Rank 91, score 0.48: backed 1 verified similar startup (Calice); sector overlap on 'ai', 'crop', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-05-23.",
+   "backed_companies": [
+    {
+     "name": "Calice",
+     "round": "Seed",
+     "date": "2025-05-23",
+     "amount": "US$2.5 million",
+     "link": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0019,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/"
+   ]
+  },
+  {
+   "rank": 92,
+   "investor": "Nordic Impact Fund",
+   "score": 0.4758,
+   "why": "Rank 92, score 0.48: backed 1 verified similar startup (MazaoHub); sector overlap on 'ai', 'smallholder', 'farmer', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2025-10-03.",
+   "backed_companies": [
+    {
+     "name": "MazaoHub",
+     "round": "Pre-seed",
+     "date": "2025-10-03",
+     "amount": "$2 million",
+     "link": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0383,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/"
+   ]
+  },
+  {
+   "rank": 93,
+   "investor": "54Co",
+   "score": 0.4726,
+   "why": "Rank 93, score 0.47: backed 1 verified similar startup (Farm to Feed); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 94,
+   "investor": "DRK Foundation",
+   "score": 0.4726,
+   "why": "Rank 94, score 0.47: backed 1 verified similar startup (Farm to Feed); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 95,
+   "investor": "Holocene",
+   "score": 0.4726,
+   "why": "Rank 95, score 0.47: backed 1 verified similar startup (Farm to Feed); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 96,
+   "investor": "Levare Ventures",
+   "score": 0.4726,
+   "why": "Rank 96, score 0.47: backed 1 verified similar startup (Farm to Feed); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 97,
+   "investor": "Marula Square",
+   "score": 0.4726,
+   "why": "Rank 97, score 0.47: backed 1 verified similar startup (Farm to Feed); sector overlap on 'smallholder', 'farmer', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-11-06.",
+   "backed_companies": [
+    {
+     "name": "Farm to Feed",
+     "round": "Seed",
+     "date": "2025-11-06",
+     "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+     "link": "https://igrownews.com/farm-to-feed-latest-news/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://igrownews.com/farm-to-feed-latest-news/"
+   ]
+  },
+  {
+   "rank": 98,
+   "investor": "Agroven",
+   "score": 0.4573,
+   "why": "Rank 98, score 0.46: backed 1 verified similar startup (BemAgro); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 99,
+   "investor": "Arara Seed",
+   "score": 0.4573,
+   "why": "Rank 99, score 0.46: backed 1 verified similar startup (BemAgro); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 100,
+   "investor": "Atvos",
+   "score": 0.4573,
+   "why": "Rank 100, score 0.46: backed 1 verified similar startup (BemAgro); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 101,
+   "investor": "CNH",
+   "score": 0.4573,
+   "why": "Rank 101, score 0.46: backed 1 verified similar startup (BemAgro); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 102,
+   "investor": "Colorado Ventures",
+   "score": 0.4573,
+   "why": "Rank 102, score 0.46: backed 1 verified similar startup (BemAgro); sector overlap on 'ai', 'crop', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-18.",
+   "backed_companies": [
+    {
+     "name": "BemAgro",
+     "round": "Series A",
+     "date": "2026-02-18",
+     "amount": "R$30.3 million",
+     "link": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/"
+   ]
+  },
+  {
+   "rank": 103,
+   "investor": "Climate Angels",
+   "score": 0.4558,
+   "why": "Rank 103, score 0.46: backed 1 verified similar startup (Cropcoin Technologies); sector overlap on 'farmer', 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-03-30.",
+   "backed_companies": [
+    {
+     "name": "Cropcoin Technologies",
+     "round": "Other",
+     "date": "2026-03-30",
+     "amount": "Rs 12 Crore ($1.27M)",
+     "link": "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.087,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html"
+   ]
+  },
+  {
+   "rank": 104,
+   "investor": "High-Tech Gründerfonds",
+   "score": 0.4383,
+   "why": "Rank 104, score 0.44: backed 1 verified similar startup (Mycoverse); led 1 of it (+0.15 lead bonus); sector overlap on 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-03-03.",
+   "backed_companies": [
+    {
+     "name": "Mycoverse",
+     "round": "pre-seed",
+     "date": "2026-03-03",
+     "amount": "2.4 million euros",
+     "link": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797,
+    "lead": 0.1461
+   },
+   "sources": [
+    "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed"
+   ]
+  },
+  {
+   "rank": 105,
+   "investor": "Hyderabad Angels",
+   "score": 0.4158,
+   "why": "Rank 105, score 0.42: backed 1 verified similar startup (GROWiT); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 106,
+   "investor": "Progrowth Ventures",
+   "score": 0.4158,
+   "why": "Rank 106, score 0.42: backed 1 verified similar startup (GROWiT); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 107,
+   "investor": "Sunicon Ventures Fund",
+   "score": 0.4158,
+   "why": "Rank 107, score 0.42: backed 1 verified similar startup (GROWiT); sector overlap on 'agritech'; 0/1 at your stage (seed); 1/1 in India; latest deal 2025-05-28.",
+   "backed_companies": [
+    {
+     "name": "GROWiT",
+     "round": "series a",
+     "date": "2025-05-28",
+     "amount": "$3 m",
+     "link": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl"
+   ]
+  },
+  {
+   "rank": 108,
+   "investor": "Dutch Good Growth Fund (DGGF)",
+   "score": 0.4041,
+   "why": "Rank 108, score 0.40: backed 1 verified similar startup (Pyramidia Ventures); sector overlap on 'smallholder', 'agritech'; 1/1 at your stage (seed); 0/1 in India; latest deal 2025-09-22.",
+   "backed_companies": [
+    {
+     "name": "Pyramidia Ventures",
+     "round": "Seed",
+     "date": "2025-09-22",
+     "amount": "$1.5 million ($1.3M funding + $200K technical assistance via DGGF)",
+     "link": "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0353,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/"
+   ]
+  },
+  {
+   "rank": 109,
+   "investor": "Calculus Capital",
+   "score": 0.4008,
+   "why": "Rank 109, score 0.40: backed 1 verified similar startup (Resurrect Bio); sector overlap on 'crop', 'disease', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-17.",
+   "backed_companies": [
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0758,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html"
+   ]
+  },
+  {
+   "rank": 110,
+   "investor": "Pymwymic",
+   "score": 0.4008,
+   "why": "Rank 110, score 0.40: backed 1 verified similar startup (Resurrect Bio); sector overlap on 'crop', 'disease', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-17.",
+   "backed_companies": [
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0758,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html"
+   ]
+  },
+  {
+   "rank": 111,
+   "investor": "SynBioVen",
+   "score": 0.4008,
+   "why": "Rank 111, score 0.40: backed 1 verified similar startup (Resurrect Bio); sector overlap on 'crop', 'disease', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-17.",
+   "backed_companies": [
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0758,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html"
+   ]
+  },
+  {
+   "rank": 112,
+   "investor": "UKI2S",
+   "score": 0.4008,
+   "why": "Rank 112, score 0.40: backed 1 verified similar startup (Resurrect Bio); sector overlap on 'crop', 'disease', 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-02-17.",
+   "backed_companies": [
+    {
+     "name": "Resurrect Bio",
+     "round": "series a",
+     "date": "2026-02-17",
+     "amount": "$8.1M",
+     "link": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.225,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0758,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html"
+   ]
+  },
+  {
+   "rank": 113,
+   "investor": "Exim Bank",
+   "score": 0.3475,
+   "why": "Rank 113, score 0.35: backed 1 verified similar startup (ScaNxt); weak sector overlap; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-11-06.",
+   "backed_companies": [
+    {
+     "name": "ScaNxt",
+     "round": "",
+     "date": "2026-11-06",
+     "amount": "",
+     "link": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.0,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.1475,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms"
+   ]
+  },
+  {
+   "rank": 114,
+   "investor": "Rainmatter",
+   "score": 0.3475,
+   "why": "Rank 114, score 0.35: backed 1 verified similar startup (ScaNxt); weak sector overlap; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-11-06.",
+   "backed_companies": [
+    {
+     "name": "ScaNxt",
+     "round": "",
+     "date": "2026-11-06",
+     "amount": "",
+     "link": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.0,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.1475,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms"
+   ]
+  },
+  {
+   "rank": 115,
+   "investor": "SIDBI",
+   "score": 0.3475,
+   "why": "Rank 115, score 0.35: backed 1 verified similar startup (ScaNxt); weak sector overlap; 0/1 at your stage (seed); 1/1 in India; latest deal 2026-11-06.",
+   "backed_companies": [
+    {
+     "name": "ScaNxt",
+     "round": "",
+     "date": "2026-11-06",
+     "amount": "",
+     "link": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.0,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.1475,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms"
+   ]
+  },
+  {
+   "rank": 116,
+   "investor": "BioInnovation Institute",
+   "score": 0.2922,
+   "why": "Rank 116, score 0.29: backed 1 verified similar startup (Mycoverse); sector overlap on 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-03-03.",
+   "backed_companies": [
+    {
+     "name": "Mycoverse",
+     "round": "pre-seed",
+     "date": "2026-03-03",
+     "amount": "2.4 million euros",
+     "link": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed"
+   ]
+  },
+  {
+   "rank": 117,
+   "investor": "Technical University of Denmark",
+   "score": 0.2922,
+   "why": "Rank 117, score 0.29: backed 1 verified similar startup (Mycoverse); sector overlap on 'agritech'; 0/1 at your stage (seed); 0/1 in India; latest deal 2026-03-03.",
+   "backed_companies": [
+    {
+     "name": "Mycoverse",
+     "round": "pre-seed",
+     "date": "2026-03-03",
+     "amount": "2.4 million euros",
+     "link": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "reach_route": "unknown",
+   "reach_url": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top)",
+   "score_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797,
+    "lead": 0.0
+   },
+   "sources": [
+    "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed"
+   ]
+  }
+ ],
+ "deals": [
+  {
+   "company": "MazaoHub",
+   "what_it_does": "AI-powered, climate-smart farming platform offering soil intelligence and direct market access for smallholder farmers",
+   "round_stage": "Pre-seed",
+   "amount": "$2 million",
+   "date": "2025-10-03",
+   "announced_date": "2025-10-03",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Catalyst Fund",
+   "other_investors": "Catalyst Fund; Mercy Corps Ventures; Nordic Impact Fund",
+   "investors_verified": [
+    "Catalyst Fund",
+    "Mercy Corps Ventures",
+    "Nordic Impact Fund"
+   ],
+   "lead_verified": [
+    "Catalyst Fund"
+   ],
+   "partners": [],
+   "hq_country": "Tanzania",
+   "source_url": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+   "final_url": "https://techafricanews.com/2025/10/03/tanzanias-mazaohub-secures-2m-pre-seed-to-transform-african-agriculture-with-ai/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4758,
+   "sim_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0383
+   },
+   "keyword_hits": [
+    "ai",
+    "smallholder",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Farm to Feed",
+   "what_it_does": "Tech-enabled B2B platform aggregating surplus and imperfect produce from smallholder farmers and reselling to businesses",
+   "round_stage": "Seed",
+   "amount": "$1.5 million ($1.27M equity + $230K non-dilutive)",
+   "date": "2025-11-06",
+   "announced_date": "2025-11-04",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Delta40 Venture Studio",
+   "other_investors": "DRK Foundation; Catalyst Fund; Holocene; Marula Square; 54Co; Levare Ventures; Mercy Corps Ventures; DEG DeveloPPP Ventures",
+   "investors_verified": [
+    "Delta40 Venture Studio",
+    "DRK Foundation",
+    "Catalyst Fund",
+    "Holocene",
+    "Marula Square",
+    "54Co",
+    "Levare Ventures",
+    "Mercy Corps Ventures"
+   ],
+   "lead_verified": [
+    "Delta40 Venture Studio"
+   ],
+   "partners": [],
+   "hq_country": "Kenya",
+   "source_url": "https://igrownews.com/farm-to-feed-latest-news/",
+   "final_url": "https://igrownews.com/farm-to-feed-latest-news/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4726,
+   "sim_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0476
+   },
+   "keyword_hits": [
+    "smallholder",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Verdant Impact",
+   "what_it_does": "AI-led bovine genetics company; Pashu AI platform for livestock health monitoring, genetic tracking and farm management serving farmers",
+   "round_stage": "Seed",
+   "amount": "$3 million",
+   "date": "2026-03-10",
+   "announced_date": "2026-03-10",
+   "date_basis": "claimed (page has no date)",
+   "lead_investor": "Unicorn India Ventures",
+   "other_investors": "Infynyte Club, Yash Kotak, Alok Soni, a-IDEA NAARM",
+   "investors_verified": [
+    "Unicorn India Ventures",
+    "Infynyte Club",
+    "Yash Kotak",
+    "Alok Soni"
+   ],
+   "lead_verified": [
+    "Unicorn India Ventures"
+   ],
+   "partners": [],
+   "hq_country": "India",
+   "source_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+   "final_url": "https://yourstory.com/2026/03/agritech-startup-verdant-impact-raises-seed-round",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.7628,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.2,
+    "recency": 0.0816
+   },
+   "keyword_hits": [
+    "ai",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "enfarm",
+   "what_it_does": "Agritech platform using AI and IoT soil sensors with a smartphone app to optimize crop nutrition (NPK) and give farmers data-driven recommendations to boost yields and cut fertilizer waste",
+   "round_stage": "Seed",
+   "amount": "$120 b",
+   "date": "2025-12-26",
+   "announced_date": "2025-12-26",
+   "date_basis": "page (text)",
+   "lead_investor": "Touchstone Partners",
+   "other_investors": "Aiviet Venture; Conservation Vietnam",
+   "investors_verified": [
+    "Touchstone Partners",
+    "Aiviet Venture",
+    "Conservation Vietnam"
+   ],
+   "lead_verified": [
+    "Touchstone Partners",
+    "Aiviet Venture",
+    "Conservation Vietnam"
+   ],
+   "partners": [],
+   "hq_country": "Vietnam",
+   "source_url": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
+   "final_url": "https://touchstone.vc/news/touchstone-partners-leads-seed-funding-in-vietnamese-agritech-startup-enfarm-345648",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.5988,
+   "sim_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0613
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "BioScout",
+   "what_it_does": "BioScout provides an AI-powered early warning system that detects airborne fungal crop pathogens in real time using field sensors and machine-learning analysis of microscope images.",
+   "round_stage": "Seed",
+   "amount": "A$6.75M",
+   "date": "2026-08-07",
+   "announced_date": "2026-08-13",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Demea Sustainable Investment, Astanor",
+   "other_investors": "GrainInnovate, GrainCorp Ventures, Hort Innovation Venture Fund, Artesian, Division Q",
+   "investors_verified": [
+    "Demea Sustainable Investment",
+    "Astanor",
+    "GrainInnovate",
+    "GrainCorp Ventures",
+    "Hort Innovation Venture Fund",
+    "Artesian",
+    "Division Q"
+   ],
+   "lead_verified": [
+    "Demea Sustainable Investment",
+    "Astanor"
+   ],
+   "partners": [],
+   "hq_country": "Australia",
+   "source_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+   "final_url": "https://agfundernews.com/bioscout-raises-4-8m-for-early-warning-system-for-fungal-pathogens",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6038,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1226
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "RoboCare",
+   "what_it_does": "Precision-agriculture AI fusing satellite imagery, IoT sensors and drone data to predict crop disease and water stress in olives, cereals and industrial tomatoes",
+   "round_stage": "Seed",
+   "amount": "Six-figure",
+   "date": "2026-07-09",
+   "announced_date": "2026-06-30",
+   "date_basis": "page (published_date)",
+   "lead_investor": "216 Capital",
+   "other_investors": "",
+   "investors_verified": [
+    "216 Capital"
+   ],
+   "lead_verified": [
+    "216 Capital"
+   ],
+   "partners": [],
+   "hq_country": "Tunisia",
+   "source_url": "https://startupmaphub.com/blog/top-agritech-startups-africa-2026",
+   "final_url": "https://startupmaphub.com/blog/top-agritech-startups-africa-2026",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6522,
+   "sim_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1147
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "disease",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Myca",
+   "what_it_does": "AI agents coordinating agribusiness field teams; turns field messages, calls and photos into structured data for field sales, crop surveys, procurement, credit assessment in smallholder-heavy markets",
+   "round_stage": "Pre-seed",
+   "amount": "$1.3 million",
+   "date": "2026-10-07",
+   "announced_date": "2026-10-07",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Kriscore Capital",
+   "other_investors": "Eximius Ventures, Indigram Labs Foundation, agriculture-sector angels",
+   "investors_verified": [
+    "Kriscore Capital",
+    "Eximius Ventures",
+    "Indigram Labs Foundation"
+   ],
+   "lead_verified": [
+    "Kriscore Capital"
+   ],
+   "partners": [],
+   "hq_country": "India",
+   "source_url": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
+   "final_url": "https://agfundernews.com/myca-raises-1-3m-pre-seed-to-put-ai-agents-in-charge-of-agribusiness-field-operations",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.7768,
+   "sim_parts": {
+    "sector": 0.3375,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.1393
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "smallholder",
+    "agritech"
+   ]
+  },
+  {
+   "company": "FarmQA",
+   "what_it_does": "Digital agronomy platform equipping agronomists and crop consultants with scouting, crop issue detection, and AI-powered analytics tools",
+   "round_stage": "Seed",
+   "amount": "$4M (Series Seed Preferred, oversubscribed)",
+   "date": "2025-05-29",
+   "announced_date": "2025-05-29",
+   "date_basis": "page (published_date)",
+   "lead_investor": "gener8tor 1889",
+   "other_investors": "O'Leary Ventures (via Wonder Fund North Dakota), Badlands Capital",
+   "investors_verified": [
+    "Badlands Capital",
+    "O’Leary Ventures"
+   ],
+   "lead_verified": [],
+   "partners": [],
+   "hq_country": "United States",
+   "source_url": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
+   "final_url": "https://farmqa.com/press-farmqa-secures-4m-seed-round-to-scale-digital-agronomy/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.5411,
+   "sim_parts": {
+    "sector": 0.3375,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0036
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "detection",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Pyramidia Ventures",
+   "what_it_does": "Agritech venture studio building climate-smart agri-food ventures (irrigation, inputs, traceability) for African smallholders",
+   "round_stage": "Seed",
+   "amount": "$1.5 million ($1.3M funding + $200K technical assistance via DGGF)",
+   "date": "2025-09-22",
+   "announced_date": "2025-09-19",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Triple Jump",
+   "other_investors": "Dutch Good Growth Fund (DGGF)",
+   "investors_verified": [
+    "Triple Jump",
+    "Dutch Good Growth Fund (DGGF)"
+   ],
+   "lead_verified": [
+    "Triple Jump"
+   ],
+   "partners": [],
+   "hq_country": "Kenya",
+   "source_url": "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/",
+   "final_url": "https://innovation-village.com/pyramidia-ventures-secures-1-5m-to-scale-climate-smart-agritech-venture-building-across-africa/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4041,
+   "sim_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0353
+   },
+   "keyword_hits": [
+    "smallholder",
+    "agritech"
+   ]
+  },
+  {
+   "company": "OKO Finance",
+   "what_it_does": "Automated parametric crop insurance for smallholder farmers across Africa, using mobile technology and satellite data",
+   "round_stage": "Seed",
+   "amount": "Six-digit",
+   "date": "2026-11-13",
+   "announced_date": "2025-10-29",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Catalyst Fund",
+   "other_investors": "",
+   "investors_verified": [
+    "Catalyst Fund"
+   ],
+   "lead_verified": [
+    "Catalyst Fund"
+   ],
+   "partners": [],
+   "hq_country": "Luxembourg",
+   "source_url": "https://startupluxembourg.com/news/oko-raises-six-digit-funding-for-farming-resilience",
+   "final_url": "https://startupluxembourg.com/news/oko-raises-six-digit-funding-for-farming-resilience",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6307,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1495
+   },
+   "keyword_hits": [
+    "crop",
+    "smallholder",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "PerPlant",
+   "what_it_does": "Develops AI-based camera sensors mounted on tractors that use high-resolution field imaging and edge AI to detect crop/field conditions at plant level and guide targeted spraying of herbicides and fertilisers.",
+   "round_stage": "",
+   "amount": "€1M",
+   "announced_date": "2026-05-25",
+   "lead_investor": "",
+   "other_investors": "Export and Investment Fund of Denmark, European Space Agency, Innovation Fund Denmark, Antler, The Footprint Firm",
+   "hq_country": "Denmark",
+   "source_url": "https://arcticstartup.com/perplant-raises-e1m/",
+   "origin": "tinyset",
+   "status": "dropped",
+   "drop_reason": "source page not fetched (bot_blocked)"
+  },
+  {
+   "company": "Vereda",
+   "what_it_does": "AI-native direct sales channel connecting agricultural input manufacturers with farmers, operating via WhatsApp in Brazil",
+   "round_stage": "Seed",
+   "amount": "R$30 million (~USD 5.46 million)",
+   "date": "2026-11-13",
+   "announced_date": "2026-11-03",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Canary",
+   "other_investors": "Valor Capital Group, a16z Speedrun",
+   "investors_verified": [
+    "Canary",
+    "Valor Capital Group"
+   ],
+   "lead_verified": [
+    "Canary",
+    "Valor Capital Group"
+   ],
+   "partners": [],
+   "hq_country": "Brazil",
+   "source_url": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
+   "final_url": "https://www.latamrepublic.com/brazilian-agtech-vereda-secures-usd-5-46-million-seed-to-rethink-farm-input-sales/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6307,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1495
+   },
+   "keyword_hits": [
+    "ai",
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "BemAgro",
+   "what_it_does": "Brazilian agtech combining AI and computer vision to turn tractor, drone and satellite data into agronomic insights for crops like soy, sugarcane and forests",
+   "round_stage": "Series A",
+   "amount": "R$30.3 million",
+   "date": "2026-02-18",
+   "announced_date": "2026-02-16",
+   "date_basis": "page (published_date)",
+   "lead_investor": "The Yield Lab Latam",
+   "other_investors": "Arara Seed, Colorado Ventures, CNH, Atvos, Agroven",
+   "investors_verified": [
+    "Yield Lab Latam",
+    "Arara Seed",
+    "Colorado Ventures",
+    "CNH",
+    "Atvos",
+    "Agroven"
+   ],
+   "lead_verified": [
+    "Yield Lab Latam"
+   ],
+   "partners": [],
+   "hq_country": "Brazil",
+   "source_url": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+   "final_url": "https://www.cnnbrasil.com.br/economia/money/inteligencia-artificial/bemagro-capta-r-303-milhoes-em-serie-a-com-expansao-de-ia-no-agro/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4573,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0761
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Calice",
+   "what_it_does": "Argentine agtech using advanced AI and predictive models (NODES platform) to computationally model crop biological and agronomic data, helping seed and agri-food companies optimize R&D and predict yields",
+   "round_stage": "Seed",
+   "amount": "US$2.5 million",
+   "date": "2025-05-23",
+   "announced_date": "2025-05-23",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Astanor",
+   "other_investors": "Draper Cygnus, Xperiment Ventures, AIR Capital, Innventure, GrainCorp Ventures",
+   "investors_verified": [
+    "Astanor",
+    "Draper Cygnus",
+    "Xperiment Ventures",
+    "AIR Capital",
+    "Innventure",
+    "GrainCorp Ventures"
+   ],
+   "lead_verified": [
+    "Astanor"
+   ],
+   "partners": [],
+   "hq_country": "Argentina",
+   "source_url": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+   "final_url": "https://startups.com.br/negocios/agtech/calice-capta-us-25m-e-mira-investimento-em-ia-avancada-para-o-agro/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4831,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.0019
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Rainbow Crops",
+   "what_it_does": "AI-powered crop engineering platform combining genome editing and precision breeding",
+   "round_stage": "Seed",
+   "amount": "$11.25 million",
+   "date": "2026-06-16",
+   "announced_date": "2026-06-16",
+   "date_basis": "page (published_date)",
+   "lead_investor": "LIFTT, LIFTT EuroInvest",
+   "other_investors": "Agri Investment Fund, Corteva, LIFTT, Maia Venture, PINC, VIB",
+   "investors_verified": [
+    "LIFTT EuroInvest",
+    "Agri Investment Fund",
+    "Corteva",
+    "Maia Venture",
+    "PINC",
+    "VIB",
+    "AIF",
+    "Gates Foundation"
+   ],
+   "lead_verified": [
+    "LIFTT EuroInvest"
+   ],
+   "partners": [],
+   "hq_country": "Belgium",
+   "source_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+   "final_url": "https://press.vib.be/rainbow-crops-raises-97m-seed-round-to-scale-ai-driven-multiplex-gene-editing-for-next-generation-crops",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.5896,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1084
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Quercus Biosolutions",
+   "what_it_does": "AI-created mini proteins as new class of crop protection agents targeting herbicide-resistant weeds",
+   "round_stage": "Seed",
+   "amount": "$5 million",
+   "date": "2026-07-29",
+   "announced_date": "2026-07-29",
+   "date_basis": "page (text)",
+   "lead_investor": "Flyover Capital",
+   "other_investors": "Ag Startup Engine, Ag Ventures Alliance, Agricap Fund, Grantham Foundation, Iowa Corn Opportunities, Kentucky Corn Plus, Rootstock Capital, Serra Ventures, Starshot Capital",
+   "investors_verified": [
+    "Flyover Capital",
+    "Serra Ventures",
+    "Starshot Capital",
+    "Grantham Foundation",
+    "Ag Startup Engine",
+    "Ag Ventures Alliance",
+    "Agricap Fund",
+    "Iowa Corn Opportunities",
+    "Kentucky Corn Plus",
+    "Rootstock Capital"
+   ],
+   "lead_verified": [
+    "Flyover Capital",
+    "Serra Ventures",
+    "Starshot Capital",
+    "Grantham Foundation"
+   ],
+   "partners": [],
+   "hq_country": "United States",
+   "source_url": "https://quercusbio.com/media-july-29",
+   "final_url": "https://quercusbio.com/media-july-29",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6014,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1202
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Aflabox",
+   "what_it_does": "UV imaging and AI to detect mycotoxins and assess cereal quality",
+   "round_stage": "Seed",
+   "amount": "$1.56 million",
+   "announced_date": "2026-08-03",
+   "lead_investor": "FoodSeed",
+   "other_investors": "Farming Future",
+   "hq_country": "Italy",
+   "source_url": "https://www.eu-startups.com/2026/08/italys-aflabox-raises-e1-35-million-to-scale-ai-powered-portable-aflatoxin-detection-across-africa-and-europe/",
+   "origin": "tinyset",
+   "status": "dropped",
+   "drop_reason": "source page not fetched (bot_blocked)"
+  },
+  {
+   "company": "Bindbridge",
+   "what_it_does": "Cambridge-based ag-biotech using its AI platform BRIDGE to design agricultural molecular glues for next-generation, targeted-protein-degradation crop protection against herbicide resistance.",
+   "round_stage": "Pre-seed",
+   "amount": "$3.8M",
+   "date": "2026-03-03",
+   "announced_date": "2026-03-03",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Speedinvest, Nucleus Capital",
+   "other_investors": "",
+   "investors_verified": [
+    "Speedinvest",
+    "Nucleus Capital"
+   ],
+   "lead_verified": [
+    "Speedinvest",
+    "Nucleus Capital"
+   ],
+   "partners": [],
+   "hq_country": "United Kingdom",
+   "source_url": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
+   "final_url": "https://agfundernews.com/bindbridge-raises-3-8m-for-targeted-protein-degradation-platform-for-next-gen-crop-protection",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4609,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "OlsAro",
+   "what_it_does": "Develops salt-tolerant wheat and climate-resilient crops using AI-based trait screening (SeedAX platform)",
+   "round_stage": "Seed",
+   "amount": "$5.5 million",
+   "date": "2026-10-14",
+   "announced_date": "2026-10-14",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Industrifonden (co-lead)",
+   "other_investors": "Nordic Foodtech VC (co-lead); Future Food Fund; PINC; AgFunder; GU Ventures",
+   "investors_verified": [
+    "Industrifonden",
+    "Nordic Foodtech VC",
+    "PINC",
+    "AgFunder",
+    "Future Food Fund",
+    "GU Ventures"
+   ],
+   "lead_verified": [
+    "Industrifonden",
+    "Nordic Foodtech VC",
+    "PINC",
+    "AgFunder"
+   ],
+   "partners": [],
+   "hq_country": "Sweden",
+   "source_url": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+   "final_url": "https://agfundernews.com/olsaro-raises-5-5m-seed-round-as-salt-tolerant-wheat-nears-market",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6224,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1412
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Upstream Biotechnology",
+   "what_it_does": "SwitchBlade crop defense tech that activates disease resistance on demand without yield penalties",
+   "round_stage": "Seed",
+   "amount": "$10.3m",
+   "date": "2026-07-30",
+   "announced_date": "2026-07-28",
+   "date_basis": "page (published_date)",
+   "lead_investor": "LeVert Ventures",
+   "other_investors": "Corteva Catalyst; Silver Blue; VTC Ventures",
+   "investors_verified": [
+    "LeVert Ventures",
+    "Corteva Catalyst",
+    "Silver Blue",
+    "VTC Ventures"
+   ],
+   "lead_verified": [
+    "LeVert Ventures"
+   ],
+   "partners": [],
+   "hq_country": "United States",
+   "source_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+   "final_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.5454,
+   "sim_parts": {
+    "sector": 0.225,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1204
+   },
+   "keyword_hits": [
+    "crop",
+    "disease",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Cropcoin Technologies",
+   "what_it_does": "Agritech startup turning animal waste into organic fertiliser and biostimulants at the source; supports 70,000+ farmers in Bihar, Jharkhand and Northeast India",
+   "round_stage": "Other",
+   "amount": "Rs 12 Crore ($1.27M)",
+   "date": "2026-03-30",
+   "announced_date": "2026-03-30",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Unicorn India Ventures",
+   "other_investors": "Climate Angels",
+   "investors_verified": [
+    "Unicorn India Ventures",
+    "Climate Angels"
+   ],
+   "lead_verified": [
+    "Unicorn India Ventures"
+   ],
+   "partners": [],
+   "hq_country": "India",
+   "source_url": "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
+   "final_url": "https://www.finsmes.com/2026/03/cropcoin-technologies-raises-rs-12-crore-in-pre-series-a-funding.html",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4558,
+   "sim_parts": {
+    "sector": 0.1688,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.087
+   },
+   "keyword_hits": [
+    "farmer",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Orchard Robotics",
+   "what_it_does": "Cameras and AI to help fruit growers manage crops precisely; tractor-mounted cameras analyze fruit size, color, and health",
+   "round_stage": "Series A",
+   "amount": "$22 million",
+   "date": "2025-09-03",
+   "announced_date": "2025-09-03",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Quiet Capital, Shine Capital",
+   "other_investors": "General Catalyst, Contrary",
+   "investors_verified": [
+    "Quiet Capital",
+    "Shine Capital",
+    "General Catalyst",
+    "Contrary"
+   ],
+   "lead_verified": [
+    "Quiet Capital",
+    "Shine Capital",
+    "General Catalyst",
+    "Contrary"
+   ],
+   "partners": [],
+   "hq_country": "United States",
+   "source_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+   "final_url": "https://techcrunch.com/2025/09/03/orchard-robotics-founded-by-a-thiel-fellow-cornell-dropout-raises-22m-for-farm-vision-ai/",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4113,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0301
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "Picketa Systems",
+   "what_it_does": "Portable AI-powered spectroscopy to estimate crop nutrient levels in the field",
+   "round_stage": "Seed",
+   "amount": "$1.5 million",
+   "date": "2026-08-25",
+   "announced_date": "",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Tall Grass Ventures",
+   "other_investors": "AVAC; BDC; East Valley Ventures; Koan Capital; New Brunswick Innovation Foundation; Tall Grass Ventures",
+   "investors_verified": [
+    "Tall Grass Ventures",
+    "AVAC",
+    "BDC",
+    "East Valley Ventures",
+    "Koan Capital",
+    "New Brunswick Innovation Foundation",
+    "Farming Future",
+    "FoodSeed",
+    "National Agrifood Tech Technology Transfer Hub"
+   ],
+   "lead_verified": [
+    "Tall Grass Ventures"
+   ],
+   "partners": [],
+   "hq_country": "Canada",
+   "source_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+   "final_url": "https://www.tryfundable.ai/blog/top-early-stage-agtech-raises",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6088,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276
+   },
+   "keyword_hits": [
+    "ai",
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "TerraBlaster",
+   "what_it_does": "Real-time soil nutrient (NPK) mapping at tractor speed using laser-induced breakdown spectroscopy (LIBS) tech first deployed on the Mars rover; guides precise fertilizer application for row-crop growers",
+   "round_stage": "Seed",
+   "amount": "$12.5 million",
+   "date": "2026-08-25",
+   "announced_date": "2026-08-25",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Ulu Ventures",
+   "other_investors": "Khosla Ventures, Trailhead Capital, Builders Vision, Bidra, Ag Startup Engine, Reservoir, Sunna, Plug and Play, GrainInnovate, Hort Innovation Venture Fund (Artesian)",
+   "investors_verified": [
+    "Ulu Ventures",
+    "Khosla Ventures",
+    "Trailhead Capital",
+    "Builders Vision",
+    "Bidra",
+    "Ag Startup Engine",
+    "Reservoir",
+    "Sunna",
+    "Plug",
+    "Play",
+    "GrainInnovate"
+   ],
+   "lead_verified": [
+    "Ulu Ventures",
+    "Khosla Ventures",
+    "Trailhead Capital",
+    "Builders Vision"
+   ],
+   "partners": [],
+   "hq_country": "United States",
+   "source_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+   "final_url": "https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed",
+   "origin": "tinyset",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4964,
+   "sim_parts": {
+    "sector": 0.1688,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1276
+   },
+   "keyword_hits": [
+    "crop",
+    "agritech"
+   ]
+  },
+  {
+   "company": "ScaNxt",
+   "what_it_does": "climate and deep technology. The company has raised an undisclosed sum from Rainmatter, along with investments from the Small Industries Development Bank of India (SIDBI) and Export-Import Bank of",
+   "round_stage": "",
+   "amount": "",
+   "date": "2026-11-06",
+   "announced_date": "2026-11-05T19:41:00Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "Rainmatter",
+   "investors_verified": [
+    "Rainmatter",
+    "SIDBI",
+    "Exim Bank"
+   ],
+   "lead_verified": [],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
+   "final_url": "https://timesofindia.indiatimes.com/city/kanpur/iit-k-incubated-scanxt-gets-zerodhas-rainmatter-sidbi-exim-banks-support/articleshow/135585661.cms",
+   "extra_links": [
+    "https://techherald.in/emerging-business/startup/scanxt-raises-funds-from-rainmatter-sidbi-exim-bank"
+   ],
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.3475,
+   "sim_parts": {
+    "sector": 0.0,
+    "stage": 0.0,
+    "country": 0.2,
+    "recency": 0.1475
+   },
+   "keyword_hits": [],
+   "query": "crop disease smallholder startup raises seed India"
+  },
+  {
+   "company": "ScaNxt",
+   "what_it_does": "from Rainmatter, along with investments from the Small Industries Development Bank of India (SIDBI) and Export-Import Bank of India (Exim Bank).\nThe investment strengthens ScaNxt’s ability to scale",
+   "round_stage": "",
+   "amount": "",
+   "date": "2026-11-06",
+   "announced_date": "2026-11-06T11:45:44Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "Rainmatter, SIDBI, Exim Bank",
+   "investors_verified": [
+    "Rainmatter",
+    "SIDBI",
+    "Exim Bank"
+   ],
+   "lead_verified": [],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://techherald.in/emerging-business/startup/scanxt-raises-funds-from-rainmatter-sidbi-exim-bank",
+   "final_url": "https://techherald.in/emerging-business/startup/scanxt-raises-funds-from-rainmatter-sidbi-exim-bank/",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "crop disease smallholder startup raises seed India"
+  },
+  {
+   "company": "Bharat Intelligence",
+   "what_it_does": "Agritech company Bharat Intelligence has raised Rs 7 crore in a pre-seed funding round led by Sahyadri Farms. The funds will be used to grow its team, ...",
+   "round_stage": "pre-seed",
+   "amount": "Rs 7 crore",
+   "date": "2025-09-25",
+   "announced_date": "Sep 25, 2025",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Sahyadri Farms",
+   "other_investors": "",
+   "investors_verified": [
+    "Sahyadri Farms"
+   ],
+   "lead_verified": [
+    "Sahyadri Farms"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://entrackr.com/snippets/agritech-startup-bharat-intelligence-raises-funding-led-by-sahyadri-farms-10500153",
+   "final_url": "https://entrackr.com/snippets/agritech-startup-bharat-intelligence-raises-funding-led-by-sahyadri-farms-10500153",
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4486,
+   "sim_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0361
+   },
+   "keyword_hits": [
+    "agritech"
+   ],
+   "query": "agritech startup raises seed round India"
+  },
+  {
+   "company": "Resurrect Bio",
+   "what_it_does": "crops with genetic defenses against disease, today announced the successful initial closing of its Series A funding round at $8.1M. The investment was led by Corteva through its Corteva",
+   "round_stage": "series a",
+   "amount": "$8.1M",
+   "date": "2026-02-17",
+   "announced_date": "2026-02-17T13:00:00Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "Corteva",
+   "investors_verified": [
+    "Corteva",
+    "Calculus Capital",
+    "Pymwymic",
+    "UKI2S",
+    "SynBioVen",
+    "AgFunder"
+   ],
+   "lead_verified": [
+    "Corteva"
+   ],
+   "partners": [
+    {
+     "investor": "Corteva",
+     "partner": "Tom Greene"
+    }
+   ],
+   "hq_country": "",
+   "source_url": "https://prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+   "final_url": "https://www.prnewswire.com/news-releases/resurrect-bio-announces-8-1m-initial-close-of-series-a-led-by-corteva-302688929.html",
+   "extra_links": [
+    "https://calculuscapital.com/resurrect-bio-closes-its-oversubscribed-10-3m-series-a-to-accelerate-crop-disease-resistance"
+   ],
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4008,
+   "sim_parts": {
+    "sector": 0.225,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0758
+   },
+   "keyword_hits": [
+    "crop",
+    "disease",
+    "agritech"
+   ],
+   "query": "crop disease startup funding round led by"
+  },
+  {
+   "company": "DARO",
+   "what_it_does": "DARO, the Nebraska-based agtech startup working on swine illness detection, announced the closing of a $2.5 million funding round led by Grit Road Partners ...",
+   "round_stage": "seed",
+   "amount": "$2.5 m",
+   "date": "2026-10-06",
+   "announced_date": "Oct 6, 2026",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Grit Road Partners",
+   "other_investors": "",
+   "investors_verified": [
+    "Grit Road Partners",
+    "Nelnet"
+   ],
+   "lead_verified": [
+    "Grit Road Partners",
+    "Nelnet"
+   ],
+   "partners": [
+    {
+     "investor": "Grit Road Partners",
+     "partner": "Mike Jung"
+    },
+    {
+     "investor": "Grit Road Partners",
+     "partner": "Road Partners"
+    }
+   ],
+   "hq_country": "",
+   "source_url": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
+   "final_url": "https://siliconprairienews.com/2026/10/daro-announces-2-5-million-fund-close-to-expand-disease-testing-capacity-for-the-swine-industry/",
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.6203,
+   "sim_parts": {
+    "sector": 0.2812,
+    "stage": 0.2,
+    "country": 0.0,
+    "recency": 0.1391
+   },
+   "keyword_hits": [
+    "ai",
+    "detection",
+    "agritech"
+   ],
+   "query": "crop disease startup funding round led by"
+  },
+  {
+   "company": "Resurrect Bio",
+   "what_it_does": "$10.3M – oversubscribed from the $8.1M initial close announced in February 2026. The round was led by Corteva through its Corteva Catalyst platform, with participation from Calculus Capital,",
+   "round_stage": "series a",
+   "amount": "$10.3M",
+   "date": "2026-05-21",
+   "announced_date": "2026-05-21T11:32:33Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "Corteva",
+   "other_investors": "",
+   "investors_verified": [
+    "Corteva",
+    "Calculus Capital",
+    "Pymwymic",
+    "UKI2S"
+   ],
+   "lead_verified": [
+    "Corteva"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://calculuscapital.com/resurrect-bio-closes-its-oversubscribed-10-3m-series-a-to-accelerate-crop-disease-resistance",
+   "final_url": "https://calculuscapital.com/resurrect-bio-closes-its-oversubscribed-10-3m-series-a-to-accelerate-crop-disease-resistance/",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "crop disease startup funding round led by"
+  },
+  {
+   "company": "Upstream Biotech",
+   "what_it_does": "Upstream Biotechnology unlocks crops' own defense systems in response to disease and environmental stress without compromising yield.",
+   "round_stage": "seed",
+   "amount": "",
+   "announced_date": "Jul 30, 2026",
+   "lead_investor": "",
+   "other_investors": "",
+   "hq_country": "",
+   "source_url": "https://agfundernews.com/upstream-biotechnology-raises-seed-funding-for-on-demand-crop-defense-tech",
+   "origin": "search",
+   "status": "dropped",
+   "drop_reason": "company name not on source page",
+   "query": "crop disease startup funding round led by"
+  },
+  {
+   "company": "Mycoverse",
+   "what_it_does": "The Danish AgriTech start-up Mycoverse has closed a pre-seed financing of 2.4 million euros. The company develops biological plant protection solutions based on fungi to create a sustainable",
+   "round_stage": "pre-seed",
+   "amount": "2.4 million euros",
+   "date": "2026-03-03",
+   "announced_date": "2026-03-03T07:00:00Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "",
+   "investors_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds",
+    "BioInnovation Institute",
+    "PINC",
+    "Technical University of Denmark"
+   ],
+   "lead_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+   "final_url": "https://www.startbase.com/news/mycoverse-sichert-sich-24-millionen-euro-pre-seed",
+   "extra_links": [
+    "https://thenextweb.com/news/mycoverse-raises-e2-4m-pre-seed-to-develop-fungal-based-biological-crop-protection",
+    "https://tech.eu/2026/03/03/mycoverse-raises-eur24m-pre-seed-to-tackle-potato-late-blight-in-europe"
+   ],
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.2922,
+   "sim_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0797
+   },
+   "keyword_hits": [
+    "agritech"
+   ],
+   "query": "crop disease smallholder startup secures investment"
+  },
+  {
+   "company": "Mycoverse",
+   "what_it_does": "The €2.4 million pre-seed round brings Mycoverse’s cumulative funding to about €4.3 million when combined with earlier backing from the BioInnovation Institute, a Danish public innovation body.",
+   "round_stage": "pre-seed",
+   "amount": "€2.4M",
+   "date": "2026-03-03",
+   "announced_date": "2026-03-03T11:28:30Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "BioInnovation Institute",
+   "investors_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds",
+    "BioInnovation Institute",
+    "PINC"
+   ],
+   "lead_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://thenextweb.com/news/mycoverse-raises-e2-4m-pre-seed-to-develop-fungal-based-biological-crop-protection",
+   "final_url": "https://thenextweb.com/news/mycoverse-raises-e2-4m-pre-seed-to-develop-fungal-based-biological-crop-protection",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "crop disease smallholder startup secures investment"
+  },
+  {
+   "company": "GROWiT",
+   "what_it_does": "[GROWiT India](https://www.marcamoney.com/tag/growit-india/), a Surat-based agritech startup, has raised $3 million in a Series A funding round led by",
+   "round_stage": "series a",
+   "amount": "$3 m",
+   "date": "2025-05-28",
+   "announced_date": "2025-05-28T15:54:54Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "GVFL [GROWiT India]",
+   "other_investors": "GVFL",
+   "investors_verified": [
+    "GVFL",
+    "Veloce Opportunities Fund",
+    "JITO",
+    "We Founder Circle",
+    "Sunicon Ventures Fund",
+    "Progrowth Ventures",
+    "Hyderabad Angels"
+   ],
+   "lead_verified": [
+    "GVFL",
+    "Veloce Opportunities Fund",
+    "JITO",
+    "We Founder Circle"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl",
+   "final_url": "https://www.marcamoney.com/growit-raises-3-million-in-series-a-funding-led-by-gvfl/",
+   "extra_links": [
+    "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+    "https://zeebiz.com/startups/news-startup-funding-news-agritech-startup-growit-india-gets-3-million-dollar-funding-in-series-a-round-led-by-gvfl-365197"
+   ],
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.4158,
+   "sim_parts": {
+    "sector": 0.1125,
+    "stage": 0.1,
+    "country": 0.2,
+    "recency": 0.0033
+   },
+   "keyword_hits": [
+    "agritech"
+   ],
+   "query": "agritech startup series a India"
+  },
+  {
+   "company": "GROWiT",
+   "what_it_does": "has raised $3 million in a Series A [funding](https://indianstartupnews.com/tag/funding) round led by GVFL, with participation from Veloce Opportunities Fund, JITO, We Founder Circle, Sunicon",
+   "round_stage": "series a",
+   "amount": "$3 m",
+   "date": "2025-05-28",
+   "announced_date": "2025-05-28T06:26:09Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "GVFL",
+   "other_investors": "",
+   "investors_verified": [
+    "GVFL",
+    "Veloce Opportunities Fund",
+    "JITO",
+    "We Founder Circle",
+    "Sunicon Ventures Fund",
+    "Progrowth Ventures",
+    "Hyderabad Angels"
+   ],
+   "lead_verified": [
+    "GVFL",
+    "Veloce Opportunities Fund",
+    "JITO",
+    "We Founder Circle"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+   "final_url": "https://indianstartupnews.com/funding/protective-farming-agritech-startup-growit-raises-3-million-in-a-series-a-round-led-by-gvfl-9313425",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "agritech startup series a India"
+  },
+  {
+   "company": "GROWiT India",
+   "what_it_does": "farming agritech startup GROWiT India has received $3 million in a Series A funding round led by GVFL, according to the company's official statement today, May 28.\nIn the fresh round, Veloce",
+   "round_stage": "series a",
+   "amount": "$3 m",
+   "date": "2025-05-28",
+   "announced_date": "2025-05-28T08:41:30Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "GVFL",
+   "investors_verified": [
+    "GVFL"
+   ],
+   "lead_verified": [
+    "GVFL"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://zeebiz.com/startups/news-startup-funding-news-agritech-startup-growit-india-gets-3-million-dollar-funding-in-series-a-round-led-by-gvfl-365197",
+   "final_url": "https://www.zeebiz.com/startups/news-startup-funding-news-agritech-startup-growit-india-gets-3-million-dollar-funding-in-series-a-round-led-by-gvfl-365197",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "agritech startup series a India"
+  },
+  {
+   "company": "Mycoverse",
+   "what_it_does": "has raised €2.4 million in pre-seed funding to develop biological crop protection against potato late blight. The round was co-led by",
+   "round_stage": "pre-seed",
+   "amount": "€2.4M",
+   "announced_date": "2026-03-12T08:38:32Z",
+   "lead_investor": "",
+   "other_investors": "",
+   "hq_country": "",
+   "source_url": "https://arcticstartup.com/mycoverse-raises-e2-4m-pre-seed",
+   "origin": "search",
+   "status": "dropped",
+   "drop_reason": "source page not fetched (bot_blocked)",
+   "query": "crop disease agritech startup raises million"
+  },
+  {
+   "company": "Mycoverse",
+   "what_it_does": "The company’s platform is designed to support solutions across multiple crops, with an initial focus on potato late blight and future applications including grapevine.",
+   "round_stage": "",
+   "amount": "€2.4 m",
+   "announced_date": "2026-03-03T08:13:09Z",
+   "lead_investor": "",
+   "other_investors": "",
+   "hq_country": "",
+   "source_url": "https://eu-startups.com/2026/03/denmarks-mycoverse-raises-e2-4-million-to-develop-fungal-based-biological-alternatives-to-chemical-pesticides",
+   "origin": "search",
+   "status": "dropped",
+   "drop_reason": "source page not fetched (bot_blocked)",
+   "query": "crop disease agritech startup raises million"
+  },
+  {
+   "company": "Mycoverse",
+   "what_it_does": "[Mycoverse](https://www.linkedin.com/company/mycoverse), an agritech spin-out from the Technical University of Denmark (DTU) developing fungal-based biological crop protection, has raised €2.4 million",
+   "round_stage": "pre-seed",
+   "amount": "€2.4M",
+   "date": "2026-03-03",
+   "announced_date": "2026-03-03T08:46:26Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "Technical University of Denmark",
+   "investors_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds",
+    "Technical University of Denmark",
+    "PINC"
+   ],
+   "lead_verified": [
+    "Future Food Fund",
+    "High-Tech Gründerfonds"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://tech.eu/2026/03/03/mycoverse-raises-eur24m-pre-seed-to-tackle-potato-late-blight-in-europe",
+   "final_url": "https://tech.eu/2026/03/03/mycoverse-raises-eur24m-pre-seed-to-tackle-potato-late-blight-in-europe",
+   "origin": "search",
+   "status": "duplicate",
+   "drop_reason": "same company verified from another link",
+   "query": "crop disease agritech startup raises million"
+  },
+  {
+   "company": "Agriodor",
+   "what_it_does": "crop protection solutions based on natural plant scents, has raised €15 million in Series A funding to accelerate its international expansion and the deployment of its olfactory biocontrol",
+   "round_stage": "series a",
+   "amount": "€15 m",
+   "date": "2026-04-15",
+   "announced_date": "2026-04-15T08:35:08Z",
+   "date_basis": "page (published_date)",
+   "lead_investor": "",
+   "other_investors": "",
+   "investors_verified": [
+    "Environmental",
+    "Solidarity Revolution Fund"
+   ],
+   "lead_verified": [
+    "Environmental",
+    "Solidarity Revolution Fund"
+   ],
+   "partners": [],
+   "hq_country": "",
+   "source_url": "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally",
+   "final_url": "https://tech.eu/2026/04/15/agriodor-raises-eur15-million-to-expand-scent-based-crop-protection-globally",
+   "origin": "search",
+   "status": "verified",
+   "drop_reason": "",
+   "similarity": 0.3602,
+   "sim_parts": {
+    "sector": 0.1688,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0914
+   },
+   "keyword_hits": [
+    "crop",
+    "agritech"
+   ],
+   "query": "crop disease agritech startup raises million"
+  }
+ ]
+}
