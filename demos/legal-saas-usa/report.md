@@ -2,7 +2,7 @@
 
 Run 2026-11-15 | sectors: legaltech, ai | stage: seed, series a | country: USA | region: North America
 
-**25 verified similar companies** (from 34 candidates; 8 dropped), **87 investors ranked**. Window: rounds announced since 2025-05-16.
+**25 verified similar companies** (from 34 candidates; 8 dropped), **86 investors ranked**. Window: rounds announced since 2025-05-16.
 
 Ranks are the score order over all investors. Funds and unknown types are listed under 'Investors to approach'; banks, corporates, foundations and farmer companies under 'Other backers (not seed funds)'. This split is presentation only. Each list shows up to 15; the full ranked list is in results.json.
 
@@ -35,7 +35,7 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 
 | # | Investor | Type | Score | Backed (verified link) | Observed round sizes / stages | Lead partner | Reach | Cheque / stage (site) |
 |---|---|---|---|---|---|---|---|---|
-| 80 | **Raine Group** | corporate | 0.50 | [Definely](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) Series B 2025-06-09 | USD 30M median of 1 / series b | unknown | [warm intro via founder](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) (Definely) | unknown / unknown |
+| 79 | **Raine Group** | corporate | 0.50 | [Definely](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) Series B 2025-06-09 | USD 30M median of 1 / series b | unknown | [warm intro via founder](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) (Definely) | unknown / unknown |
 
 ## Why each investor is ranked where it is
 
@@ -54,7 +54,7 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 13. **Progressive Ventures**: Rank 13, score 1.45: backed 1 verified similar startup (Crimson); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.97); latest deal 2026-05-28.
 14. **Scale Asia Ventures**: Rank 14, score 1.45: backed 1 verified similar startup (Crimson); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.97); latest deal 2026-05-28.
 15. **Twenty Two Ventures**: Rank 15, score 1.45: backed 1 verified similar startup (Crimson); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.97); latest deal 2026-05-28.
-80. **Raine Group** (other backer): Rank 80, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.
+79. **Raine Group** (other backer): Rank 79, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.
 
 ## Verified similar companies
 
@@ -73,7 +73,7 @@ Deals below similarity 0.30 are listed but do not count toward any investor.
 | Blackletter | ? | seed | $6 m | 2026-11-09 | Lerer Hippeau | 0.65 (0.40 / 0.05 / 0.10 / 0.00 / 0.10) | yes | [link](https://businessinsider.com/startup-law-firm-blackletter-raises-6-million-from-lerer-hippeau-2026-11) |
 | Chamelio | Israel | Series A | $26M | 2026-09-22 | Entrée Capital, Work-Bench, Emerge Ventures, Bright Pixel Capital | 0.64 (0.40 / 0.05 / 0.10 / 0.00 / 0.09) | yes | [link](https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html) |
 | Magnar | Chile | Series A | $8M | 2026-09-08 | 6 Degrees Capital, Hi Ventures, FEN Ventures, Platanus Ventures, Nascent Ventures, Beccar Varela | 0.64 (0.40 / 0.05 / 0.10 / 0.00 / 0.09) | yes | [link](https://latamlist.com/magnar-raises-8m-series-a/) |
-| Newcode | Norway | Series A | $13.5M | 2026-08-25 | OnDean Forward, CEO Maged Helmy, LegalTech Fund, Antiportfolio Ventures, Rel Labs | 0.64 (0.40 / 0.05 / 0.10 / 0.00 / 0.09) | yes | [link](https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html) |
+| Newcode | Norway | Series A | $13.5M | 2026-08-25 | OnDean Forward, LegalTech Fund, Antiportfolio Ventures, Rel Labs | 0.64 (0.40 / 0.05 / 0.10 / 0.00 / 0.09) | yes | [link](https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html) |
 | Moritz | Sweden | seed | $9 m | 2026-05-05 | Y Combinator | 0.61 (0.40 / 0.05 / 0.10 / 0.00 / 0.06) | yes | [link](https://businessinsider.com/moritz-ai-law-firm-seed-funding-y-combinator-2026-5) |
 | Wordsmith | UK | Series B | $14M | 2026-08-05 | Intact Private Capital, Highland Europe, Index Ventures, FT Ventures | 0.58 (0.40 / 0.05 / 0.05 / 0.00 / 0.08) | yes | [link](https://www.wordsmith.ai/blog/wordsmith-extends-series-b-with-investment-from-intact-private-capital-and-ft-ventures) |
 | Lucio | India | Seed | $5M | 2025-10-07 | DeVC, Ashish Kacholia, Lashit Sanghvi | 0.58 (0.40 / 0.05 / 0.10 / 0.00 / 0.03) | yes | [link](https://inc42.com/buzz/ai-powered-legal-tech-startup-lucio-raises-5-mn/) |

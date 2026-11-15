@@ -95,17 +95,17 @@ All numbers are copied from each demo's `results.json`.
 | TinySet rows returned | 24 of 25 | 25 of 25 | 25 of 25 |
 | Candidates (TinySet + Search) | 40 (24 + 16) | 34 (25 + 9) | 51 (25 + 26) |
 | Verified companies, original run | 29 (35 links) | 27 (28 links) | 32 (36 links) |
-| Verified companies after the proof rules | **28** | **25** | **32** |
+| Verified companies after the proof rules | **28** | **25** | **31** |
 | Dropped | 6 | 8 | 15 |
 | Matches removed: funding-phrase rule / self-published rule | 5 / 2 | 3 / 2 | 8 / 4 |
 | Deals counted toward scores (≥ 0.30) | 25 | 24 | 17 |
-| Investors ranked | 101 | 87 | 65 (60 main, 5 other) |
+| Investors ranked | 101 | 86 | 63 (58 main, 5 other) |
 | Agent runs (completed) | 6 (5) | 6 (5) | 6 (6) |
 | Main-list top 10 with ≥ 1 target-country deal | 8 | 10 | 10 (target is the region Europe) |
 | Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | 0 | 0 |
-| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | 6 / 10 / 10 |
-| Main-list top 10 filled: lead partner | 1 | 6 | 1 |
-| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | 3 / 10 (1 of the 3 is a false positive, see notes) |
+| Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | 7 / 10 / 10 |
+| Main-list top 10 filled: lead partner | 1 | 6 | 2 |
+| Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | 3 / 10 |
 | **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | $20.26 → not measured yet |
 
 Demo 1 notes:
@@ -114,7 +114,7 @@ Demo 1 notes:
 - Of the 6 Agent runs: Unicorn India Ventures gave cheque size and an application form. Astanor gave a cheque size. Corteva gave an application form. PINC's facts were rejected (another company's domain). AgFunder's run completed but its site stated none of the fields. Catalyst Fund's run timed out.
 
 Demo 2 notes:
-- It ran end to end with the current code. Afterwards, three extraction bugs found in its output were fixed, and its saved results were rescored offline (no API calls). Ranking, reach routes and Agent fields were unchanged apart from these fixes:
+- It ran end to end with the code of that time. Afterwards, three extraction bugs found in its output were fixed, and its saved results were rescored offline (no API calls). Ranking, reach routes and Agent fields were unchanged apart from these fixes:
   - **Headline mis-parse:** "White & Case announces strategic investment in … Clauze.AI" was read as company "Case" backed by "White". Headlines can now contain "&", the "X invests in Y" shape is parsed with X as the investor, and a deal whose company is only the tail of an "Investor & Company" name is dropped. Result: the bogus "Case" deal was dropped and "White" left the ranking. Clauze.AI's own proof was White & Case's press release, so the self-published rule also drops it.
   - **"&" in names:** "&" now joins a firm name only when both sides are single words (White & Case). Otherwise it separates a list (SIDBI & Exim Bank).
   - **Fund-name fragments as people:** "Capital Partners" (from Flybridge Capital Partners) and "Private Capital" (from Intact Private Capital) were extracted as partners. Person names made of fund-suffix words or parts of the investor's name are now rejected.
@@ -127,14 +127,15 @@ Demo 3 notes (reported as produced; nothing rescored or edited by hand):
 - The target is a region (Europe), so the country factor applies to any European deal. All 10 of the main-list top 10 have one. Verified deals by country: Germany 8, USA 4, unknown 3, Finland 2, Netherlands 2, Sweden 2, Switzerland 2, UK 2, and 1 each for Australia, Belgium, Estonia, India, Italy, Luxembourg and Singapore.
 - Only 17 of 32 verified deals cleared the 0.30 similarity threshold. Search brought in climate deals that are not battery recycling (Mondra, Brineworks, VARM, Furo), and they don't count toward any investor.
 - All 6 Agent runs completed. Cheque sizes came back for 2C Ventures (€250K–1M), EIT Urban Mobility (up to €2.5M), Rise PropTech (€500K–3M), Volve Capital (€150K–500K) and Turbine Capital (€0.3–1.0M).
-- **Headline mis-parses and name artifacts seen in this run (not fixed):**
-  - Company "Düsseldorf-based Co-reactive": the location prefix wasn't stripped (the "ü" is outside the `[a-z]` pattern). The deal was dropped anyway (bot-blocked page), and Co-reactive is also verified under its correct name.
-  - "Redwood" and "Redwood Materials" are counted as two companies: two headlines named the same company differently.
-  - Investor names carrying descriptors: "Nvidia’s NVentures" (next to "NVentures"), "Google-backed CapitalG".
-  - Investor "CEO Timo Siukkola" (main list #7): a quoted executive picked up with his title. "Dr Norman Röchert", "Priit Viru", "Basant Sharma" and "Sheryl Sandberg" are people. Some may be genuine angels, but none are funds.
-  - Investor "Group" (PeakAmp): a fragment of a longer name.
-  - Government bodies typed `corporate` because their names contain "energy": Department of Energy, Swedish Energy Agency, Clean Energy Finance Corporation. Others ("NRW", "North Holland", "German Federal Ministry") are `unknown`. There is no government type.
-- **Reach false positive:** EIT Urban Mobility's "application form" is `…/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/`, a 2022 master's-programme page, not a pitch form. The pitch wording plus the `/apply` path matched. The two genuine own-site routes in the main-list top 10 are Turbine Capital's intake email and Voima Ventures' pitch page (`voimaventures.com/submit-deeptech-pitch/`).
+- **Headline mis-parses and name artifacts seen in this run. Fixed in code afterwards, and all three demos rescored offline (no API calls):**
+  - Company "Düsseldorf-based Co-reactive" → "Co-reactive": location prefixes now strip with non-ASCII letters.
+  - "Redwood" and "Redwood Materials" are merged: one name is a whole-word prefix of the other, and the longer name appears on the shorter one's source page. Verified companies 32 → 31. The merged deal (similarity 0.28) is still below the 0.30 threshold.
+  - "Nvidia’s NVentures" → "NVentures", "Google-backed CapitalG" → "CapitalG", "Sheryl Sandberg’s Sandberg Bernthal Venture Partners" → "Sandberg Bernthal Venture Partners", "Germany’s Federal Ministry of Research" → "Federal Ministry of Research". Descriptor prefixes are stripped and merged with the plain name.
+  - "CEO Timo Siukkola" removed (names starting with CEO / CTO / founder / partner / managing / director / chairman / president are dropped). It was #7 in the main list. Cherry Ventures (#11 → #10) entered the top 10, and Voima Ventures, CDP Venture Capital SGR and Norrsken Evolve each moved up one place.
+  - "Group" removed (single generic words are not investor names; "Partners Group" is kept).
+  - New type `public body`: Department of Energy, Swedish Energy Agency, Clean Energy Finance Corporation and European Innovation Council (EIC) are now `public body` and sit under Other backers. EIC moved there from the main list; the other three were already there as `corporate`.
+  - EIT Urban Mobility's reach route is no longer an "application form": the master's-programme page is rejected (programme / course / admission / master's wording), and the route falls back to a warm intro via Rebaba. A pitch-form or intake page must now also mention pitching, startups, founders or funding.
+  - After the rescore the main-list top 10 has 3 genuine own-site routes: Turbine Capital (intake email), Voima Ventures (pitch page) and Cherry Ventures (intake email).
 
 ## Cost
 
@@ -163,6 +164,29 @@ Measured as the change in the wallet balance of the account that owns the API ke
 - **Lead partners are rare in news text.** Only 6 of 28 verified demo 1 pages name a partner at an investor, so most rows say `unknown`.
 - **Reach routes often fall back to a warm intro.** Many investor sites have no fetchable pitch form or intake email, or their domain fails the entity check. Sites that need JavaScript would need the Agent, which is not run without a cost confirmation.
 - **Live pages move scores slightly.** Re-fetching can return a different page version or fail on one link, which changes the excerpt used for what-it-does overlap. Between two demo 1 re-fetches, GVFL moved from 3rd to 4th.
+
+### Name and parsing fixes made after the demos (code changes, then offline rescores)
+
+Fixed:
+- "&" in firm names (White & Case) vs lists (SIDBI & Exim Bank).
+- "X invests in Y" headlines, and companies that are only the tail of an "Investor & Company" name.
+- Fund-name fragments read as people ("Capital Partners").
+- Names starting with a role word ("CEO Timo Siukkola").
+- Descriptor prefixes ("Nvidia’s NVentures", "Google-backed CapitalG").
+- Single generic words as investors ("Group").
+- Unicode location prefixes ("Düsseldorf-based").
+- Company names that are whole-word prefixes of each other on the same page ("Redwood" / "Redwood Materials").
+- Government bodies now get their own `public body` type and sit under Other backers.
+- Study-programme pages are rejected as pitch routes.
+
+Effect on the committed results: demo 1 unchanged; demo 2 lost one investor outside the top 10 ("CEO Maged Helmy"); demo 3 as listed in its notes.
+
+Remains:
+- **Individual people** without a role word ("Priit Viru", "Basant Sharma", "Dr Norman Röchert", "Sheryl Sandberg") are kept as investors. Some are genuine angels, and nothing distinguishes them from funds except the type `unknown`.
+- **Regional and public bodies without a keyword** ("NRW", "North Holland", "Enterprise Estonia", "Innosuisse", "Vinnova") stay `unknown` and appear in the main list.
+- **Spelling and short-form variants** of the same company or fund ("HTGF" vs "High-Tech Gründerfonds") are only merged when one is a whole-word prefix of the other. Acronyms are not expanded.
+- **Accelerator programmes** that take applications through a "programme" page are now rejected as pitch routes. Such investors fall back to a warm intro, even when the programme is the right way in.
+- **Topic drift in Search:** in demo 3 it brought in climate deals outside battery recycling. They are verified but stay below the similarity threshold, so they don't count.
 
 ## Hand-checked precision (audit sample, seed 42)
 

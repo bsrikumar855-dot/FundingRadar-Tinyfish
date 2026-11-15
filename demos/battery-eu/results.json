@@ -27,9 +27,9 @@
   "verified_companies": 32,
   "verified_links": 36,
   "dropped": 15,
-  "investors_ranked": 65,
+  "investors_ranked": 63,
   "self_published_dropped": 4,
-  "verified_companies_after_rules": 32,
+  "verified_companies_after_rules": 31,
   "proximity_dropped": 8,
   "counted_deals": 17,
   "tinyset_rows": 25,
@@ -45,7 +45,50 @@
    "tinyset_datasets": 1,
    "tinyset_rows": 25
   },
-  "seconds": 1566.8
+  "seconds": 1566.8,
+  "fixes_applied": {
+   "company_renamed": {
+    "Düsseldorf-based Co-reactive": "Co-reactive"
+   },
+   "investor_names_cleaned": {
+    "Furo": {
+     "Sheryl Sandberg’s Sandberg Bernthal Venture Partners": "Sandberg Bernthal Venture Partners"
+    },
+    "TheStorage": {
+     "CEO Timo Siukkola": null
+    },
+    "PeakAmp": {
+     "Group": null
+    },
+    "Ark Climate": {
+     "Germany’s Federal Ministry of Research": "Federal Ministry of Research"
+    },
+    "Base Power": {
+     "Google-backed CapitalG": "CapitalG"
+    },
+    "Redwood": {
+     "Nvidia’s NVentures": "NVentures"
+    }
+   },
+   "companies_merged_by_prefix": [
+    [
+     "Redwood",
+     "Redwood Materials"
+    ]
+   ],
+   "reach_rejected_programme_page": [
+    "EIT Urban Mobility: https://www.eiturbanmobility.eu/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/"
+   ]
+  },
+  "leads_demoted": {
+   "Co-reactive": [
+    "High-Tech Gründerfonds"
+   ]
+  },
+  "rescored": true,
+  "rescore_note": "re-ranked offline with the current rules; no API calls",
+  "agent_facts_rejected": {},
+  "stats_rescore": {}
  },
  "investors": [
   {
@@ -235,22 +278,16 @@
     "text": "EUR 12M median of 2",
     "stages_text": "seed"
    },
-   "partner_pass": {
-    "query": "Rebaba EIT Urban Mobility partner",
-    "pages": [
-     "https://startup.eu/investments/rebaba-4-6-m-seed-09-2026",
-     "https://batteryindustry.net/rebaba-closes-4-6-million-seed-round-to-advance-second-life-battery-energy-storage-solutions-across-europe",
-     "https://mannheimerswartling.se/en/assignment/rebaba-ab-closes-usd-4-6-million-financing-round"
-    ],
-    "found": 0
-   },
-   "reach_route": "application form",
-   "reach_url": "https://www.eiturbanmobility.eu/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/",
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://vestbee.com/insights/articles/swedish-energytech-rebaba-raises-4-6-m-to-scale-second-life-battery-storage",
    "reach": {
-    "route": "application form",
-    "url": "https://www.eiturbanmobility.eu/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/",
-    "source_url": "https://www.eiturbanmobility.eu/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/",
-    "evidence": "Apply to"
+    "route": "warm intro via founder",
+    "company": "Rebaba",
+    "url": "https://vestbee.com/insights/articles/swedish-energytech-rebaba-raises-4-6-m-to-scale-second-life-battery-storage",
+    "source_url": "https://vestbee.com/insights/articles/swedish-energytech-rebaba-raises-4-6-m-to-scale-second-life-battery-storage",
+    "evidence": "ask the founders of Rebaba (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
@@ -259,11 +296,8 @@
     "source_url": "https://vestbee.com/insights/articles/swedish-energytech-rebaba-raises-4-6-m-to-scale-second-life-battery-storage",
     "evidence": "ask the founders of Rebaba (verified deal) for an introduction"
    },
-   "own_domain": "eiturbanmobility.eu",
-   "own_domain_evidence": {
-    "url": "https://www.eiturbanmobility.eu/invested_portfolio/why-we-invested-in-rebaba/",
-    "company": "Rebaba"
-   },
+   "own_domain": "",
+   "own_domain_evidence": {},
    "js_only_site": false,
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
@@ -284,7 +318,6 @@
    "sources": [
     "https://vestbee.com/insights/articles/swedish-energytech-rebaba-raises-4-6-m-to-scale-second-life-battery-storage",
     "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-    "https://www.eiturbanmobility.eu/apply-to-our-innovative-masters-programmes-in-urban-mobility-by-1-february-2022/",
     "https://www.eiturbanmobility.eu/what-we-offer/support-to-startups/startup-investment/"
    ]
   },
@@ -715,106 +748,9 @@
   },
   {
    "rank": 7,
-   "investor": "CEO Timo Siukkola",
-   "score": 1.7158,
-   "why": "Rank 7, score 1.72: backed 1 verified similar startup (TheStorage); led 1 of it (+0.38 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.14); latest deal 2026-04-24.",
-   "backed_companies": [
-    {
-     "name": "TheStorage",
-     "round": "Seed",
-     "date": "2026-04-24",
-     "amount": "€3.6M",
-     "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-     "led": true
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 3600000.0,
-      "median_text": "EUR 3.6M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "TheStorage",
-        "amount": "€3.6M",
-        "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 3.6M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": {
-    "query": "TheStorage CEO Timo Siukkola partner",
-    "pages": [
-     "https://arcticstartup.com/thestorage-raises-e3-6-million-seed",
-     "https://superherocapital.com/finnish-cleantech-company-thestorage-raises-e3-6-million-in-seed-funding",
-     "https://voimaventures.com/thestorage-raises-e3-6m-to-electrify-industrial-heat-with-sand-based-energy-storage"
-    ],
-    "found": 0
-   },
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "TheStorage",
-    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "evidence": "ask the founders of TheStorage (verified deal) for an introduction"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "TheStorage",
-    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "evidence": "ask the founders of TheStorage (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {
-    "note": "no candidate domain found"
-   },
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.35,
-    "recency": 0.0626,
-    "lead": 0.3813
-   },
-   "base_score": 1.1439,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
-   ]
-  },
-  {
-   "rank": 8,
    "investor": "Voima Ventures",
    "score": 1.7158,
-   "why": "Rank 8, score 1.72: backed 1 verified similar startup (TheStorage); led 1 of it (+0.38 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.14); latest deal 2026-04-24.",
+   "why": "Rank 7, score 1.72: backed 1 verified similar startup (TheStorage); led 1 of it (+0.38 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.14); latest deal 2026-04-24.",
    "backed_companies": [
     {
      "name": "TheStorage",
@@ -890,7 +826,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -909,10 +845,10 @@
    ]
   },
   {
-   "rank": 9,
+   "rank": 8,
    "investor": "CDP Venture Capital SGR",
    "score": 1.692,
-   "why": "Rank 9, score 1.69: backed 1 verified similar startup (Sinergy Flow); led 1 of it (+0.38 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.13); latest deal 2026-02-25.",
+   "why": "Rank 8, score 1.69: backed 1 verified similar startup (Sinergy Flow); led 1 of it (+0.38 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.13); latest deal 2026-02-25.",
    "backed_companies": [
     {
      "name": "Sinergy Flow",
@@ -989,7 +925,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1007,10 +943,10 @@
    ]
   },
   {
-   "rank": 10,
+   "rank": 9,
    "investor": "Norrsken Evolve",
    "score": 1.6605,
-   "why": "Rank 10, score 1.66: backed 1 verified similar startup (FION Energy); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.11); latest deal 2025-12-10.",
+   "why": "Rank 9, score 1.66: backed 1 verified similar startup (FION Energy); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.11); latest deal 2025-12-10.",
    "backed_companies": [
     {
      "name": "FION Energy",
@@ -1087,7 +1023,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1105,10 +1041,10 @@
    ]
   },
   {
-   "rank": 11,
+   "rank": 10,
    "investor": "Cherry Ventures",
    "score": 1.6468,
-   "why": "Rank 11, score 1.65: backed 1 verified similar startup (Co-Power); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.10); latest deal 2025-11-07.",
+   "why": "Rank 10, score 1.65: backed 1 verified similar startup (Co-Power); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.10); latest deal 2025-11-07.",
    "backed_companies": [
     {
      "name": "Co-Power",
@@ -1194,7 +1130,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1214,10 +1150,10 @@
    ]
   },
   {
-   "rank": 12,
+   "rank": 11,
    "investor": "Dr Norman Röchert",
    "score": 1.6468,
-   "why": "Rank 12, score 1.65: backed 1 verified similar startup (Co-Power); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.10); latest deal 2025-11-07.",
+   "why": "Rank 11, score 1.65: backed 1 verified similar startup (Co-Power); led 1 of it (+0.37 lead bonus); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.10); latest deal 2025-11-07.",
    "backed_companies": [
     {
      "name": "Co-Power",
@@ -1293,7 +1229,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1311,10 +1247,10 @@
    ]
   },
   {
-   "rank": 13,
+   "rank": 12,
    "investor": "Founderful",
    "score": 1.5143,
-   "why": "Rank 13, score 1.51: backed 1 verified similar startup (Unbound Potential); led 1 of it (+0.34 lead bonus); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.01); latest deal 2025-09-19.",
+   "why": "Rank 12, score 1.51: backed 1 verified similar startup (Unbound Potential); led 1 of it (+0.34 lead bonus); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 1.01); latest deal 2025-09-19.",
    "backed_companies": [
     {
      "name": "Unbound Potential",
@@ -1391,7 +1327,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1409,10 +1345,10 @@
    ]
   },
   {
-   "rank": 14,
+   "rank": 13,
    "investor": "HG Ventures",
    "score": 1.4589,
-   "why": "Rank 14, score 1.46: backed 1 verified similar startup (Circu Li-ion); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.97); latest deal 2026-02-05.",
+   "why": "Rank 13, score 1.46: backed 1 verified similar startup (Circu Li-ion); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.97); latest deal 2026-02-05.",
    "backed_companies": [
     {
      "name": "Circu Li-ion",
@@ -1487,7 +1423,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1505,10 +1441,10 @@
    ]
   },
   {
-   "rank": 15,
+   "rank": 14,
    "investor": "Suma Capital",
    "score": 1.4589,
-   "why": "Rank 15, score 1.46: backed 1 verified similar startup (Circu Li-ion); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.97); latest deal 2026-02-05.",
+   "why": "Rank 14, score 1.46: backed 1 verified similar startup (Circu Li-ion); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.97); latest deal 2026-02-05.",
    "backed_companies": [
     {
      "name": "Circu Li-ion",
@@ -1582,7 +1518,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1601,10 +1537,10 @@
    ]
   },
   {
-   "rank": 16,
+   "rank": 15,
    "investor": "100in",
    "score": 1.188,
-   "why": "Rank 16, score 1.19: backed 1 verified similar startup (NOX Energy); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-10-02.",
+   "why": "Rank 15, score 1.19: backed 1 verified similar startup (NOX Energy); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-10-02.",
    "backed_companies": [
     {
      "name": "NOX Energy",
@@ -1671,7 +1607,95 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.35,
+    "recency": 0.092,
+    "lead": 0.0
+   },
+   "base_score": 0.792,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/"
+   ]
+  },
+  {
+   "rank": 16,
+   "investor": "Seeder Fund",
+   "score": 1.188,
+   "why": "Rank 16, score 1.19: backed 1 verified similar startup (NOX Energy); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-10-02.",
+   "backed_companies": [
+    {
+     "name": "NOX Energy",
+     "round": "Seed",
+     "date": "2026-10-02",
+     "amount": "€3M",
+     "link": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 3000000.0,
+      "median_text": "EUR 3M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "NOX Energy",
+        "amount": "€3M",
+        "link": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "EUR 3M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "NOX Energy",
+    "url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+    "source_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+    "evidence": "ask the founders of NOX Energy (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "NOX Energy",
+    "url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+    "source_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
+    "evidence": "ask the founders of NOX Energy (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1690,7 +1714,7 @@
   },
   {
    "rank": 17,
-   "investor": "Seeder Fund",
+   "investor": "Uneti Ventures",
    "score": 1.188,
    "why": "Rank 17, score 1.19: backed 1 verified similar startup (NOX Energy); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-10-02.",
    "backed_companies": [
@@ -1759,7 +1783,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1778,97 +1802,9 @@
   },
   {
    "rank": 18,
-   "investor": "Uneti Ventures",
-   "score": 1.188,
-   "why": "Rank 18, score 1.19: backed 1 verified similar startup (NOX Energy); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-10-02.",
-   "backed_companies": [
-    {
-     "name": "NOX Energy",
-     "round": "Seed",
-     "date": "2026-10-02",
-     "amount": "€3M",
-     "link": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 3000000.0,
-      "median_text": "EUR 3M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "NOX Energy",
-        "amount": "€3M",
-        "link": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 3M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "NOX Energy",
-    "url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-    "source_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-    "evidence": "ask the founders of NOX Energy (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "NOX Energy",
-    "url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-    "source_url": "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/",
-    "evidence": "ask the founders of NOX Energy (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.35,
-    "recency": 0.092,
-    "lead": 0.0
-   },
-   "base_score": 0.792,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.esgtoday.com/nox-raises-e3-million-to-connect-home-clean-energy-devices-to-the-grid/"
-   ]
-  },
-  {
-   "rank": 19,
    "investor": "European Just Transition Fund",
    "score": 1.182,
-   "why": "Rank 19, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
+   "why": "Rank 18, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
    "backed_companies": [
     {
      "name": "Phoenix Metals",
@@ -1935,7 +1871,95 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.35,
+    "recency": 0.088,
+    "lead": 0.0
+   },
+   "base_score": 0.788,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/"
+   ]
+  },
+  {
+   "rank": 19,
+   "investor": "InnovationQuarter",
+   "score": 1.182,
+   "why": "Rank 19, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
+   "backed_companies": [
+    {
+     "name": "Phoenix Metals",
+     "round": "Seed",
+     "date": "2026-09-10",
+     "amount": "€4 million",
+     "link": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 4000000.0,
+      "median_text": "EUR 4M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Phoenix Metals",
+        "amount": "€4 million",
+        "link": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "EUR 4M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Phoenix Metals",
+    "url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+    "source_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+    "evidence": "ask the founders of Phoenix Metals (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Phoenix Metals",
+    "url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+    "source_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
+    "evidence": "ask the founders of Phoenix Metals (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -1954,7 +1978,7 @@
   },
   {
    "rank": 20,
-   "investor": "InnovationQuarter",
+   "investor": "North Holland",
    "score": 1.182,
    "why": "Rank 20, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
    "backed_companies": [
@@ -2023,7 +2047,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2042,7 +2066,7 @@
   },
   {
    "rank": 21,
-   "investor": "North Holland",
+   "investor": "ROM InWest",
    "score": 1.182,
    "why": "Rank 21, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
    "backed_companies": [
@@ -2111,7 +2135,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2130,97 +2154,9 @@
   },
   {
    "rank": 22,
-   "investor": "ROM InWest",
-   "score": 1.182,
-   "why": "Rank 22, score 1.18: backed 1 verified similar startup (Phoenix Metals); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.79); latest deal 2026-09-10.",
-   "backed_companies": [
-    {
-     "name": "Phoenix Metals",
-     "round": "Seed",
-     "date": "2026-09-10",
-     "amount": "€4 million",
-     "link": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 4000000.0,
-      "median_text": "EUR 4M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Phoenix Metals",
-        "amount": "€4 million",
-        "link": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 4M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Phoenix Metals",
-    "url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-    "source_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-    "evidence": "ask the founders of Phoenix Metals (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Phoenix Metals",
-    "url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-    "source_url": "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/",
-    "evidence": "ask the founders of Phoenix Metals (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.35,
-    "recency": 0.088,
-    "lead": 0.0
-   },
-   "base_score": 0.788,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://phoenixmetals.nl/update/phoenix-metals-raises-e4-million-seed-round-to-scale-recovery-of-critical-raw-materials-from-industrial-waste/"
-   ]
-  },
-  {
-   "rank": 23,
    "investor": "Almi Invest GreenTech",
    "score": 1.1658,
-   "why": "Rank 23, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
+   "why": "Rank 22, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
    "backed_companies": [
     {
      "name": "Rivus Batteries",
@@ -2287,7 +2223,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2305,10 +2241,10 @@
    ]
   },
   {
-   "rank": 24,
+   "rank": 23,
    "investor": "Swedish Energy Agency",
    "score": 1.1658,
-   "why": "Rank 24, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
+   "why": "Rank 23, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
    "backed_companies": [
     {
      "name": "Rivus Batteries",
@@ -2325,7 +2261,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "corporate",
+   "investor_type": "public body",
    "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -2376,7 +2312,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2394,10 +2330,10 @@
    ]
   },
   {
-   "rank": 25,
+   "rank": 24,
    "investor": "Vinnova",
    "score": 1.1658,
-   "why": "Rank 25, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
+   "why": "Rank 24, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
    "backed_companies": [
     {
      "name": "Rivus Batteries",
@@ -2464,7 +2400,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2482,10 +2418,10 @@
    ]
   },
   {
-   "rank": 26,
+   "rank": 25,
    "investor": "Xista Science Ventures",
    "score": 1.1658,
-   "why": "Rank 26, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
+   "why": "Rank 25, score 1.17: backed 1 verified similar startup (Rivus Batteries); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.78); latest deal 2026-07-13.",
    "backed_companies": [
     {
      "name": "Rivus Batteries",
@@ -2552,7 +2488,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2570,10 +2506,10 @@
    ]
   },
   {
-   "rank": 27,
+   "rank": 26,
    "investor": "Butterfly Ventures",
    "score": 1.1535,
-   "why": "Rank 27, score 1.15: backed 1 verified similar startup (CeLLife Technologies); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.77); latest deal 2026-05-29.",
+   "why": "Rank 26, score 1.15: backed 1 verified similar startup (CeLLife Technologies); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.77); latest deal 2026-05-29.",
    "backed_companies": [
     {
      "name": "CeLLife Technologies",
@@ -2640,7 +2576,95 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.35,
+    "recency": 0.069,
+    "lead": 0.0
+   },
+   "base_score": 0.769,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform"
+   ]
+  },
+  {
+   "rank": 27,
+   "investor": "European Innovation Council (EIC)",
+   "score": 1.1535,
+   "why": "Rank 27, score 1.15: backed 1 verified similar startup (CeLLife Technologies); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.77); latest deal 2026-05-29.",
+   "backed_companies": [
+    {
+     "name": "CeLLife Technologies",
+     "round": "Seed",
+     "date": "2026-05-29",
+     "amount": "€4M",
+     "link": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "public body",
+   "section": "other",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 4000000.0,
+      "median_text": "EUR 4M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "CeLLife Technologies",
+        "amount": "€4M",
+        "link": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "EUR 4M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "CeLLife Technologies",
+    "url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+    "source_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+    "evidence": "ask the founders of CeLLife Technologies (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "CeLLife Technologies",
+    "url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+    "source_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+    "evidence": "ask the founders of CeLLife Technologies (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2659,7 +2683,7 @@
   },
   {
    "rank": 28,
-   "investor": "European Innovation Council (EIC)",
+   "investor": "Ventech",
    "score": 1.1535,
    "why": "Rank 28, score 1.15: backed 1 verified similar startup (CeLLife Technologies); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.77); latest deal 2026-05-29.",
    "backed_companies": [
@@ -2728,7 +2752,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2747,16 +2771,16 @@
   },
   {
    "rank": 29,
-   "investor": "Ventech",
-   "score": 1.1535,
-   "why": "Rank 29, score 1.15: backed 1 verified similar startup (CeLLife Technologies); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.77); latest deal 2026-05-29.",
+   "investor": "Momentum Partners",
+   "score": 1.1439,
+   "why": "Rank 29, score 1.14: backed 1 verified similar startup (TheStorage); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.76); latest deal 2026-04-24.",
    "backed_companies": [
     {
-     "name": "CeLLife Technologies",
+     "name": "TheStorage",
      "round": "Seed",
-     "date": "2026-05-29",
-     "amount": "€4M",
-     "link": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+     "date": "2026-04-24",
+     "amount": "€3.6M",
+     "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
      "led": false
     }
    ],
@@ -2766,21 +2790,21 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "unknown",
+   "investor_type": "fund",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
      {
       "currency": "EUR",
-      "median": 4000000.0,
-      "median_text": "EUR 4M",
+      "median": 3600000.0,
+      "median_text": "EUR 3.6M",
       "n": 1,
       "deals": [
        {
-        "name": "CeLLife Technologies",
-        "amount": "€4M",
-        "link": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform"
+        "name": "TheStorage",
+        "amount": "€3.6M",
+        "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
        }
       ]
      }
@@ -2789,26 +2813,26 @@
     "stages": [
      "seed"
     ],
-    "text": "EUR 4M median of 1",
+    "text": "EUR 3.6M median of 1",
     "stages_text": "seed"
    },
    "partner_pass": null,
    "reach_route": "warm intro via founder",
-   "reach_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
+   "reach_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
    "reach": {
     "route": "warm intro via founder",
-    "company": "CeLLife Technologies",
-    "url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
-    "source_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
-    "evidence": "ask the founders of CeLLife Technologies (verified deal) for an introduction",
+    "company": "TheStorage",
+    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
+    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
+    "evidence": "ask the founders of TheStorage (verified deal) for an introduction",
     "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
-    "company": "CeLLife Technologies",
-    "url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
-    "source_url": "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform",
-    "evidence": "ask the founders of CeLLife Technologies (verified deal) for an introduction"
+    "company": "TheStorage",
+    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
+    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
+    "evidence": "ask the founders of TheStorage (verified deal) for an introduction"
    },
    "own_domain": "",
    "own_domain_evidence": {},
@@ -2816,26 +2840,26 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
     "sector": 0.05,
     "stage": 0.1,
     "country": 0.35,
-    "recency": 0.069,
+    "recency": 0.0626,
     "lead": 0.0
    },
-   "base_score": 0.769,
+   "base_score": 0.7626,
    "country_factor": 1.5,
    "has_target_country_deal": true,
    "sources": [
-    "https://www.cellife.fi/news/cellife-technologies-closes-4-million-post-seed-round-to-scale-battery-quality-and-health-intelligence-platform"
+    "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
    ]
   },
   {
    "rank": 30,
-   "investor": "Momentum Partners",
+   "investor": "Superhero Capital",
    "score": 1.1439,
    "why": "Rank 30, score 1.14: backed 1 verified similar startup (TheStorage); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.76); latest deal 2026-04-24.",
    "backed_companies": [
@@ -2904,7 +2928,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -2923,97 +2947,9 @@
   },
   {
    "rank": 31,
-   "investor": "Superhero Capital",
-   "score": 1.1439,
-   "why": "Rank 31, score 1.14: backed 1 verified similar startup (TheStorage); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.76); latest deal 2026-04-24.",
-   "backed_companies": [
-    {
-     "name": "TheStorage",
-     "round": "Seed",
-     "date": "2026-04-24",
-     "amount": "€3.6M",
-     "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 3600000.0,
-      "median_text": "EUR 3.6M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "TheStorage",
-        "amount": "€3.6M",
-        "link": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 3.6M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "TheStorage",
-    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "evidence": "ask the founders of TheStorage (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "TheStorage",
-    "url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "source_url": "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html",
-    "evidence": "ask the founders of TheStorage (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.35,
-    "recency": 0.0626,
-    "lead": 0.0
-   },
-   "base_score": 0.7626,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.finsmes.com/2026/04/thestorage-raises-e3-6m-in-seed-funding.html"
-   ]
-  },
-  {
-   "rank": 32,
    "investor": "360 Capital",
    "score": 1.128,
-   "why": "Rank 32, score 1.13: backed 1 verified similar startup (Sinergy Flow); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.75); latest deal 2026-02-25.",
+   "why": "Rank 31, score 1.13: backed 1 verified similar startup (Sinergy Flow); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.75); latest deal 2026-02-25.",
    "backed_companies": [
     {
      "name": "Sinergy Flow",
@@ -3080,7 +3016,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3098,10 +3034,10 @@
    ]
   },
   {
-   "rank": 33,
+   "rank": 32,
    "investor": "Tech4Planet",
    "score": 1.128,
-   "why": "Rank 33, score 1.13: backed 1 verified similar startup (Sinergy Flow); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.75); latest deal 2026-02-25.",
+   "why": "Rank 32, score 1.13: backed 1 verified similar startup (Sinergy Flow); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.75); latest deal 2026-02-25.",
    "backed_companies": [
     {
      "name": "Sinergy Flow",
@@ -3168,7 +3104,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3186,8 +3122,96 @@
    ]
   },
   {
-   "rank": 34,
+   "rank": 33,
    "investor": "Abacon Capital",
+   "score": 1.0978,
+   "why": "Rank 33, score 1.10: backed 1 verified similar startup (Co-Power); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.73); latest deal 2025-11-07.",
+   "backed_companies": [
+    {
+     "name": "Co-Power",
+     "round": "Seed",
+     "date": "2025-11-07",
+     "amount": "€6.4M",
+     "link": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 6400000.0,
+      "median_text": "EUR 6.4M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Co-Power",
+        "amount": "€6.4M",
+        "link": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "EUR 6.4M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Co-Power",
+    "url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+    "source_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+    "evidence": "ask the founders of Co-Power (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Co-Power",
+    "url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+    "source_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
+    "evidence": "ask the founders of Co-Power (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.35,
+    "recency": 0.0319,
+    "lead": 0.0
+   },
+   "base_score": 0.7319,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power"
+   ]
+  },
+  {
+   "rank": 34,
+   "investor": "Aurum Impact",
    "score": 1.0978,
    "why": "Rank 34, score 1.10: backed 1 verified similar startup (Co-Power); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.73); latest deal 2025-11-07.",
    "backed_companies": [
@@ -3256,7 +3280,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3275,97 +3299,9 @@
   },
   {
    "rank": 35,
-   "investor": "Aurum Impact",
-   "score": 1.0978,
-   "why": "Rank 35, score 1.10: backed 1 verified similar startup (Co-Power); what-it-does overlap on 'grid'; 1/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.73); latest deal 2025-11-07.",
-   "backed_companies": [
-    {
-     "name": "Co-Power",
-     "round": "Seed",
-     "date": "2025-11-07",
-     "amount": "€6.4M",
-     "link": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 6400000.0,
-      "median_text": "EUR 6.4M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Co-Power",
-        "amount": "€6.4M",
-        "link": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 6.4M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Co-Power",
-    "url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-    "source_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-    "evidence": "ask the founders of Co-Power (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Co-Power",
-    "url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-    "source_url": "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power",
-    "evidence": "ask the founders of Co-Power (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.35,
-    "recency": 0.0319,
-    "lead": 0.0
-   },
-   "base_score": 0.7319,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.taylorwessing.com/en/insights-and-events/news/media-centre/press-releases/2025/06/taylor-wessing-advises-cherry-ventures-on-co-power"
-   ]
-  },
-  {
-   "rank": 36,
    "investor": "Innosuisse",
    "score": 1.0095,
-   "why": "Rank 36, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
+   "why": "Rank 35, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
    "backed_companies": [
     {
      "name": "Unbound Potential",
@@ -3432,7 +3368,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3450,10 +3386,10 @@
    ]
   },
   {
-   "rank": 37,
+   "rank": 36,
    "investor": "Migros Pioneer Fund",
    "score": 1.0095,
-   "why": "Rank 37, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
+   "why": "Rank 36, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
    "backed_companies": [
     {
      "name": "Unbound Potential",
@@ -3520,7 +3456,95 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.05,
+    "country": 0.35,
+    "recency": 0.023,
+    "lead": 0.0
+   },
+   "base_score": 0.673,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality"
+   ]
+  },
+  {
+   "rank": 37,
+   "investor": "SPRIN-D",
+   "score": 1.0095,
+   "why": "Rank 37, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
+   "backed_companies": [
+    {
+     "name": "Unbound Potential",
+     "round": "Pre-seed",
+     "date": "2025-09-19",
+     "amount": "€14.4M",
+     "link": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 14400000.0,
+      "median_text": "EUR 14.4M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Unbound Potential",
+        "amount": "€14.4M",
+        "link": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "pre-seed"
+    ],
+    "text": "EUR 14.4M median of 1",
+    "stages_text": "pre-seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Unbound Potential",
+    "url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+    "source_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+    "evidence": "ask the founders of Unbound Potential (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Unbound Potential",
+    "url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+    "source_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
+    "evidence": "ask the founders of Unbound Potential (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3539,7 +3563,7 @@
   },
   {
    "rank": 38,
-   "investor": "SPRIN-D",
+   "investor": "Zürcher Kantonalbank (ZKB)",
    "score": 1.0095,
    "why": "Rank 38, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
    "backed_companies": [
@@ -3608,7 +3632,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3627,97 +3651,9 @@
   },
   {
    "rank": 39,
-   "investor": "Zürcher Kantonalbank (ZKB)",
-   "score": 1.0095,
-   "why": "Rank 39, score 1.01: backed 1 verified similar startup (Unbound Potential); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.67); latest deal 2025-09-19.",
-   "backed_companies": [
-    {
-     "name": "Unbound Potential",
-     "round": "Pre-seed",
-     "date": "2025-09-19",
-     "amount": "€14.4M",
-     "link": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 14400000.0,
-      "median_text": "EUR 14.4M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Unbound Potential",
-        "amount": "€14.4M",
-        "link": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "pre-seed"
-    ],
-    "text": "EUR 14.4M median of 1",
-    "stages_text": "pre-seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Unbound Potential",
-    "url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-    "source_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-    "evidence": "ask the founders of Unbound Potential (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Unbound Potential",
-    "url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-    "source_url": "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality",
-    "evidence": "ask the founders of Unbound Potential (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.05,
-    "country": 0.35,
-    "recency": 0.023,
-    "lead": 0.0
-   },
-   "base_score": 0.673,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.startupticker.ch/en/news/14-million-to-make-the-fastest-to-produce-battery-in-the-world-a-reality"
-   ]
-  },
-  {
-   "rank": 40,
    "investor": "Enterprise Estonia",
    "score": 0.9917,
-   "why": "Rank 40, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
+   "why": "Rank 39, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
    "backed_companies": [
     {
      "name": "Jälle Technologies",
@@ -3784,7 +3720,95 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.05,
+    "country": 0.35,
+    "recency": 0.0111,
+    "lead": 0.0
+   },
+   "base_score": 0.6611,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/"
+   ]
+  },
+  {
+   "rank": 40,
+   "investor": "Environmental Investment Centre (KIK)",
+   "score": 0.9917,
+   "why": "Rank 40, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
+   "backed_companies": [
+    {
+     "name": "Jälle Technologies",
+     "round": "Pre-seed",
+     "date": "2025-07-16",
+     "amount": "€2 million",
+     "link": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 2000000.0,
+      "median_text": "EUR 2M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Jälle Technologies",
+        "amount": "€2 million",
+        "link": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "pre-seed"
+    ],
+    "text": "EUR 2M median of 1",
+    "stages_text": "pre-seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Jälle Technologies",
+    "url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+    "source_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+    "evidence": "ask the founders of Jälle Technologies (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Jälle Technologies",
+    "url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+    "source_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
+    "evidence": "ask the founders of Jälle Technologies (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3803,7 +3827,7 @@
   },
   {
    "rank": 41,
-   "investor": "Environmental Investment Centre (KIK)",
+   "investor": "Kiilto Ventures",
    "score": 0.9917,
    "why": "Rank 41, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
    "backed_companies": [
@@ -3872,7 +3896,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -3891,97 +3915,9 @@
   },
   {
    "rank": 42,
-   "investor": "Kiilto Ventures",
-   "score": 0.9917,
-   "why": "Rank 42, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
-   "backed_companies": [
-    {
-     "name": "Jälle Technologies",
-     "round": "Pre-seed",
-     "date": "2025-07-16",
-     "amount": "€2 million",
-     "link": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 2000000.0,
-      "median_text": "EUR 2M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Jälle Technologies",
-        "amount": "€2 million",
-        "link": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "pre-seed"
-    ],
-    "text": "EUR 2M median of 1",
-    "stages_text": "pre-seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Jälle Technologies",
-    "url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-    "source_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-    "evidence": "ask the founders of Jälle Technologies (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Jälle Technologies",
-    "url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-    "source_url": "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/",
-    "evidence": "ask the founders of Jälle Technologies (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.05,
-    "country": 0.35,
-    "recency": 0.0111,
-    "lead": 0.0
-   },
-   "base_score": 0.6611,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/"
-   ]
-  },
-  {
-   "rank": 43,
    "investor": "Priit Viru",
    "score": 0.9917,
-   "why": "Rank 43, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
+   "why": "Rank 42, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.",
    "backed_companies": [
     {
      "name": "Jälle Technologies",
@@ -4048,7 +3984,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4066,8 +4002,94 @@
    ]
   },
   {
-   "rank": 44,
+   "rank": 43,
    "investor": "BonVenture",
+   "score": 0.9726,
+   "why": "Rank 43, score 0.97: backed 1 verified similar startup (Circu Li-ion); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.65); latest deal 2026-02-05.",
+   "backed_companies": [
+    {
+     "name": "Circu Li-ion",
+     "round": "Other",
+     "date": "2026-02-05",
+     "amount": "€20 million (€14M equity + €6M EIC Fund grants)",
+     "link": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 20000000.0,
+      "median_text": "EUR 20M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Circu Li-ion",
+        "amount": "€20 million (€14M equity + €6M EIC Fund grants)",
+        "link": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [],
+    "text": "EUR 20M median of 1",
+    "stages_text": "unknown"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Circu Li-ion",
+    "url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+    "source_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+    "evidence": "ask the founders of Circu Li-ion (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Circu Li-ion",
+    "url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+    "source_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
+    "evidence": "ask the founders of Circu Li-ion (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.0,
+    "country": 0.35,
+    "recency": 0.0484,
+    "lead": 0.0
+   },
+   "base_score": 0.6484,
+   "country_factor": 1.5,
+   "has_target_country_deal": true,
+   "sources": [
+    "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/"
+   ]
+  },
+  {
+   "rank": 44,
+   "investor": "FlixFounders",
    "score": 0.9726,
    "why": "Rank 44, score 0.97: backed 1 verified similar startup (Circu Li-ion); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.65); latest deal 2026-02-05.",
    "backed_companies": [
@@ -4134,7 +4156,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4153,7 +4175,7 @@
   },
   {
    "rank": 45,
-   "investor": "FlixFounders",
+   "investor": "Oetker Collection",
    "score": 0.9726,
    "why": "Rank 45, score 0.97: backed 1 verified similar startup (Circu Li-ion); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.65); latest deal 2026-02-05.",
    "backed_companies": [
@@ -4220,7 +4242,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4239,95 +4261,9 @@
   },
   {
    "rank": 46,
-   "investor": "Oetker Collection",
-   "score": 0.9726,
-   "why": "Rank 46, score 0.97: backed 1 verified similar startup (Circu Li-ion); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.65); latest deal 2026-02-05.",
-   "backed_companies": [
-    {
-     "name": "Circu Li-ion",
-     "round": "Other",
-     "date": "2026-02-05",
-     "amount": "€20 million (€14M equity + €6M EIC Fund grants)",
-     "link": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 20000000.0,
-      "median_text": "EUR 20M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Circu Li-ion",
-        "amount": "€20 million (€14M equity + €6M EIC Fund grants)",
-        "link": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [],
-    "text": "EUR 20M median of 1",
-    "stages_text": "unknown"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Circu Li-ion",
-    "url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-    "source_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-    "evidence": "ask the founders of Circu Li-ion (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Circu Li-ion",
-    "url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-    "source_url": "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/",
-    "evidence": "ask the founders of Circu Li-ion (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.35,
-    "recency": 0.0484,
-    "lead": 0.0
-   },
-   "base_score": 0.6484,
-   "country_factor": 1.5,
-   "has_target_country_deal": true,
-   "sources": [
-    "https://www.siliconluxembourg.lu/circu-li-ion-raises-e20m-rebrands-as-r3-robotics/"
-   ]
-  },
-  {
-   "rank": 47,
    "investor": "Caret Capital",
    "score": 0.5573,
-   "why": "Rank 47, score 0.56: backed 1 verified similar startup (PeakAmp); led 1 of it (+0.19 lead bonus); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
+   "why": "Rank 46, score 0.56: backed 1 verified similar startup (PeakAmp); led 1 of it (+0.19 lead bonus); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
    "backed_companies": [
     {
      "name": "PeakAmp",
@@ -4394,7 +4330,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4412,10 +4348,10 @@
    ]
   },
   {
-   "rank": 48,
+   "rank": 47,
    "investor": "Clean Energy Finance Corporation",
    "score": 0.5429,
-   "why": "Rank 48, score 0.54: backed 1 verified similar startup (Renewable Metals); led 1 of it (+0.18 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
+   "why": "Rank 47, score 0.54: backed 1 verified similar startup (Renewable Metals); led 1 of it (+0.18 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
    "backed_companies": [
     {
      "name": "Renewable Metals",
@@ -4432,7 +4368,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "corporate",
+   "investor_type": "public body",
    "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -4483,7 +4419,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4501,10 +4437,10 @@
    ]
   },
   {
-   "rank": 49,
+   "rank": 48,
    "investor": "Kumpulan Modal Perdana",
    "score": 0.5217,
-   "why": "Rank 49, score 0.52: backed 1 verified similar startup (Econili); led 1 of it (+0.17 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
+   "why": "Rank 48, score 0.52: backed 1 verified similar startup (Econili); led 1 of it (+0.17 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
    "backed_companies": [
     {
      "name": "Econili",
@@ -4571,7 +4507,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4589,10 +4525,10 @@
    ]
   },
   {
-   "rank": 50,
+   "rank": 49,
    "investor": "Shift4Good",
    "score": 0.5163,
-   "why": "Rank 50, score 0.52: backed 1 verified similar startup (NEU Battery Materials); led 1 of it (+0.17 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
+   "why": "Rank 49, score 0.52: backed 1 verified similar startup (NEU Battery Materials); led 1 of it (+0.17 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
    "backed_companies": [
     {
      "name": "NEU Battery Materials",
@@ -4657,7 +4593,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4675,8 +4611,96 @@
    ]
   },
   {
-   "rank": 51,
+   "rank": 50,
    "investor": "Basant Sharma",
+   "score": 0.3715,
+   "why": "Rank 50, score 0.37: backed 1 verified similar startup (PeakAmp); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
+   "backed_companies": [
+    {
+     "name": "PeakAmp",
+     "round": "Seed",
+     "date": "2025-09-11",
+     "amount": "Rs 12 crore (~$1.37M)",
+     "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "INR",
+      "median": 120000000.0,
+      "median_text": "INR 120M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "PeakAmp",
+        "amount": "Rs 12 crore (~$1.37M)",
+        "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "INR 120M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "PeakAmp",
+    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "PeakAmp",
+    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0215,
+    "lead": 0.0
+   },
+   "base_score": 0.3715,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
+   ]
+  },
+  {
+   "rank": 51,
+   "investor": "IIM Ahmedabad Ventures",
    "score": 0.3715,
    "why": "Rank 51, score 0.37: backed 1 verified similar startup (PeakAmp); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
    "backed_companies": [
@@ -4695,7 +4719,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "unknown",
+   "investor_type": "fund",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -4745,7 +4769,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -4764,105 +4788,16 @@
   },
   {
    "rank": 52,
-   "investor": "Group",
-   "score": 0.3715,
-   "why": "Rank 52, score 0.37: backed 1 verified similar startup (PeakAmp); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
+   "investor": "Climate Tech Partners",
+   "score": 0.3619,
+   "why": "Rank 52, score 0.36: backed 1 verified similar startup (Renewable Metals); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
    "backed_companies": [
     {
-     "name": "PeakAmp",
-     "round": "Seed",
-     "date": "2025-09-11",
-     "amount": "Rs 12 crore (~$1.37M)",
-     "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "corporate",
-   "section": "other",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "INR",
-      "median": 120000000.0,
-      "median_text": "INR 120M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "PeakAmp",
-        "amount": "Rs 12 crore (~$1.37M)",
-        "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "INR 120M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "PeakAmp",
-    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "PeakAmp",
-    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {
-    "note": "candidate domain(s) failed the entity check: thegroup.ventures"
-   },
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.0215,
-    "lead": 0.0
-   },
-   "base_score": 0.3715,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
-   ]
-  },
-  {
-   "rank": 53,
-   "investor": "IIM Ahmedabad Ventures",
-   "score": 0.3715,
-   "why": "Rank 53, score 0.37: backed 1 verified similar startup (PeakAmp); what-it-does overlap on 'recycling'; 1/1 at your stage (seed); 0/1 in Europe (others: India); no verified deal in Europe, so no country factor; latest deal 2025-09-11.",
-   "backed_companies": [
-    {
-     "name": "PeakAmp",
-     "round": "Seed",
-     "date": "2025-09-11",
-     "amount": "Rs 12 crore (~$1.37M)",
-     "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+     "name": "Renewable Metals",
+     "round": "series a",
+     "date": "2026-04-20",
+     "amount": "$12 m",
+     "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
      "led": false
     }
    ],
@@ -4878,43 +4813,43 @@
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
      {
-      "currency": "INR",
-      "median": 120000000.0,
-      "median_text": "INR 120M",
+      "currency": "USD",
+      "median": 12000000.0,
+      "median_text": "USD 12M",
       "n": 1,
       "deals": [
        {
-        "name": "PeakAmp",
-        "amount": "Rs 12 crore (~$1.37M)",
-        "link": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
+        "name": "Renewable Metals",
+        "amount": "$12 m",
+        "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
        }
       ]
      }
     ],
     "undisclosed": [],
     "stages": [
-     "seed"
+     "series a"
     ],
-    "text": "INR 120M median of 1",
-    "stages_text": "seed"
+    "text": "USD 12M median of 1",
+    "stages_text": "series a"
    },
    "partner_pass": null,
    "reach_route": "warm intro via founder",
-   "reach_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
+   "reach_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
    "reach": {
     "route": "warm intro via founder",
-    "company": "PeakAmp",
-    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction",
+    "company": "Renewable Metals",
+    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction",
     "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
-    "company": "PeakAmp",
-    "url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "source_url": "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946",
-    "evidence": "ask the founders of PeakAmp (verified deal) for an introduction"
+    "company": "Renewable Metals",
+    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction"
    },
    "own_domain": "",
    "own_domain_evidence": {},
@@ -4922,26 +4857,114 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
     "sector": 0.05,
-    "stage": 0.1,
+    "stage": 0.05,
     "country": 0.0,
-    "recency": 0.0215,
+    "recency": 0.0619,
     "lead": 0.0
    },
-   "base_score": 0.3715,
+   "base_score": 0.3619,
    "country_factor": 1.0,
    "has_target_country_deal": false,
    "sources": [
-    "https://www.saurenergy.com/solar-energy-news/battery-circularity-startup-peakamp-raises-12-cr-seed-funding-led-by-caret-capital-10295946"
+    "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+   ]
+  },
+  {
+   "rank": 53,
+   "investor": "European Metal Recycling",
+   "score": 0.3619,
+   "why": "Rank 53, score 0.36: backed 1 verified similar startup (Renewable Metals); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
+   "backed_companies": [
+    {
+     "name": "Renewable Metals",
+     "round": "series a",
+     "date": "2026-04-20",
+     "amount": "$12 m",
+     "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 12000000.0,
+      "median_text": "USD 12M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Renewable Metals",
+        "amount": "$12 m",
+        "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "series a"
+    ],
+    "text": "USD 12M median of 1",
+    "stages_text": "series a"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Renewable Metals",
+    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Renewable Metals",
+    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.05,
+    "country": 0.0,
+    "recency": 0.0619,
+    "lead": 0.0
+   },
+   "base_score": 0.3619,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
    ]
   },
   {
    "rank": 54,
-   "investor": "Climate Tech Partners",
+   "investor": "Neglected Climate Opportunities",
    "score": 0.3619,
    "why": "Rank 54, score 0.36: backed 1 verified similar startup (Renewable Metals); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
    "backed_companies": [
@@ -4960,7 +4983,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "fund",
+   "investor_type": "unknown",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -5010,7 +5033,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -5029,16 +5052,16 @@
   },
   {
    "rank": 55,
-   "investor": "European Metal Recycling",
-   "score": 0.3619,
-   "why": "Rank 55, score 0.36: backed 1 verified similar startup (Renewable Metals); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
+   "investor": "Jelawang Capital",
+   "score": 0.3478,
+   "why": "Rank 55, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
    "backed_companies": [
     {
-     "name": "Renewable Metals",
-     "round": "series a",
-     "date": "2026-04-20",
-     "amount": "$12 m",
-     "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+     "name": "Econili",
+     "round": "growth",
+     "date": "2026-11-03",
+     "amount": "US$1.96m",
+     "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
      "led": false
     }
    ],
@@ -5048,49 +5071,49 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "unknown",
+   "investor_type": "fund",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
      {
       "currency": "USD",
-      "median": 12000000.0,
-      "median_text": "USD 12M",
+      "median": 1960000.0,
+      "median_text": "USD 1.96M",
       "n": 1,
       "deals": [
        {
-        "name": "Renewable Metals",
-        "amount": "$12 m",
-        "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+        "name": "Econili",
+        "amount": "US$1.96m",
+        "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
        }
       ]
      }
     ],
     "undisclosed": [],
     "stages": [
-     "series a"
+     "growth"
     ],
-    "text": "USD 12M median of 1",
-    "stages_text": "series a"
+    "text": "USD 1.96M median of 1",
+    "stages_text": "growth"
    },
    "partner_pass": null,
    "reach_route": "warm intro via founder",
-   "reach_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+   "reach_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
    "reach": {
     "route": "warm intro via founder",
-    "company": "Renewable Metals",
-    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction",
+    "company": "Econili",
+    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "evidence": "ask the founders of Econili (verified deal) for an introduction",
     "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
-    "company": "Renewable Metals",
-    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction"
+    "company": "Econili",
+    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "evidence": "ask the founders of Econili (verified deal) for an introduction"
    },
    "own_domain": "",
    "own_domain_evidence": {},
@@ -5098,35 +5121,35 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
     "sector": 0.05,
-    "stage": 0.05,
+    "stage": 0.0,
     "country": 0.0,
-    "recency": 0.0619,
+    "recency": 0.0978,
     "lead": 0.0
    },
-   "base_score": 0.3619,
+   "base_score": 0.3478,
    "country_factor": 1.0,
    "has_target_country_deal": false,
    "sources": [
-    "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+    "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
    ]
   },
   {
    "rank": 56,
-   "investor": "Neglected Climate Opportunities",
-   "score": 0.3619,
-   "why": "Rank 56, score 0.36: backed 1 verified similar startup (Renewable Metals); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.",
+   "investor": "Khazanah Nasional",
+   "score": 0.3478,
+   "why": "Rank 56, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
    "backed_companies": [
     {
-     "name": "Renewable Metals",
-     "round": "series a",
-     "date": "2026-04-20",
-     "amount": "$12 m",
-     "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+     "name": "Econili",
+     "round": "growth",
+     "date": "2026-11-03",
+     "amount": "US$1.96m",
+     "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
      "led": false
     }
    ],
@@ -5143,42 +5166,42 @@
     "by_currency": [
      {
       "currency": "USD",
-      "median": 12000000.0,
-      "median_text": "USD 12M",
+      "median": 1960000.0,
+      "median_text": "USD 1.96M",
       "n": 1,
       "deals": [
        {
-        "name": "Renewable Metals",
-        "amount": "$12 m",
-        "link": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+        "name": "Econili",
+        "amount": "US$1.96m",
+        "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
        }
       ]
      }
     ],
     "undisclosed": [],
     "stages": [
-     "series a"
+     "growth"
     ],
-    "text": "USD 12M median of 1",
-    "stages_text": "series a"
+    "text": "USD 1.96M median of 1",
+    "stages_text": "growth"
    },
    "partner_pass": null,
    "reach_route": "warm intro via founder",
-   "reach_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
+   "reach_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
    "reach": {
     "route": "warm intro via founder",
-    "company": "Renewable Metals",
-    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction",
+    "company": "Econili",
+    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "evidence": "ask the founders of Econili (verified deal) for an introduction",
     "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
-    "company": "Renewable Metals",
-    "url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "source_url": "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology",
-    "evidence": "ask the founders of Renewable Metals (verified deal) for an introduction"
+    "company": "Econili",
+    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
+    "evidence": "ask the founders of Econili (verified deal) for an introduction"
    },
    "own_domain": "",
    "own_domain_evidence": {},
@@ -5186,26 +5209,26 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
     "sector": 0.05,
-    "stage": 0.05,
+    "stage": 0.0,
     "country": 0.0,
-    "recency": 0.0619,
+    "recency": 0.0978,
     "lead": 0.0
    },
-   "base_score": 0.3619,
+   "base_score": 0.3478,
    "country_factor": 1.0,
    "has_target_country_deal": false,
    "sources": [
-    "https://cefc.com.au/media/media-release/renewable-metals-raises-12-million-series-a-to-scale-next-generation-lithium-ion-battery-recycling-technology"
+    "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
    ]
   },
   {
    "rank": 57,
-   "investor": "Jelawang Capital",
+   "investor": "KWAP",
    "score": 0.3478,
    "why": "Rank 57, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
    "backed_companies": [
@@ -5224,7 +5247,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "fund",
+   "investor_type": "unknown",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -5274,7 +5297,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -5293,185 +5316,9 @@
   },
   {
    "rank": 58,
-   "investor": "Khazanah Nasional",
-   "score": 0.3478,
-   "why": "Rank 58, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
-   "backed_companies": [
-    {
-     "name": "Econili",
-     "round": "growth",
-     "date": "2026-11-03",
-     "amount": "US$1.96m",
-     "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 1960000.0,
-      "median_text": "USD 1.96M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Econili",
-        "amount": "US$1.96m",
-        "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "growth"
-    ],
-    "text": "USD 1.96M median of 1",
-    "stages_text": "growth"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Econili",
-    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "evidence": "ask the founders of Econili (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Econili",
-    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "evidence": "ask the founders of Econili (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.0,
-    "recency": 0.0978,
-    "lead": 0.0
-   },
-   "base_score": 0.3478,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
-   ]
-  },
-  {
-   "rank": 59,
-   "investor": "KWAP",
-   "score": 0.3478,
-   "why": "Rank 59, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
-   "backed_companies": [
-    {
-     "name": "Econili",
-     "round": "growth",
-     "date": "2026-11-03",
-     "amount": "US$1.96m",
-     "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 1960000.0,
-      "median_text": "USD 1.96M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Econili",
-        "amount": "US$1.96m",
-        "link": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "growth"
-    ],
-    "text": "USD 1.96M median of 1",
-    "stages_text": "growth"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Econili",
-    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "evidence": "ask the founders of Econili (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Econili",
-    "url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "source_url": "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil",
-    "evidence": "ask the founders of Econili (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.0,
-    "recency": 0.0978,
-    "lead": 0.0
-   },
-   "base_score": 0.3478,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://digitalnewsasia.com/startups/econili-secures-vynn-capital-backing-bringing-total-funding-us196mil"
-   ]
-  },
-  {
-   "rank": 60,
    "investor": "Vynn Capital",
    "score": 0.3478,
-   "why": "Rank 60, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
+   "why": "Rank 58, score 0.35: backed 1 verified similar startup (Econili); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-11-03.",
    "backed_companies": [
     {
      "name": "Econili",
@@ -5538,7 +5385,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -5556,10 +5403,10 @@
    ]
   },
   {
-   "rank": 61,
+   "rank": 59,
    "investor": "Lotus Singapore Group",
    "score": 0.3442,
-   "why": "Rank 61, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
+   "why": "Rank 59, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
    "backed_companies": [
     {
      "name": "NEU Battery Materials",
@@ -5626,7 +5473,179 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.0,
+    "country": 0.0,
+    "recency": 0.0942,
+    "lead": 0.0
+   },
+   "base_score": 0.3442,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
+   ]
+  },
+  {
+   "rank": 60,
+   "investor": "M7 Holdings",
+   "score": 0.3442,
+   "why": "Rank 60, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "NEU Battery Materials",
+     "round": "Other",
+     "date": "2026-10-14",
+     "amount": "$7.6 million",
+     "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 7600000.0,
+      "median_text": "USD 7.6M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "NEU Battery Materials",
+        "amount": "$7.6 million",
+        "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [],
+    "text": "USD 7.6M median of 1",
+    "stages_text": "unknown"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "NEU Battery Materials",
+    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "NEU Battery Materials",
+    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2,
+    "sector": 0.05,
+    "stage": 0.0,
+    "country": 0.0,
+    "recency": 0.0942,
+    "lead": 0.0
+   },
+   "base_score": 0.3442,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
+   ]
+  },
+  {
+   "rank": 61,
+   "investor": "Paragon Ventures I",
+   "score": 0.3442,
+   "why": "Rank 61, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "NEU Battery Materials",
+     "round": "Other",
+     "date": "2026-10-14",
+     "amount": "$7.6 million",
+     "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 7600000.0,
+      "median_text": "USD 7.6M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "NEU Battery Materials",
+        "amount": "$7.6 million",
+        "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [],
+    "text": "USD 7.6M median of 1",
+    "stages_text": "unknown"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "NEU Battery Materials",
+    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "NEU Battery Materials",
+    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
+    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -5645,181 +5664,9 @@
   },
   {
    "rank": 62,
-   "investor": "M7 Holdings",
-   "score": 0.3442,
-   "why": "Rank 62, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
-   "backed_companies": [
-    {
-     "name": "NEU Battery Materials",
-     "round": "Other",
-     "date": "2026-10-14",
-     "amount": "$7.6 million",
-     "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 7600000.0,
-      "median_text": "USD 7.6M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "NEU Battery Materials",
-        "amount": "$7.6 million",
-        "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [],
-    "text": "USD 7.6M median of 1",
-    "stages_text": "unknown"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "NEU Battery Materials",
-    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "NEU Battery Materials",
-    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.0,
-    "recency": 0.0942,
-    "lead": 0.0
-   },
-   "base_score": 0.3442,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
-   ]
-  },
-  {
-   "rank": 63,
-   "investor": "Paragon Ventures I",
-   "score": 0.3442,
-   "why": "Rank 63, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.",
-   "backed_companies": [
-    {
-     "name": "NEU Battery Materials",
-     "round": "Other",
-     "date": "2026-10-14",
-     "amount": "$7.6 million",
-     "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 7600000.0,
-      "median_text": "USD 7.6M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "NEU Battery Materials",
-        "amount": "$7.6 million",
-        "link": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [],
-    "text": "USD 7.6M median of 1",
-    "stages_text": "unknown"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "NEU Battery Materials",
-    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "NEU Battery Materials",
-    "url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "source_url": "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/",
-    "evidence": "ask the founders of NEU Battery Materials (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.0,
-    "recency": 0.0942,
-    "lead": 0.0
-   },
-   "base_score": 0.3442,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/"
-   ]
-  },
-  {
-   "rank": 64,
    "investor": "Department of Energy",
    "score": 0.3146,
-   "why": "Rank 64, score 0.31: backed 1 verified similar startup (Moment Energy); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-05-05.",
+   "why": "Rank 62, score 0.31: backed 1 verified similar startup (Moment Energy); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-05-05.",
    "backed_companies": [
     {
      "name": "Moment Energy",
@@ -5836,7 +5683,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "corporate",
+   "investor_type": "public body",
    "section": "other",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -5888,7 +5735,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -5906,10 +5753,10 @@
    ]
   },
   {
-   "rank": 65,
+   "rank": 63,
    "investor": "In-Q-Tel",
    "score": 0.3146,
-   "why": "Rank 65, score 0.31: backed 1 verified similar startup (Moment Energy); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-05-05.",
+   "why": "Rank 63, score 0.31: backed 1 verified similar startup (Moment Energy); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-05-05.",
    "backed_companies": [
     {
      "name": "Moment Energy",
@@ -5976,7 +5823,7 @@
    "reach_route_agent": "unknown",
    "reach_url_agent": "",
    "investor_site": "",
-   "agent_note": "not enriched (below --agent-top)",
+   "agent_note": "not enriched (below --agent-top in the original run)",
    "agent_partners": [],
    "score_parts": {
     "what": 0.2,
@@ -6010,8 +5857,7 @@
     "Neo",
     "Sandberg Bernthal Venture Partners",
     "CDTM Venture Capital",
-    "Sheryl Sandberg",
-    "Sheryl Sandberg’s Sandberg Bernthal Venture Partners"
+    "Sheryl Sandberg"
    ],
    "lead_verified": [
     "TQ Ventures"
@@ -6043,8 +5889,7 @@
     "Neo": "Furo raises $4M from TQ Ventures, Neo and Sheryl Sandberg to build the operating system for industrial battery storage As AI data centres drive an unprecedented spike in energy demand, Furo turns batteries into revenue-generating assets,",
     "Sandberg Bernthal Venture Partners": "10, 2026: Furo, the AI-powered software platform transforming the entire battery value chain, today announced $4 million in funding led by TQ Ventures, with participation from Neo, Sheryl Sandberg’s Sandberg Bernthal Venture Partners, and CDTM Venture Capital. Already the go-to platform for nearly all commercial and industrial battery storage projects planned in Europe, Furo optimizes when batteries charge, discharge, and trade e",
     "CDTM Venture Capital": "platform transforming the entire battery value chain, today announced $4 million in funding led by TQ Ventures, with participation from Neo, Sheryl Sandberg’s Sandberg Bernthal Venture Partners, and CDTM Venture Capital. Already the go-to platform for nearly all commercial and industrial battery storage projects planned in Europe, Furo optimizes when batteries charge, discharge, and trade energy, cutting electricity",
-    "Sheryl Sandberg": "Furo raises $4M from TQ Ventures, Neo and Sheryl Sandberg to build the operating system for industrial battery storage As AI data centres drive an unprecedented spike in energy demand, Furo turns batteries into revenue-generating assets, laying the groundwo",
-    "Sheryl Sandberg’s Sandberg Bernthal Venture Partners": "ERMANY — September 10, 2026: Furo, the AI-powered software platform transforming the entire battery value chain, today announced $4 million in funding led by TQ Ventures, with participation from Neo, Sheryl Sandberg’s Sandberg Bernthal Venture Partners, and CDTM Venture Capital. Already the go-to platform for nearly all commercial and industrial battery storage projects planned in Europe, Furo optimizes when batteries charge, discharge, and trade e"
+    "Sheryl Sandberg": "Furo raises $4M from TQ Ventures, Neo and Sheryl Sandberg to build the operating system for industrial battery storage As AI data centres drive an unprecedented spike in energy demand, Furo turns batteries into revenue-generating assets, laying the groundwo"
    },
    "proximity_checked": true,
    "partner_mentions": [
@@ -6984,14 +6829,12 @@
    "other_investors": "Superhero Capital, 2C Ventures, Momentum Partners",
    "investors_verified": [
     "Voima Ventures",
-    "CEO Timo Siukkola",
     "Superhero Capital",
     "2C Ventures",
     "Momentum Partners"
    ],
    "lead_verified": [
-    "Voima Ventures",
-    "CEO Timo Siukkola"
+    "Voima Ventures"
    ],
    "partners": [],
    "hq_country": "Finland",
@@ -7021,7 +6864,6 @@
    "page_excerpt": "Finland TheStorage Raises €3.6M in Seed Funding By FinSMEs - April 24, 2026 Facebook Twitter WhatsApp Linkedin TheStorage , a Tampere, Finland-based cleantech company building industrial thermal energy storage, raised €3.6M in Seed funding. The round was led by Voima Ventures, with participation from existing investors Superhero Capital and 2C Ventures, alongside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the funds to expand operations and its development efforts. Founded in 2023 and led by CEO Timo Siukkola, TheStorage is a cleantech startup building high-temperature thermal energy storage to reduce industrial emissions. Its technology electrifies industrial heat production by storing thermal energy in hot sand (800–1,100 °C). Energy is stored when renewable electricity is available or when grid prices are low, and can be used in any industrial process requiring hot steam or thermal oil. Their sand-in-motion technology makes heat transfer up to ten times more efficient than static solutions, eliminating the need for a green premium in the transition away from fossil fuels. Don’t just read the news. Own the data. Stop manually tracking deals. Access this round and over 100 others this week—in our structured Master Database (XML) + Weekly Intelligence PDF. 👉 Access FinSMEs Intelligence Hub FinSMEs 24/04/2026 Previous article VREY Raises €3.3M in Seed Funding Next article Decade Energy Raises €22M in Funding Access Th",
    "proof_snippets": {
     "Voima Ventures": "pril 24, 2026 Facebook Twitter WhatsApp Linkedin TheStorage , a Tampere, Finland-based cleantech company building industrial thermal energy storage, raised €3.6M in Seed funding. The round was led by Voima Ventures, with participation from existing investors Superhero Capital and 2C Ventures, alongside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the fu",
-    "CEO Timo Siukkola": "longside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the funds to expand operations and its development efforts. Founded in 2023 and led by CEO Timo Siukkola, TheStorage is a cleantech startup building high-temperature thermal energy storage to reduce industrial emissions. Its technology electrifies industrial heat production by storing thermal energy in",
     "Superhero Capital": ", a Tampere, Finland-based cleantech company building industrial thermal energy storage, raised €3.6M in Seed funding. The round was led by Voima Ventures, with participation from existing investors Superhero Capital and 2C Ventures, alongside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the funds to expand operations and its development efforts. Founded",
     "2C Ventures": "based cleantech company building industrial thermal energy storage, raised €3.6M in Seed funding. The round was led by Voima Ventures, with participation from existing investors Superhero Capital and 2C Ventures, alongside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the funds to expand operations and its development efforts. Founded in 2023 and led",
     "Momentum Partners": "ustrial thermal energy storage, raised €3.6M in Seed funding. The round was led by Voima Ventures, with participation from existing investors Superhero Capital and 2C Ventures, alongside new investor Momentum Partners. The raise brought the total amount to €5.8M. The company intends to use the funds to expand operations and its development efforts. Founded in 2023 and led by CEO Timo Siukkola, TheStorage is a clea"
@@ -7042,8 +6884,7 @@
    "investors_verified": [
     "Caret Capital",
     "IIM Ahmedabad Ventures",
-    "Basant Sharma",
-    "Group"
+    "Basant Sharma"
    ],
    "lead_verified": [
     "Caret Capital"
@@ -7077,8 +6918,7 @@
    "proof_snippets": {
     "Caret Capital": "Advertisment Battery Circularity Startup PeakAmp Raises ₹12 Cr Seed Funding Led by Caret Capital Founded in 2024 by Vijay Gond and Aditya Sudhanshu, PeakAmp is building India’s first full-stack, tech-enabled. In a short span since inception, PeakAmp has shown impressive traction—executing succes",
     "IIM Ahmedabad Ventures": "n-based PeakAmp, a battery circularity company, raised ₹12 crore (USD ~1.37 million) in seed funding led by Caret Capital. In a press release, PeakAmp explained, the round also saw participation from IIM Ahmedabad Ventures, angel investor Basant Sharma & Group, and other prominent investors in clean-tech, mining, and recycling. Advertisment PeakAmp explained, what truly sets it apart is its full-stack model, which comb",
-    "Basant Sharma": "company, raised ₹12 crore (USD ~1.37 million) in seed funding led by Caret Capital. In a press release, PeakAmp explained, the round also saw participation from IIM Ahmedabad Ventures, angel investor Basant Sharma & Group, and other prominent investors in clean-tech, mining, and recycling. Advertisment PeakAmp explained, what truly sets it apart is its full-stack model, which combines advanced materials-recove",
-    "Group": "₹12 crore (USD ~1.37 million) in seed funding led by Caret Capital. In a press release, PeakAmp explained, the round also saw participation from IIM Ahmedabad Ventures, angel investor Basant Sharma & Group, and other prominent investors in clean-tech, mining, and recycling. Advertisment PeakAmp explained, what truly sets it apart is its full-stack model, which combines advanced materials-recovery techn"
+    "Basant Sharma": "company, raised ₹12 crore (USD ~1.37 million) in seed funding led by Caret Capital. In a press release, PeakAmp explained, the round also saw participation from IIM Ahmedabad Ventures, angel investor Basant Sharma & Group, and other prominent investors in clean-tech, mining, and recycling. Advertisment PeakAmp explained, what truly sets it apart is its full-stack model, which combines advanced materials-recove"
    },
    "proximity_checked": true,
    "partner_mentions": []
@@ -7226,15 +7066,20 @@
    "lead_investor": "",
    "other_investors": "",
    "investors_verified": [
-    "NVentures"
+    "NVentures",
+    "Eclipse Ventures"
    ],
    "lead_verified": [
-    "NVentures"
+    "NVentures",
+    "Eclipse Ventures"
    ],
    "partners": [],
    "hq_country": "",
    "source_url": "https://techcrunch.com/2025/10/23/redwood-materials-raises-another-350-million-to-power-up-its-energy-storage-business/",
    "final_url": "https://techcrunch.com/2025/10/23/redwood-materials-raises-another-350-million-to-power-up-its-energy-storage-business/",
+   "extra_links": [
+    "https://resource-recycling.com/e-scrap/2025/11/06/redwood-secures-350-million-to-expand-recycling-storage"
+   ],
    "origin": "search",
    "status": "verified",
    "drop_reason": "",
@@ -7258,7 +7103,8 @@
    "not_near_funding_phrase": [],
    "page_excerpt": "Battery recycling and cathode production company Redwood Materials has raised $350 million as it grows its new energy storage business in a bid to power the AI data center boom. The Series E round, led by venture firm Eclipse, also included a new strategic investment by Nvidia’s venture capital arm, NVentures. The company’s valuation was not disclosed, but a source familiar with the round told TechCrunch it was about $6 billion, a billion higher than its previous valuation. The funds will be used to expand the company’s burgeoning energy-storage business as well as its refining and materials production capacity. Redwood, founded by former Tesla CTO JB Straubel, also plans to hire more engineers and staff for its operations team. When Redwood Materials was founded in 2017, it set out to create a circular supply chain for batteries by focusing on recycling scrap from battery cell production and consumer electronics like cell phone batteries and laptop computers. That business — which continues to grow — involves processing those discarded goods and extracting materials like cobalt, nickel, and lithium that are typically mined. Redwood supplies those materials back to its customers, which include Panasonic, GM, and Toyota. Redwood has since added new, related pursuits like cathode production. Most recently, it launched an energy-storage business that uses the thousands of EV batteries it collects to provide power to companies. That business, called Redwood Energy, is largely dir",
    "proof_snippets": {
-    "NVentures": "s its new energy storage business in a bid to power the AI data center boom. The Series E round, led by venture firm Eclipse, also included a new strategic investment by Nvidia’s venture capital arm, NVentures. The company’s valuation was not disclosed, but a source familiar with the round told TechCrunch it was about $6 billion, a billion higher than its previous valuation. The funds will be used to expan"
+    "NVentures": "s its new energy storage business in a bid to power the AI data center boom. The Series E round, led by venture firm Eclipse, also included a new strategic investment by Nvidia’s venture capital arm, NVentures. The company’s valuation was not disclosed, but a source familiar with the round told TechCrunch it was about $6 billion, a billion higher than its previous valuation. The funds will be used to expan",
+    "Eclipse Ventures": "No Result View All Result No Result View All Result Redwood secures $350 million to expand recycling, storage byScott Snowden November 6, 2025 in E-Scrap Redwood Materials raised $350 million led by Eclipse Ventures and Nvidia’s NVentures to expand battery recycling, energy storage and domestic material recovery. | Photo courtesy Redwood Materials Battery recycling and energy storage firm Redwood Materials has r"
    },
    "proximity_checked": true,
    "partner_mentions": [],
@@ -7464,8 +7310,7 @@
     "German Federal Ministry"
    ],
    "lead_verified": [
-    "HTGF",
-    "High-Tech Gründerfonds"
+    "HTGF"
    ],
    "partners": [],
    "hq_country": "",
@@ -7500,6 +7345,9 @@
    },
    "proximity_checked": true,
    "partner_mentions": [],
+   "leads_demoted": [
+    "High-Tech Gründerfonds"
+   ],
    "query": "climate tech startup raises seed round Europe"
   },
   {
@@ -7513,7 +7361,7 @@
    "lead_investor": "",
    "other_investors": "",
    "investors_verified": [
-    "Germany’s Federal Ministry of Research"
+    "Federal Ministry of Research"
    ],
    "lead_verified": [],
    "partners": [],
@@ -7539,7 +7387,7 @@
    "not_near_funding_phrase": [],
    "page_excerpt": " Vestbee Winter Pitch 2026 Pitch online to hundreds of Europe's leading VC funds and business angels --- --- February 26, 2026·2 min read Joy Laoun News Editor, Vestbee Insights German climate-tech startup Ark Climate raises €2.1M pre-seed funding Munich-based Ark Climate, a software company providing end-to-end solutions for municipal climate action, has raised €2.1 million in a pre-seed funding round led by climate-tech investor Satgana, as Vestbee was informed. Established in 2024 by Ruth Bosse, Ark Climate develops a cloud-based software platform and advisory services that help municipalities plan, implement, and track local climate action. Its solution enables cities and districts to create greenhouse-gas inventories using recognized standards such as BISKO, GHG, and GPC, model emissions scenarios, evaluate mitigation measures, and manage projects through a customizable digital action catalog with progress indicators and public dashboards. The platform integrates climate and energy data in a shared workspace so departments and stakeholders can collaborate and monitor results transparently, while built-in analytics assess whether current efforts meet political climate targets. The company, now with 12 employees, already supports 43 German municipalities with software hosted in an ISO-27001-certified EU cloud and complemented by tailored consulting on climate strategies, adaptation planning, and data analysis. Details of the deal The round also included another.VC, the Voy",
    "proof_snippets": {
-    "Germany’s Federal Ministry of Research": "lting on climate strategies, adaptation planning, and data analysis. Details of the deal The round also included another.VC, the Voyagers Climate Fund, several angel investors, and participation from Germany’s Federal Ministry of Research. “Ark Climate combines a strong team with a clear vision for one of the most urgent issues of our time: implementing climate action locally. Cities are increasingly relying on digital solutions to re"
+    "Federal Ministry of Research": "lting on climate strategies, adaptation planning, and data analysis. Details of the deal The round also included another.VC, the Voyagers Climate Fund, several angel investors, and participation from Germany’s Federal Ministry of Research. “Ark Climate combines a strong team with a clear vision for one of the most urgent issues of our time: implementing climate action locally. Cities are increasingly relying on digital solutions to re"
    },
    "proximity_checked": true,
    "partner_mentions": [],
@@ -7643,7 +7491,7 @@
    "other_investors": "",
    "investors_verified": [
     "Ribbit Capital",
-    "Google-backed CapitalG",
+    "CapitalG",
     "Spark Capital",
     "Bond",
     "Lowercarbon Capital",
@@ -7661,8 +7509,7 @@
     "Energy Impact Partners",
     "Thrive Capital",
     "Lightspeed",
-    "Trust Ventures",
-    "CapitalG"
+    "Trust Ventures"
    ],
    "lead_verified": [
     "Ribbit",
@@ -7700,7 +7547,7 @@
    "page_excerpt": "fresh funding Energy startup Base Power raises $1 billion series C round Austin-based startup Base Power, which offers battery-supported energy in the Houston area and other regions, has raised $1 billion in series C funding—making it one of the largest venture capital deals this year in the U.S. VC firm Addition led the $1 billion round. All of Base Power’s existing major investors also participated, including Trust Ventures, Valor Equity Partners, Thrive Capital, Lightspeed Venture Partners, Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled in more than $1.27 billion in funding since it was founded in 2023. Base Power supplies power to homeowners and the electric grid through a distributed storage network. “The chance to reinvent our power system comes once in a generation,” Zach Dell, co-founder and CEO of Base Power, said in a news release. “The challenge ahead requires the best engineers and operators to solve it, and we’re scaling the team to make our abundant energy future a reality.” Zach Dell is the son of Austin billionaire and Houston native Michael Dell, chairman and CEO of Round Rock-based Dell Technologies. In less than two years, Base",
    "proof_snippets": {
     "Ribbit Capital": "Partners, Thrive Capital, Lightspeed Venture Partners, Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round",
-    "Google-backed CapitalG": "Capital, Lightspeed Venture Partners, Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled",
+    "CapitalG": "Capital, Lightspeed Venture Partners, Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled",
     "Spark Capital": "ture Partners, Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled in more than $1",
     "Bond": "Andreessen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled in more than $1.27 bi",
     "Lowercarbon Capital": "ssen Horowitz (a16z), Altimeter, StepStone Group, 137 Ventures, Terrain, Waybury Capital, and entrepreneur Elad Gil. New investors include Ribbit Capital, Google-backed CapitalG, Spark Capital, Bond, Lowercarbon Capital, Avenir Growth Capital, Glade Brook Capital Partners, Positive Sum and 1789 Capital Management. Coupled with the new $1 billion round, Base Power has hauled in more than $1.27 billion in funding sinc",
@@ -7787,7 +7634,7 @@
    "query": "grid battery startup funding round led by"
   },
   {
-   "company": "Düsseldorf-based Co-reactive",
+   "company": "Co-reactive",
    "what_it_does": "on decarbonising the construction industry at scale, has closed a Seed financing round totalling €6.5 million to scale its CO₂ mineralisation technology.\nThe round was led by HTGF, with",
    "round_stage": "seed",
    "amount": "€6.5 m",
@@ -7884,19 +7731,19 @@
    "other_investors": "",
    "investors_verified": [
     "Eclipse Ventures",
-    "Nvidia’s NVentures"
+    "NVentures"
    ],
    "lead_verified": [
     "Eclipse Ventures",
-    "Nvidia’s NVentures"
+    "NVentures"
    ],
    "partners": [],
    "hq_country": "",
    "source_url": "https://resource-recycling.com/e-scrap/2025/11/06/redwood-secures-350-million-to-expand-recycling-storage",
    "final_url": "https://resource-recycling.com/e-scrap/2025/11/06/redwood-secures-350-million-to-expand-recycling-storage/",
    "origin": "search",
-   "status": "verified",
-   "drop_reason": "",
+   "status": "duplicate",
+   "drop_reason": "same company as Redwood Materials (name prefix, named on the same page)",
    "similarity": 0.2818,
    "sim_parts": {
     "what": 0.2,
@@ -7918,7 +7765,7 @@
    "page_excerpt": "Subscribe No Result View All Result No Result View All Result No Result View All Result Redwood secures $350 million to expand recycling, storage byScott Snowden November 6, 2025 in E-Scrap Redwood Materials raised $350 million led by Eclipse Ventures and Nvidia’s NVentures to expand battery recycling, energy storage and domestic material recovery. | Photo courtesy Redwood Materials Battery recycling and energy storage firm Redwood Materials has raised $350 million in new funding led by Eclipse Ventures, with participation from Nvidia’s investment arm NVentures and other investors. The Nevada-based company said it will use the Series E proceeds to accelerate expansion of its materials-recovery operations, increase production of recycled battery components and grow its energy-storage business. Redwood plans to add employees and scale its Nevada campus, which serves as both a recycling and manufacturing hub. “This is a pivotal time for both Redwood and the United States, as curtailment in international supplies overlaps with intense domestic demand growth for these same materials and energy products,” the company said. Founded in 2017 by former Tesla chief technology officer JB Straubel, Redwood focuses on reclaiming and refining critical materials such as lithium, nickel, cobalt and copper from used electric-vehicle and consumer batteries. The recovered metals are then processed into new anode and cathode materials for battery manufacturers. Redwood was valued at about $5 bill",
    "proof_snippets": {
     "Eclipse Ventures": "No Result View All Result No Result View All Result Redwood secures $350 million to expand recycling, storage byScott Snowden November 6, 2025 in E-Scrap Redwood Materials raised $350 million led by Eclipse Ventures and Nvidia’s NVentures to expand battery recycling, energy storage and domestic material recovery. | Photo courtesy Redwood Materials Battery recycling and energy storage firm Redwood Materials has r",
-    "Nvidia’s NVentures": "esult No Result View All Result Redwood secures $350 million to expand recycling, storage byScott Snowden November 6, 2025 in E-Scrap Redwood Materials raised $350 million led by Eclipse Ventures and Nvidia’s NVentures to expand battery recycling, energy storage and domestic material recovery. | Photo courtesy Redwood Materials Battery recycling and energy storage firm Redwood Materials has raised $350 million in n"
+    "NVentures": "esult No Result View All Result Redwood secures $350 million to expand recycling, storage byScott Snowden November 6, 2025 in E-Scrap Redwood Materials raised $350 million led by Eclipse Ventures and Nvidia’s NVentures to expand battery recycling, energy storage and domestic material recovery. | Photo courtesy Redwood Materials Battery recycling and energy storage firm Redwood Materials has raised $350 million in n"
    },
    "proximity_checked": true,
    "partner_mentions": [],

@@ -30,7 +30,7 @@
   "verified_companies": 27,
   "verified_links": 28,
   "dropped": 8,
-  "investors_ranked": 87,
+  "investors_ranked": 86,
   "self_published_dropped": 2,
   "verified_companies_after_rules": 25,
   "counted_deals": 24,
@@ -53,7 +53,16 @@
   "rescore_note": "re-ranked offline with the current rules; no API calls",
   "proximity_dropped": 3,
   "agent_facts_rejected": {},
-  "stats_rescore": {}
+  "stats_rescore": {},
+  "fixes_applied": {
+   "company_renamed": {},
+   "investor_names_cleaned": {
+    "Newcode": {
+     "CEO Maged Helmy": null
+    }
+   },
+   "companies_merged_by_prefix": []
+  }
  },
  "investors": [
   {
@@ -3615,7 +3624,7 @@
   },
   {
    "rank": 39,
-   "investor": "CEO Maged Helmy",
+   "investor": "OnDean Forward",
    "score": 0.9525,
    "why": "Rank 39, score 0.95: backed 1 verified similar startup (Newcode); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
    "backed_companies": [
@@ -3703,97 +3712,9 @@
   },
   {
    "rank": 40,
-   "investor": "OnDean Forward",
-   "score": 0.9525,
-   "why": "Rank 40, score 0.95: backed 1 verified similar startup (Newcode); led 1 of it (+0.32 lead bonus); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
-   "backed_companies": [
-    {
-     "name": "Newcode",
-     "round": "Series A",
-     "date": "2026-08-25",
-     "amount": "$13.5M",
-     "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-     "led": true
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 13500000.0,
-      "median_text": "USD 13.5M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Newcode",
-        "amount": "$13.5M",
-        "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "series a"
-    ],
-    "text": "USD 13.5M median of 1",
-    "stages_text": "series a"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Newcode",
-    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "evidence": "ask the founders of Newcode (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Newcode",
-    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "evidence": "ask the founders of Newcode (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.085,
-    "lead": 0.3175
-   },
-   "base_score": 0.9525,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
-   ]
-  },
-  {
-   "rank": 41,
    "investor": "Intact Private Capital",
    "score": 0.8721,
-   "why": "Rank 41, score 0.87: backed 1 verified similar startup (Wordsmith); led 1 of it (+0.29 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
+   "why": "Rank 40, score 0.87: backed 1 verified similar startup (Wordsmith); led 1 of it (+0.29 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
    "backed_companies": [
     {
      "name": "Wordsmith",
@@ -3887,10 +3808,10 @@
    ]
   },
   {
-   "rank": 42,
+   "rank": 41,
    "investor": "DeVC",
    "score": 0.8645,
-   "why": "Rank 42, score 0.86: backed 1 verified similar startup (Lucio); led 1 of it (+0.29 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
+   "why": "Rank 41, score 0.86: backed 1 verified similar startup (Lucio); led 1 of it (+0.29 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
    "backed_companies": [
     {
      "name": "Lucio",
@@ -3975,10 +3896,10 @@
    ]
   },
   {
-   "rank": 43,
+   "rank": 42,
    "investor": "Sequoia Capital",
    "score": 0.8379,
-   "why": "Rank 43, score 0.84: backed 1 verified similar startup (Crosby); led 1 of it (+0.28 lead bonus); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
+   "why": "Rank 42, score 0.84: backed 1 verified similar startup (Crosby); led 1 of it (+0.28 lead bonus); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
    "backed_companies": [
     {
      "name": "Crosby",
@@ -4063,8 +3984,96 @@
    ]
   },
   {
-   "rank": 44,
+   "rank": 43,
    "investor": "Czech Jet Ventures",
+   "score": 0.8327,
+   "why": "Rank 43, score 0.83: backed 1 verified similar startup (Cequence); led 1 of it (+0.28 lead bonus); what-it-does overlap on 'draft', 'contract', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Czechia); no verified deal in USA, so no country factor; latest deal 2025-06-13.",
+   "backed_companies": [
+    {
+     "name": "Cequence",
+     "round": "Seed",
+     "date": "2025-06-13",
+     "amount": "€2M",
+     "link": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+     "led": true
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "EUR",
+      "median": 2000000.0,
+      "median_text": "EUR 2M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Cequence",
+        "amount": "€2M",
+        "link": "https://vestbee.com/insights/articles/cequence-secures-2-m"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "EUR 2M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Cequence",
+    "url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+    "source_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+    "evidence": "ask the founders of Cequence (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Cequence",
+    "url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+    "source_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
+    "evidence": "ask the founders of Cequence (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0051,
+    "lead": 0.2776
+   },
+   "base_score": 0.8327,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://vestbee.com/insights/articles/cequence-secures-2-m"
+   ]
+  },
+  {
+   "rank": 44,
+   "investor": "Jet Ventures",
    "score": 0.8327,
    "why": "Rank 44, score 0.83: backed 1 verified similar startup (Cequence); led 1 of it (+0.28 lead bonus); what-it-does overlap on 'draft', 'contract', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Czechia); no verified deal in USA, so no country factor; latest deal 2025-06-13.",
    "backed_companies": [
@@ -4152,97 +4161,9 @@
   },
   {
    "rank": 45,
-   "investor": "Jet Ventures",
-   "score": 0.8327,
-   "why": "Rank 45, score 0.83: backed 1 verified similar startup (Cequence); led 1 of it (+0.28 lead bonus); what-it-does overlap on 'draft', 'contract', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Czechia); no verified deal in USA, so no country factor; latest deal 2025-06-13.",
-   "backed_companies": [
-    {
-     "name": "Cequence",
-     "round": "Seed",
-     "date": "2025-06-13",
-     "amount": "€2M",
-     "link": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-     "led": true
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "EUR",
-      "median": 2000000.0,
-      "median_text": "EUR 2M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Cequence",
-        "amount": "€2M",
-        "link": "https://vestbee.com/insights/articles/cequence-secures-2-m"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "EUR 2M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Cequence",
-    "url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-    "source_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-    "evidence": "ask the founders of Cequence (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Cequence",
-    "url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-    "source_url": "https://vestbee.com/insights/articles/cequence-secures-2-m",
-    "evidence": "ask the founders of Cequence (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.0051,
-    "lead": 0.2776
-   },
-   "base_score": 0.8327,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://vestbee.com/insights/articles/cequence-secures-2-m"
-   ]
-  },
-  {
-   "rank": 46,
    "investor": "Qualcomm Ventures",
    "score": 0.8236,
-   "why": "Rank 46, score 0.82: backed 1 verified similar startup (SpotDraft); led 1 of it (+0.27 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2026-02-09.",
+   "why": "Rank 45, score 0.82: backed 1 verified similar startup (SpotDraft); led 1 of it (+0.27 lead bonus); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2026-02-09.",
    "backed_companies": [
     {
      "name": "SpotDraft",
@@ -4327,10 +4248,10 @@
    ]
   },
   {
-   "rank": 47,
+   "rank": 46,
    "investor": "Revaia",
    "score": 0.7566,
-   "why": "Rank 47, score 0.76: backed 1 verified similar startup (Definely); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 46, score 0.76: backed 1 verified similar startup (Definely); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -4415,10 +4336,10 @@
    ]
   },
   {
-   "rank": 48,
+   "rank": 47,
    "investor": "Lindy O’Hare’s Valhalla Ventures",
    "score": 0.7563,
-   "why": "Rank 48, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
+   "why": "Rank 47, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
    "backed_companies": [
     {
      "name": "Avvoka",
@@ -4503,10 +4424,10 @@
    ]
   },
   {
-   "rank": 49,
+   "rank": 48,
    "investor": "Mark",
    "score": 0.7563,
-   "why": "Rank 49, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
+   "why": "Rank 48, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
    "backed_companies": [
     {
      "name": "Avvoka",
@@ -4591,10 +4512,10 @@
    ]
   },
   {
-   "rank": 50,
+   "rank": 49,
    "investor": "Valhalla Ventures",
    "score": 0.7563,
-   "why": "Rank 50, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
+   "why": "Rank 49, score 0.76: backed 1 verified similar startup (Avvoka); led 1 of it (+0.25 lead bonus); what-it-does overlap on 'draft', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-03-09.",
    "backed_companies": [
     {
      "name": "Avvoka",
@@ -4679,10 +4600,10 @@
    ]
   },
   {
-   "rank": 51,
+   "rank": 50,
    "investor": "Andreessen Horowitz",
    "score": 0.7257,
-   "why": "Rank 51, score 0.73: backed 1 verified similar startup (Stilta); led 1 of it (+0.24 lead bonus); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
+   "why": "Rank 50, score 0.73: backed 1 verified similar startup (Stilta); led 1 of it (+0.24 lead bonus); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
    "backed_companies": [
     {
      "name": "Stilta",
@@ -4784,10 +4705,10 @@
    ]
   },
   {
-   "rank": 52,
+   "rank": 51,
    "investor": "Lakestar",
    "score": 0.6935,
-   "why": "Rank 52, score 0.69: backed 1 verified similar startup (Antidote); led 1 of it (+0.23 lead bonus); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
+   "why": "Rank 51, score 0.69: backed 1 verified similar startup (Antidote); led 1 of it (+0.23 lead bonus); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
    "backed_companies": [
     {
      "name": "Antidote",
@@ -4872,8 +4793,96 @@
    ]
   },
   {
-   "rank": 53,
+   "rank": 52,
    "investor": "Bright Pixel Capital",
+   "score": 0.6401,
+   "why": "Rank 52, score 0.64: backed 1 verified similar startup (Chamelio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Israel); no verified deal in USA, so no country factor; latest deal 2026-09-22.",
+   "backed_companies": [
+    {
+     "name": "Chamelio",
+     "round": "Series A",
+     "date": "2026-09-22",
+     "amount": "$26M",
+     "link": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 26000000.0,
+      "median_text": "USD 26M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Chamelio",
+        "amount": "$26M",
+        "link": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "series a"
+    ],
+    "text": "USD 26M median of 1",
+    "stages_text": "series a"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Chamelio",
+    "url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+    "source_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+    "evidence": "ask the founders of Chamelio (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Chamelio",
+    "url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+    "source_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
+    "evidence": "ask the founders of Chamelio (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0901,
+    "lead": 0.0
+   },
+   "base_score": 0.6401,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html"
+   ]
+  },
+  {
+   "rank": 53,
+   "investor": "Emerge Ventures",
    "score": 0.6401,
    "why": "Rank 53, score 0.64: backed 1 verified similar startup (Chamelio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Israel); no verified deal in USA, so no country factor; latest deal 2026-09-22.",
    "backed_companies": [
@@ -4961,97 +4970,9 @@
   },
   {
    "rank": 54,
-   "investor": "Emerge Ventures",
-   "score": 0.6401,
-   "why": "Rank 54, score 0.64: backed 1 verified similar startup (Chamelio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Israel); no verified deal in USA, so no country factor; latest deal 2026-09-22.",
-   "backed_companies": [
-    {
-     "name": "Chamelio",
-     "round": "Series A",
-     "date": "2026-09-22",
-     "amount": "$26M",
-     "link": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 26000000.0,
-      "median_text": "USD 26M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Chamelio",
-        "amount": "$26M",
-        "link": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "series a"
-    ],
-    "text": "USD 26M median of 1",
-    "stages_text": "series a"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Chamelio",
-    "url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-    "source_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-    "evidence": "ask the founders of Chamelio (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Chamelio",
-    "url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-    "source_url": "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html",
-    "evidence": "ask the founders of Chamelio (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.0901,
-    "lead": 0.0
-   },
-   "base_score": 0.6401,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.prnewswire.com/il/news-releases/chamelio-raises-26m-series-a-to-replace-legacy-clm-with-ai-native-in-house-legal-operations-302886011.html"
-   ]
-  },
-  {
-   "rank": 55,
    "investor": "Work-Bench",
    "score": 0.6401,
-   "why": "Rank 55, score 0.64: backed 1 verified similar startup (Chamelio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Israel); no verified deal in USA, so no country factor; latest deal 2026-09-22.",
+   "why": "Rank 54, score 0.64: backed 1 verified similar startup (Chamelio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Israel); no verified deal in USA, so no country factor; latest deal 2026-09-22.",
    "backed_companies": [
     {
      "name": "Chamelio",
@@ -5136,10 +5057,10 @@
    ]
   },
   {
-   "rank": 56,
+   "rank": 55,
    "investor": "Beccar Varela",
    "score": 0.6376,
-   "why": "Rank 56, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
+   "why": "Rank 55, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
    "backed_companies": [
     {
      "name": "Magnar",
@@ -5224,8 +5145,96 @@
    ]
   },
   {
-   "rank": 57,
+   "rank": 56,
    "investor": "FEN Ventures",
+   "score": 0.6376,
+   "why": "Rank 56, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
+   "backed_companies": [
+    {
+     "name": "Magnar",
+     "round": "Series A",
+     "date": "2026-09-08",
+     "amount": "$8M",
+     "link": "https://latamlist.com/magnar-raises-8m-series-a/",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 8000000.0,
+      "median_text": "USD 8M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Magnar",
+        "amount": "$8M",
+        "link": "https://latamlist.com/magnar-raises-8m-series-a/"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "series a"
+    ],
+    "text": "USD 8M median of 1",
+    "stages_text": "series a"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://latamlist.com/magnar-raises-8m-series-a/",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Magnar",
+    "url": "https://latamlist.com/magnar-raises-8m-series-a/",
+    "source_url": "https://latamlist.com/magnar-raises-8m-series-a/",
+    "evidence": "ask the founders of Magnar (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Magnar",
+    "url": "https://latamlist.com/magnar-raises-8m-series-a/",
+    "source_url": "https://latamlist.com/magnar-raises-8m-series-a/",
+    "evidence": "ask the founders of Magnar (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0876,
+    "lead": 0.0
+   },
+   "base_score": 0.6376,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://latamlist.com/magnar-raises-8m-series-a/"
+   ]
+  },
+  {
+   "rank": 57,
+   "investor": "Nascent Ventures",
    "score": 0.6376,
    "why": "Rank 57, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
    "backed_companies": [
@@ -5313,7 +5322,7 @@
   },
   {
    "rank": 58,
-   "investor": "Nascent Ventures",
+   "investor": "Platanus Ventures",
    "score": 0.6376,
    "why": "Rank 58, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
    "backed_companies": [
@@ -5401,16 +5410,16 @@
   },
   {
    "rank": 59,
-   "investor": "Platanus Ventures",
-   "score": 0.6376,
-   "why": "Rank 59, score 0.64: backed 1 verified similar startup (Magnar); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Chile); no verified deal in USA, so no country factor; latest deal 2026-09-08.",
+   "investor": "Antiportfolio Ventures",
+   "score": 0.635,
+   "why": "Rank 59, score 0.64: backed 1 verified similar startup (Newcode); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
    "backed_companies": [
     {
-     "name": "Magnar",
+     "name": "Newcode",
      "round": "Series A",
-     "date": "2026-09-08",
-     "amount": "$8M",
-     "link": "https://latamlist.com/magnar-raises-8m-series-a/",
+     "date": "2026-08-25",
+     "amount": "$13.5M",
+     "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
      "led": false
     }
    ],
@@ -5427,14 +5436,14 @@
     "by_currency": [
      {
       "currency": "USD",
-      "median": 8000000.0,
-      "median_text": "USD 8M",
+      "median": 13500000.0,
+      "median_text": "USD 13.5M",
       "n": 1,
       "deals": [
        {
-        "name": "Magnar",
-        "amount": "$8M",
-        "link": "https://latamlist.com/magnar-raises-8m-series-a/"
+        "name": "Newcode",
+        "amount": "$13.5M",
+        "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
        }
       ]
      }
@@ -5443,26 +5452,26 @@
     "stages": [
      "series a"
     ],
-    "text": "USD 8M median of 1",
+    "text": "USD 13.5M median of 1",
     "stages_text": "series a"
    },
    "partner_pass": null,
    "reach_route": "warm intro via founder",
-   "reach_url": "https://latamlist.com/magnar-raises-8m-series-a/",
+   "reach_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
    "reach": {
     "route": "warm intro via founder",
-    "company": "Magnar",
-    "url": "https://latamlist.com/magnar-raises-8m-series-a/",
-    "source_url": "https://latamlist.com/magnar-raises-8m-series-a/",
-    "evidence": "ask the founders of Magnar (verified deal) for an introduction",
+    "company": "Newcode",
+    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
+    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
+    "evidence": "ask the founders of Newcode (verified deal) for an introduction",
     "note": "ladder not run (below --reach-top)"
    },
    "warm_intro": {
     "route": "warm intro via founder",
-    "company": "Magnar",
-    "url": "https://latamlist.com/magnar-raises-8m-series-a/",
-    "source_url": "https://latamlist.com/magnar-raises-8m-series-a/",
-    "evidence": "ask the founders of Magnar (verified deal) for an introduction"
+    "company": "Newcode",
+    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
+    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
+    "evidence": "ask the founders of Newcode (verified deal) for an introduction"
    },
    "own_domain": "",
    "own_domain_evidence": {},
@@ -5477,19 +5486,19 @@
     "sector": 0.05,
     "stage": 0.1,
     "country": 0.0,
-    "recency": 0.0876,
+    "recency": 0.085,
     "lead": 0.0
    },
-   "base_score": 0.6376,
+   "base_score": 0.635,
    "country_factor": 1.0,
    "has_target_country_deal": false,
    "sources": [
-    "https://latamlist.com/magnar-raises-8m-series-a/"
+    "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
    ]
   },
   {
    "rank": 60,
-   "investor": "Antiportfolio Ventures",
+   "investor": "LegalTech Fund",
    "score": 0.635,
    "why": "Rank 60, score 0.64: backed 1 verified similar startup (Newcode); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
    "backed_companies": [
@@ -5577,7 +5586,7 @@
   },
   {
    "rank": 61,
-   "investor": "LegalTech Fund",
+   "investor": "Rel Labs",
    "score": 0.635,
    "why": "Rank 61, score 0.64: backed 1 verified similar startup (Newcode); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
    "backed_companies": [
@@ -5596,7 +5605,7 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "fund",
+   "investor_type": "unknown",
    "section": "main",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
@@ -5665,97 +5674,9 @@
   },
   {
    "rank": 62,
-   "investor": "Rel Labs",
-   "score": 0.635,
-   "why": "Rank 62, score 0.64: backed 1 verified similar startup (Newcode); what-it-does overlap on 'contract', 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Norway); no verified deal in USA, so no country factor; latest deal 2026-08-25.",
-   "backed_companies": [
-    {
-     "name": "Newcode",
-     "round": "Series A",
-     "date": "2026-08-25",
-     "amount": "$13.5M",
-     "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 13500000.0,
-      "median_text": "USD 13.5M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Newcode",
-        "amount": "$13.5M",
-        "link": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "series a"
-    ],
-    "text": "USD 13.5M median of 1",
-    "stages_text": "series a"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Newcode",
-    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "evidence": "ask the founders of Newcode (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Newcode",
-    "url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "source_url": "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html",
-    "evidence": "ask the founders of Newcode (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.085,
-    "lead": 0.0
-   },
-   "base_score": 0.635,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.finsmes.com/2026/08/newcode-raises-13-5m-in-series-a-funding.html"
-   ]
-  },
-  {
-   "rank": 63,
    "investor": "FT Ventures",
    "score": 0.5814,
-   "why": "Rank 63, score 0.58: backed 1 verified similar startup (Wordsmith); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
+   "why": "Rank 62, score 0.58: backed 1 verified similar startup (Wordsmith); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
    "backed_companies": [
     {
      "name": "Wordsmith",
@@ -5840,10 +5761,10 @@
    ]
   },
   {
-   "rank": 64,
+   "rank": 63,
    "investor": "Highland Europe",
    "score": 0.5814,
-   "why": "Rank 64, score 0.58: backed 1 verified similar startup (Wordsmith); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
+   "why": "Rank 63, score 0.58: backed 1 verified similar startup (Wordsmith); what-it-does overlap on 'draft', 'review', 'contract'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-08-05.",
    "backed_companies": [
     {
      "name": "Wordsmith",
@@ -5928,10 +5849,10 @@
    ]
   },
   {
-   "rank": 65,
+   "rank": 64,
    "investor": "Ashish Kacholia",
    "score": 0.5763,
-   "why": "Rank 65, score 0.58: backed 1 verified similar startup (Lucio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
+   "why": "Rank 64, score 0.58: backed 1 verified similar startup (Lucio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
    "backed_companies": [
     {
      "name": "Lucio",
@@ -6025,10 +5946,10 @@
    ]
   },
   {
-   "rank": 66,
+   "rank": 65,
    "investor": "Lashit Sanghvi",
    "score": 0.5763,
-   "why": "Rank 66, score 0.58: backed 1 verified similar startup (Lucio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
+   "why": "Rank 65, score 0.58: backed 1 verified similar startup (Lucio); what-it-does overlap on 'draft', 'review', 'contract'; 1/1 at your stage (seed/series a); 0/1 in USA (others: India); no verified deal in USA, so no country factor; latest deal 2025-10-07.",
    "backed_companies": [
     {
      "name": "Lucio",
@@ -6113,10 +6034,10 @@
    ]
   },
   {
-   "rank": 67,
+   "rank": 66,
    "investor": "Bain Capital Ventures",
    "score": 0.5586,
-   "why": "Rank 67, score 0.56: backed 1 verified similar startup (Crosby); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
+   "why": "Rank 66, score 0.56: backed 1 verified similar startup (Crosby); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
    "backed_companies": [
     {
      "name": "Crosby",
@@ -6201,10 +6122,10 @@
    ]
   },
   {
-   "rank": 68,
+   "rank": 67,
    "investor": "Elad Gil",
    "score": 0.5586,
-   "why": "Rank 68, score 0.56: backed 1 verified similar startup (Crosby); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
+   "why": "Rank 67, score 0.56: backed 1 verified similar startup (Crosby); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.",
    "backed_companies": [
     {
      "name": "Crosby",
@@ -6289,8 +6210,96 @@
    ]
   },
   {
-   "rank": 69,
+   "rank": 68,
    "investor": "Federated Hermes Private Equity",
+   "score": 0.5442,
+   "why": "Rank 68, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
+   "backed_companies": [
+    {
+     "name": "Summize",
+     "round": "growth",
+     "date": "2026-10-14",
+     "amount": "$50M",
+     "link": "https://www.summize.com/resources/summize-secures-50-million-investment",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 50000000.0,
+      "median_text": "USD 50M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Summize",
+        "amount": "$50M",
+        "link": "https://www.summize.com/resources/summize-secures-50-million-investment"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "growth"
+    ],
+    "text": "USD 50M median of 1",
+    "stages_text": "growth"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Summize",
+    "url": "https://www.summize.com/resources/summize-secures-50-million-investment",
+    "source_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
+    "evidence": "ask the founders of Summize (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Summize",
+    "url": "https://www.summize.com/resources/summize-secures-50-million-investment",
+    "source_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
+    "evidence": "ask the founders of Summize (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.0,
+    "country": 0.0,
+    "recency": 0.0942,
+    "lead": 0.0
+   },
+   "base_score": 0.5442,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://www.summize.com/resources/summize-secures-50-million-investment"
+   ]
+  },
+  {
+   "rank": 69,
+   "investor": "Kennet Partners",
    "score": 0.5442,
    "why": "Rank 69, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
    "backed_companies": [
@@ -6378,97 +6387,9 @@
   },
   {
    "rank": 70,
-   "investor": "Kennet Partners",
-   "score": 0.5442,
-   "why": "Rank 70, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
-   "backed_companies": [
-    {
-     "name": "Summize",
-     "round": "growth",
-     "date": "2026-10-14",
-     "amount": "$50M",
-     "link": "https://www.summize.com/resources/summize-secures-50-million-investment",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 50000000.0,
-      "median_text": "USD 50M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Summize",
-        "amount": "$50M",
-        "link": "https://www.summize.com/resources/summize-secures-50-million-investment"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "growth"
-    ],
-    "text": "USD 50M median of 1",
-    "stages_text": "growth"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Summize",
-    "url": "https://www.summize.com/resources/summize-secures-50-million-investment",
-    "source_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
-    "evidence": "ask the founders of Summize (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Summize",
-    "url": "https://www.summize.com/resources/summize-secures-50-million-investment",
-    "source_url": "https://www.summize.com/resources/summize-secures-50-million-investment",
-    "evidence": "ask the founders of Summize (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.0,
-    "country": 0.0,
-    "recency": 0.0942,
-    "lead": 0.0
-   },
-   "base_score": 0.5442,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.summize.com/resources/summize-secures-50-million-investment"
-   ]
-  },
-  {
-   "rank": 71,
    "investor": "Maven Capital Partners",
    "score": 0.5442,
-   "why": "Rank 71, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
+   "why": "Rank 70, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
    "backed_companies": [
     {
      "name": "Summize",
@@ -6562,10 +6483,10 @@
    ]
   },
   {
-   "rank": 72,
+   "rank": 71,
    "investor": "YFM Equity Partners",
    "score": 0.5442,
-   "why": "Rank 72, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
+   "why": "Rank 71, score 0.54: backed 1 verified similar startup (Summize); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-10-14.",
    "backed_companies": [
     {
      "name": "Summize",
@@ -6659,8 +6580,96 @@
    ]
   },
   {
-   "rank": 73,
+   "rank": 72,
    "investor": "Alumni Ventures",
+   "score": 0.5044,
+   "why": "Rank 72, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "backed_companies": [
+    {
+     "name": "Definely",
+     "round": "Series B",
+     "date": "2025-06-09",
+     "amount": "$30M",
+     "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "fund",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 30000000.0,
+      "median_text": "USD 30M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Definely",
+        "amount": "$30M",
+        "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "series b"
+    ],
+    "text": "USD 30M median of 1",
+    "stages_text": "series b"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Definely",
+    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "evidence": "ask the founders of Definely (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Definely",
+    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "evidence": "ask the founders of Definely (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.05,
+    "country": 0.0,
+    "recency": 0.0044,
+    "lead": 0.0
+   },
+   "base_score": 0.5044,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
+   ]
+  },
+  {
+   "rank": 73,
+   "investor": "Beacon Capital",
    "score": 0.5044,
    "why": "Rank 73, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
@@ -6748,97 +6757,9 @@
   },
   {
    "rank": 74,
-   "investor": "Beacon Capital",
-   "score": 0.5044,
-   "why": "Rank 74, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
-   "backed_companies": [
-    {
-     "name": "Definely",
-     "round": "Series B",
-     "date": "2025-06-09",
-     "amount": "$30M",
-     "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "fund",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 30000000.0,
-      "median_text": "USD 30M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Definely",
-        "amount": "$30M",
-        "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "series b"
-    ],
-    "text": "USD 30M median of 1",
-    "stages_text": "series b"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Definely",
-    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "evidence": "ask the founders of Definely (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Definely",
-    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "evidence": "ask the founders of Definely (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.05,
-    "country": 0.0,
-    "recency": 0.0044,
-    "lead": 0.0
-   },
-   "base_score": 0.5044,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
-   ]
-  },
-  {
-   "rank": 75,
    "investor": "Clio",
    "score": 0.5044,
-   "why": "Rank 75, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 74, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -6923,10 +6844,10 @@
    ]
   },
   {
-   "rank": 76,
+   "rank": 75,
    "investor": "Cornerstone VC",
    "score": 0.5044,
-   "why": "Rank 76, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 75, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -7011,8 +6932,96 @@
    ]
   },
   {
-   "rank": 77,
+   "rank": 76,
    "investor": "Europe",
+   "score": 0.5044,
+   "why": "Rank 76, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "backed_companies": [
+    {
+     "name": "Definely",
+     "round": "Series B",
+     "date": "2025-06-09",
+     "amount": "$30M",
+     "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 30000000.0,
+      "median_text": "USD 30M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Definely",
+        "amount": "$30M",
+        "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "series b"
+    ],
+    "text": "USD 30M median of 1",
+    "stages_text": "series b"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Definely",
+    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "evidence": "ask the founders of Definely (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Definely",
+    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
+    "evidence": "ask the founders of Definely (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.4,
+    "sector": 0.05,
+    "stage": 0.05,
+    "country": 0.0,
+    "recency": 0.0044,
+    "lead": 0.0
+   },
+   "base_score": 0.5044,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
+   ]
+  },
+  {
+   "rank": 77,
+   "investor": "North America",
    "score": 0.5044,
    "why": "Rank 77, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
@@ -7100,97 +7109,9 @@
   },
   {
    "rank": 78,
-   "investor": "North America",
-   "score": 0.5044,
-   "why": "Rank 78, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
-   "backed_companies": [
-    {
-     "name": "Definely",
-     "round": "Series B",
-     "date": "2025-06-09",
-     "amount": "$30M",
-     "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 30000000.0,
-      "median_text": "USD 30M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Definely",
-        "amount": "$30M",
-        "link": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "series b"
-    ],
-    "text": "USD 30M median of 1",
-    "stages_text": "series b"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Definely",
-    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "evidence": "ask the founders of Definely (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Definely",
-    "url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "source_url": "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b",
-    "evidence": "ask the founders of Definely (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.4,
-    "sector": 0.05,
-    "stage": 0.05,
-    "country": 0.0,
-    "recency": 0.0044,
-    "lead": 0.0
-   },
-   "base_score": 0.5044,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b"
-   ]
-  },
-  {
-   "rank": 79,
    "investor": "Octopus Ventures",
    "score": 0.5044,
-   "why": "Rank 79, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 78, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -7275,10 +7196,10 @@
    ]
   },
   {
-   "rank": 80,
+   "rank": 79,
    "investor": "Raine Group",
    "score": 0.5044,
-   "why": "Rank 80, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 79, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -7364,10 +7285,10 @@
    ]
   },
   {
-   "rank": 81,
+   "rank": 80,
    "investor": "Zrosk Investment Management",
    "score": 0.5044,
-   "why": "Rank 81, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
+   "why": "Rank 80, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.",
    "backed_companies": [
     {
      "name": "Definely",
@@ -7452,8 +7373,96 @@
    ]
   },
   {
-   "rank": 82,
+   "rank": 81,
    "investor": "Legora",
+   "score": 0.4838,
+   "why": "Rank 81, score 0.48: backed 1 verified similar startup (Stilta); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
+   "backed_companies": [
+    {
+     "name": "Stilta",
+     "round": "Seed",
+     "date": "2026-05-19",
+     "amount": "$10.5M",
+     "link": "https://stilta.com/news/stilta-raises",
+     "led": false
+    }
+   ],
+   "cheque_size": "unknown",
+   "cheque_size_source": "",
+   "stage_focus": "unknown",
+   "stage_focus_source": "",
+   "lead_partner": "unknown",
+   "lead_partner_agent": [],
+   "investor_type": "unknown",
+   "section": "main",
+   "observed": {
+    "label": "round sizes of deals it joined (observed)",
+    "by_currency": [
+     {
+      "currency": "USD",
+      "median": 10500000.0,
+      "median_text": "USD 10.5M",
+      "n": 1,
+      "deals": [
+       {
+        "name": "Stilta",
+        "amount": "$10.5M",
+        "link": "https://stilta.com/news/stilta-raises"
+       }
+      ]
+     }
+    ],
+    "undisclosed": [],
+    "stages": [
+     "seed"
+    ],
+    "text": "USD 10.5M median of 1",
+    "stages_text": "seed"
+   },
+   "partner_pass": null,
+   "reach_route": "warm intro via founder",
+   "reach_url": "https://stilta.com/news/stilta-raises",
+   "reach": {
+    "route": "warm intro via founder",
+    "company": "Stilta",
+    "url": "https://stilta.com/news/stilta-raises",
+    "source_url": "https://stilta.com/news/stilta-raises",
+    "evidence": "ask the founders of Stilta (verified deal) for an introduction",
+    "note": "ladder not run (below --reach-top)"
+   },
+   "warm_intro": {
+    "route": "warm intro via founder",
+    "company": "Stilta",
+    "url": "https://stilta.com/news/stilta-raises",
+    "source_url": "https://stilta.com/news/stilta-raises",
+    "evidence": "ask the founders of Stilta (verified deal) for an introduction"
+   },
+   "own_domain": "",
+   "own_domain_evidence": {},
+   "js_only_site": false,
+   "reach_route_agent": "unknown",
+   "reach_url_agent": "",
+   "investor_site": "",
+   "agent_note": "not enriched (below --agent-top in the original run)",
+   "agent_partners": [],
+   "score_parts": {
+    "what": 0.2667,
+    "sector": 0.05,
+    "stage": 0.1,
+    "country": 0.0,
+    "recency": 0.0672,
+    "lead": 0.0
+   },
+   "base_score": 0.4838,
+   "country_factor": 1.0,
+   "has_target_country_deal": false,
+   "sources": [
+    "https://stilta.com/news/stilta-raises"
+   ]
+  },
+  {
+   "rank": 82,
+   "investor": "Listen Labs",
    "score": 0.4838,
    "why": "Rank 82, score 0.48: backed 1 verified similar startup (Stilta); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
    "backed_companies": [
@@ -7541,7 +7550,7 @@
   },
   {
    "rank": 83,
-   "investor": "Listen Labs",
+   "investor": "Lovable",
    "score": 0.4838,
    "why": "Rank 83, score 0.48: backed 1 verified similar startup (Stilta); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
    "backed_companies": [
@@ -7629,7 +7638,7 @@
   },
   {
    "rank": 84,
-   "investor": "Lovable",
+   "investor": "OpenAI",
    "score": 0.4838,
    "why": "Rank 84, score 0.48: backed 1 verified similar startup (Stilta); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
    "backed_companies": [
@@ -7717,97 +7726,9 @@
   },
   {
    "rank": 85,
-   "investor": "OpenAI",
-   "score": 0.4838,
-   "why": "Rank 85, score 0.48: backed 1 verified similar startup (Stilta); what-it-does overlap on 'review', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: Sweden); no verified deal in USA, so no country factor; latest deal 2026-05-19.",
-   "backed_companies": [
-    {
-     "name": "Stilta",
-     "round": "Seed",
-     "date": "2026-05-19",
-     "amount": "$10.5M",
-     "link": "https://stilta.com/news/stilta-raises",
-     "led": false
-    }
-   ],
-   "cheque_size": "unknown",
-   "cheque_size_source": "",
-   "stage_focus": "unknown",
-   "stage_focus_source": "",
-   "lead_partner": "unknown",
-   "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
-   "observed": {
-    "label": "round sizes of deals it joined (observed)",
-    "by_currency": [
-     {
-      "currency": "USD",
-      "median": 10500000.0,
-      "median_text": "USD 10.5M",
-      "n": 1,
-      "deals": [
-       {
-        "name": "Stilta",
-        "amount": "$10.5M",
-        "link": "https://stilta.com/news/stilta-raises"
-       }
-      ]
-     }
-    ],
-    "undisclosed": [],
-    "stages": [
-     "seed"
-    ],
-    "text": "USD 10.5M median of 1",
-    "stages_text": "seed"
-   },
-   "partner_pass": null,
-   "reach_route": "warm intro via founder",
-   "reach_url": "https://stilta.com/news/stilta-raises",
-   "reach": {
-    "route": "warm intro via founder",
-    "company": "Stilta",
-    "url": "https://stilta.com/news/stilta-raises",
-    "source_url": "https://stilta.com/news/stilta-raises",
-    "evidence": "ask the founders of Stilta (verified deal) for an introduction",
-    "note": "ladder not run (below --reach-top)"
-   },
-   "warm_intro": {
-    "route": "warm intro via founder",
-    "company": "Stilta",
-    "url": "https://stilta.com/news/stilta-raises",
-    "source_url": "https://stilta.com/news/stilta-raises",
-    "evidence": "ask the founders of Stilta (verified deal) for an introduction"
-   },
-   "own_domain": "",
-   "own_domain_evidence": {},
-   "js_only_site": false,
-   "reach_route_agent": "unknown",
-   "reach_url_agent": "",
-   "investor_site": "",
-   "agent_note": "not enriched (below --agent-top in the original run)",
-   "agent_partners": [],
-   "score_parts": {
-    "what": 0.2667,
-    "sector": 0.05,
-    "stage": 0.1,
-    "country": 0.0,
-    "recency": 0.0672,
-    "lead": 0.0
-   },
-   "base_score": 0.4838,
-   "country_factor": 1.0,
-   "has_target_country_deal": false,
-   "sources": [
-    "https://stilta.com/news/stilta-raises"
-   ]
-  },
-  {
-   "rank": 86,
    "investor": "Concept Ventures",
    "score": 0.4623,
-   "why": "Rank 86, score 0.46: backed 1 verified similar startup (Antidote); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
+   "why": "Rank 85, score 0.46: backed 1 verified similar startup (Antidote); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
    "backed_companies": [
     {
      "name": "Antidote",
@@ -7892,10 +7813,10 @@
    ]
   },
   {
-   "rank": 87,
+   "rank": 86,
    "investor": "LegalTech Fund (TLTF)",
    "score": 0.4623,
-   "why": "Rank 87, score 0.46: backed 1 verified similar startup (Antidote); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
+   "why": "Rank 86, score 0.46: backed 1 verified similar startup (Antidote); what-it-does overlap on 'law', 'firm'; 1/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2026-01-21.",
    "backed_companies": [
     {
      "name": "Antidote",
@@ -8373,14 +8294,12 @@
    "other_investors": "The LegalTech Fund, Antiportfolio Ventures, Rel Labs",
    "investors_verified": [
     "OnDean Forward",
-    "CEO Maged Helmy",
     "LegalTech Fund",
     "Antiportfolio Ventures",
     "Rel Labs"
    ],
    "lead_verified": [
-    "OnDean Forward",
-    "CEO Maged Helmy"
+    "OnDean Forward"
    ],
    "partners": [],
    "hq_country": "Norway",
@@ -8414,7 +8333,6 @@
    "page_excerpt": "Norway Newcode Raises $13.5M in Series A Funding By FinSMEs - August 25, 2026 Facebook Twitter WhatsApp Linkedin Newcode , an Oslo, Norway-based developer of an AI harness and orchestration platform for the legal sector, raised $13.5m in Series A funding. The round was led by OnDean Forward, with participation from The LegalTech Fund, Antiportfolio Ventures, and Rel Labs (the corporate investment arm of Relativity), alongside existing investors. The company will use the capital to fund its rapid corporate expansion across the United States, scale its product development engineering teams, grow its go-to-market divisions, and accelerate strategic enterprise distribution partnerships across the AmLaw 200 network and the broader legal ecosystem. Led by founder and CEO Maged Helmy, Newcode develops a configurable AI harness and enterprise infrastructure platform that allows law firms to construct, own, and control their internal AI stack. Operating horizontally across a firm’s legacy databases and local systems of record, the software utilizes over 700 Model Context Protocol (MCP) integrations alongside a proprietary agentic retrieval system to securely contextualize unstructured firm-wide data. The platform enables legal teams to programmatically deploy sophisticated, multi-agent workflows tailored to their specific operational rules. The company serves over 60 active institutional clients—including government agencies, AmLaw 200 firms, and the Bar of Ireland. Don’t just read th",
    "proof_snippets": {
     "OnDean Forward": "Facebook Twitter WhatsApp Linkedin Newcode , an Oslo, Norway-based developer of an AI harness and orchestration platform for the legal sector, raised $13.5m in Series A funding. The round was led by OnDean Forward, with participation from The LegalTech Fund, Antiportfolio Ventures, and Rel Labs (the corporate investment arm of Relativity), alongside existing investors. The company will use the capital to fund",
-    "CEO Maged Helmy": "ment engineering teams, grow its go-to-market divisions, and accelerate strategic enterprise distribution partnerships across the AmLaw 200 network and the broader legal ecosystem. Led by founder and CEO Maged Helmy, Newcode develops a configurable AI harness and enterprise infrastructure platform that allows law firms to construct, own, and control their internal AI stack. Operating horizontally across a firm’s",
     "LegalTech Fund": ", an Oslo, Norway-based developer of an AI harness and orchestration platform for the legal sector, raised $13.5m in Series A funding. The round was led by OnDean Forward, with participation from The LegalTech Fund, Antiportfolio Ventures, and Rel Labs (the corporate investment arm of Relativity), alongside existing investors. The company will use the capital to fund its rapid corporate expansion across the Uni",
     "Antiportfolio Ventures": "y-based developer of an AI harness and orchestration platform for the legal sector, raised $13.5m in Series A funding. The round was led by OnDean Forward, with participation from The LegalTech Fund, Antiportfolio Ventures, and Rel Labs (the corporate investment arm of Relativity), alongside existing investors. The company will use the capital to fund its rapid corporate expansion across the United States, scale its pr",
     "Rel Labs": "arness and orchestration platform for the legal sector, raised $13.5m in Series A funding. The round was led by OnDean Forward, with participation from The LegalTech Fund, Antiportfolio Ventures, and Rel Labs (the corporate investment arm of Relativity), alongside existing investors. The company will use the capital to fund its rapid corporate expansion across the United States, scale its product developm"

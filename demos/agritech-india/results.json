@@ -85,7 +85,12 @@
   "proximity_dropped": 5,
   "counted_deals": 25,
   "agent_facts_rejected": {},
-  "stats_rescore": {}
+  "stats_rescore": {},
+  "fixes_applied": {
+   "company_renamed": {},
+   "investor_names_cleaned": {},
+   "companies_merged_by_prefix": []
+  }
  },
  "investors": [
   {

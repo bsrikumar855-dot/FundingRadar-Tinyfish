@@ -667,6 +667,66 @@ MONTH_START = re.compile(r"^(?:jan|feb|mar|apr|may|jun|jul|aug|sep|oct|nov|dec)[
 NAME_CONNECT = {"of", "de", "da", "do", "du", "la", "le", "for", "and", "&", "von", "van", "der", "y", "e", "the"}
 
 
+ROLE_PREFIX = re.compile(r"^(?:ceo|cto|cfo|coo|cmo|founder|co-?founder|partner|managing|director|chairman|chairwoman|chair|president)\b", re.I)
+GENERIC_NAME_WORDS = {"group", "capital", "ventures", "venture", "partners", "partner", "fund", "funds", "holdings", "investments",
+                      "investment", "management", "bank", "foundation", "corporation", "corp", "company", "inc", "ltd", "llc",
+                      "vc", "equity", "advisors", "global", "labs", "investors", "angels", "the"}
+DESCRIPTOR_RE = [re.compile(r"^(?:[^\W\d_][\w.&\-]*\s+){0,3}?[^\W\d_][\w.&\-]*(?:'s|’s)\s+(?P<rest>[^\W_].*)$"),   # Nvidia’s NVentures
+                 re.compile(r"^[^\W\d_][\w.&\-]*-(?:backed|owned|based|led|affiliated)\s+(?P<rest>[^\W_].*)$", re.I)]  # Google-backed CapitalG
+
+
+def normalize_investor(x):
+    """'Nvidia’s NVentures' -> 'NVentures'; 'Google-backed CapitalG' -> 'CapitalG'; 'CEO Timo Siukkola' -> None;
+    'Group' -> None. Returns the cleaned name or None if it is not an investor name."""
+    x = (x or "").strip(" .,")
+    generic1 = lambda s_: (lambda ws: len(ws) <= 1 and (not ws or ws[0] in GENERIC_NAME_WORDS))(norm_name(s_).split())
+    for rx in DESCRIPTOR_RE:
+        m = rx.match(x)
+        if m and not generic1(m.group("rest")):          # "Lowe's Ventures" keeps its owner name
+            x = m.group("rest").strip(" .,")
+    if ROLE_PREFIX.match(x):
+        return None
+    if generic1(x):                                      # 'Group', 'Capital' alone; 'Partners Group' stays
+        return None
+    return x
+
+
+def clean_deal_investors(d):
+    """Apply normalize_investor to every investor field of a saved deal and merge duplicates. Returns {old: new|None}."""
+    changes = {}
+    def fix(name):
+        n = normalize_investor(name)
+        if n != name:
+            changes[name] = n
+        return n
+    for k in ("investors_verified", "lead_verified", "self_published_dropped", "not_near_funding_phrase"):
+        if d.get(k):
+            out, seen = [], set()
+            for v in d[k]:
+                n = fix(v)
+                if n and norm_name(n) not in seen:
+                    seen.add(norm_name(n))
+                    out.append(n)
+            d[k] = out
+    if d.get("proof_snippets"):
+        ps = {}
+        for k, v in d["proof_snippets"].items():
+            n = fix(k)
+            if n and n not in ps:
+                ps[n] = v
+        d["proof_snippets"] = ps
+    if d.get("partner_mentions"):
+        pm = []
+        for x in d["partner_mentions"]:
+            n = fix(x["investor"])
+            if n:
+                pm.append({**x, "investor": n})
+        d["partner_mentions"] = pm
+    if d.get("status") == "verified" and not d.get("investors_verified"):
+        d.update(status="dropped", drop_reason="no valid investor name left after name cleanup")
+    return changes
+
+
 def plausible_name(x):
     """An investor name: starts with a capital letter, 1-6 words, mostly capitalised, no digits-first / dates / sentences."""
     if not (2 < len(x) <= 60) or MONTH_START.match(x) or not re.match(r"[A-Z]|\d+[A-Za-z]|\d+ [A-Z]", x) or re.match(r"\d+ (?:[A-Z][a-z]+ )?(?:farmers|users|customers|people|jobs)\b", x):
@@ -695,7 +755,8 @@ def split_investors(s):
         x = re.sub(r"^(?:and|the|existing investors?|investors?|participation from|from|including)\s+", "", x.strip(" .-\"'"), flags=re.I).strip(" .")
         x = re.sub(r"\s*\((?:lead|led)\)\s*$", "", x, flags=re.I)
         x = re.sub(r"(?:'s|’s)$", "", x)
-        if plausible_name(x):
+        x = normalize_investor(x)
+        if x and plausible_name(x):
             out.append(x)
     return list(dict.fromkeys(out))
 
@@ -730,6 +791,14 @@ def confirm_leads(d):
     return gone
 
 
+LOCATION_PREFIX = re.compile(r"^(?:[^\W\d_][\w'’.\-]*\s+){0,2}?[^\W\d_][\w'’.]*-based\s+")
+
+
+def norm_company(name):
+    """'Düsseldorf-based Co-reactive' -> 'Co-reactive' (unicode-aware location prefix)."""
+    return LOCATION_PREFIX.sub("", (name or "").strip()).strip()
+
+
 def parse_headline(title, snippet=""):
     """'Fasal raises $12M Series A led by Peak XV' -> {company, amount, round_stage, investors}. None if no deal shape."""
     t = DROP_PREFIX.sub("", re.sub(r"\s+", " ", unescape(title or "")).strip())
@@ -744,7 +813,7 @@ def parse_headline(title, snippet=""):
     if not m:
         return None
     co = m.group("co").strip(" ,'\"")
-    co = re.sub(r"^(?:[A-Z][a-z]+-based|[A-Z][\w]*tech|AI|Startup)\s+", "", co).strip()
+    co = norm_company(re.sub(r"^(?:[A-Z][\w]*tech|AI|Startup)\s+", "", norm_company(co)).strip())
     if not co or norm_name(co) in ("startup", "it", "company", "ai") or len(co) > 50:
         return None
     rest = m.group("rest") + " " + (snippet or "")
@@ -1042,6 +1111,37 @@ def company_key(name):
     while len(w) > 1 and (w[-1] in geo or w[-1] in ("ai", "tech", "technologies", "labs", "app", "hq")):
         w.pop()
     return " ".join(w)
+
+
+def merge_prefix_companies(deals):
+    """'Redwood' + 'Redwood Materials': merge two verified companies only when one name is a whole-word prefix of the other
+    AND the longer name appears in the shorter one's saved source text. Keeps the longer name. Returns [(short, long)]."""
+    ver = [d for d in deals if d.get("status") == "verified"]
+    merged = []
+    for a in ver:
+        for b in ver:
+            if a is b or a.get("status") != "verified" or b.get("status") != "verified":
+                continue
+            wa, wb = norm_name(a["company"]).split(), norm_name(b["company"]).split()
+            if not wa or len(wa) >= len(wb) or wb[:len(wa)] != wa:
+                continue
+            txt = plain(" ".join([a.get("page_excerpt") or "", a.get("what_it_does") or ""] +
+                                 [v for v in (a.get("proof_snippets") or {}).values() if v]))
+            if not name_on_page(b["company"], txt):
+                continue
+            b.setdefault("extra_links", [])
+            for u in [a["source_url"]] + list(a.get("extra_links") or []):
+                if u != b["source_url"] and u not in b["extra_links"]:
+                    b["extra_links"].append(u)
+            for f in ("investors_verified", "lead_verified"):
+                b[f] = list(dict.fromkeys(list(b.get(f) or []) + [x for x in a.get(f) or [] if norm_name(x) not in map(norm_name, b.get(f) or [])]))
+            b["partner_mentions"] = list(b.get("partner_mentions") or []) + list(a.get("partner_mentions") or [])
+            b.setdefault("proof_snippets", {})
+            for k, v in (a.get("proof_snippets") or {}).items():
+                b["proof_snippets"].setdefault(k, v)
+            a.update(status="duplicate", drop_reason=f"same company as {b['company']} (name prefix, named on the same page)")
+            merged.append((a["company"], b["company"]))
+    return merged
 
 
 def merge_verified(deals):
@@ -1542,6 +1642,8 @@ def partner_mentions(text, investors, url, company=""):
 
 
 TYPE_RULES = [
+    ("public body", r"\b(?:department|agency|ministry|ministerium|government|commission|energy finance corporation|"
+                    r"federal ministry|innovation council|innovation agency)\b"),
     ("foundation", r"\b(?:foundation|fondation|funda[cç][aã]o|fundaci[oó]n|stiftung|charitable|philanthrop\w*|trust)\b"),
     ("bank", r"\b(?:bank|banco|banque|sidbi|nabard|exim)\b"),
     ("farmer-company", r"\b(?:farms?|farmers?|cooperative|co-?op|fpo|producer company|growers?)\b"),
@@ -1553,7 +1655,7 @@ TYPE_RULES = [
     ("corporate", r"\b(?:corp|corporation|inc|ltd|limited|plc|gmbh|ag|sa|industries|group|agriscience|foods|technologies|motors|"
                   r"energy|chemicals|pharma)\b"),
 ]
-INVESTOR_TYPES = ("fund", "corporate", "bank", "foundation", "farmer-company", "unknown")
+INVESTOR_TYPES = ("fund", "corporate", "bank", "foundation", "farmer-company", "public body", "unknown")
 
 
 def investor_type(name, domain=""):
@@ -1576,6 +1678,17 @@ PITCH_RE = re.compile(r"\b(?:submit|send|share|upload)\s+(?:us\s+)?(?:your\s+)?(
                       r"\bapplication form\b|\bget funded\b|\bpitch your (?:startup|company|idea)", re.I)
 FORM_HOSTS = ("typeform.com", "forms.gle", "docs.google.com/forms", "airtable.com", "jotform.com", "hsforms.com", "hubspot.com",
               "tally.so", "paperform.co", "formstack.com", "dealum.com", "docsend.com")
+PROGRAMME_RE = re.compile(r"\b(?:programmes?|programs?|courses?|admissions?|master'?s|masters|degrees?|curriculum|scholarships?|"
+                          r"students?|phd|mba|tuition|enrol(?:l|ment)?)\b", re.I)
+FOUNDER_CONTEXT = re.compile(r"\b(?:pitch(?:es|ing)?|startups?|start-ups?|founders?|funding|invest(?:ment|ing|s)?|decks?)\b", re.I)
+
+
+def reach_page_ok(txt, url=""):
+    """A page can support a pitch-form / intake route only if it talks about pitching, startups, founders or funding,
+    and is not a study-programme / course / admissions page."""
+    return bool(FOUNDER_CONTEXT.search(txt or "")) and not PROGRAMME_RE.search((txt or "") + " " + re.sub(r"[-_/]", " ", url or ""))
+
+
 NO_UNSOLICITED = re.compile(r"(?:do(?:es)? not|don.?t|no longer|cannot|can.?t) (?:accept|take|review|consider|respond to) unsolicited|"
                             r"\bonly (?:accept|take|consider|review) (?:warm )?(?:intro|introductions|referrals)|"
                             r"\bby (?:warm )?(?:introduction|referral) only|\bno unsolicited (?:pitches|decks|proposals)", re.I)
@@ -1636,6 +1749,12 @@ def classify_reach(pages, domain):
         txt = flat(html)
         src = pr.get("final_url") or u
         if host_of(src) != domain and not host_of(src).endswith(domain):
+            continue
+        if not reach_page_ok(txt, src):
+            nm = NO_UNSOLICITED.search(txt)
+            if nm:
+                found.setdefault("c", {"route": "no unsolicited pitches", "url": src, "source_url": src,
+                                       "evidence": txt[max(0, nm.start() - 80):nm.end() + 80].strip()})
             continue
         links = list(pr.get("links") or []) + re.findall(r"href=[\"']([^\"']+)", html or "", re.I)
         form_link = next((l for l in links if any(f in l for f in FORM_HOSTS)), None)
@@ -2042,6 +2161,19 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
     if rf:
         meta["refetch"] = {k: rf[k] for k in ("links", "fetched", "failed_companies", "removed")}
         meta["refetch"]["removed_list"] = [f"{i} on {c}" for c, i in rf["removed_list"]]
+    renamed = {}
+    for d in deals:
+        nc = norm_company(d.get("company"))
+        if nc != d.get("company"):
+            renamed[d["company"]] = nc
+            d["company"] = nc
+    cleaned = {}
+    for d in deals:
+        ch = clean_deal_investors(d)
+        if ch and d.get("status") in ("verified", "dropped"):
+            cleaned.setdefault(d["company"], {}).update(ch)
+    pref = merge_prefix_companies(deals)
+    meta["fixes_applied"] = {"company_renamed": renamed, "investor_names_cleaned": cleaned, "companies_merged_by_prefix": pref}
     for d in deals:
         if d.get("status") == "verified":
             txt = " ".join([d.get("page_excerpt") or ""] + [v for v in (d.get("proof_snippets") or {}).values() if v])
@@ -2094,6 +2226,11 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
         # keep what earlier live runs found (reach ladder, own domain, search-pass partners): offline mode cannot redo them
         for r in ranked:
             o = old.get(r["key"]) or {}
+            rc = o.get("reach") or {}
+            if rc.get("route") in ("application form", "open intake (email)") and \
+                    PROGRAMME_RE.search(re.sub(r"[-_/]", " ", (rc.get("url") or "") + " " + (rc.get("source_url") or "")) + " " + (rc.get("evidence") or "")):
+                meta.setdefault("fixes_applied", {}).setdefault("reach_rejected_programme_page", []).append(f"{r['investor']}: {rc.get('url')}")
+                o = {k: v for k, v in o.items() if k not in ("reach", "warm_intro")}
             if o.get("reach"):
                 for k in ("reach", "warm_intro", "own_domain", "own_domain_evidence", "js_only_site", "partner_pass"):
                     if k in o:
@@ -2314,6 +2451,10 @@ def main(argv=None):
     for c in cands:
         if c["status"] == "verified" and id(c) not in mk:
             c.update(status="duplicate", drop_reason="same company verified from another link")
+    for c in cands:
+        c["company"] = norm_company(c.get("company"))
+    pref = merge_prefix_companies(cands)
+    merged = [c for c in merged if c["status"] == "verified"]
     n_self = apply_self_published(merged)
     deals = cands
     ranked = rank_investors(p, deals, today)
