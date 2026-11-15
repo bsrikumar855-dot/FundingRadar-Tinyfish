@@ -961,6 +961,7 @@ def verify_deal(d, page, today):
                 partners.append({"investor": inv, "partner": pn})
     d["partners"] = partners
     d["page_excerpt"] = excerpt(text, d["company"])
+    d["page_title"] = (page.get("title") or "").strip()[:200]
     d["proof_snippets"] = {i: proof_window(i, text) for i in named}
     d["partner_mentions"] = partner_mentions(text, named, page.get("final_url") or url, d["company"])
     d["proximity_checked"] = True
@@ -1655,11 +1656,67 @@ TYPE_RULES = [
     ("corporate", r"\b(?:corp|corporation|inc|ltd|limited|plc|gmbh|ag|sa|industries|group|agriscience|foods|technologies|motors|"
                   r"energy|chemicals|pharma)\b"),
 ]
-INVESTOR_TYPES = ("fund", "corporate", "bank", "foundation", "farmer-company", "public body", "unknown")
+INVESTOR_TYPES = ("fund", "corporate", "bank", "foundation", "farmer-company", "public body", "individual", "unknown")
 
 
-def investor_type(name, domain=""):
-    """fund / corporate / bank / foundation / farmer-company / unknown, from name and domain keywords only."""
+FIRM_WORDS = set("""capital ventures venture partners partner fund funds labs lab angels angel group bank banco foundation holdings
+investments investment management vc equity advisors advisory studio studios network club collective syndicate accelerator incubator
+combinator inc ltd llc llp plc ag sa gmbh bv corp corporation company co technologies technology tech industries systems solutions
+energy agency ministry university institute college school academy centre center hub works media health digital global international
+national nasional enterprise enterprises collection society trust council alliance association federation commission authority
+impact climate innovation innovations growth seed fintech family office offices office trading invest investors asset assets wealth
+financial finance securities markets market sgr spa srl agriculture agricultural agri agro agritech food foods farms farm
+mobility logistics materials robotics power water motors pharma bio life sciences science design consulting research services
+products brands retail estate properties property development resources mining metals chemicals plastics insurance mutual
+cooperative builders build labs lab ventures software data cloud networks telecom communications""".split())
+GEO_WORDS = {w for al, _ in COUNTRIES.values() for w in al.replace("-", " ").split()} | set(
+    "north south east west upper lower new holland flanders bavaria saxony brabant zealand silicon valley bay area".split())
+PERSON_TOKEN = re.compile(r"^(?:[A-ZÀ-ÖØ-Þ][a-zß-öø-ÿ'’\-]+|Dr\.?|Mr\.?|Ms\.?|Mrs\.?)$")
+
+
+def looks_individual(name):
+    """Conservative person detector: 2-3 title-case tokens of letters (optionally a Dr/Mr/Ms title), no firm or
+    place word, no acronym / CamelCase / digit. 'Sheryl Sandberg', 'Priit Viru' -> True; 'Partners Group',
+    'Y Combinator', 'NVentures', 'North Holland' -> False. When unsure it says False."""
+    toks = unescape(name or "").strip().split()
+    core = [t for t in toks if not re.fullmatch(r"(?:Dr|Mr|Ms|Mrs)\.?", t)]
+    if not 2 <= len(core) <= 3 or len(toks) > 4:
+        return False
+    if not all(PERSON_TOKEN.match(t) for t in toks):
+        return False
+    low = [t.lower().strip("'’") for t in core]
+    if any(len(t) < 2 for t in low) or any(t in FIRM_WORDS or t in GEO_WORDS for t in low):
+        return False
+    return True
+
+
+PERSON_CUE_BEFORE = re.compile(r"\b(?:angels?|angel investors?|business angels?|individual investors?|individuals|entrepreneurs?|"
+                               r"serial entrepreneur|founders?|executives?|celebrit(?:y|ies)|athletes?|mr\.?|ms\.?|mrs\.?|dr\.?)\b", re.I)
+PERSON_CUE_AFTER = re.compile(r"^[\s,(]*(?:the |a |an )?(?:(?:co-)?founder|ceo|cto|coo|cfo|former|chair(?:man|woman)?|executive|"
+                              r"entrepreneur|angel|who (?:is|was|founded)|of [A-Z][\w.]+ fame)", re.I)
+FIRM_CUE = re.compile(r"(?:partner|principal|director|associate|analyst) (?:at|of) $|(?:'s|’s) (?:partner|principal|fund|team|portfolio)|"
+                      r"^[\s,]*(?:led|leads|co-led|partners?|ventures|capital|portfolio|fund)\b", re.I)
+
+
+def person_evidence(name, texts):
+    """True if the saved page text treats `name` as a person: an angel/founder/entrepreneur cue within ~60 characters before
+    it, or ', founder of' / ', former CEO' style right after it, and no firm cue (e.g. 'partner at NAME', 'NAME led')."""
+    found = bool(re.match(r"(?:Dr|Mr|Ms|Mrs)\.?\s", name or ""))      # a personal title in the name itself
+    for t in texts or []:
+        ft = flat(t or "")
+        for m in re.finditer(r"(?<![\w])" + re.escape(name) + r"(?![\w])", ft):
+            before, after = ft[max(0, m.start() - 60):m.start()], ft[m.end():m.end() + 60]
+            if FIRM_CUE.search(before[-25:]) or FIRM_CUE.search(after[:25]):
+                return False
+            if PERSON_CUE_BEFORE.search(before) or PERSON_CUE_AFTER.search(after):
+                found = True
+    return found
+
+
+def investor_type(name, domain="", known_firm=False, texts=None):
+    """fund / corporate / bank / foundation / farmer-company / public body / individual / unknown, from name and domain
+    keywords. 'individual' is conservative: the name must look like a person (2-3 title-case tokens, no firm or place
+    word), not be a known firm (own site verified), AND the saved page text must treat it as a person."""
     n = unescape(name or "").lower()
     for t, rx in TYPE_RULES:
         if re.search(rx, n):
@@ -1669,6 +1726,8 @@ def investor_type(name, domain=""):
         return "fund"
     if "bank" in d:
         return "bank"
+    if not known_firm and not d and looks_individual(name) and person_evidence(name, texts):
+        return "individual"
     return "unknown"
 
 
@@ -1814,11 +1873,14 @@ def reach_for(tf, r):
 
 MAIN_TYPES = ("fund", "unknown")
 OTHER_SECTION = "Other backers (not seed funds)"
+INDIVIDUALS_SECTION = "Other backers (individuals)"
 
 
 def section_of(investor_type_):
     """Presentation only: funds and unknown types go in the main ranking; banks, corporates, foundations and
     farmer companies go in 'Other backers (not seed funds)'. Scores and ranks are unchanged."""
+    if investor_type_ == "individual":
+        return "individuals"
     return "main" if investor_type_ in MAIN_TYPES else "other"
 
 
@@ -1888,7 +1950,11 @@ def enrich_free(tf, ranked, deals, reach_top=15):
             wi = warm_intro(r)
             r["warm_intro"] = wi
             r["reach"] = {**wi, "note": "ladder not run (below --reach-top)"} if wi else {"route": "unknown", "url": ""}
-        r["investor_type"] = investor_type(r["investor"], r.get("own_domain", ""))
+        texts = []
+        for x in r["backed"]:
+            dd = by.get(x["name"], {})
+            texts += [dd.get("page_excerpt") or ""] + [v for v in (dd.get("proof_snippets") or {}).values() if v]
+        r["investor_type"] = investor_type(r["investor"], r.get("own_domain", ""), known_firm=bool(r.get("own_domain")), texts=texts)
         r["section"] = section_of(r["investor_type"])
     if tf and reach_top:
         n = partner_pass(tf, [r for r in ranked if r["section"] == "main"], min(reach_top, 15))
@@ -1896,23 +1962,55 @@ def enrich_free(tf, ranked, deals, reach_top=15):
     return ranked
 
 
-def write_audit(out_dir, deals, n=20, seed=42):
-    """Random (seeded) sample of investor-company matches for hand-checking -> audit.csv. Returns the row count."""
+AUDIT_COLS = ["investor", "company", "link", "sentence", "page_title", "auto_flag", "correct y/n"]
+
+
+def audit_sentence(inv, company, texts):
+    """The sentence (from saved page text) that names both the investor and the company, or None."""
+    for t in texts:
+        for sent in SENT_SPLIT.split(flat(t or "")):
+            ps = plain(sent)
+            if name_on_page(inv, ps) and name_on_page(company, ps):
+                return sent.strip()[:500]
+    return None
+
+
+def write_audit(out_dir, deals, n=20, seed=42, tf=None):
+    """Seeded random sample of investor-company matches -> audit.csv + audit_review.md. 'sentence' is the saved sentence
+    naming both (or NOT FOUND); 'auto_flag' (ok/check) is triage only and never used for precision. Fetch is used only
+    when a sampled row has no saved page text and tf is given. Returns the row count."""
     import random
     pairs = []
     for d in sorted((d for d in deals if d.get("status") == "verified" and d.get("counted")), key=lambda d: d["company"].lower()):
         for inv in sorted(d.get("investors_verified", []), key=str.lower):
             pairs.append((inv, d))
     pick = random.Random(seed).sample(pairs, min(n, len(pairs)))
-    path = os.path.join(out_dir, "audit.csv")
-    with open(path, "w", encoding="utf-8", newline="") as f:
+    need = [d["source_url"] for _, d in pick if not (d.get("page_excerpt") or d.get("proof_snippets"))]
+    fetched = tf.fetch(list(dict.fromkeys(need)), "markdown") if (tf and need) else {}
+    rows = []
+    for inv, d in pick:
+        texts = [(d.get("proof_snippets") or {}).get(inv) or "", d.get("page_excerpt") or ""]
+        texts += [v for k, v in (d.get("proof_snippets") or {}).items() if k != inv and v]
+        fr_ = fetched.get(d["source_url"]) or {}
+        if "error" not in fr_ and fr_:
+            texts.append(page_text(fr_))
+        sent = audit_sentence(inv, d["company"], texts)
+        title = d.get("page_title") or (fr_.get("title") if fr_ and "error" not in fr_ else "") or "(not saved)"
+        flag = "ok" if sent and FUND_PHRASE.search(sent) else "check"
+        rows.append([inv, d["company"], d["source_url"], sent or "NOT FOUND", title, flag, ""])
+    with open(os.path.join(out_dir, "audit.csv"), "w", encoding="utf-8", newline="") as f:
         w = csv.writer(f)
-        w.writerow(["investor", "company", "link", "sentence", "correct y/n"])
-        for inv, d in pick:
-            snip = (d.get("proof_snippets") or {}).get(inv) or ""
-            sent = next((x for x in SENT_SPLIT.split(snip) if inv.split()[0].lower() in x.lower()), snip)
-            w.writerow([inv, d["company"], d["source_url"], sent.strip()[:400], ""])
-    return len(pick)
+        w.writerow(AUDIT_COLS)
+        w.writerows(rows)
+    L = ["# Audit review", "", f"{len(rows)} random investor–company matches (seed {seed}). Mark each one `y` or `n` in the "
+         "`correct y/n` column of audit.csv, then run `python audit_precision.py <audit.csv> --label <name>`. "
+         "`auto_flag` is triage only and is never used for precision.", ""]
+    for i, (inv, co, link, sent, title, flag, _) in enumerate(rows, 1):
+        L += [f"{i}. **{md(inv)}** → **{md(co)}** ({flag})", f"   - link: {link}", f"   - page title: {md(title)}",
+              f"   - sentence: {md(sent)}", ""]
+    with open(os.path.join(out_dir, "audit_review.md"), "w", encoding="utf-8") as f:
+        f.write("\n".join(L))
+    return len(rows)
 
 
 # ----------------------------------------------------------------------------- 7. output
@@ -1960,7 +2058,7 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15, funds_only=False, all
     keep = ("company", "what_it_does", "round_stage", "amount", "date", "announced_date", "date_basis", "lead_investor", "other_investors",
             "investors_verified", "lead_verified", "partners", "hq_country", "source_url", "final_url", "extra_links", "origin", "status",
             "drop_reason", "similarity", "sim_parts", "keyword_hits", "counted", "country_norm", "self_published_dropped",
-            "not_near_funding_phrase", "page_excerpt", "proof_snippets", "proximity_checked", "partner_mentions", "leads_demoted", "query")
+            "not_near_funding_phrase", "page_excerpt", "page_title", "proof_snippets", "proximity_checked", "partner_mentions", "leads_demoted", "query")
     jd = {"input": {k: p[k] for k in ("description", "keywords", "sectors", "stages", "country", "region")}, "meta": meta,
           "investors": rows, "deals": [{k: d[k] for k in keep if k in d} for d in deals]}
     with open(os.path.join(out_dir, "results.json"), "w", encoding="utf-8") as f:
@@ -2019,9 +2117,11 @@ def sections(rows, top, funds_only=False, all_in_one=False):
         return [("all", shown_rows(rows, top, funds_only))]
     main_ = [r for r in rows if r.get("section", section_of(r.get("investor_type"))) == "main"]
     other_ = [r for r in rows if r.get("section", section_of(r.get("investor_type"))) == "other"]
+    indiv_ = [r for r in rows if r.get("section", section_of(r.get("investor_type"))) == "individuals"]
     out = [("main", shown_rows(main_, top, funds_only))]
     if not funds_only:
         out.append(("other", other_[:top]))
+        out.append(("individuals", indiv_[:top]))
     return out
 
 
@@ -2060,7 +2160,8 @@ def report_md(p, deals, rows, meta, top=15, funds_only=False, all_in_one=False):
         L += [f"> Note: fewer than 10 verified similar companies were found for this description ({len(ver)}). Not padded.", ""]
     secs = sections(rows, top, funds_only, all_in_one)
     for name, part in secs:
-        title = {"main": "Investors to approach", "all": "Investors to approach", "other": OTHER_SECTION}[name]
+        title = {"main": "Investors to approach", "all": "Investors to approach", "other": OTHER_SECTION,
+                 "individuals": INDIVIDUALS_SECTION}[name]
         L += ["", f"## {title}", ""]
         if name != "other":
             L += [f"Observed = {OBSERVED_LABEL}: median announced round size per currency across its counted deals (not its own cheque). "
@@ -2072,7 +2173,8 @@ def report_md(p, deals, rows, meta, top=15, funds_only=False, all_in_one=False):
     L += ["", "## Why each investor is ranked where it is", ""]
     for name, part in secs:
         for r in part:
-            L.append(f"{r['rank']}. **{md(r['investor'])}**{' (other backer)' if name == 'other' else ''}: {md(r['why'])}")
+            tag = {"other": " (other backer)", "individuals": " (individual)"}.get(name, "")
+            L.append(f"{r['rank']}. **{md(r['investor'])}**{tag}: {md(r['why'])}")
     L += ["", "## Verified similar companies", "", f"Deals below similarity {MIN_SIM:.2f} are listed but do not count toward any investor.", "",
           "| Company | Country | Round | Amount | Date | Investors named near a funding phrase | Similarity (what / sector / stage / country / recency) | Counts | Proof |",
           "|---|---|---|---|---|---|---|---|---|"]
@@ -2247,7 +2349,10 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
     out_dir = os.path.dirname(path) or "."
     write_outputs(out_dir, p, deals, ranked, meta, top, funds_only, all_in_one)
     if audit:
-        say(f"audit.csv: {write_audit(out_dir, deals, audit)} sampled matches (seed 42)")
+        key = os.environ.get("TINYFISH_API_KEY", "")
+        atf = tf or (TF(key) if key else None)          # Fetch only for sampled rows with no saved page text
+        say(f"audit.csv: {write_audit(out_dir, deals, audit, tf=atf)} sampled matches (seed 42)"
+            + (f"; fetched {atf.stats['fetch_urls']} page(s) with no saved text" if atf and not tf and atf.stats["fetch_urls"] else ""))
     print(json.dumps({k: meta[k] for k in ("verified_companies_after_rules", "counted_deals", "dropped", "investors_ranked",
                                             "self_published_dropped", "proximity_dropped", "agent_facts_rejected")}, ensure_ascii=False))
     return 0
@@ -2479,7 +2584,7 @@ def main(argv=None):
     out_dir = os.path.join(a.out, slug)
     write_outputs(out_dir, p, deals, ranked, meta, a.report_top, a.funds_only, a.all_in_one)
     if a.audit_sample:
-        say(f"audit.csv: {write_audit(out_dir, deals, a.audit_sample)} sampled matches (seed 42)")
+        say(f"audit.csv: {write_audit(out_dir, deals, a.audit_sample, tf=tf)} sampled matches (seed 42)")
     say(f"done in {meta['seconds']}s -> {out_dir}/results.json, results.csv, report.md")
     print(json.dumps({k: meta[k] for k in ("tinyset_rows", "candidates", "verified_companies", "verified_links", "dropped", "investors_ranked", "tinyset_cost_est")} | {"stats": meta["stats"]}))
     return 0

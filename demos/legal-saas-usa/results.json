@@ -56,11 +56,7 @@
   "stats_rescore": {},
   "fixes_applied": {
    "company_renamed": {},
-   "investor_names_cleaned": {
-    "Newcode": {
-     "CEO Maged Helmy": null
-    }
-   },
+   "investor_names_cleaned": {},
    "companies_merged_by_prefix": []
   }
  },
@@ -1698,8 +1694,8 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
+   "investor_type": "individual",
+   "section": "individuals",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [
@@ -6142,8 +6138,8 @@
    "stage_focus_source": "",
    "lead_partner": "unknown",
    "lead_partner_agent": [],
-   "investor_type": "unknown",
-   "section": "main",
+   "investor_type": "individual",
+   "section": "individuals",
    "observed": {
     "label": "round sizes of deals it joined (observed)",
     "by_currency": [

@@ -125,14 +125,15 @@ class FundsOnlyAndAudit(unittest.TestCase):
             self.assertEqual(n, 20)
             with open(os.path.join(tmp, "audit.csv"), encoding="utf-8") as f:
                 rows = list(csv.reader(f))
-            self.assertEqual(rows[0], ["investor", "company", "link", "sentence", "correct y/n"])
+            self.assertEqual(rows[0], ["investor", "company", "link", "sentence", "page_title", "auto_flag", "correct y/n"])
             first = rows[1:]
             fr.write_audit(tmp, deals, 20)
             with open(os.path.join(tmp, "audit.csv"), encoding="utf-8") as f:
                 self.assertEqual(list(csv.reader(f))[1:], first)                # seed 42 -> same sample every time
-            # fill and score
+            # fill and score; auto_flag says 'ok' everywhere but must not influence precision
             for i, r in enumerate(first):
-                r[4] = "y" if i % 4 else "n"
+                r[5] = "ok"
+                r[6] = "y" if i % 4 else "n"
             filled = os.path.join(tmp, "filled.csv")
             with open(filled, "w", encoding="utf-8", newline="") as f:
                 csv.writer(f).writerows([rows[0]] + first)

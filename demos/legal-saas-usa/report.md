@@ -37,6 +37,15 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 |---|---|---|---|---|---|---|---|---|
 | 79 | **Raine Group** | corporate | 0.50 | [Definely](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) Series B 2025-06-09 | USD 30M median of 1 / series b | unknown | [warm intro via founder](https://www.definely.com/blogs/ai-powered-legal-tech-scale-up-definely-raises-30m-series-b) (Definely) | unknown / unknown |
 
+## Other backers (individuals)
+
+Observed = round sizes of deals it joined (observed): median announced round size per currency across its counted deals (not its own cheque). Cheque / stage (site) come from the investor's own website via Agent.
+
+| # | Investor | Type | Score | Backed (verified link) | Observed round sizes / stages | Lead partner | Reach | Cheque / stage (site) |
+|---|---|---|---|---|---|---|---|---|
+| 17 | **Neil Barsky** | individual | 1.37 | [Covenant](https://www.prnewswire.com/news-releases/covenant-raises-4m-seed-to-accelerate-ai-legal-innovation-for-private-markets-302505113.html) Seed 2025-07-15 | USD 4M median of 1 / seed | unknown | [warm intro via founder](https://www.prnewswire.com/news-releases/covenant-raises-4m-seed-to-accelerate-ai-legal-innovation-for-private-markets-302505113.html) (Covenant) | unknown / unknown |
+| 67 | **Elad Gil** | individual | 0.56 | [Crosby](https://globallegalpost.com/news/cooley-backed-contract-review-start-up-crosby-raises-60m-in-fresh-funding-1011864931) series b 2026-04-02 | USD 60M median of 1 / series b | unknown | [warm intro via founder](https://globallegalpost.com/news/cooley-backed-contract-review-start-up-crosby-raises-60m-in-fresh-funding-1011864931) (Crosby) | unknown / unknown |
+
 ## Why each investor is ranked where it is
 
 1. **Y Combinator**: Rank 1, score 2.92: backed 3 verified similar startups (Caseflood.ai, Moritz, Stilta); what-it-does overlap on 'assistant', 'law', 'firm', 'review', 'contract'; 3/3 at your stage (seed/series a); 1/3 in USA (others: Sweden); x1.5 country factor for backing a USA deal (base score 1.95); latest deal 2026-05-19.
@@ -55,6 +64,8 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 14. **Scale Asia Ventures**: Rank 14, score 1.45: backed 1 verified similar startup (Crimson); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.97); latest deal 2026-05-28.
 15. **Twenty Two Ventures**: Rank 15, score 1.45: backed 1 verified similar startup (Crimson); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.97); latest deal 2026-05-28.
 79. **Raine Group** (other backer): Rank 79, score 0.50: backed 1 verified similar startup (Definely); what-it-does overlap on 'draft', 'review', 'contract', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: UK); no verified deal in USA, so no country factor; latest deal 2025-06-09.
+17. **Neil Barsky** (individual): Rank 17, score 1.37: backed 1 verified similar startup (Covenant); what-it-does overlap on 'draft', 'review', 'law', 'firm'; 1/1 at your stage (seed/series a); 1/1 in USA; x1.5 country factor for backing a USA deal (base score 0.91); latest deal 2025-07-15.
+67. **Elad Gil** (individual): Rank 67, score 0.56: backed 1 verified similar startup (Crosby); what-it-does overlap on 'review', 'contract', 'law', 'firm'; 0/1 at your stage (seed/series a); 0/1 in USA (others: unknown); no verified deal in USA, so no country factor; latest deal 2026-04-02.
 
 ## Verified similar companies
 

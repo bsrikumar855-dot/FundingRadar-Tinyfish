@@ -73,7 +73,8 @@ python audit_precision.py demos/agritech-india/audit.csv --label "demo 1"
 
 All of these come from plain code over pages we opened. None are guessed.
 
-- **Investor type**: `fund` / `corporate` / `bank` / `foundation` / `farmer-company` / `unknown`, from name and domain keywords.
+- **Investor type**: `fund` / `corporate` / `bank` / `foundation` / `farmer-company` / `public body` / `individual` / `unknown`, from name and domain keywords. `individual` is conservative: it needs a person-shaped name **and** person evidence in the saved page text, and it is shown under "Other backers (individuals)".
+- **Audit files**: `--audit-sample N` writes `audit.csv` (`investor, company, link, sentence, page_title, auto_flag, correct y/n`) and `audit_review.md`. `auto_flag` is triage only; precision comes only from your `correct y/n` marks.
 - **Observed round sizes and stages**, labelled "round sizes of deals it joined (observed)". This is the median announced round size per currency across the investor's counted deals, with the deal links. It is the whole round, not the investor's own cheque. Mixed currencies stay in their own currency and are never converted.
 - **Sections (presentation only)**: `report.md` and `results.csv` list funds and unknown types under "Investors to approach". Banks, corporates, foundations and farmer companies go under "Other backers (not seed funds)", in the same score order with the same fields. `results.json` keeps one full ranked list with a `section` field. Scores and ranks are not changed.
 - **Lead partner**: a person named on a verified source page as partner / principal / founder / managing director **at that investor** ("said Jane Smith, Partner at Alpha Ventures"). The name, role, sentence and URL are stored; otherwise `unknown`.

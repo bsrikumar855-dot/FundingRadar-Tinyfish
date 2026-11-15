@@ -131,5 +131,83 @@ class PrefixMerge(unittest.TestCase):
         self.assertEqual(fr.merge_prefix_companies([c, d]), [])                    # 'Red' is not a whole-word prefix
 
 
+class Individuals(unittest.TestCase):
+    def test_lexical_shape(self):
+        for n in ("Sheryl Sandberg", "Priit Viru", "Dr Norman Röchert", "Elad Gil"):
+            self.assertTrue(fr.looks_individual(n), n)
+        for n in ("Partners Group", "Y Combinator", "NVentures", "North Holland", "JITO", "Catalyst Fund", "Rise PropTech",
+                  "Magrabi Agriculture", "Enterprise Estonia", "Khazanah Nasional", "Oetker Collection", "Sistafund"):
+            self.assertFalse(fr.looks_individual(n), n)
+
+    def test_type_needs_person_evidence(self):
+        angel = ["The round included angel investors such as Sheryl Sandberg and others."]
+        self.assertEqual(fr.investor_type("Sheryl Sandberg", texts=angel), "individual")
+        self.assertEqual(fr.investor_type("Sheryl Sandberg"), "unknown")                       # no evidence: unchanged
+        self.assertEqual(fr.investor_type("Priit Viru", texts=["Priit Viru, founder of Bolt Labs, also joined."]), "individual")
+        self.assertEqual(fr.investor_type("Dr Norman Röchert"), "individual")                  # personal title in the name
+        self.assertEqual(fr.investor_type("Partners Group", texts=angel), "fund")
+        self.assertEqual(fr.investor_type("Y Combinator", texts=["Y Combinator, the accelerator, backed it."]), "unknown")
+
+    def test_firm_named_after_people_not_individual(self):
+        t = ["The seed round was led by Andreessen Horowitz with angels joining.", "Jane Doe, partner at Andreessen Horowitz, said."]
+        self.assertEqual(fr.investor_type("Andreessen Horowitz", texts=t), "unknown")
+        self.assertEqual(fr.investor_type("Lerer Hippeau", texts=["Lerer Hippeau led the round."]), "unknown")
+
+    def test_known_firm_and_section(self):
+        self.assertEqual(fr.investor_type("Elad Gil", "eladgil.com", known_firm=True, texts=["angel investor Elad Gil"]), "unknown")
+        self.assertEqual(fr.section_of("individual"), "individuals")
+        rows = [{"rank": 1, "investor": "A Ventures", "investor_type": "fund"}, {"rank": 2, "investor": "Elad Gil", "investor_type": "individual"},
+                {"rank": 3, "investor": "B Bank", "investor_type": "bank"}]
+        s = dict(fr.sections(rows, 15))
+        self.assertEqual([r["rank"] for r in s["individuals"]], [2])
+        self.assertEqual([r["rank"] for r in s["main"]], [1])
+        self.assertEqual([n for n, _ in fr.sections(rows, 15, funds_only=True)], ["main"])
+
+
+class AuditAid(unittest.TestCase):
+    def test_sentence_flag_and_review(self):
+        import csv, shutil, tempfile
+        tmp = tempfile.mkdtemp()
+        try:
+            deals = [{"company": "Krishi AI", "status": "verified", "counted": True, "source_url": "https://n.example/k",
+                      "investors_verified": ["Alpha Ventures", "Beta Capital"], "page_title": "Krishi AI raises $3M",
+                      "page_excerpt": "Krishi AI has raised $3M in a seed round led by Alpha Ventures. Beta Capital is based in Pune.",
+                      "proof_snippets": {}}]
+            fr.write_audit(tmp, deals, 5)
+            with open(os.path.join(tmp, "audit.csv"), encoding="utf-8") as f:
+                rows = {r["investor"]: r for r in csv.DictReader(f)}
+            a, b = rows["Alpha Ventures"], rows["Beta Capital"]
+            self.assertIn("led by Alpha Ventures", a["sentence"])
+            self.assertEqual((a["page_title"], a["auto_flag"], a["correct y/n"]), ("Krishi AI raises $3M", "ok", ""))
+            self.assertEqual((b["sentence"], b["auto_flag"]), ("NOT FOUND", "check"))          # no sentence names both
+            rv = open(os.path.join(tmp, "audit_review.md"), encoding="utf-8").read()
+            self.assertIn("**Alpha Ventures** → **Krishi AI**", rv)
+            self.assertIn("https://n.example/k", rv)
+            import audit_precision
+            res = audit_precision.score(os.path.join(tmp, "audit.csv"))
+            self.assertEqual(res, (0, 0, 2))                                                   # auto_flag never counts
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+    def test_fetch_only_when_text_missing(self):
+        import shutil, tempfile
+        class TF:
+            def __init__(self): self.calls = []
+            def fetch(self, urls, fmt="markdown"):
+                self.calls.append(list(urls))
+                return {u: {"title": "Fetched title", "text": "Gamma Co raised a seed round led by Delta Fund."} for u in urls}
+        tmp = tempfile.mkdtemp()
+        try:
+            deals = [{"company": "Gamma Co", "status": "verified", "counted": True, "source_url": "https://n.example/g",
+                      "investors_verified": ["Delta Fund"]},
+                     {"company": "Krishi AI", "status": "verified", "counted": True, "source_url": "https://n.example/k",
+                      "investors_verified": ["Alpha Ventures"], "page_excerpt": "Krishi AI raised a round led by Alpha Ventures."}]
+            tf = TF()
+            fr.write_audit(tmp, deals, 5, tf=tf)
+            self.assertEqual(tf.calls, [["https://n.example/g"]])
+        finally:
+            shutil.rmtree(tmp, ignore_errors=True)
+
+
 if __name__ == "__main__":
     unittest.main()

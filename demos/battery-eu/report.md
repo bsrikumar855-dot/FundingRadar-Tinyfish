@@ -41,6 +41,14 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 | 59 | **Lotus Singapore Group** | corporate | 0.34 | [NEU Battery Materials](https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/) Other 2026-10-14 | USD 7.6M median of 1 / unknown | unknown | [warm intro via founder](https://technode.global/2026/10/14/neu-battery-materials-funding-singapore-plant/) (NEU Battery Materials) | unknown / unknown |
 | 62 | **Department of Energy** | public body | 0.31 | [Moment Energy](https://techcrunch.com/2026/05/05/moment-energy-raises-40m-to-meet-infinite-demand-for-power-with-ev-batteries) series b 2026-05-05 | USD 40M median of 1 / series b | unknown | [warm intro via founder](https://techcrunch.com/2026/05/05/moment-energy-raises-40m-to-meet-infinite-demand-for-power-with-ev-batteries) (Moment Energy) | unknown / unknown |
 
+## Other backers (individuals)
+
+Observed = round sizes of deals it joined (observed): median announced round size per currency across its counted deals (not its own cheque). Cheque / stage (site) come from the investor's own website via Agent.
+
+| # | Investor | Type | Score | Backed (verified link) | Observed round sizes / stages | Lead partner | Reach | Cheque / stage (site) |
+|---|---|---|---|---|---|---|---|---|
+| 42 | **Priit Viru** | individual | 0.99 | [Jälle Technologies](https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/) Pre-seed 2025-07-16 | EUR 2M median of 1 / pre-seed | unknown | [warm intro via founder](https://tech.eu/2025/07/16/jalle-technologies-raises-eur2m-to-turn-battery-waste-into-high-value-materials/) (Jälle Technologies) | unknown / unknown |
+
 ## Why each investor is ranked where it is
 
 1. **2C Ventures**: Rank 1, score 3.29: backed 3 verified similar startups (CeLLife Technologies, TheStorage, Jälle Technologies); what-it-does overlap on 'recycling', 'grid'; 2/3 at your stage (seed); 3/3 in Europe; x1.5 country factor for backing a Europe deal (base score 2.19); latest deal 2026-05-29.
@@ -63,6 +71,7 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 47. **Clean Energy Finance Corporation** (other backer): Rank 47, score 0.54: backed 1 verified similar startup (Renewable Metals); led 1 of it (+0.18 lead bonus); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Australia); no verified deal in Europe, so no country factor; latest deal 2026-04-20.
 59. **Lotus Singapore Group** (other backer): Rank 59, score 0.34: backed 1 verified similar startup (NEU Battery Materials); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 0/1 in Europe (others: Singapore); no verified deal in Europe, so no country factor; latest deal 2026-10-14.
 62. **Department of Energy** (other backer): Rank 62, score 0.31: backed 1 verified similar startup (Moment Energy); what-it-does overlap on 'grid'; 0/1 at your stage (seed); 0/1 in Europe (others: USA); no verified deal in Europe, so no country factor; latest deal 2026-05-05.
+42. **Priit Viru** (individual): Rank 42, score 0.99: backed 1 verified similar startup (Jälle Technologies); what-it-does overlap on 'recycling'; 0/1 at your stage (seed); 1/1 in Europe; x1.5 country factor for backing a Europe deal (base score 0.66); latest deal 2025-07-16.
 
 ## Verified similar companies
 

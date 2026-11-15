@@ -49,6 +49,12 @@ Observed = round sizes of deals it joined (observed): median announced round siz
 | 79 | **DRK Foundation** | foundation | 0.45 | [Farm to Feed](https://igrownews.com/farm-to-feed-latest-news/) Seed 2025-11-06 | USD 1.5M median of 1 / seed | unknown | [warm intro via founder](https://igrownews.com/farm-to-feed-latest-news/) (Farm to Feed) | unknown / unknown |
 | 87 | **Ag Startup Engine** | corporate | 0.37 | [TerraBlaster](https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed) Seed 2026-08-25 | USD 12.5M median of 1 / seed | unknown | [warm intro via founder](https://agfundernews.com/terrablaster-raises-12-5m-for-real-time-npk-soil-mapping-at-tractor-speed) (TerraBlaster) | unknown / unknown |
 
+## Other backers (individuals)
+
+Observed = round sizes of deals it joined (observed): median announced round size per currency across its counted deals (not its own cheque). Cheque / stage (site) come from the investor's own website via Agent.
+
+(none)
+
 ## Why each investor is ranked where it is
 
 1. **Unicorn India Ventures**: Rank 1, score 2.88: backed 2 verified similar startups (Verdant Impact, Cropcoin Technologies); led 2 of them (+0.64 lead bonus); what-it-does overlap on 'farmer'; 1/2 at your stage (seed); 2/2 in India; x1.5 country factor for backing a India deal (base score 1.92); latest deal 2026-03-30.

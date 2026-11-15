@@ -2,7 +2,7 @@
 
 Repo: https://github.com/bsrikumar855-dot/FundingRadar-Tinyfish
 
-> Status: all 3 demos are done. Demo 3's measured cost is pending the user's balance reading.
+> Status: all 3 demos are done; code is frozen. Demo 3's wallet reading showed no change (see Cost).
 
 ## What it does
 
@@ -99,14 +99,14 @@ All numbers are copied from each demo's `results.json`.
 | Dropped | 6 | 8 | 15 |
 | Matches removed: funding-phrase rule / self-published rule | 5 / 2 | 3 / 2 | 8 / 4 |
 | Deals counted toward scores (≥ 0.30) | 25 | 24 | 17 |
-| Investors ranked | 101 | 86 | 63 (58 main, 5 other) |
+| Investors ranked | 101 (90 main, 11 other) | 86 (83 main, 1 other, 2 individuals) | 63 (57 main, 5 other, 1 individual) |
 | Agent runs (completed) | 6 (5) | 6 (5) | 6 (6) |
 | Main-list top 10 with ≥ 1 target-country deal | 8 | 10 | 10 (target is the region Europe) |
 | Leads demoted (saved "led by" text names only some) | 11 names on 4 deals | 0 | 0 |
 | Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | 7 / 10 / 10 |
 | Main-list top 10 filled: lead partner | 1 | 6 | 2 |
 | Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | 3 / 10 |
-| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | $20.26 → not measured yet |
+| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | $20.26 → $20.26 = **$0.00 shown** (reading taken after the run; see Cost) |
 
 Demo 1 notes:
 - The original run used the earlier scoring. It was then rescored with the rules above, and its 35 verified links were re-fetched with Fetch only (no TinySet, no Agent) to apply the funding-phrase rule.
@@ -147,7 +147,7 @@ Measured as the change in the wallet balance of the account that owns the API ke
 | Demo 1 | $29.00 | $24.92 | **$4.08**. Anything that posted late from the live check would also fall inside this window |
 | Demo 1 re-fetches for rescoring and enrichment (Fetch + Search only, no TinySet, no Agent) | not measured | not measured | not measured (Fetch and Search are $0 on the current plan) |
 | Demo 2 | $24.92 | $20.26 | **$4.66** |
-| Demo 3 | $20.26 | not measured yet | not measured yet |
+| Demo 3 | $20.26 | $20.26 | **$0.00 shown**. This does not fit demos 1 and 2 ($4.08 and $4.66 at the same settings). The charges had probably not posted when the balance was read, or the rotated key bills a different wallet. Not re-measured. |
 
 ## Limits
 
@@ -178,19 +178,40 @@ Fixed:
 - Company names that are whole-word prefixes of each other on the same page ("Redwood" / "Redwood Materials").
 - Government bodies now get their own `public body` type and sit under Other backers.
 - Study-programme pages are rejected as pitch routes.
+- New type `individual`, shown under "Other backers (individuals)". It needs a person-shaped name (2–3 title-case tokens, no firm or place word, no acronym or CamelCase) **and** person evidence in the saved page text (an angel / founder / entrepreneur cue next to the name, or a Dr/Mr/Ms title), **and** no firm cue ("partner at X", "X led") and no verified own website. Result: Neil Barsky and Elad Gil (demo 2) and Priit Viru (demo 3).
 
-Effect on the committed results: demo 1 unchanged; demo 2 lost one investor outside the top 10 ("CEO Maged Helmy"); demo 3 as listed in its notes.
+Effect on the committed results:
+- Demo 1 unchanged.
+- Demo 2 lost one investor outside the top 10 ("CEO Maged Helmy"), and 2 investors moved from the main list to Individuals.
+- Demo 3 as listed in its notes, plus 1 investor moved to Individuals.
+- No main-list top 10 changed in the final rescore.
+
+Code is frozen after this change set.
 
 Remains:
-- **Individual people** without a role word ("Priit Viru", "Basant Sharma", "Dr Norman Röchert", "Sheryl Sandberg") are kept as investors. Some are genuine angels, and nothing distinguishes them from funds except the type `unknown`.
-- **Regional and public bodies without a keyword** ("NRW", "North Holland", "Enterprise Estonia", "Innosuisse", "Vinnova") stay `unknown` and appear in the main list.
-- **Spelling and short-form variants** of the same company or fund ("HTGF" vs "High-Tech Gründerfonds") are only merged when one is a whole-word prefix of the other. Acronyms are not expanded.
+- **Investor type is a keyword label, not a classification.** It reads names (and domains) only. Firms with no keyword in their name (Rainmatter, GVFL, JITO, Y Combinator) are `unknown` and stay in the main list.
+- **"individual" is a conservative detector.** It only fires with person evidence on the page, so real angels whose pages carry no cue stay `unknown` in the main list: Alok Soni, Yash Kotak, Caterina Fake, Ashish Kacholia, Basant Sharma. Firms named after people (Andreessen Horowitz, Lerer Hippeau) are correctly left alone, but only because their pages carry firm cues.
+- **Advisers read as investors.** "A Taylor Wessing team led by Dr Norman Röchert" made the lead lawyer an investor in Co-Power (demo 3, #11). The firm cue ("partner in the Berlin office") kept him out of Individuals, but "led by" in an advisory-team sentence is still taken as a funding phrase.
+- **Public bodies without a keyword** ("NRW", "North Holland", "Enterprise Estonia", "Innosuisse", "Vinnova", "Khazanah Nasional") stay `unknown` and appear in the main list.
+- **Acronym and spelling variants are not merged** ("HTGF" vs "High-Tech Gründerfonds"), unless one name is a whole-word prefix of the other on the same page.
+- **Sector overlap can let adjacent deals through.** The broad sector match (climate tech / energy) plus Europe + seed + recency lifted NOX Energy (home energy-management software) to similarity 0.79 in the battery-recycling demo. Its investors Rise PropTech and Volve Capital rank #3 and #4. Lexical overlap ("grid", "energy") can't tell adjacent energy software from battery recycling.
 - **Accelerator programmes** that take applications through a "programme" page are now rejected as pitch routes. Such investors fall back to a warm intro, even when the programme is the right way in.
 - **Topic drift in Search:** in demo 3 it brought in climate deals outside battery recycling. They are verified but stay below the similarity threshold, so they don't count.
 
 ## Hand-checked precision (audit sample, seed 42)
 
-`demos/agritech-india/audit.csv` holds 20 random investor–company matches from demo 1, each with its link and the sentence that names them. Precision is **not measured yet**: it is filled in by `audit_precision.py` once the `correct y/n` column has been checked by hand.
+Each demo has `audit.csv` (20 random investor–company matches, seed 42, drawn from the final lists) and `audit_review.md` (the same rows as a numbered list, to read in one pass).
+
+Columns:
+- `investor`, `company`, `link`
+- `sentence`: the saved sentence naming both, or `NOT FOUND`
+- `page_title`: "(not saved)" for these demos, because titles weren't stored when they ran; new runs store them
+- `auto_flag`: `ok` / `check`, triage only
+- `correct y/n`: blank
+
+Rows without a sentence: demo 1 13/20, demo 2 4/20, demo 3 17/20. The saved text is a ~1,500-character excerpt plus proof windows, and the investor and company are often named in different sentences. Those rows need the link opened.
+
+Precision is computed **only from the hand-filled `correct y/n` column** (`audit_precision.py` ignores `auto_flag`). It is **not measured yet** for any demo.
 
 <!-- audit:start -->
 <!-- audit:end -->
