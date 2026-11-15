@@ -2,7 +2,7 @@
 
 Repo: https://github.com/bsrikumar855-dot/FundingRadar-Tinyfish
 
-> Status: all 3 demos are done; code is frozen. Demo 3's wallet reading showed no change (see Cost).
+> Status: all 3 demos are done. **Code frozen** after the final improvement round. Demo 3's cost was not measured (see Cost).
 
 ## What it does
 
@@ -41,6 +41,8 @@ Output goes to `results.json` (full ranked list plus every candidate deal with v
 | Lead partner | A person named on a verified source page as partner / principal / founder / managing director **at that investor**, with role, sentence and URL. If the source pages name nobody, a search pass runs `"<company> <investor> partner"` for the top 15 main-list investors (≤15 queries per run), fetches the top 3 results and keeps only pages naming both | 1 (Unicorn India Ventures → Anil Joshi, managing partner, via the search pass). 14 search-pass queries found nobody else |
 | Reach route | Ladder, each step with its source URL: (a) pitch form / apply page, (b) intake email, (c) "no unsolicited pitches", all on the investor's own domain; else (d) warm intro via the founder of its most similar backed company. The domain is accepted only if a page on it names the investor **and** one of its verified portfolio companies | 10. Only 2 from the investor's own site (Unicorn India Ventures and Catalyst Fund application forms); 8 are warm intros. The ladder also reads `/portfolio`, `/companies`, `/investments`, `/contact` on accepted domains |
 | Cheque size / stage focus (site) | Agent on the investor's own site (demo 1's original run only), entity-checked | Unicorn India Ventures only |
+| Team members (new) | On the verified own domain: `/team`, `/about`, `/people` and the homepage's team/people/about links. Lists people with a role (partner, principal, managing director, general partner). Labelled **"team member listed (not confirmed as deal lead)"** and never shown as the deal lead | demo 1: 1, demo 2: 2, demo 3: 2 (was 0 in all three) |
+| Cheque size stated on investor site (new) | Regex on the same pages for cheque / check size / ticket size / "invest between" / "invests from", taking the amount (or range) nearest the cue, with URL and sentence. Labelled **"stated on investor site"**. Observed round sizes stay a separate, labelled fallback | demo 1: 1, demo 2: 2, demo 3: 2 (was 0 in all three) |
 
 The entity check matters in practice. For example, Search returned `exim.com.my` (Malaysia's Exim Bank) for India's Exim Bank, and `pinc.co.in` for PINC. Both were rejected because no page on them named a backed company.
 
@@ -106,7 +108,7 @@ All numbers are copied from each demo's `results.json`.
 | Main-list top 10 filled: type / observed size / observed stages | 6 / 9 / 9 | 9 / 9 / 10 | 7 / 10 / 10 |
 | Main-list top 10 filled: lead partner | 1 | 6 | 2 |
 | Main-list top 10 filled: reach from own site / any route incl. warm intro | 2 / 10 | 1 / 10 | 3 / 10 |
-| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | $20.26 → $20.26 = **$0.00 shown** (reading taken after the run; see Cost) |
+| **Measured cost (wallet before → after)** | **$29.00 → $24.92 = $4.08** | **$24.92 → $20.26 = $4.66** | not measured; the post-run balance reading did not change, which does not fit demos 1 and 2 ($4.08 and $4.66 at the same settings), so charges had probably not posted. Expected: about the same. |
 
 Demo 1 notes:
 - The original run used the earlier scoring. It was then rescored with the rules above, and its 35 verified links were re-fetched with Fetch only (no TinySet, no Agent) to apply the funding-phrase rule.
@@ -147,7 +149,7 @@ Measured as the change in the wallet balance of the account that owns the API ke
 | Demo 1 | $29.00 | $24.92 | **$4.08**. Anything that posted late from the live check would also fall inside this window |
 | Demo 1 re-fetches for rescoring and enrichment (Fetch + Search only, no TinySet, no Agent) | not measured | not measured | not measured (Fetch and Search are $0 on the current plan) |
 | Demo 2 | $24.92 | $20.26 | **$4.66** |
-| Demo 3 | $20.26 | $20.26 | **$0.00 shown**. This does not fit demos 1 and 2 ($4.08 and $4.66 at the same settings). The charges had probably not posted when the balance was read, or the rotated key bills a different wallet. Not re-measured. |
+| Demo 3 | $20.26 | $20.26 (unchanged) | not measured; the post-run balance reading did not change, which does not fit demos 1 and 2 ($4.08 and $4.66 at the same settings), so charges had probably not posted. Expected: about the same. |
 
 ## Limits
 
@@ -191,12 +193,37 @@ Code is frozen after this change set.
 Remains:
 - **Investor type is a keyword label, not a classification.** It reads names (and domains) only. Firms with no keyword in their name (Rainmatter, GVFL, JITO, Y Combinator) are `unknown` and stay in the main list.
 - **"individual" is a conservative detector.** It only fires with person evidence on the page, so real angels whose pages carry no cue stay `unknown` in the main list: Alok Soni, Yash Kotak, Caterina Fake, Ashish Kacholia, Basant Sharma. Firms named after people (Andreessen Horowitz, Lerer Hippeau) are correctly left alone, but only because their pages carry firm cues.
-- **Advisers read as investors.** "A Taylor Wessing team led by Dr Norman Röchert" made the lead lawyer an investor in Co-Power (demo 3, #11). The firm cue ("partner in the Berlin office") kept him out of Individuals, but "led by" in an advisory-team sentence is still taken as a funding phrase.
+- **Advisers read as investors.** "A Taylor Wessing team led by Dr Norman Röchert" made the lead lawyer an investor in Co-Power (demo 3, #11). The firm cue ("partner in the Berlin office") kept him out of Individuals, but he is still ranked. An advisory-cue filter was built and **reverted**: in demo 2 it also removed Flybridge Capital Partners on Covenant, Entrée Capital on Chamelio, and Index Ventures and Elad Gil on Crosby. That changed the demo 2 top-10 ordering.
 - **Public bodies without a keyword** ("NRW", "North Holland", "Enterprise Estonia", "Innosuisse", "Vinnova", "Khazanah Nasional") stay `unknown` and appear in the main list.
 - **Acronym and spelling variants are not merged** ("HTGF" vs "High-Tech Gründerfonds"), unless one name is a whole-word prefix of the other on the same page.
 - **Sector overlap can let adjacent deals through.** The broad sector match (climate tech / energy) plus Europe + seed + recency lifted NOX Energy (home energy-management software) to similarity 0.79 in the battery-recycling demo. Its investors Rise PropTech and Volve Capital rank #3 and #4. Lexical overlap ("grid", "energy") can't tell adjacent energy software from battery recycling.
 - **Accelerator programmes** that take applications through a "programme" page are now rejected as pitch routes. Such investors fall back to a warm intro, even when the programme is the right way in.
 - **Topic drift in Search:** in demo 3 it brought in climate deals outside battery recycling. They are verified but stay below the similarity threshold, so they don't count.
+
+### Final improvement round (Fetch + Search only; kept only if it improved a fill count in at least 2 of 3 demos without changing any top-10 ordering)
+
+Measured on the main-list top 10 of each demo, before → after:
+
+| Change | Demo 1 | Demo 2 | Demo 3 | Result |
+|---|---|---|---|---|
+| Advisory-cue filter (law firm / counsel / LLP / "team led by") | no effect | removed 4 real-looking investor matches; top-10 order changed | removed Röchert | **reverted** |
+| Lead-partner search, 2 queries per investor (top 2 deals) | 1 → 2 | 6 → 6 | 2 → 2 | **reverted** (1 query per investor kept) |
+| Team members from `/team`, `/about`, `/people` | 0 → 1 | 0 → 2 | 0 → 2 | **kept** |
+| Following pitch / apply / contact links for the reach route | 2 → 2 | 1 → 2 | 3 → 3 | **reverted** |
+| Cheque size stated on investor site | 0 → 1 | 0 → 2 | 0 → 2 | **kept** |
+
+Top-10 ordering: identical to the committed results in all three demos after the reverts.
+
+The final pass used **Fetch only** (20 + 24 + 36 URLs, no Search, no TinySet, no Agent). Two cheque bugs were fixed before the final pass, and stored values now match their sentences:
+- The amount *after* the cue was taken: Flybridge's "Up to $250K Check Size … $1M" was reported as $1M.
+- Shorthand ranges were missed: Volve's "€200 – 500K" was reported as the €1M follow-on cap.
+
+Kept results:
+- **Eximius Ventures:** USD 500K (eximiusvc.com); team Preeti Nellore Sampat.
+- **Flex Capital:** USD 500K–2M; 4 general partners.
+- **Flybridge Capital Partners:** USD 250K pre-seed, 1M–3M seed, 10M+ post-Series A; 5 partners.
+- **Volve Capital:** EUR 200K–500K initial ticket; 4 partners.
+- **Cherry Ventures:** EUR 2M–10M; 8 partners/principals.
 
 ## Hand-checked precision (audit sample, seed 42)
 

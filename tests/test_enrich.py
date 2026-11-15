@@ -230,8 +230,12 @@ class PartnerPass(unittest.TestCase):
     def test_nothing_found_is_unknown_and_cap(self):
         tf = self.FakeTF({}, {})
         rs = [self.inv(f"Fund {i}", f"Co{i}") for i in range(20)]
+        for r in rs:
+            r["backed"].append({"name": r["backed"][0]["name"] + "b"})          # second deal is not queried (1 per investor)
         n = fr.partner_pass(tf, rs, top=20)
         self.assertEqual(n, fr.PARTNER_PASS_MAX)
+        self.assertEqual(len(tf.queries), 15)
+        self.assertEqual(tf.queries[:2], ["Co0 Fund 0 partner", "Co1 Fund 1 partner"])
         self.assertTrue(all(r["lead_partner"] == "unknown" for r in rs))
 
     def test_skips_investors_with_partner(self):

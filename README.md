@@ -86,6 +86,9 @@ All of these come from plain code over pages we opened. None are guessed.
   - Otherwise (d): a warm intro via the founder of its most similar backed company, linking that verified deal.
   - Sites with almost no fetchable text are flagged `js_only_site`, as Agent fallback candidates. The Agent is not run for this without a cost confirmation.
 - **Cheque size / stage focus (site)**: from the Agent run on the investor's own site, when one was made.
+- **Team members** (`team_members`): people listed with a role (partner, principal, managing director, general partner) on the investor's verified domain (`/team`, `/about`, `/people`, homepage team links). Labelled "team member listed (not confirmed as deal lead)" and never shown as the deal lead.
+- **Cheque size stated on investor site** (`cheque_stated`): sentences on the verified domain with cheque / check size / ticket size / "invest between" / "invests from" and an amount or range, with URL. Labelled "stated on investor site". Observed round sizes remain the separate fallback.
+- `--rescore PATH --site-pass` re-runs only the own-site pass (Fetch), without re-fetching deal pages, so scores don't move.
 
 Re-running the same description reuses the saved TinySet rows in `state/<slug>/tinyset.json`, so you never pay for them twice.
 

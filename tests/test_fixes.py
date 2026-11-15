@@ -209,5 +209,62 @@ class AuditAid(unittest.TestCase):
             shutil.rmtree(tmp, ignore_errors=True)
 
 
+class TeamAndCheque(unittest.TestCase):
+    def test_team_lines(self):
+        html = ("<div><h3>Anna Berg</h3><p>Managing Partner</p></div><div><h3>Ola Nordmann</h3><p>Principal</p></div>"
+                "<div><h3>Kari Lie</h3><p>Office Manager</p></div><p>Per Hansen, General Partner</p>"
+                "<div><h3>Download Headshot</h3><p>Partner</p></div><div><h3>Technical Advisor</h3><p>Operating Partner</p></div>")
+        got = fr.team_members(html, "Nord Ventures", "https://nord.example/team")
+        self.assertEqual([(x["name"], x["role"]) for x in got],
+                         [("Anna Berg", "managing partner"), ("Ola Nordmann", "principal"), ("Per Hansen", "general partner")])
+        self.assertTrue(all(x["label"] == "team member listed (not confirmed as deal lead)" for x in got))
+
+    def test_stated_cheque(self):
+        t = "We invest between €250k and €1M in pre-seed and seed. Our office is in Oslo. Typical ticket size: $500K."
+        got = fr.stated_cheque(t, "https://nord.example/faq")
+        self.assertEqual([x["amount"] for x in got], ["EUR 250K–1M", "USD 500K"])
+        self.assertTrue(all(x["label"] == "stated on investor site" and x["url"] == "https://nord.example/faq" for x in got))
+        self.assertEqual(fr.stated_cheque("We back founders early. Check out our portfolio.", "u"), [])
+        fb = fr.stated_cheque("Up to $250K Check Size Seed Led by our GPs and investment team members, we lead rounds. $1M", "u")
+        self.assertEqual(fb[0]["amount"], "USD 250K")                                  # nearest to the cue, not the later $1M
+        self.assertEqual(fr.stated_cheque("Flex writes first checks of $500K to $2M.", "u")[0]["amount"], "USD 500K–2M")
+        self.assertEqual(fr.stated_cheque("Typically, we invest between €2 million and €10 million.", "u")[0]["amount"], "EUR 2M–10M")
+        fly = fr.stated_cheque("Seed $1M to $3M Check Size Led by our GPs, we lead or co-lead rounds.", "u")
+        self.assertEqual(fly[0]["amount"], "USD 1M–3M")                                 # range before the cue
+        volve = fr.stated_cheque("Ticket Size Initial ticket size €200 – 500K Follow-on investments possible up to €1M Involvement", "u")
+        self.assertEqual(volve[0]["amount"], "EUR 200K–500K")                           # shorthand lower bound, not the follow-on cap
+
+    def test_site_pass(self):
+        pages = {
+            "https://nord.example/": {"html": "<a href='/founders'>For founders</a><a href='/team'>Team</a><a href='https://other.example/apply'>x</a>",
+                                      "final_url": "https://nord.example/"},
+            "https://nord.example/founders": {"html": "<h1>Pitch us</h1><p>Founders: send your deck to deals@nord.example</p>",
+                                              "final_url": "https://nord.example/founders"},
+            "https://nord.example/team": {"html": "<h3>Anna Berg</h3><p>Partner</p>", "final_url": "https://nord.example/team"},
+            "https://nord.example/about": {"html": "<p>We invest between €250k and €1M.</p>", "final_url": "https://nord.example/about"},
+        }
+        class TF:
+            def __init__(self): self.fetched = []
+            def fetch(self, urls, fmt="markdown"):
+                self.fetched += list(urls)
+                return {u: pages.get(u, {"error": "page_not_found"}) for u in urls}
+        tf = TF()
+        r = {"investor": "Nord Ventures", "own_domain": "nord.example", "backed": [{"name": "X", "link": "https://n.example/x"}],
+             "reach": {"route": "warm intro via founder", "url": "https://n.example/x"}}
+        fr.site_pass(tf, r)
+        self.assertNotIn("https://other.example/apply", tf.fetched)                 # other domains are never followed
+        self.assertNotIn("https://nord.example/founders", tf.fetched)            # link-following for reach was reverted
+        self.assertEqual(r["reach"]["route"], "warm intro via founder")            # reach route untouched by the site pass
+        self.assertEqual([x["name"] for x in r["team_members"]], ["Anna Berg"])
+        self.assertEqual(r["cheque_stated"][0]["amount"], "EUR 250K–1M")
+
+    def test_site_pass_needs_verified_domain(self):
+        class TF:
+            def fetch(self, urls, fmt="markdown"):
+                raise AssertionError("must not fetch without a verified domain")
+        r = {"investor": "X", "own_domain": "", "backed": []}
+        self.assertIs(fr.site_pass(TF(), r), r)
+
+
 if __name__ == "__main__":
     unittest.main()

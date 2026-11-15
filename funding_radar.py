@@ -1884,7 +1884,8 @@ def section_of(investor_type_):
     return "main" if investor_type_ in MAIN_TYPES else "other"
 
 
-PARTNER_PASS_MAX = 15
+PARTNER_PASS_MAX = 15          # per run
+PARTNER_PASS_PER_INVESTOR = 1  # its most similar deal (2 was tried and reverted: improved only 1 of 3 demos)
 
 
 def partner_pass(tf, ranked, top=15, max_queries=PARTNER_PASS_MAX):
@@ -1897,26 +1898,176 @@ def partner_pass(tf, ranked, top=15, max_queries=PARTNER_PASS_MAX):
             break
         if isinstance(r.get("lead_partner"), list) or not r["backed"]:
             continue
-        company = r["backed"][0]["name"]
-        q += 1
-        res = tf.search(f"{company} {r['investor']} partner", exclude_domains=EXCLUDE)
-        urls = [x["url"] for x in res[:3] if x.get("url")]
-        found = []
-        for u, pr in tf.fetch(urls, "markdown").items():
-            if "error" in pr:
-                continue
-            t = page_text(pr)
-            pt = plain(t)
-            if not (name_on_page(company, pt) and name_on_page(r["investor"], pt)):
-                continue
-            for pm in partner_mentions(t, [r["investor"]], pr.get("final_url") or u, company):
-                found.append({**pm, "company": company, "via": "search pass"})
+        found, queries, pages = [], [], []
+        for x in r["backed"][:PARTNER_PASS_PER_INVESTOR]:
+            if q >= max_queries or found:
+                break
+            company = x["name"]
+            q += 1
+            query = f"{company} {r['investor']} partner"
+            queries.append(query)
+            res = tf.search(query, exclude_domains=EXCLUDE)
+            urls = [y["url"] for y in res[:3] if y.get("url")]
+            pages += urls
+            for u, pr in tf.fetch(urls, "markdown").items():
+                if "error" in pr:
+                    continue
+                t = page_text(pr)
+                pt = plain(t)
+                if not (name_on_page(company, pt) and name_on_page(r["investor"], pt)):
+                    continue
+                for pm in partner_mentions(t, [r["investor"]], pr.get("final_url") or u, company):
+                    found.append({**pm, "company": company, "via": "search pass", "label": "named on deal page"})
         uniq = {}
         for x in found:
             uniq.setdefault(x["name"], x)
         r["lead_partner"] = list(uniq.values()) or "unknown"
-        r["partner_pass"] = {"query": f"{company} {r['investor']} partner", "pages": urls, "found": len(uniq)}
+        r["partner_pass"] = {"queries": queries, "pages": pages, "found": len(uniq)}
     return q
+
+
+A_RE = re.compile(r"<a\b[^>]*?href=[\"']([^\"'#][^\"']*)[\"'][^>]*>(.*?)</a>", re.I | re.S)
+TEAM_LINK_RE = re.compile(r"\b(?:team|people|about)\b|/(?:team|people|about)", re.I)
+TEAM_PATHS = ("/team", "/about", "/people")
+TEAM_ROLE = re.compile(r"^(?i:(?:managing|general|founding|senior|venture|operating)\s+partner|partner|principal|managing\s+director)"
+                       r"(?:\s*(?:&|and|,)\s*[\w\- ]{2,30})?$")
+CHEQUE_RE = re.compile(r"(?:cheque|check)\s*sizes?|first\s+(?:cheque|check)s?|tickets?\s*sizes?|invest(?:s|ing)?\s+between|invests?\s+from|"
+                       r"initial\s+investments?\s+(?:of|between|from|up to)|we\s+invest\s+(?:up\s+to|between|from)|(?:cheques?|checks?|tickets?)\s+(?:of|from|between|up\s+to)", re.I)
+
+
+def anchors(html, base):
+    out = []
+    for m in A_RE.finditer(html or ""):
+        href = m.group(1).strip()
+        if href.startswith(("mailto:", "tel:", "javascript:")):
+            continue
+        out.append((urllib.parse.urljoin(base, unescape(href)), re.sub(r"\s+", " ", flat(m.group(2)))[:80]))
+    return out
+
+
+def html_lines(html):
+    t = re.sub(r"(?is)<(script|style|noscript|svg)[^>]*>.*?</\1>", " ", html or "")
+    t = re.sub(r"(?i)<(?:br|/p|/div|/h\d|/li|/span|/a|/td|/figcaption|p|div|h\d|li)\b[^>]*>", "\n", t)
+    t = unescape(re.sub(r"(?s)<[^>]+>", " ", t))
+    return [re.sub(r"\s+", " ", l).strip() for l in t.split("\n") if l.strip()]
+
+
+TEAM_JUNK = set("""download headshot headshots photo image read more view profile bio linkedin twitter email contact team
+technical advisor advisors advisory board member members investment investments portfolio partner partners principal
+director managing general venture operating office manager head associate analyst""".split())
+
+
+def team_members(html, investor, url):
+    """People listed with a role (partner / principal / managing director) on the investor's team or about page.
+    'Name' then 'Role' on the next line(s), or 'Name, Role' / 'Name - Role' on one line. Label says it is a team
+    listing, never a confirmed deal lead."""
+    lines = html_lines(html) if "<" in (html or "") else [l.strip() for l in (html or "").split("\n") if l.strip()]
+    out, seen = [], set()
+    for i, ln in enumerate(lines):
+        pair = None
+        m = re.match(r"^(" + PERSON + r")\s*(?:,|-|–|—|\|)\s*(.+)$", ln)
+        if m and TEAM_ROLE.match(m.group(2).strip()):
+            pair = (m.group(1), m.group(2).strip(), ln)
+        elif re.fullmatch(PERSON, ln) and not TEAM_ROLE.match(ln) and not re.search(ROLE, ln):
+            for nxt in lines[i + 1:i + 3]:
+                if TEAM_ROLE.match(nxt):
+                    pair = (ln, nxt, f"{ln} — {nxt}")
+                    break
+        if pair and plausible_person(pair[0], investor) and pair[0] not in seen and not (
+                set(norm_name(pair[0]).split()) & TEAM_JUNK):
+            seen.add(pair[0])
+            out.append({"investor": investor, "name": pair[0], "role": pair[1].lower(), "sentence": pair[2][:200], "url": url,
+                        "label": "team member listed (not confirmed as deal lead)"})
+    return out[:12]
+
+
+CHEQUE_RANGE = re.compile(r"(?P<cur>A\$|R\$|C\$|S\$|US\$|\$|€|£|₹)\s?(?P<a>\d[\d,]*(?:\.\d+)?)\s?(?P<am>k|m|mn|million|bn|b)?\s*"
+                          r"(?:to|-|–|—|and)\s*(?:A\$|R\$|C\$|S\$|US\$|\$|€|£|₹)?\s?(?P<b>\d[\d,]*(?:\.\d+)?)\s?(?P<bm>k|m|mn|million|bn|b)\b",
+                          re.I)
+
+
+def stated_cheque(text, url):
+    """Sentences on the investor's own site that state a cheque / ticket size with an amount and currency."""
+    out = []
+    for sent in SENT_SPLIT.split(flat(text or "")):
+        if len(sent) > 400:
+            sent = sent[:400]
+        m = CHEQUE_RE.search(sent)
+        if not m:
+            continue
+        # candidates: ranges ('€200 – 500K', '$1M to $3M') and single amounts; the one nearest the cue wins, on either side
+        cands = []
+        for rm in CHEQUE_RANGE.finditer(sent):
+            cur = CUR_MAP.get(rm.group("cur").lower())
+            mul_b = MUL_MAP.get((rm.group("bm") or "").lower(), 1.0)
+            mul_a = MUL_MAP.get((rm.group("am") or "").lower(), mul_b)       # '€200 – 500K': the lower bound borrows K
+            try:
+                lo = float(rm.group("a").replace(",", "")) * mul_a
+                hi = float(rm.group("b").replace(",", "")) * mul_b
+            except ValueError:
+                continue
+            if cur and lo >= 1000 and hi > lo:
+                cands.append((rm.start(), rm.end(), f"{fmt_money(cur, lo)}–{fmt_money(cur, hi).split(' ', 1)[1]}"))
+        for am in AMT_RE.finditer(sent):
+            a = parse_amount(am.group(0))
+            if a and not any(s_ <= am.start() < e_ for s_, e_, _ in cands):
+                cands.append((am.start(), am.end(), fmt_money(*a)))
+        best = None
+        for s_, e_, txt in cands:
+            dist = m.start() - e_ if e_ <= m.start() else max(0, s_ - m.end())
+            if dist <= 80 and (best is None or dist < best[0]):
+                best = (dist, txt)
+        if best:
+            out.append({"amount": best[1], "sentence": sent.strip(), "url": url, "label": "stated on investor site"})
+    return out[:3]
+
+
+def site_pass(tf, r, max_links=6):
+    """On an already entity-checked own domain: fetch the homepage, its team / people / about links and /team, /about,
+    /people, then (a) list team members with a role, (b) look for a stated cheque size. Nothing is guessed.
+    (Following pitch / apply / contact links for the reach route was tried and reverted: it improved only 1 of 3 demos.)"""
+    dom = r.get("own_domain")
+    if not dom:
+        return r
+    home_url = f"https://{dom}/"
+    home = tf.fetch([home_url], "html").get(home_url) or {}
+    pages = {home_url: home} if "error" not in home and home else {}
+    html = (home.get("html") or page_text(home)) if pages else ""
+    base = home.get("final_url") or home_url
+    links = anchors(html, base)
+    same = lambda u: host_of(u) == dom
+    team_l = [u for u, t in links if same(u) and (TEAM_LINK_RE.search(t) or TEAM_LINK_RE.search(urllib.parse.urlparse(u).path))]
+    urls = list(dict.fromkeys([f"https://{dom}{p_}" for p_ in TEAM_PATHS] + team_l[:3]))
+    urls = [u for u in urls if u not in pages]
+    pages.update({u: pr for u, pr in tf.fetch(urls, "html").items() if "error" not in pr})
+    r["site_pages"] = list(pages)
+    team, cheques = [], []
+    for u, pr in pages.items():
+        h = pr.get("html") or page_text(pr)
+        src = pr.get("final_url") or u
+        if TEAM_LINK_RE.search(urllib.parse.urlparse(src).path) or u in team_l:
+            team += team_members(h, r["investor"], src)
+        cheques += stated_cheque(h, src)
+    uniq = {}
+    for x in team:
+        uniq.setdefault(x["name"], x)
+    r["team_members"] = list(uniq.values())
+    r["cheque_stated"] = cheques[:3] or "unknown"
+    return r
+
+
+def online_pass(tf, ranked, top=15):
+    """Fetch only: the own-site pass (team members, stated cheque) for the top main-list investors."""
+    main_ = [r for r in ranked if r.get("section", "main") == "main"][:top]
+    n = 0
+    for r in main_:
+        try:
+            site_pass(tf, r)
+        except Fatal:
+            raise
+        except Exception as e:  # noqa
+            r["site_pass_error"] = f"{type(e).__name__}"
+    return n
 
 
 def enrich_free(tf, ranked, deals, reach_top=15):
@@ -1957,8 +2108,10 @@ def enrich_free(tf, ranked, deals, reach_top=15):
         r["investor_type"] = investor_type(r["investor"], r.get("own_domain", ""), known_firm=bool(r.get("own_domain")), texts=texts)
         r["section"] = section_of(r["investor_type"])
     if tf and reach_top:
-        n = partner_pass(tf, [r for r in ranked if r["section"] == "main"], min(reach_top, 15))
-        say(f"lead-partner search pass: {n} queries")
+        main_ = [r for r in ranked if r["section"] == "main"]
+        n = partner_pass(tf, main_, min(reach_top, 15))
+        online_pass(tf, main_, min(reach_top, 15))
+        say(f"lead-partner search pass: {n} queries; own-site pass (team, stated cheque) on verified domains")
     return ranked
 
 
@@ -2015,7 +2168,8 @@ def write_audit(out_dir, deals, n=20, seed=42, tf=None):
 
 # ----------------------------------------------------------------------------- 7. output
 CSV_COLS = ["section", "rank", "investor", "investor_type", "score", "why", "backed_companies", "observed_round_sizes", "observed_stages",
-            "lead_partner", "reach_route", "reach_url", "reach_source", "cheque_size_agent", "stage_focus_agent", "sources"]
+            "lead_partner", "team_members_not_deal_lead", "reach_route", "reach_url", "reach_source", "cheque_stated_on_site",
+            "cheque_size_agent", "stage_focus_agent", "sources"]
 
 
 def investor_row(r):
@@ -2040,6 +2194,7 @@ def investor_row(r):
             "reach": r.get("reach") or {}, "warm_intro": r.get("warm_intro"), "own_domain": r.get("own_domain", ""),
             "own_domain_evidence": r.get("own_domain_evidence", {}), "js_only_site": r.get("js_only_site", False),
             "reach_route_agent": r.get("reach_route", "unknown"), "reach_url_agent": r.get("reach_url", ""),
+            "team_members": r.get("team_members", []), "cheque_stated": r.get("cheque_stated", "unknown"),
             "investor_site": r.get("site", ""), "agent_note": r.get("agent_note", ""), "agent_partners": r.get("agent_partners", []),
             "score_parts": r["parts"], "base_score": r.get("base_score", r["score"]), "country_factor": r.get("country_factor", 1.0),
             "has_target_country_deal": r.get("has_target_country_deal", False), "sources": list(dict.fromkeys(src))}
@@ -2071,7 +2226,9 @@ def write_outputs(out_dir, p, deals, ranked, meta, top=15, funds_only=False, all
             w.writerow([sec, r["rank"], r["investor"], r["investor_type"], r["score"], r["why"],
                         " | ".join(f"{x['name']} ({x['round'] or '?'}, {x['date']}, {x['amount'] or 'undisclosed'}) {x['link']}" for x in r["backed_companies"]),
                         (r["observed"] or {}).get("text", ""), (r["observed"] or {}).get("stages_text", ""), lp_text(r["lead_partner"]),
+                        "; ".join(f"{x['name']} ({x['role']})" for x in r.get("team_members") or []),
                         r["reach_route"], r["reach_url"], (r["reach"] or {}).get("source_url", ""),
+                        "; ".join(f"{x['amount']} ({x['url']})" for x in r["cheque_stated"]) if isinstance(r.get("cheque_stated"), list) else "unknown",
                         r["cheque_size"], r["stage_focus"], " ".join(r["sources"])])
     with open(os.path.join(out_dir, "report.md"), "w", encoding="utf-8") as f:
         f.write(report_md(p, deals, rows, meta, top, funds_only, all_in_one))
@@ -2136,10 +2293,14 @@ def investor_table(L, part):
         obs = md(ob.get("text", "")) + " / " + md(ob.get("stages_text", ""))
         lp = r["lead_partner"]
         lpt = "<br>".join(f"[{md(x['name'])}]({x['url']}) ({md(x['role'])}, {md(x['company'])})" for x in lp) if isinstance(lp, list) else "unknown"
+        if r.get("team_members"):
+            lpt += "<br>team (not confirmed as deal lead): " + ", ".join(f"[{md(x['name'])}]({x['url']}) ({md(x['role'])})" for x in r["team_members"][:4])
         rc = r["reach"] or {}
         reach = f"[{md(rc.get('route'))}]({rc['url']})" if rc.get("url") else md(rc.get("route", "unknown"))
         if rc.get("company"):
             reach += f" ({md(rc['company'])})"
+        if isinstance(r.get("cheque_stated"), list) and r["cheque_stated"]:
+            cs = f"stated on investor site: [{md(r['cheque_stated'][0]['amount'])}]({r['cheque_stated'][0]['url']}); agent: {cs}"
         L.append(f"| {r['rank']} | **{md(r['investor'])}** | {r['investor_type']} | {r['score']:.2f} | {backed} | {obs} | {lpt} | {reach} | {cs} / {sf} |")
 
 
@@ -2244,7 +2405,7 @@ def refetch_proximity(tf, deals):
     return stats
 
 
-def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_in_one=False):
+def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_in_one=False, site_tf=None):
     """Reload a results.json, re-apply rule 1 (self-published proof), the current similarity / threshold / country factor,
     and rule 3 (agent facts tied to the investor), then rewrite results.json / .csv / report.md in place.
     With tf (--refetch), first re-fetch the verified links and apply the funding-phrase rule to the live pages.
@@ -2334,7 +2495,8 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
                 meta.setdefault("fixes_applied", {}).setdefault("reach_rejected_programme_page", []).append(f"{r['investor']}: {rc.get('url')}")
                 o = {k: v for k, v in o.items() if k not in ("reach", "warm_intro")}
             if o.get("reach"):
-                for k in ("reach", "warm_intro", "own_domain", "own_domain_evidence", "js_only_site", "partner_pass"):
+                for k in ("reach", "warm_intro", "own_domain", "own_domain_evidence", "js_only_site", "partner_pass",
+                          "team_members", "cheque_stated", "site_pages"):
                     if k in o:
                         r[k] = o[k]
             lp = o.get("lead_partner")
@@ -2345,6 +2507,9 @@ def rescore(path, top=15, tf=None, reach_top=15, funds_only=False, audit=0, all_
     for r in ranked:
         if saved_pp.get(r["key"]) and not isinstance(r.get("lead_partner"), list):
             r["lead_partner"] = saved_pp[r["key"]]
+    if site_tf and not tf:
+        nq = online_pass(site_tf, ranked, 15)
+        meta["site_pass"] = {"partner_queries": nq, "stats": dict(site_tf.stats)}
     meta["stats_rescore"] = dict(tf.stats) if tf else {}
     out_dir = os.path.dirname(path) or "."
     write_outputs(out_dir, p, deals, ranked, meta, top, funds_only, all_in_one)
@@ -2490,6 +2655,7 @@ def main(argv=None):
     ap.add_argument("--print-spec", action="store_true", help="print parse + TinySet spec and exit (no API calls)")
     ap.add_argument("--rescore", metavar="RESULTS_JSON", help="re-apply the current proof and ranking rules to a saved results.json (no API calls)")
     ap.add_argument("--refetch", action="store_true", help="with --rescore: re-fetch the verified links (Fetch only) and apply the funding-phrase rule")
+    ap.add_argument("--site-pass", action="store_true", help="with --rescore: Search + Fetch partner pass and own-site pass (team, reach links, stated cheque) without re-fetching deal pages")
     ap.add_argument("--today", help=argparse.SUPPRESS)
     a = ap.parse_args(argv)
 
@@ -2500,7 +2666,13 @@ def main(argv=None):
             if not key:
                 sys.exit("--refetch needs TINYFISH_API_KEY")
             tf = TF(key)
-        return rescore(a.rescore, a.report_top, tf, a.reach_top, a.funds_only, a.audit_sample, a.all_in_one)
+        stf = None
+        if a.site_pass and not tf:
+            key = os.environ.get("TINYFISH_API_KEY", "")
+            if not key:
+                sys.exit("--site-pass needs TINYFISH_API_KEY")
+            stf = TF(key)
+        return rescore(a.rescore, a.report_top, tf, a.reach_top, a.funds_only, a.audit_sample, a.all_in_one, stf)
     if not a.description.strip():
         ap.error("a startup description is required")
     today = date.fromisoformat(a.today) if a.today else date.today()
